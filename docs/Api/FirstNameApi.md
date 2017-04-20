@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **getFirstNames**
-> \\FirstNameGetResponse getFirstNames($license, $guid, $name)
+> \DataMill\FirstNameGetResponse getFirstNames($license, $guid, $name)
 
 Recognize and extract first names
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\FirstNameGetResponse**](../Model/FirstNameGetResponse.md)
+[**\DataMill\FirstNameGetResponse**](../Model/FirstNameGetResponse.md)
 
 ### Authorization
 

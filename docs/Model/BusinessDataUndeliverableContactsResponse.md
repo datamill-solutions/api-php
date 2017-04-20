@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **deceased** | **string** |  | 
 **moved** | **string** |  | 
 **newAddressAvailable** | **string** |  | 
-**contact** | [**\\BusinessDataUndeliverableContactsSearchContact**](BusinessDataUndeliverableContactsSearchContact.md) |  | 
+**contact** | [**\DataMill\BusinessDataUndeliverableContactsSearchContact**](BusinessDataUndeliverableContactsSearchContact.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

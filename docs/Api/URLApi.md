@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **checkUrl**
-> \\UrlCheckResponse checkUrl($license, $guid, $url, $maxRedirects)
+> \DataMill\UrlCheckResponse checkUrl($license, $guid, $url, $maxRedirects)
 
 Information about web resources
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\UrlCheckResponse**](../Model/UrlCheckResponse.md)
+[**\DataMill\UrlCheckResponse**](../Model/UrlCheckResponse.md)
 
 ### Authorization
 

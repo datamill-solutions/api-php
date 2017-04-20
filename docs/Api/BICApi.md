@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **checkBIC**
-> \\BicCheckResponse checkBIC($license, $guid, $bic)
+> \DataMill\BicCheckResponse checkBIC($license, $guid, $bic)
 
 Check BIC for spelling
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\BicCheckResponse**](../Model/BicCheckResponse.md)
+[**\DataMill\BicCheckResponse**](../Model/BicCheckResponse.md)
 
 ### Authorization
 

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **convertCapitalFirst**
-> \\ConvertCapitalFirstResponse convertCapitalFirst($license, $guid, $text)
+> \DataMill\ConvertCapitalFirstResponse convertCapitalFirst($license, $guid, $text)
 
 Convert any string to capitalize words
 
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\ConvertCapitalFirstResponse**](../Model/ConvertCapitalFirstResponse.md)
+[**\DataMill\ConvertCapitalFirstResponse**](../Model/ConvertCapitalFirstResponse.md)
 
 ### Authorization
 
@@ -60,7 +60,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **convertLowerCase**
-> \\ConvertLowerCaseResponse convertLowerCase($license, $guid, $text)
+> \DataMill\ConvertLowerCaseResponse convertLowerCase($license, $guid, $text)
 
 Convert any string to lower case
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\ConvertLowerCaseResponse**](../Model/ConvertLowerCaseResponse.md)
+[**\DataMill\ConvertLowerCaseResponse**](../Model/ConvertLowerCaseResponse.md)
 
 ### Authorization
 
@@ -109,7 +109,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **convertUpperCase**
-> \\ConvertUpperCaseResponse convertUpperCase($license, $guid, $text)
+> \DataMill\ConvertUpperCaseResponse convertUpperCase($license, $guid, $text)
 
 Convert any string to upper case
 
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\ConvertUpperCaseResponse**](../Model/ConvertUpperCaseResponse.md)
+[**\DataMill\ConvertUpperCaseResponse**](../Model/ConvertUpperCaseResponse.md)
 
 ### Authorization
 
@@ -158,7 +158,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **convertWrap**
-> \\ConvertWrapResponse convertWrap($license, $guid, $text, $limit, $mode, $linebreak)
+> \DataMill\ConvertWrapResponse convertWrap($license, $guid, $text, $limit, $mode, $linebreak)
 
 Wrap text
 
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\ConvertWrapResponse**](../Model/ConvertWrapResponse.md)
+[**\DataMill\ConvertWrapResponse**](../Model/ConvertWrapResponse.md)
 
 ### Authorization
 

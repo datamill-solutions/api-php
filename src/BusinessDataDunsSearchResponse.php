@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ;
+namespace DataMill;
 
 use \ArrayAccess;
 
@@ -68,7 +68,7 @@ class BusinessDataDunsSearchResponse implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'status' => 'string',
-        'results' => '\\BusinessDataDunsSearchResult[]'
+        'results' => '\DataMill\BusinessDataDunsSearchResult[]'
     ];
 
     public static function swaggerTypes()
@@ -227,7 +227,7 @@ class BusinessDataDunsSearchResponse implements ArrayAccess
 
     /**
      * Gets results
-     * @return \\BusinessDataDunsSearchResult[]
+     * @return \DataMill\BusinessDataDunsSearchResult[]
      */
     public function getResults()
     {
@@ -236,7 +236,7 @@ class BusinessDataDunsSearchResponse implements ArrayAccess
 
     /**
      * Sets results
-     * @param \\BusinessDataDunsSearchResult[] $results
+     * @param \DataMill\BusinessDataDunsSearchResult[] $results
      * @return $this
      */
     public function setResults($results)

@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ;
+namespace DataMill;
 
 use \ArrayAccess;
 
@@ -67,7 +67,7 @@ class AddressSearchMultipleResponse implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'addresses' => '\\AddressSearchResponse[]'
+        'addresses' => '\DataMill\AddressSearchResponse[]'
     ];
 
     public static function swaggerTypes()
@@ -166,7 +166,7 @@ class AddressSearchMultipleResponse implements ArrayAccess
 
     /**
      * Gets addresses
-     * @return \\AddressSearchResponse[]
+     * @return \DataMill\AddressSearchResponse[]
      */
     public function getAddresses()
     {
@@ -175,7 +175,7 @@ class AddressSearchMultipleResponse implements ArrayAccess
 
     /**
      * Sets addresses
-     * @param \\AddressSearchResponse[] $addresses
+     * @param \DataMill\AddressSearchResponse[] $addresses
      * @return $this
      */
     public function setAddresses($addresses)

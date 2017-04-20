@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ;
+namespace DataMill;
 
 use \ArrayAccess;
 
@@ -67,7 +67,7 @@ class VatSearchResponse implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'result' => '\\VatSearchResultRecord[]'
+        'result' => '\DataMill\VatSearchResultRecord[]'
     ];
 
     public static function swaggerTypes()
@@ -166,7 +166,7 @@ class VatSearchResponse implements ArrayAccess
 
     /**
      * Gets result
-     * @return \\VatSearchResultRecord[]
+     * @return \DataMill\VatSearchResultRecord[]
      */
     public function getResult()
     {
@@ -175,7 +175,7 @@ class VatSearchResponse implements ArrayAccess
 
     /**
      * Sets result
-     * @param \\VatSearchResultRecord[] $result
+     * @param \DataMill\VatSearchResultRecord[] $result
      * @return $this
      */
     public function setResult($result)

@@ -110,7 +110,7 @@ class BICApi
      * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $bic BIC to be checked (required)
      * @throws \DataMill\ApiException on non-2xx response
-     * @return \\BicCheckResponse
+     * @return \DataMill\BicCheckResponse
      */
     public function checkBIC($license, $guid, $bic)
     {
@@ -127,7 +127,7 @@ class BICApi
      * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $bic BIC to be checked (required)
      * @throws \DataMill\ApiException on non-2xx response
-     * @return array of \\BicCheckResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DataMill\BicCheckResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function checkBICWithHttpInfo($license, $guid, $bic)
     {
@@ -203,51 +203,51 @@ class BICApi
                 $queryParams,
                 $httpBody,
                 $headerParams,
-                '\\BicCheckResponse',
+                '\DataMill\BicCheckResponse',
                 '/bic/check'
             );
 
-            return [$this->apiClient->getSerializer()->deserialize($response, '\\BicCheckResponse', $httpHeader), $statusCode, $httpHeader];
+            return [$this->apiClient->getSerializer()->deserialize($response, '\DataMill\BicCheckResponse', $httpHeader), $statusCode, $httpHeader];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\\BicCheckResponse', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\BicCheckResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\\ErrorUnauthorized', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorUnauthorized', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 402:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\\ErrorQuotaExceeded', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorQuotaExceeded', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 403:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\\ErrorForbidden', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorForbidden', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 404:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\\ErrorNotFound', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorNotFound', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 405:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\\ErrorNotAllowed', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorNotAllowed', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 412:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\\ErrorIncorrectParameters', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorIncorrectParameters', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 428:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\\ErrorMissingParameters', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorMissingParameters', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 500:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\\ErrorInternalError', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorInternalError', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 503:
-                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\\ErrorServiceUnavailable', $e->getResponseHeaders());
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorServiceUnavailable', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
             }

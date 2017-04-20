@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **checkMobilePhone**
-> \\PhoneMobileCheckResponse checkMobilePhone($license, $guid, $phonenumber, $countrycode)
+> \DataMill\PhoneMobileCheckResponse checkMobilePhone($license, $guid, $phonenumber, $countrycode)
 
 Verify mobile phone number
 
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\PhoneMobileCheckResponse**](../Model/PhoneMobileCheckResponse.md)
+[**\DataMill\PhoneMobileCheckResponse**](../Model/PhoneMobileCheckResponse.md)
 
 ### Authorization
 
@@ -61,7 +61,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **formatPhoneNumber**
-> \\PhoneFormatResponse formatPhoneNumber($license, $guid, $phonenumber, $countrycode, $format, $directDialingDelimiter, $allowedDelimiters)
+> \DataMill\PhoneFormatResponse formatPhoneNumber($license, $guid, $phonenumber, $countrycode, $format, $directDialingDelimiter, $allowedDelimiters)
 
 Parse, format and validate phone numbers
 
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\PhoneFormatResponse**](../Model/PhoneFormatResponse.md)
+[**\DataMill\PhoneFormatResponse**](../Model/PhoneFormatResponse.md)
 
 ### Authorization
 
@@ -118,7 +118,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPhoneCountryCode**
-> \\PhoneCountryCodeGetResponse getPhoneCountryCode($license, $guid, $countrycode)
+> \DataMill\PhoneCountryCodeGetResponse getPhoneCountryCode($license, $guid, $countrycode)
 
 International and national dial prefix
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\PhoneCountryCodeGetResponse**](../Model/PhoneCountryCodeGetResponse.md)
+[**\DataMill\PhoneCountryCodeGetResponse**](../Model/PhoneCountryCodeGetResponse.md)
 
 ### Authorization
 

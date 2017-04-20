@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ;
+namespace DataMill;
 
 use \ArrayAccess;
 
@@ -71,7 +71,7 @@ class BusinessDataUndeliverableContactsResponse implements ArrayAccess
         'deceased' => 'string',
         'moved' => 'string',
         'newAddressAvailable' => 'string',
-        'contact' => '\\BusinessDataUndeliverableContactsSearchContact'
+        'contact' => '\DataMill\BusinessDataUndeliverableContactsSearchContact'
     ];
 
     public static function swaggerTypes()
@@ -402,7 +402,7 @@ class BusinessDataUndeliverableContactsResponse implements ArrayAccess
 
     /**
      * Gets contact
-     * @return \\BusinessDataUndeliverableContactsSearchContact
+     * @return \DataMill\BusinessDataUndeliverableContactsSearchContact
      */
     public function getContact()
     {
@@ -411,7 +411,7 @@ class BusinessDataUndeliverableContactsResponse implements ArrayAccess
 
     /**
      * Sets contact
-     * @param \\BusinessDataUndeliverableContactsSearchContact $contact
+     * @param \DataMill\BusinessDataUndeliverableContactsSearchContact $contact
      * @return $this
      */
     public function setContact($contact)

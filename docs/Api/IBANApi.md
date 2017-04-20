@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **checkIBAN**
-> \\IbanCheckResponse checkIBAN($license, $guid, $iban)
+> \DataMill\IbanCheckResponse checkIBAN($license, $guid, $iban)
 
 Check IBAN for spelling
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\IbanCheckResponse**](../Model/IbanCheckResponse.md)
+[**\DataMill\IbanCheckResponse**](../Model/IbanCheckResponse.md)
 
 ### Authorization
 

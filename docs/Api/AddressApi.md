@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **extractHouseNumber**
-> \\AddressHouseNumberExtractResponse extractHouseNumber($license, $guid, $street, $housenumber)
+> \DataMill\AddressHouseNumberExtractResponse extractHouseNumber($license, $guid, $street, $housenumber)
 
 Try to extract house number from street information
 
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\AddressHouseNumberExtractResponse**](../Model/AddressHouseNumberExtractResponse.md)
+[**\DataMill\AddressHouseNumberExtractResponse**](../Model/AddressHouseNumberExtractResponse.md)
 
 ### Authorization
 
@@ -62,7 +62,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **locateAddress**
-> \\AddressSearchResponse locateAddress($license, $guid, $latitude, $longitude, $locale)
+> \DataMill\AddressSearchResponse locateAddress($license, $guid, $latitude, $longitude, $locale)
 
 Reverse address lookup
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\AddressSearchResponse**](../Model/AddressSearchResponse.md)
+[**\DataMill\AddressSearchResponse**](../Model/AddressSearchResponse.md)
 
 ### Authorization
 
@@ -115,7 +115,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchAddress**
-> \\AddressSearchResponse searchAddress($license, $guid, $address, $country, $state, $county, $city, $zip, $district, $street, $housenumber, $locale)
+> \DataMill\AddressSearchResponse searchAddress($license, $guid, $address, $country, $state, $county, $city, $zip, $district, $street, $housenumber, $locale)
 
 Lookup physical postal address
 
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\AddressSearchResponse**](../Model/AddressSearchResponse.md)
+[**\DataMill\AddressSearchResponse**](../Model/AddressSearchResponse.md)
 
 ### Authorization
 
@@ -182,7 +182,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchAddressMultiple**
-> \\AddressSearchMultipleResponse searchAddressMultiple($license, $guid, $address, $locale)
+> \DataMill\AddressSearchMultipleResponse searchAddressMultiple($license, $guid, $address, $locale)
 
 Address lookup with multiple possible results
 
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\AddressSearchMultipleResponse**](../Model/AddressSearchMultipleResponse.md)
+[**\DataMill\AddressSearchMultipleResponse**](../Model/AddressSearchMultipleResponse.md)
 
 ### Authorization
 
