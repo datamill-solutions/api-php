@@ -14,7 +14,7 @@
 /**
  * /data.mill for applications
  *
- * **data.mill for applications** is the most versatile and powerful API for all aspects of data quality in your business application.  Use **data.mill** to check, correct and enrich personal data and business information. The internationally applicable functions can be integrated easily into existing applications, whether desktop, online or mobile and thus enable you to professionally improve your customer or supplier database, directly in your system. Due to **&#47;data.mill**'s pay-per-use credit model there are no setup fees or fixed monthly subscription fees.  **data.mill** is constantly evolving and upgraded with the latest technology and data services available on the market.
+ * **_/data.mill for applications** is the most versatile and powerful API for all aspects of data quality in your business application.  Use **_/data.mill** to check, correct and enrich personal data and business information. The internationally applicable functions can be integrated easily into existing applications, whether desktop, online or mobile and thus enable you to professionally improve your customer or supplier database, directly in your system. Due to **_/data.mill**'s pay-per-use credit model there are no setup fees or fixed monthly subscription fees.  **_/data.mill** is constantly evolving and upgraded with the latest technology and data services available on the market.
  *
  * OpenAPI spec version: 1.6.4
  * Contact: info@datamill.solutions
@@ -47,7 +47,7 @@ use \ArrayAccess;
  * ErrorQuotaExceeded Class Doc Comment
  *
  * @category    Class */
- // @description Default response if your data.mill credit quota is exceeded.
+ // @description Default response if your /data.mill credit quota is exceeded.
 /**
  * @package     Swagger\Client
  * @author      http://github.com/swagger-api/swagger-codegen
