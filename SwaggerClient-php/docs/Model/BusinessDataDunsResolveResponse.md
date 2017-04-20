@@ -1,0 +1,63 @@
+# BusinessDataDunsResolveResponse
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**status** | **string** |  | 
+**status_description** | **string** |  | 
+**company_name** | **string** |  | [optional] 
+**company_name_2** | **string** |  | [optional] 
+**continent_name** | **string** |  | [optional] 
+**country_code** | **string** |  | [optional] 
+**country_code_3** | **string** |  | [optional] 
+**zip** | **string** |  | [optional] 
+**city** | **string** |  | [optional] 
+**street** | **string** |  | [optional] 
+**house_number** | **string** |  | [optional] 
+**phone_number** | **string** |  | [optional] 
+**fax_number** | **string** |  | [optional] 
+**state_name** | **string** |  | [optional] 
+**state_code** | **string** |  | [optional] 
+**ceo_name** | **string** |  | [optional] 
+**ceo_title** | **string** |  | [optional] 
+**ceo_secondary** | **string[]** |  | [optional] 
+**sic_code** | **string** |  | [optional] 
+**sic_description** | **string** |  | [optional] 
+**year_started** | **string** |  | [optional] 
+**annual_turnover_local_currency** | **int** |  | [optional] 
+**annual_turnover_indicator_code** | **string** |  | [optional] 
+**annual_turnover_indicator_description** | **string** |  | [optional] 
+**annual_turnover_usd** | **int** |  | [optional] 
+**net_income** | **int** |  | [optional] 
+**net_income_usd** | **int** |  | [optional] 
+**net_worth** | **int** |  | [optional] 
+**net_worth_usd** | **int** |  | [optional] 
+**currency_code** | **string** |  | [optional] 
+**currency_name** | **string** |  | [optional] 
+**marketability_code** | **string** |  | [optional] 
+**marketability_description** | **string** |  | [optional] 
+**total_employees** | **int** |  | [optional] 
+**total_employees_indicator** | **string** |  | [optional] 
+**total_employees_indicator_description** | **string** |  | [optional] 
+**total_employees_physical_address** | **int** |  | [optional] 
+**total_employees_physical_address_indicator** | **string** |  | [optional] 
+**import_export_indicator** | **string** |  | [optional] 
+**import_export_indicator_description** | **string** |  | [optional] 
+**legal_form_code** | **int** |  | [optional] 
+**legal_form_description** | **string** |  | [optional] 
+**business_structure_code** | **string** |  | [optional] 
+**business_structure_description** | **string** |  | [optional] 
+**business_registration_number_code** | **string** |  | [optional] 
+**business_registration_number_code_description** | **string** |  | [optional] 
+**undeliverable_indicator** | **string** |  | [optional] 
+**undeliverable_description** | **string** |  | [optional] 
+**financial_statement_date** | [**\DateTime**](Date.md) |  | [optional] 
+**report_date** | [**\DateTime**](Date.md) |  | [optional] 
+**is_only_available_address** | **bool** |  | [optional] 
+**is_subsidiary** | **bool** |  | [optional] 
+**total_employees_including_principals_indicator** | **bool** |  | [optional] 
+**is_out_of_business** | **bool** |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
