@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **checkVAT**
-> \\VatCheckResponse checkVAT($license, $guid, $vatnumber)
+> \DataMill\VatCheckResponse checkVAT($license, $guid, $vatnumber)
 
 Check vat number for correctness
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\VatCheckResponse**](../Model/VatCheckResponse.md)
+[**\DataMill\VatCheckResponse**](../Model/VatCheckResponse.md)
 
 ### Authorization
 
@@ -59,7 +59,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **resolveVAT**
-> \\VatResolveResponse resolveVAT($license, $guid, $vatnumber, $locale)
+> \DataMill\VatResolveResponse resolveVAT($license, $guid, $vatnumber, $locale)
 
 Try to resolve VAT number to company information
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\VatResolveResponse**](../Model/VatResolveResponse.md)
+[**\DataMill\VatResolveResponse**](../Model/VatResolveResponse.md)
 
 ### Authorization
 
@@ -110,7 +110,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchVAT**
-> \\VatSearchResponse searchVAT($license, $guid, $company, $city, $countryCode, $limit, $minScore)
+> \DataMill\VatSearchResponse searchVAT($license, $guid, $company, $city, $countryCode, $limit, $minScore)
 
 Find VAT number and company information by name
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\VatSearchResponse**](../Model/VatSearchResponse.md)
+[**\DataMill\VatSearchResponse**](../Model/VatSearchResponse.md)
 
 ### Authorization
 

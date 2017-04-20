@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **checkEmailDomain**
-> \\EmailDomainCheckResponse checkEmailDomain($license, $guid, $email)
+> \DataMill\EmailDomainCheckResponse checkEmailDomain($license, $guid, $email)
 
 Check email syntax and mail server domain
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\EmailDomainCheckResponse**](../Model/EmailDomainCheckResponse.md)
+[**\DataMill\EmailDomainCheckResponse**](../Model/EmailDomainCheckResponse.md)
 
 ### Authorization
 
@@ -59,7 +59,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkEmailMailbox**
-> \\EmailExtendedCheckResponse checkEmailMailbox($license, $guid, $email)
+> \DataMill\EmailExtendedCheckResponse checkEmailMailbox($license, $guid, $email)
 
 Check email syntax, mail server domain and mailbox itself
 
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\EmailExtendedCheckResponse**](../Model/EmailExtendedCheckResponse.md)
+[**\DataMill\EmailExtendedCheckResponse**](../Model/EmailExtendedCheckResponse.md)
 
 ### Authorization
 
@@ -108,7 +108,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkEmailSyntax**
-> \\EmailSyntaxCheckResponse checkEmailSyntax($license, $guid, $email)
+> \DataMill\EmailSyntaxCheckResponse checkEmailSyntax($license, $guid, $email)
 
 Check email syntax
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\EmailSyntaxCheckResponse**](../Model/EmailSyntaxCheckResponse.md)
+[**\DataMill\EmailSyntaxCheckResponse**](../Model/EmailSyntaxCheckResponse.md)
 
 ### Authorization
 

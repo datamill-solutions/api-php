@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **getGender**
-> \\GenderGetResponse getGender($license, $guid, $firstname)
+> \DataMill\GenderGetResponse getGender($license, $guid, $firstname)
 
 Recognize gender by first name
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\GenderGetResponse**](../Model/GenderGetResponse.md)
+[**\DataMill\GenderGetResponse**](../Model/GenderGetResponse.md)
 
 ### Authorization
 
@@ -58,7 +58,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getGenderExtended**
-> \\GenderExtendedGetResponse getGenderExtended($license, $guid, $firstname, $countrycode)
+> \DataMill\GenderExtendedGetResponse getGenderExtended($license, $guid, $firstname, $countrycode)
 
 Recognize gender by first name (advanced)
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\GenderExtendedGetResponse**](../Model/GenderExtendedGetResponse.md)
+[**\DataMill\GenderExtendedGetResponse**](../Model/GenderExtendedGetResponse.md)
 
 ### Authorization
 

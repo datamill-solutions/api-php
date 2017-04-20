@@ -39,7 +39,7 @@
  * Do not edit the class manually.
  */
 
-namespace ;
+namespace DataMill;
 
 use \ArrayAccess;
 

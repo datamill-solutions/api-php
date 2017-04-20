@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **searchUndeliverableContact**
-> \\BusinessDataUndeliverableContactsResponse searchUndeliverableContact($license, $guid, $firstName, $lastName, $countryCode, $zip, $street, $reason)
+> \DataMill\BusinessDataUndeliverableContactsResponse searchUndeliverableContact($license, $guid, $firstName, $lastName, $countryCode, $zip, $street, $reason)
 
 Find moved and deceased contacts
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\BusinessDataUndeliverableContactsResponse**](../Model/BusinessDataUndeliverableContactsResponse.md)
+[**\DataMill\BusinessDataUndeliverableContactsResponse**](../Model/BusinessDataUndeliverableContactsResponse.md)
 
 ### Authorization
 

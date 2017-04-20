@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **getDUNSRating**
-> \\BusinessDataDunsRatingResponse getDUNSRating($license, $guid, $dunsNumber, $reasonCode)
+> \DataMill\BusinessDataDunsRatingResponse getDUNSRating($license, $guid, $dunsNumber, $reasonCode)
 
 Get marketing information by DUNS number
 
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\BusinessDataDunsRatingResponse**](../Model/BusinessDataDunsRatingResponse.md)
+[**\DataMill\BusinessDataDunsRatingResponse**](../Model/BusinessDataDunsRatingResponse.md)
 
 ### Authorization
 
@@ -61,7 +61,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **resolveDUNS**
-> \\BusinessDataDunsResolveResponse resolveDUNS($license, $guid, $dunsNumber, $reasonCode)
+> \DataMill\BusinessDataDunsResolveResponse resolveDUNS($license, $guid, $dunsNumber, $reasonCode)
 
 Resolve company information by DUNS number
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\BusinessDataDunsResolveResponse**](../Model/BusinessDataDunsResolveResponse.md)
+[**\DataMill\BusinessDataDunsResolveResponse**](../Model/BusinessDataDunsResolveResponse.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchDUNS**
-> \\BusinessDataDunsSearchResponse searchDUNS($license, $guid, $countryCode, $companyName, $dunsNumber, $state, $city, $zip, $street)
+> \DataMill\BusinessDataDunsSearchResponse searchDUNS($license, $guid, $countryCode, $companyName, $dunsNumber, $state, $city, $zip, $street)
 
 Find DUNS number and company information by name
 
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\\BusinessDataDunsSearchResponse**](../Model/BusinessDataDunsSearchResponse.md)
+[**\DataMill\BusinessDataDunsSearchResponse**](../Model/BusinessDataDunsSearchResponse.md)
 
 ### Authorization
 
