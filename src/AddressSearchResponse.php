@@ -400,7 +400,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets country_iso_2
-     * @param string $country_iso_2
+     * @param string $country_iso_2 ISO 3166-1 alpha-2 country code
      * @return $this
      */
     public function setCountryIso2($country_iso_2)
@@ -421,7 +421,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets country_iso_3
-     * @param string $country_iso_3
+     * @param string $country_iso_3 ISO 3166-1 alpha-3 country code
      * @return $this
      */
     public function setCountryIso3($country_iso_3)
@@ -442,7 +442,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets country
-     * @param string $country
+     * @param string $country Country name together with the language information
      * @return $this
      */
     public function setCountry($country)
@@ -463,7 +463,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets state
-     * @param string $state
+     * @param string $state State name/code together with the language information
      * @return $this
      */
     public function setState($state)
@@ -484,7 +484,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets state_name
-     * @param string $state_name
+     * @param string $state_name State name together with the language information
      * @return $this
      */
     public function setStateName($state_name)
@@ -505,7 +505,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets state_code
-     * @param string $state_code
+     * @param string $state_code ISO 3166-2 state code (if available)
      * @return $this
      */
     public function setStateCode($state_code)
@@ -526,7 +526,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets county
-     * @param string $county
+     * @param string $county County name together with the language information (if available)
      * @return $this
      */
     public function setCounty($county)
@@ -547,7 +547,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets district
-     * @param string $district
+     * @param string $district District name together with the language information (if available)
      * @return $this
      */
     public function setDistrict($district)
@@ -568,7 +568,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets zip
-     * @param string $zip
+     * @param string $zip Postal code
      * @return $this
      */
     public function setZip($zip)
@@ -589,7 +589,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets city
-     * @param string $city
+     * @param string $city City name together with the language information
      * @return $this
      */
     public function setCity($city)
@@ -610,7 +610,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets street
-     * @param string $street
+     * @param string $street Street name together with the language information
      * @return $this
      */
     public function setStreet($street)
@@ -631,7 +631,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets housenumber
-     * @param string $housenumber
+     * @param string $housenumber House number or building name together with the language information (if available)
      * @return $this
      */
     public function setHousenumber($housenumber)
@@ -652,7 +652,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets additional_data
-     * @param string $additional_data
+     * @param string $additional_data Additional house number information (e.g. floor, apartment, top)
      * @return $this
      */
     public function setAdditionalData($additional_data)
@@ -673,7 +673,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets relevance
-     * @param string $relevance
+     * @param string $relevance Indicates the relevance of the result found. The higher the score the more relevant the alternative. The score is a normalized value between 0 and 100. Every typo or mismatch between the request and response data (e.g. incorrect data, abbreviation, ..) will reduce the relevance.
      * @return $this
      */
     public function setRelevance($relevance)
@@ -694,7 +694,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets latitude
-     * @param string $latitude
+     * @param string $latitude Latitude to place a marker indicating the given location on a map (uses a dot as decimal point)
      * @return $this
      */
     public function setLatitude($latitude)
@@ -715,7 +715,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets longitude
-     * @param string $longitude
+     * @param string $longitude Longitude to place a marker indicating the given location on a map (uses a dot as decimal point)
      * @return $this
      */
     public function setLongitude($longitude)
@@ -736,7 +736,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets navigation_latitude
-     * @param string $navigation_latitude
+     * @param string $navigation_latitude Latitude of a potential route waypoint (uses a dot as decimal point)
      * @return $this
      */
     public function setNavigationLatitude($navigation_latitude)
@@ -757,7 +757,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets navigation_longitude
-     * @param string $navigation_longitude
+     * @param string $navigation_longitude Longitude of a potential route waypoint (uses a dot as decimal point)
      * @return $this
      */
     public function setNavigationLongitude($navigation_longitude)
@@ -778,7 +778,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets matchlevel
-     * @param string $matchlevel
+     * @param string $matchlevel The most detailed address field that matches the geo-coding query.  * **housenumber**: the whole geo-location including the house number / building name was found.  * **street**: the whole geo-location excluding the house number / building name was found. Please consider if you do not provide a house number or building name in the request the most detailed address field possible will always be the street.  * **general**: our service could only resolve a few address parts above the street level (e.g. only country or country + city, ...).
      * @return $this
      */
     public function setMatchlevel($matchlevel)
