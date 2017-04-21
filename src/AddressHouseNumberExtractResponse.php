@@ -208,7 +208,7 @@ class AddressHouseNumberExtractResponse implements ArrayAccess
 
     /**
      * Sets street
-     * @param string $street
+     * @param string $street The extracted street name
      * @return $this
      */
     public function setStreet($street)
@@ -229,7 +229,7 @@ class AddressHouseNumberExtractResponse implements ArrayAccess
 
     /**
      * Sets housenumber
-     * @param string $housenumber
+     * @param string $housenumber House number including additional house number information
      * @return $this
      */
     public function setHousenumber($housenumber)
@@ -250,7 +250,7 @@ class AddressHouseNumberExtractResponse implements ArrayAccess
 
     /**
      * Sets housenumber_only
-     * @param string $housenumber_only
+     * @param string $housenumber_only House number excluding additional house number information
      * @return $this
      */
     public function setHousenumberOnly($housenumber_only)
@@ -271,7 +271,7 @@ class AddressHouseNumberExtractResponse implements ArrayAccess
 
     /**
      * Sets housenumber_addition
-     * @param string $housenumber_addition
+     * @param string $housenumber_addition Additional house number information
      * @return $this
      */
     public function setHousenumberAddition($housenumber_addition)

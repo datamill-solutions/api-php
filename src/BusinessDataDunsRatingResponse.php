@@ -519,7 +519,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets status
-     * @param string $status
+     * @param string $status Flag if a company was found by its D-U-N-S number or not [**0**, **1**]
      * @return $this
      */
     public function setStatus($status)
@@ -544,7 +544,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets status_description
-     * @param string $status_description
+     * @param string $status_description Describes if a company was found or if the specified D-U-N-S number could not be resolved. Possible values are: **company not found**, **company found**, **invalid duns number**
      * @return $this
      */
     public function setStatusDescription($status_description)
@@ -569,7 +569,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets duns_number
-     * @param string $duns_number
+     * @param string $duns_number The DUNS number of the company. The same ase the input parameter if company was found.
      * @return $this
      */
     public function setDunsNumber($duns_number)
@@ -590,7 +590,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets company_name
-     * @param string $company_name
+     * @param string $company_name The company's official name
      * @return $this
      */
     public function setCompanyName($company_name)
@@ -611,7 +611,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets continent_name
-     * @param string $continent_name
+     * @param string $continent_name Continent name of the company's headquarters
      * @return $this
      */
     public function setContinentName($continent_name)
@@ -632,7 +632,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets country_code
-     * @param string $country_code
+     * @param string $country_code ISO 3166-1 alpha-2 country code of the company's headquarters
      * @return $this
      */
     public function setCountryCode($country_code)
@@ -653,7 +653,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets country_code_3
-     * @param string $country_code_3
+     * @param string $country_code_3 ISO 3166-1 alpha-3 country code of the company's headquarters
      * @return $this
      */
     public function setCountryCode3($country_code_3)
@@ -674,7 +674,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets country_name
-     * @param string $country_name
+     * @param string $country_name Country name together with the language information
      * @return $this
      */
     public function setCountryName($country_name)
@@ -695,7 +695,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets zip
-     * @param string $zip
+     * @param string $zip Postal code of the company's headquarters
      * @return $this
      */
     public function setZip($zip)
@@ -716,7 +716,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets city
-     * @param string $city
+     * @param string $city City of the company's headquarters
      * @return $this
      */
     public function setCity($city)
@@ -737,7 +737,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets street
-     * @param string $street
+     * @param string $street Street name of the company's headquarters
      * @return $this
      */
     public function setStreet($street)
@@ -758,7 +758,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets house_number
-     * @param string $house_number
+     * @param string $house_number House number of the company's headquarters
      * @return $this
      */
     public function setHouseNumber($house_number)
@@ -779,7 +779,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets phone_number
-     * @param string $phone_number
+     * @param string $phone_number Phone number of the company's headquarters
      * @return $this
      */
     public function setPhoneNumber($phone_number)
@@ -800,7 +800,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets fax_number
-     * @param string $fax_number
+     * @param string $fax_number Fax number of the company's headquarters
      * @return $this
      */
     public function setFaxNumber($fax_number)
@@ -821,7 +821,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets state_name
-     * @param string $state_name
+     * @param string $state_name State name of the company's headquarters
      * @return $this
      */
     public function setStateName($state_name)
@@ -842,7 +842,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets ceo_name
-     * @param string $ceo_name
+     * @param string $ceo_name Name of the company's CEO (Chief Executive Officer)
      * @return $this
      */
     public function setCeoName($ceo_name)
@@ -863,7 +863,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets ceo_title
-     * @param string $ceo_title
+     * @param string $ceo_title Position / Business title of the company's CEO
      * @return $this
      */
     public function setCeoTitle($ceo_title)
@@ -884,7 +884,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets sic_code
-     * @param string $sic_code
+     * @param string $sic_code The company's international SIC (Standard Industrial Classification) code
      * @return $this
      */
     public function setSicCode($sic_code)
@@ -905,7 +905,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets sic_description
-     * @param string $sic_description
+     * @param string $sic_description Description of the SIC code
      * @return $this
      */
     public function setSicDescription($sic_description)
@@ -926,7 +926,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets sic_version
-     * @param string $sic_version
+     * @param string $sic_version The version of SIC (either 1972, 1977 or 1987)
      * @return $this
      */
     public function setSicVersion($sic_version)
@@ -947,7 +947,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets year_started
-     * @param string $year_started
+     * @param string $year_started Year of establishment
      * @return $this
      */
     public function setYearStarted($year_started)
@@ -968,7 +968,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets net_worth
-     * @param int $net_worth
+     * @param int $net_worth The company's net worth (net value) in its local currency (may be NULL if unset)
      * @return $this
      */
     public function setNetWorth($net_worth)
@@ -989,7 +989,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets currency_code
-     * @param string $currency_code
+     * @param string $currency_code The local currency code of the company's headquarters country
      * @return $this
      */
     public function setCurrencyCode($currency_code)
@@ -1010,7 +1010,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets currency_name
-     * @param string $currency_name
+     * @param string $currency_name The local currency name of the company's headquarters country
      * @return $this
      */
     public function setCurrencyName($currency_name)
@@ -1031,7 +1031,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets total_employees
-     * @param int $total_employees
+     * @param int $total_employees The total number of employees (may be NULL if unset)
      * @return $this
      */
     public function setTotalEmployees($total_employees)
@@ -1052,7 +1052,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets total_employees_indicator
-     * @param string $total_employees_indicator
+     * @param string $total_employees_indicator Indicator if subsidiaries are included or not **A**: subsidiaries are not included **B**: total value including subsidiaries
      * @return $this
      */
     public function setTotalEmployeesIndicator($total_employees_indicator)
@@ -1073,7 +1073,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets total_employees_indicator_description
-     * @param string $total_employees_indicator_description
+     * @param string $total_employees_indicator_description Description of the total number of employees indicator
      * @return $this
      */
     public function setTotalEmployeesIndicatorDescription($total_employees_indicator_description)
@@ -1094,7 +1094,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets legal_form_code
-     * @param int $legal_form_code
+     * @param int $legal_form_code Code of the company's legal form
      * @return $this
      */
     public function setLegalFormCode($legal_form_code)
@@ -1115,7 +1115,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets legal_form_description
-     * @param string $legal_form_description
+     * @param string $legal_form_description Description of the legal form code
      * @return $this
      */
     public function setLegalFormDescription($legal_form_description)
@@ -1136,7 +1136,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets report_date
-     * @param \DateTime $report_date
+     * @param \DateTime $report_date Timestamp when the company's information were updated the last time
      * @return $this
      */
     public function setReportDate($report_date)
@@ -1157,7 +1157,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets is_out_of_business
-     * @param bool $is_out_of_business
+     * @param bool $is_out_of_business Flag if the company is already out of business
      * @return $this
      */
     public function setIsOutOfBusiness($is_out_of_business)
@@ -1178,7 +1178,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets is_branch
-     * @param bool $is_branch
+     * @param bool $is_branch Flag if the company found is a branch or the main headquarter
      * @return $this
      */
     public function setIsBranch($is_branch)
@@ -1199,7 +1199,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets business_registration_number
-     * @param string $business_registration_number
+     * @param string $business_registration_number Primary business identification number assigned to the business by government agency
      * @return $this
      */
     public function setBusinessRegistrationNumber($business_registration_number)
@@ -1220,7 +1220,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets business_registration_type
-     * @param string $business_registration_type
+     * @param string $business_registration_type Type of identification number assigned to the business (e.g. Registration number, Judicial number, ...)
      * @return $this
      */
     public function setBusinessRegistrationType($business_registration_type)
@@ -1241,7 +1241,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets incorporation_year
-     * @param string $incorporation_year
+     * @param string $incorporation_year Year business incorporated
      * @return $this
      */
     public function setIncorporationYear($incorporation_year)
@@ -1262,7 +1262,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets trade_styles
-     * @param string[] $trade_styles
+     * @param string[] $trade_styles Array with other names of the company
      * @return $this
      */
     public function setTradeStyles($trade_styles)
@@ -1283,7 +1283,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets enquiry_duns
-     * @param string $enquiry_duns
+     * @param string $enquiry_duns The D-U-N-S number of the enquiry. May vary from the specified D-U-N-S number if the headquarters data are returned
      * @return $this
      */
     public function setEnquiryDuns($enquiry_duns)
@@ -1304,7 +1304,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets sales
-     * @param int $sales
+     * @param int $sales Net sales for the period after returns, allowances and discounts are deducted (may be NULL if unset)
      * @return $this
      */
     public function setSales($sales)
@@ -1325,7 +1325,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets sales_estimated_description
-     * @param string $sales_estimated_description
+     * @param string $sales_estimated_description Qualifies the annual sales volume (actual, estimated, forecast, projected or calculated)
      * @return $this
      */
     public function setSalesEstimatedDescription($sales_estimated_description)
@@ -1346,7 +1346,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets paydex_score
-     * @param int $paydex_score
+     * @param int $paydex_score D&B® PAYDEX® for the last 2 months experiences (not for all countries) (may be NULL if unset)
      * @return $this
      */
     public function setPaydexScore($paydex_score)
@@ -1367,7 +1367,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets paydex_score_description
-     * @param string $paydex_score_description
+     * @param string $paydex_score_description Description about the D&B® PAYDEX® score (either Anticipate, Discount, Prompt, X days beyond terms or Unavailable) (may be NULL if unset)
      * @return $this
      */
     public function setPaydexScoreDescription($paydex_score_description)
@@ -1388,7 +1388,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets paydex_norm
-     * @param int $paydex_norm
+     * @param int $paydex_norm Industry D&B® PAYDEX® median or average (may be NULL if unset)
      * @return $this
      */
     public function setPaydexNorm($paydex_norm)
@@ -1409,7 +1409,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets intangible_assets
-     * @param int $intangible_assets
+     * @param int $intangible_assets Total of intangible assets (may be NULL if unset)
      * @return $this
      */
     public function setIntangibleAssets($intangible_assets)
@@ -1430,7 +1430,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets max_credit_recommendation
-     * @param int $max_credit_recommendation
+     * @param int $max_credit_recommendation Maximum amount of credit recommended by Dun & Bradstreet (Europe only) (may be NULL if unset)
      * @return $this
      */
     public function setMaxCreditRecommendation($max_credit_recommendation)
@@ -1451,7 +1451,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets dub_rating
-     * @param string $dub_rating
+     * @param string $dub_rating Rating assigned by Dun & Bradstreet (meaning varies by country)
      * @return $this
      */
     public function setDubRating($dub_rating)
@@ -1472,7 +1472,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets dub_rating_financial_strength
-     * @param string $dub_rating_financial_strength
+     * @param string $dub_rating_financial_strength Part of the Dun & Bradstreet rating which indicates the financial strength of the business (from - to in USD)
      * @return $this
      */
     public function setDubRatingFinancialStrength($dub_rating_financial_strength)
@@ -1493,7 +1493,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets dub_rating_risk
-     * @param string $dub_rating_risk
+     * @param string $dub_rating_risk Part of the Dun & Bradstreet rating which indicates the risk of a potential business cooperation: **1**: minimal risk, **2**: low risk, **3**: greater than average risk, **4**: significant level of risk, **<other values>**: insufficient information to define a risk indicator
      * @return $this
      */
     public function setDubRatingRisk($dub_rating_risk)
@@ -1514,7 +1514,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets dub_rating_risk_description
-     * @param string $dub_rating_risk_description
+     * @param string $dub_rating_risk_description Part of the Dun & Bradstreet rating which indicates the risk of a potential business cooperation: **1**: proceed with transaction - offer terms required, **2**: proceed with transaction, **3**: process with transaction, but monitor closely, **4**: take suitable assurances before extending credit, **<other values>**: no public information or D&B proprietary information,
      * @return $this
      */
     public function setDubRatingRiskDescription($dub_rating_risk_description)
@@ -1535,7 +1535,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets has_open_claims
-     * @param bool $has_open_claims
+     * @param bool $has_open_claims Flag if open claims, legal claims, liens, protested bills or equivalent exists
      * @return $this
      */
     public function setHasOpenClaims($has_open_claims)
@@ -1556,7 +1556,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets has_criminal_proceedings
-     * @param bool $has_criminal_proceedings
+     * @param bool $has_criminal_proceedings Flag if criminal proceedings exists
      * @return $this
      */
     public function setHasCriminalProceedings($has_criminal_proceedings)
@@ -1577,7 +1577,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets has_disaster_event
-     * @param bool $has_disaster_event
+     * @param bool $has_disaster_event Flag if special events concerning disasters such as fire, hurricanes etc. exists
      * @return $this
      */
     public function setHasDisasterEvent($has_disaster_event)
@@ -1598,7 +1598,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets has_financial_embarrassment
-     * @param bool $has_financial_embarrassment
+     * @param bool $has_financial_embarrassment Flag if open bankruptcy, receivership liquidation or equivalent exists
      * @return $this
      */
     public function setHasFinancialEmbarrassment($has_financial_embarrassment)
@@ -1619,7 +1619,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets has_financial_legal_event
-     * @param bool $has_financial_legal_event
+     * @param bool $has_financial_legal_event Flag if special events available including financial embarrassment and legal fillings exists
      * @return $this
      */
     public function setHasFinancialLegalEvent($has_financial_legal_event)
@@ -1640,7 +1640,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets has_special_event
-     * @param bool $has_special_event
+     * @param bool $has_special_event Flag if special events are available concerning changes to operational aspects including name changes, management changes, etc.
      * @return $this
      */
     public function setHasSpecialEvent($has_special_event)
@@ -1661,7 +1661,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets has_other_event
-     * @param bool $has_other_event
+     * @param bool $has_other_event Flag if special events exists that are not otherwise specified
      * @return $this
      */
     public function setHasOtherEvent($has_other_event)
@@ -1682,7 +1682,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets has_secured_filings
-     * @param bool $has_secured_filings
+     * @param bool $has_secured_filings Flag if open secured filing such as UCC filings, secured charges or equivalent exists
      * @return $this
      */
     public function setHasSecuredFilings($has_secured_filings)
@@ -1703,7 +1703,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets has_lawsuit
-     * @param bool $has_lawsuit
+     * @param bool $has_lawsuit Flag if open suit(s), judgement(s), petitions or payment remarks exists
      * @return $this
      */
     public function setHasLawsuit($has_lawsuit)
@@ -1724,7 +1724,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets are_employees_estimated
-     * @param bool $are_employees_estimated
+     * @param bool $are_employees_estimated Flag if the total number of employees is estimated or actual
      * @return $this
      */
     public function setAreEmployeesEstimated($are_employees_estimated)
@@ -1745,7 +1745,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets are_sales_estimated
-     * @param bool $are_sales_estimated
+     * @param bool $are_sales_estimated Flag if the annual sales volume is estimated or actual
      * @return $this
      */
     public function setAreSalesEstimated($are_sales_estimated)

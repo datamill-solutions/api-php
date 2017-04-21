@@ -120,8 +120,22 @@ class BicCheckResponse implements ArrayAccess
         return self::$getters;
     }
 
+    const VALID__0 = '0';
+    const VALID__1 = '1';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getValidAllowableValues()
+    {
+        return [
+            self::VALID__0,
+            self::VALID__1,
+        ];
+    }
     
 
     /**
@@ -151,6 +165,11 @@ class BicCheckResponse implements ArrayAccess
         if ($this->container['valid'] === null) {
             $invalid_properties[] = "'valid' can't be null";
         }
+        $allowed_values = ["0", "1"];
+        if (!in_array($this->container['valid'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'valid', must be one of '0', '1'.";
+        }
+
         if ($this->container['bic'] === null) {
             $invalid_properties[] = "'bic' can't be null";
         }
@@ -166,6 +185,10 @@ class BicCheckResponse implements ArrayAccess
     public function valid()
     {
         if ($this->container['valid'] === null) {
+            return false;
+        }
+        $allowed_values = ["0", "1"];
+        if (!in_array($this->container['valid'], $allowed_values)) {
             return false;
         }
         if ($this->container['bic'] === null) {
@@ -186,11 +209,15 @@ class BicCheckResponse implements ArrayAccess
 
     /**
      * Sets valid
-     * @param string $valid
+     * @param string $valid Flag if the spelling of the BIC/SWIFT code is valid or not [**0**, **1**]
      * @return $this
      */
     public function setValid($valid)
     {
+        $allowed_values = array('0', '1');
+        if ((!in_array($valid, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'valid', must be one of '0', '1'");
+        }
         $this->container['valid'] = $valid;
 
         return $this;
@@ -207,7 +234,7 @@ class BicCheckResponse implements ArrayAccess
 
     /**
      * Sets bic
-     * @param string $bic
+     * @param string $bic The well formatted BIC/SWIFT code if valid.
      * @return $this
      */
     public function setBic($bic)

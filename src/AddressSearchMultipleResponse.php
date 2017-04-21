@@ -175,7 +175,7 @@ class AddressSearchMultipleResponse implements ArrayAccess
 
     /**
      * Sets addresses
-     * @param \DataMill\AddressSearchResponse[] $addresses
+     * @param \DataMill\AddressSearchResponse[] $addresses Collection of geo-locations which matches the given address information. Each record has the same structure as the response of the Address Lookup.
      * @return $this
      */
     public function setAddresses($addresses)
