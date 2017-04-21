@@ -353,6 +353,8 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
     const STATUS_DESCRIPTION_COMPANY_FOUND = 'company found';
     const STATUS_DESCRIPTION_COMPANY_NOT_FOUND = 'company not found';
     const STATUS_DESCRIPTION_INVALID_DUNS_NUMBER = 'invalid duns number';
+    const TOTAL_EMPLOYEES_INDICATOR_A = 'A';
+    const TOTAL_EMPLOYEES_INDICATOR_B = 'B';
     
 
     
@@ -378,6 +380,18 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
             self::STATUS_DESCRIPTION_COMPANY_FOUND,
             self::STATUS_DESCRIPTION_COMPANY_NOT_FOUND,
             self::STATUS_DESCRIPTION_INVALID_DUNS_NUMBER,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getTotalEmployeesIndicatorAllowableValues()
+    {
+        return [
+            self::TOTAL_EMPLOYEES_INDICATOR_A,
+            self::TOTAL_EMPLOYEES_INDICATOR_B,
         ];
     }
     
@@ -479,6 +493,11 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
             $invalid_properties[] = "invalid value for 'status_description', must be one of 'company found', 'company not found', 'invalid duns number'.";
         }
 
+        $allowed_values = ["A", "B"];
+        if (!in_array($this->container['total_employees_indicator'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'total_employees_indicator', must be one of 'A', 'B'.";
+        }
+
         return $invalid_properties;
     }
 
@@ -502,6 +521,10 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
         }
         $allowed_values = ["company found", "company not found", "invalid duns number"];
         if (!in_array($this->container['status_description'], $allowed_values)) {
+            return false;
+        }
+        $allowed_values = ["A", "B"];
+        if (!in_array($this->container['total_employees_indicator'], $allowed_values)) {
             return false;
         }
         return true;
@@ -1057,6 +1080,10 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
      */
     public function setTotalEmployeesIndicator($total_employees_indicator)
     {
+        $allowed_values = array('A', 'B');
+        if (!is_null($total_employees_indicator) && (!in_array($total_employees_indicator, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'total_employees_indicator', must be one of 'A', 'B'");
+        }
         $this->container['total_employees_indicator'] = $total_employees_indicator;
 
         return $this;
@@ -1514,7 +1541,7 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
 
     /**
      * Sets dub_rating_risk_description
-     * @param string $dub_rating_risk_description Part of the Dun & Bradstreet rating which indicates the risk of a potential business cooperation: **1**: proceed with transaction - offer terms required, **2**: proceed with transaction, **3**: process with transaction, but monitor closely, **4**: take suitable assurances before extending credit, **<other values>**: no public information or D&B proprietary information,
+     * @param string $dub_rating_risk_description Part of the Dun & Bradstreet rating which indicates the risk of a potential business cooperation: **1**: proceed with transaction - offer terms required, **2**: proceed with transaction, **3**: process with transaction, but monitor closely, **4**: take suitable assurances before extending credit, **<other values>**: no public information or D&B proprietary information
      * @return $this
      */
     public function setDubRatingRiskDescription($dub_rating_risk_description)

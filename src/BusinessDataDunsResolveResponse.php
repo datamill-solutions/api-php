@@ -333,6 +333,41 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
     const STATUS_DESCRIPTION_COMPANY_FOUND = 'company found';
     const STATUS_DESCRIPTION_COMPANY_NOT_FOUND = 'company not found';
     const STATUS_DESCRIPTION_INVALID_DUNS_NUMBER = 'invalid duns number';
+    const ANNUAL_TURNOVER_INDICATOR_CODE_ = '';
+    const ANNUAL_TURNOVER_INDICATOR_CODE__0 = '0';
+    const ANNUAL_TURNOVER_INDICATOR_CODE__1 = '1';
+    const ANNUAL_TURNOVER_INDICATOR_CODE__2 = '2';
+    const ANNUAL_TURNOVER_INDICATOR_CODE__3 = '3';
+    const MARKETABILITY_CODE__1 = '1';
+    const MARKETABILITY_CODE__2 = '2';
+    const MARKETABILITY_CODE__3 = '3';
+    const TOTAL_EMPLOYEES_INDICATOR__0 = '0';
+    const TOTAL_EMPLOYEES_INDICATOR__1 = '1';
+    const TOTAL_EMPLOYEES_INDICATOR__2 = '2';
+    const TOTAL_EMPLOYEES_PHYSICAL_ADDRESS_INDICATOR__0 = '0';
+    const TOTAL_EMPLOYEES_PHYSICAL_ADDRESS_INDICATOR__1 = '1';
+    const TOTAL_EMPLOYEES_PHYSICAL_ADDRESS_INDICATOR__2 = '2';
+    const TOTAL_EMPLOYEES_PHYSICAL_ADDRESS_INDICATOR__3 = '3';
+    const TOTAL_EMPLOYEES_PHYSICAL_ADDRESS_INDICATOR_ = '';
+    const IMPORT_EXPORT_INDICATOR_ = '';
+    const IMPORT_EXPORT_INDICATOR_A = 'A';
+    const IMPORT_EXPORT_INDICATOR_B = 'B';
+    const IMPORT_EXPORT_INDICATOR_C = 'C';
+    const IMPORT_EXPORT_INDICATOR_D = 'D';
+    const IMPORT_EXPORT_INDICATOR_E = 'E';
+    const IMPORT_EXPORT_INDICATOR_F = 'F';
+    const IMPORT_EXPORT_INDICATOR_G = 'G';
+    const IMPORT_EXPORT_INDICATOR_H = 'H';
+    const BUSINESS_STRUCTURE_CODE_ = '';
+    const BUSINESS_STRUCTURE_CODE__0 = '0';
+    const BUSINESS_STRUCTURE_CODE__1 = '1';
+    const BUSINESS_STRUCTURE_CODE__2 = '2';
+    const BUSINESS_STRUCTURE_CODE__4 = '4';
+    const UNDELIVERABLE_INDICATOR_B = 'B';
+    const UNDELIVERABLE_INDICATOR_M = 'M';
+    const UNDELIVERABLE_INDICATOR_N = 'N';
+    const UNDELIVERABLE_INDICATOR_P = 'P';
+    const UNDELIVERABLE_INDICATOR_Y = 'Y';
     
 
     
@@ -358,6 +393,111 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
             self::STATUS_DESCRIPTION_COMPANY_FOUND,
             self::STATUS_DESCRIPTION_COMPANY_NOT_FOUND,
             self::STATUS_DESCRIPTION_INVALID_DUNS_NUMBER,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getAnnualTurnoverIndicatorCodeAllowableValues()
+    {
+        return [
+            self::ANNUAL_TURNOVER_INDICATOR_CODE_,
+            self::ANNUAL_TURNOVER_INDICATOR_CODE__0,
+            self::ANNUAL_TURNOVER_INDICATOR_CODE__1,
+            self::ANNUAL_TURNOVER_INDICATOR_CODE__2,
+            self::ANNUAL_TURNOVER_INDICATOR_CODE__3,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getMarketabilityCodeAllowableValues()
+    {
+        return [
+            self::MARKETABILITY_CODE__1,
+            self::MARKETABILITY_CODE__2,
+            self::MARKETABILITY_CODE__3,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getTotalEmployeesIndicatorAllowableValues()
+    {
+        return [
+            self::TOTAL_EMPLOYEES_INDICATOR__0,
+            self::TOTAL_EMPLOYEES_INDICATOR__1,
+            self::TOTAL_EMPLOYEES_INDICATOR__2,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getTotalEmployeesPhysicalAddressIndicatorAllowableValues()
+    {
+        return [
+            self::TOTAL_EMPLOYEES_PHYSICAL_ADDRESS_INDICATOR__0,
+            self::TOTAL_EMPLOYEES_PHYSICAL_ADDRESS_INDICATOR__1,
+            self::TOTAL_EMPLOYEES_PHYSICAL_ADDRESS_INDICATOR__2,
+            self::TOTAL_EMPLOYEES_PHYSICAL_ADDRESS_INDICATOR__3,
+            self::TOTAL_EMPLOYEES_PHYSICAL_ADDRESS_INDICATOR_,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getImportExportIndicatorAllowableValues()
+    {
+        return [
+            self::IMPORT_EXPORT_INDICATOR_,
+            self::IMPORT_EXPORT_INDICATOR_A,
+            self::IMPORT_EXPORT_INDICATOR_B,
+            self::IMPORT_EXPORT_INDICATOR_C,
+            self::IMPORT_EXPORT_INDICATOR_D,
+            self::IMPORT_EXPORT_INDICATOR_E,
+            self::IMPORT_EXPORT_INDICATOR_F,
+            self::IMPORT_EXPORT_INDICATOR_G,
+            self::IMPORT_EXPORT_INDICATOR_H,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getBusinessStructureCodeAllowableValues()
+    {
+        return [
+            self::BUSINESS_STRUCTURE_CODE_,
+            self::BUSINESS_STRUCTURE_CODE__0,
+            self::BUSINESS_STRUCTURE_CODE__1,
+            self::BUSINESS_STRUCTURE_CODE__2,
+            self::BUSINESS_STRUCTURE_CODE__4,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getUndeliverableIndicatorAllowableValues()
+    {
+        return [
+            self::UNDELIVERABLE_INDICATOR_B,
+            self::UNDELIVERABLE_INDICATOR_M,
+            self::UNDELIVERABLE_INDICATOR_N,
+            self::UNDELIVERABLE_INDICATOR_P,
+            self::UNDELIVERABLE_INDICATOR_Y,
         ];
     }
     
@@ -454,6 +594,41 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
             $invalid_properties[] = "invalid value for 'status_description', must be one of 'company found', 'company not found', 'invalid duns number'.";
         }
 
+        $allowed_values = ["", "0", "1", "2", "3"];
+        if (!in_array($this->container['annual_turnover_indicator_code'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'annual_turnover_indicator_code', must be one of '', '0', '1', '2', '3'.";
+        }
+
+        $allowed_values = ["1", "2", "3"];
+        if (!in_array($this->container['marketability_code'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'marketability_code', must be one of '1', '2', '3'.";
+        }
+
+        $allowed_values = ["0", "1", "2"];
+        if (!in_array($this->container['total_employees_indicator'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'total_employees_indicator', must be one of '0', '1', '2'.";
+        }
+
+        $allowed_values = ["0", "1", "2", "3", ""];
+        if (!in_array($this->container['total_employees_physical_address_indicator'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'total_employees_physical_address_indicator', must be one of '0', '1', '2', '3', ''.";
+        }
+
+        $allowed_values = ["", "A", "B", "C", "D", "E", "F", "G", "H"];
+        if (!in_array($this->container['import_export_indicator'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'import_export_indicator', must be one of '', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'.";
+        }
+
+        $allowed_values = ["", "0", "1", "2", "4"];
+        if (!in_array($this->container['business_structure_code'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'business_structure_code', must be one of '', '0', '1', '2', '4'.";
+        }
+
+        $allowed_values = ["B", "M", "N", "P", "Y"];
+        if (!in_array($this->container['undeliverable_indicator'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'undeliverable_indicator', must be one of 'B', 'M', 'N', 'P', 'Y'.";
+        }
+
         return $invalid_properties;
     }
 
@@ -479,6 +654,34 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
         if (!in_array($this->container['status_description'], $allowed_values)) {
             return false;
         }
+        $allowed_values = ["", "0", "1", "2", "3"];
+        if (!in_array($this->container['annual_turnover_indicator_code'], $allowed_values)) {
+            return false;
+        }
+        $allowed_values = ["1", "2", "3"];
+        if (!in_array($this->container['marketability_code'], $allowed_values)) {
+            return false;
+        }
+        $allowed_values = ["0", "1", "2"];
+        if (!in_array($this->container['total_employees_indicator'], $allowed_values)) {
+            return false;
+        }
+        $allowed_values = ["0", "1", "2", "3", ""];
+        if (!in_array($this->container['total_employees_physical_address_indicator'], $allowed_values)) {
+            return false;
+        }
+        $allowed_values = ["", "A", "B", "C", "D", "E", "F", "G", "H"];
+        if (!in_array($this->container['import_export_indicator'], $allowed_values)) {
+            return false;
+        }
+        $allowed_values = ["", "0", "1", "2", "4"];
+        if (!in_array($this->container['business_structure_code'], $allowed_values)) {
+            return false;
+        }
+        $allowed_values = ["B", "M", "N", "P", "Y"];
+        if (!in_array($this->container['undeliverable_indicator'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
@@ -494,7 +697,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets status
-     * @param string $status
+     * @param string $status Flag if a company was found by its D-U-N-S number or not [**0*, **1**]
      * @return $this
      */
     public function setStatus($status)
@@ -519,7 +722,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets status_description
-     * @param string $status_description
+     * @param string $status_description Describes if a company was found or if the specified D-U-N-S number could not be resolved. Possible values are: **company not found**, **company found**, **invalid duns number**
      * @return $this
      */
     public function setStatusDescription($status_description)
@@ -544,7 +747,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets company_name
-     * @param string $company_name
+     * @param string $company_name The company's official name
      * @return $this
      */
     public function setCompanyName($company_name)
@@ -565,7 +768,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets company_name_2
-     * @param string $company_name_2
+     * @param string $company_name_2 The company's second name or \"doing business as\"
      * @return $this
      */
     public function setCompanyName2($company_name_2)
@@ -586,7 +789,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets continent_name
-     * @param string $continent_name
+     * @param string $continent_name Continent name of the company's headquarters
      * @return $this
      */
     public function setContinentName($continent_name)
@@ -607,7 +810,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets country_code
-     * @param string $country_code
+     * @param string $country_code ISO 3166-1 alpha-2 country code of the company's headquarters
      * @return $this
      */
     public function setCountryCode($country_code)
@@ -628,7 +831,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets country_code_3
-     * @param string $country_code_3
+     * @param string $country_code_3 ISO 3166-1 alpha-3 country code of the company's headquarters
      * @return $this
      */
     public function setCountryCode3($country_code_3)
@@ -649,7 +852,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets zip
-     * @param string $zip
+     * @param string $zip Postal code of the company's headquarters
      * @return $this
      */
     public function setZip($zip)
@@ -670,7 +873,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets city
-     * @param string $city
+     * @param string $city City of the company's headquarters
      * @return $this
      */
     public function setCity($city)
@@ -691,7 +894,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets street
-     * @param string $street
+     * @param string $street Street name of the company's headquarters
      * @return $this
      */
     public function setStreet($street)
@@ -712,7 +915,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets house_number
-     * @param string $house_number
+     * @param string $house_number House number of the company's headquarters
      * @return $this
      */
     public function setHouseNumber($house_number)
@@ -733,7 +936,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets phone_number
-     * @param string $phone_number
+     * @param string $phone_number Phone number of the company's headquarters
      * @return $this
      */
     public function setPhoneNumber($phone_number)
@@ -754,7 +957,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets fax_number
-     * @param string $fax_number
+     * @param string $fax_number Fax number of the company's headquarters
      * @return $this
      */
     public function setFaxNumber($fax_number)
@@ -775,7 +978,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets state_name
-     * @param string $state_name
+     * @param string $state_name State name of the company's headquarters
      * @return $this
      */
     public function setStateName($state_name)
@@ -796,7 +999,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets state_code
-     * @param string $state_code
+     * @param string $state_code ISO 3166-2 state code of the company's headquarters
      * @return $this
      */
     public function setStateCode($state_code)
@@ -817,7 +1020,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets ceo_name
-     * @param string $ceo_name
+     * @param string $ceo_name Name of the company's CEO (Chief Executive Officer)
      * @return $this
      */
     public function setCeoName($ceo_name)
@@ -838,7 +1041,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets ceo_title
-     * @param string $ceo_title
+     * @param string $ceo_title Position / Business title of the company's CEO
      * @return $this
      */
     public function setCeoTitle($ceo_title)
@@ -859,7 +1062,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets ceo_secondary
-     * @param string[] $ceo_secondary
+     * @param string[] $ceo_secondary Collection of names of further CEOs
      * @return $this
      */
     public function setCeoSecondary($ceo_secondary)
@@ -880,7 +1083,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets sic_code
-     * @param string $sic_code
+     * @param string $sic_code The company's international SIC (Standard Industrial Classification) code
      * @return $this
      */
     public function setSicCode($sic_code)
@@ -901,7 +1104,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets sic_description
-     * @param string $sic_description
+     * @param string $sic_description Description of the SIC code
      * @return $this
      */
     public function setSicDescription($sic_description)
@@ -922,7 +1125,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets year_started
-     * @param string $year_started
+     * @param string $year_started Year of establishment
      * @return $this
      */
     public function setYearStarted($year_started)
@@ -943,7 +1146,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets annual_turnover_local_currency
-     * @param int $annual_turnover_local_currency
+     * @param int $annual_turnover_local_currency The company's annual turnover in its local currency (may be NULL if unset)
      * @return $this
      */
     public function setAnnualTurnoverLocalCurrency($annual_turnover_local_currency)
@@ -964,11 +1167,15 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets annual_turnover_indicator_code
-     * @param string $annual_turnover_indicator_code
+     * @param string $annual_turnover_indicator_code Indicator if the annual turnover is an approximated or exact value: **<empty value>**: not available, **0**: exact value, **1**: low end of range, **2**: approximated, **3**: modeled value
      * @return $this
      */
     public function setAnnualTurnoverIndicatorCode($annual_turnover_indicator_code)
     {
+        $allowed_values = array('', '0', '1', '2', '3');
+        if (!is_null($annual_turnover_indicator_code) && (!in_array($annual_turnover_indicator_code, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'annual_turnover_indicator_code', must be one of '', '0', '1', '2', '3'");
+        }
         $this->container['annual_turnover_indicator_code'] = $annual_turnover_indicator_code;
 
         return $this;
@@ -985,7 +1192,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets annual_turnover_indicator_description
-     * @param string $annual_turnover_indicator_description
+     * @param string $annual_turnover_indicator_description Description of the annual turnover indicator
      * @return $this
      */
     public function setAnnualTurnoverIndicatorDescription($annual_turnover_indicator_description)
@@ -1006,7 +1213,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets annual_turnover_usd
-     * @param int $annual_turnover_usd
+     * @param int $annual_turnover_usd The company's annual turnover in US Dollar (may be NULL if unset)
      * @return $this
      */
     public function setAnnualTurnoverUsd($annual_turnover_usd)
@@ -1027,7 +1234,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets net_income
-     * @param int $net_income
+     * @param int $net_income The company's net income in its local currency (may be NULL if unset)
      * @return $this
      */
     public function setNetIncome($net_income)
@@ -1048,7 +1255,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets net_income_usd
-     * @param int $net_income_usd
+     * @param int $net_income_usd The company's net income in US Dollar (may be NULL if unset)
      * @return $this
      */
     public function setNetIncomeUsd($net_income_usd)
@@ -1069,7 +1276,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets net_worth
-     * @param int $net_worth
+     * @param int $net_worth The company's net worth (net value) in its local currency (may be NULL if unset)
      * @return $this
      */
     public function setNetWorth($net_worth)
@@ -1090,7 +1297,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets net_worth_usd
-     * @param int $net_worth_usd
+     * @param int $net_worth_usd The company's net worth (net value) in US Dollar (may be NULL if unset)
      * @return $this
      */
     public function setNetWorthUsd($net_worth_usd)
@@ -1111,7 +1318,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets currency_code
-     * @param string $currency_code
+     * @param string $currency_code The local currency code of the company's headquarters country (3-letter ISO 4217 currency code)
      * @return $this
      */
     public function setCurrencyCode($currency_code)
@@ -1132,7 +1339,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets currency_name
-     * @param string $currency_name
+     * @param string $currency_name The local currency name of the company's headquarters country
      * @return $this
      */
     public function setCurrencyName($currency_name)
@@ -1153,11 +1360,15 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets marketability_code
-     * @param string $marketability_code
+     * @param string $marketability_code Indicator if the company / branch can be used for marketing purposes: **1**: not marketable, but listed, **2**: not marketable and not listed, **3**: marketable and listed
      * @return $this
      */
     public function setMarketabilityCode($marketability_code)
     {
+        $allowed_values = array('1', '2', '3');
+        if (!is_null($marketability_code) && (!in_array($marketability_code, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'marketability_code', must be one of '1', '2', '3'");
+        }
         $this->container['marketability_code'] = $marketability_code;
 
         return $this;
@@ -1174,7 +1385,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets marketability_description
-     * @param string $marketability_description
+     * @param string $marketability_description Description of the marketable indicator value
      * @return $this
      */
     public function setMarketabilityDescription($marketability_description)
@@ -1195,7 +1406,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets total_employees
-     * @param int $total_employees
+     * @param int $total_employees The total number of employees (may be NULL if unset)
      * @return $this
      */
     public function setTotalEmployees($total_employees)
@@ -1216,11 +1427,15 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets total_employees_indicator
-     * @param string $total_employees_indicator
+     * @param string $total_employees_indicator Indicator if the total number of employees is an approximated or exact value: **0**: exact value, **1**: low end of range, **2**: approximated
      * @return $this
      */
     public function setTotalEmployeesIndicator($total_employees_indicator)
     {
+        $allowed_values = array('0', '1', '2');
+        if (!is_null($total_employees_indicator) && (!in_array($total_employees_indicator, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'total_employees_indicator', must be one of '0', '1', '2'");
+        }
         $this->container['total_employees_indicator'] = $total_employees_indicator;
 
         return $this;
@@ -1237,7 +1452,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets total_employees_indicator_description
-     * @param string $total_employees_indicator_description
+     * @param string $total_employees_indicator_description Description of the total number of employees indicator
      * @return $this
      */
     public function setTotalEmployeesIndicatorDescription($total_employees_indicator_description)
@@ -1258,7 +1473,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets total_employees_physical_address
-     * @param int $total_employees_physical_address
+     * @param int $total_employees_physical_address The total number of employees working at the company's headquarters (may be NULL if unset)
      * @return $this
      */
     public function setTotalEmployeesPhysicalAddress($total_employees_physical_address)
@@ -1279,11 +1494,15 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets total_employees_physical_address_indicator
-     * @param string $total_employees_physical_address_indicator
+     * @param string $total_employees_physical_address_indicator Indicator if the total number of employees (working at the company's headquarters) is an approximated or exact value: **<empty value>**: not available, **0**: exact value, **1**: low end of range, **2**: approximated or not available if the number of employees at this location is zero, **3**: modeled value
      * @return $this
      */
     public function setTotalEmployeesPhysicalAddressIndicator($total_employees_physical_address_indicator)
     {
+        $allowed_values = array('0', '1', '2', '3', '');
+        if (!is_null($total_employees_physical_address_indicator) && (!in_array($total_employees_physical_address_indicator, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'total_employees_physical_address_indicator', must be one of '0', '1', '2', '3', ''");
+        }
         $this->container['total_employees_physical_address_indicator'] = $total_employees_physical_address_indicator;
 
         return $this;
@@ -1300,11 +1519,15 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets import_export_indicator
-     * @param string $import_export_indicator
+     * @param string $import_export_indicator Indicator if the company has an import and/or export trade: **<empty value>**: not available, **A**: import / export / agent, **B**: imports and exports, **C**: imports, **D**: imports and agents, **E**: exports and agents, **F**: agents, keeps no inventory, does not take title goods, **G**: not available or none, **H**: exports
      * @return $this
      */
     public function setImportExportIndicator($import_export_indicator)
     {
+        $allowed_values = array('', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H');
+        if (!is_null($import_export_indicator) && (!in_array($import_export_indicator, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'import_export_indicator', must be one of '', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'");
+        }
         $this->container['import_export_indicator'] = $import_export_indicator;
 
         return $this;
@@ -1321,7 +1544,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets import_export_indicator_description
-     * @param string $import_export_indicator_description
+     * @param string $import_export_indicator_description Description of the import/export indicator
      * @return $this
      */
     public function setImportExportIndicatorDescription($import_export_indicator_description)
@@ -1342,7 +1565,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets legal_form_code
-     * @param int $legal_form_code
+     * @param int $legal_form_code Code of the company's legal form (may be NULL if unset)
      * @return $this
      */
     public function setLegalFormCode($legal_form_code)
@@ -1363,7 +1586,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets legal_form_description
-     * @param string $legal_form_description
+     * @param string $legal_form_description Description of the legal form code
      * @return $this
      */
     public function setLegalFormDescription($legal_form_description)
@@ -1384,11 +1607,15 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets business_structure_code
-     * @param string $business_structure_code
+     * @param string $business_structure_code Code of the company's business structure: **<empty value>**: not available, **0**: single location, **1**: headquarter, **2**: branch, **4**: division,
      * @return $this
      */
     public function setBusinessStructureCode($business_structure_code)
     {
+        $allowed_values = array('', '0', '1', '2', '4');
+        if (!is_null($business_structure_code) && (!in_array($business_structure_code, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'business_structure_code', must be one of '', '0', '1', '2', '4'");
+        }
         $this->container['business_structure_code'] = $business_structure_code;
 
         return $this;
@@ -1405,7 +1632,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets business_structure_description
-     * @param string $business_structure_description
+     * @param string $business_structure_description Description of the business structure code
      * @return $this
      */
     public function setBusinessStructureDescription($business_structure_description)
@@ -1426,7 +1653,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets business_registration_number_code
-     * @param string $business_registration_number_code
+     * @param string $business_registration_number_code Unique code describing the national registration id
      * @return $this
      */
     public function setBusinessRegistrationNumberCode($business_registration_number_code)
@@ -1447,7 +1674,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets business_registration_number_code_description
-     * @param string $business_registration_number_code_description
+     * @param string $business_registration_number_code_description Friendly name of the business registration number code
      * @return $this
      */
     public function setBusinessRegistrationNumberCodeDescription($business_registration_number_code_description)
@@ -1468,11 +1695,15 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets undeliverable_indicator
-     * @param string $undeliverable_indicator
+     * @param string $undeliverable_indicator Indicator if any of the company's information are undeliverable: **B**: both addresses are undeliverable, **M**: mail address is undeliverable, **N**: no nixie indication, **P**: physical address undeliverable, **Y**: one of the addresses is undeliverable
      * @return $this
      */
     public function setUndeliverableIndicator($undeliverable_indicator)
     {
+        $allowed_values = array('B', 'M', 'N', 'P', 'Y');
+        if (!is_null($undeliverable_indicator) && (!in_array($undeliverable_indicator, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'undeliverable_indicator', must be one of 'B', 'M', 'N', 'P', 'Y'");
+        }
         $this->container['undeliverable_indicator'] = $undeliverable_indicator;
 
         return $this;
@@ -1489,7 +1720,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets undeliverable_description
-     * @param string $undeliverable_description
+     * @param string $undeliverable_description Description of the undeliverable indicator
      * @return $this
      */
     public function setUndeliverableDescription($undeliverable_description)
@@ -1510,7 +1741,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets financial_statement_date
-     * @param \DateTime $financial_statement_date
+     * @param \DateTime $financial_statement_date Timestamp when the financial information were updated the last time (may be full year only or full date with day, month and year)
      * @return $this
      */
     public function setFinancialStatementDate($financial_statement_date)
@@ -1531,7 +1762,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets report_date
-     * @param \DateTime $report_date
+     * @param \DateTime $report_date Timestamp when the company's information were updated the last time (may be full year only or full date with day, month and year)
      * @return $this
      */
     public function setReportDate($report_date)
@@ -1552,7 +1783,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets is_only_available_address
-     * @param bool $is_only_available_address
+     * @param bool $is_only_available_address Flag if this postal address is the only address available for the company
      * @return $this
      */
     public function setIsOnlyAvailableAddress($is_only_available_address)
@@ -1573,7 +1804,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets is_subsidiary
-     * @param bool $is_subsidiary
+     * @param bool $is_subsidiary Flag if this postal address is a subsidiary of the company
      * @return $this
      */
     public function setIsSubsidiary($is_subsidiary)
@@ -1594,7 +1825,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets total_employees_including_principals_indicator
-     * @param bool $total_employees_including_principals_indicator
+     * @param bool $total_employees_including_principals_indicator Flag if the total number of employees includes principals
      * @return $this
      */
     public function setTotalEmployeesIncludingPrincipalsIndicator($total_employees_including_principals_indicator)
@@ -1615,7 +1846,7 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
 
     /**
      * Sets is_out_of_business
-     * @param bool $is_out_of_business
+     * @param bool $is_out_of_business Flag if the company is already out of business
      * @return $this
      */
     public function setIsOutOfBusiness($is_out_of_business)
