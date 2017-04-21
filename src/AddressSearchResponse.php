@@ -305,6 +305,9 @@ class AddressSearchResponse implements ArrayAccess
         if ($this->container['navigation_longitude'] === null) {
             $invalid_properties[] = "'navigation_longitude' can't be null";
         }
+        if ($this->container['matchlevel'] === null) {
+            $invalid_properties[] = "'matchlevel' can't be null";
+        }
         $allowed_values = ["housenumber", "street", "general", ""];
         if (!in_array($this->container['matchlevel'], $allowed_values)) {
             $invalid_properties[] = "invalid value for 'matchlevel', must be one of 'housenumber', 'street', 'general', ''.";
@@ -375,6 +378,9 @@ class AddressSearchResponse implements ArrayAccess
         if ($this->container['navigation_longitude'] === null) {
             return false;
         }
+        if ($this->container['matchlevel'] === null) {
+            return false;
+        }
         $allowed_values = ["housenumber", "street", "general", ""];
         if (!in_array($this->container['matchlevel'], $allowed_values)) {
             return false;
@@ -394,7 +400,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets country_iso_2
-     * @param string $country_iso_2 something describing the object
+     * @param string $country_iso_2
      * @return $this
      */
     public function setCountryIso2($country_iso_2)
@@ -778,7 +784,7 @@ class AddressSearchResponse implements ArrayAccess
     public function setMatchlevel($matchlevel)
     {
         $allowed_values = array('housenumber', 'street', 'general', '');
-        if (!is_null($matchlevel) && (!in_array($matchlevel, $allowed_values))) {
+        if ((!in_array($matchlevel, $allowed_values))) {
             throw new \InvalidArgumentException("Invalid value for 'matchlevel', must be one of 'housenumber', 'street', 'general', ''");
         }
         $this->container['matchlevel'] = $matchlevel;

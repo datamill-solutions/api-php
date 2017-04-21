@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**country_iso_2** | **string** | something describing the object | 
+**country_iso_2** | **string** |  | 
 **country_iso_3** | **string** |  | 
 **country** | **string** |  | 
 **state** | **string** |  | 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **longitude** | **string** |  | 
 **navigation_latitude** | **string** |  | 
 **navigation_longitude** | **string** |  | 
-**matchlevel** | **string** |  | [optional] 
+**matchlevel** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

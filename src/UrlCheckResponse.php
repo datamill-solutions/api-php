@@ -168,8 +168,22 @@ class UrlCheckResponse implements ArrayAccess
         return self::$getters;
     }
 
+    const VALID_0 = 0;
+    const VALID_1 = 1;
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getValidAllowableValues()
+    {
+        return [
+            self::VALID_0,
+            self::VALID_1,
+        ];
+    }
     
 
     /**
@@ -211,6 +225,11 @@ class UrlCheckResponse implements ArrayAccess
         if ($this->container['valid'] === null) {
             $invalid_properties[] = "'valid' can't be null";
         }
+        $allowed_values = ["0", "1"];
+        if (!in_array($this->container['valid'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'valid', must be one of '0', '1'.";
+        }
+
         if ($this->container['url'] === null) {
             $invalid_properties[] = "'url' can't be null";
         }
@@ -262,6 +281,10 @@ class UrlCheckResponse implements ArrayAccess
     public function valid()
     {
         if ($this->container['valid'] === null) {
+            return false;
+        }
+        $allowed_values = ["0", "1"];
+        if (!in_array($this->container['valid'], $allowed_values)) {
             return false;
         }
         if ($this->container['url'] === null) {
@@ -323,6 +346,10 @@ class UrlCheckResponse implements ArrayAccess
      */
     public function setValid($valid)
     {
+        $allowed_values = array('0', '1');
+        if ((!in_array($valid, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'valid', must be one of '0', '1'");
+        }
         $this->container['valid'] = $valid;
 
         return $this;
