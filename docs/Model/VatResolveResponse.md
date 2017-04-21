@@ -14,9 +14,9 @@ Name | Type | Description | Notes
 **zip** | **string** |  | 
 **street** | **string** |  | 
 **housenumber** | **string** |  | 
-**additionalData** | **string** |  | 
-**rawAddress** | **string** |  | 
-**countrycodeIso3** | **string** |  | 
+**additional_data** | **string** |  | 
+**raw_address** | **string** |  | 
+**countrycode_iso_3** | **string** |  | 
 **relevance** | **string** |  | 
 **latitude** | **string** |  | 
 **longitude** | **string** |  | 

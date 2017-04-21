@@ -108,18 +108,18 @@ class DeliveryInformationApi
      *
      * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $firstName The person&#39;s first name (required)
-     * @param string $lastName The person&#39;s last name (required)
-     * @param string $countryCode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
+     * @param string $first_name The person&#39;s first name (required)
+     * @param string $last_name The person&#39;s last name (required)
+     * @param string $country_code ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @param string $zip Last known postal code the person lives in (required)
      * @param string $street Last known street name the person lives in (required)
      * @param string $reason Free-form text written in english why you submit the query. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\BusinessDataUndeliverableContactsResponse
      */
-    public function searchUndeliverableContact($license, $guid, $firstName, $lastName, $countryCode, $zip, $street, $reason)
+    public function searchUndeliverableContact($license, $guid, $first_name, $last_name, $country_code, $zip, $street, $reason)
     {
-        list($response) = $this->searchUndeliverableContactWithHttpInfo($license, $guid, $firstName, $lastName, $countryCode, $zip, $street, $reason);
+        list($response) = $this->searchUndeliverableContactWithHttpInfo($license, $guid, $first_name, $last_name, $country_code, $zip, $street, $reason);
         return $response;
     }
 
@@ -130,16 +130,16 @@ class DeliveryInformationApi
      *
      * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $firstName The person&#39;s first name (required)
-     * @param string $lastName The person&#39;s last name (required)
-     * @param string $countryCode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
+     * @param string $first_name The person&#39;s first name (required)
+     * @param string $last_name The person&#39;s last name (required)
+     * @param string $country_code ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @param string $zip Last known postal code the person lives in (required)
      * @param string $street Last known street name the person lives in (required)
      * @param string $reason Free-form text written in english why you submit the query. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\BusinessDataUndeliverableContactsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchUndeliverableContactWithHttpInfo($license, $guid, $firstName, $lastName, $countryCode, $zip, $street, $reason)
+    public function searchUndeliverableContactWithHttpInfo($license, $guid, $first_name, $last_name, $country_code, $zip, $street, $reason)
     {
         // verify the required parameter 'license' is set
         if ($license === null) {
@@ -160,37 +160,37 @@ class DeliveryInformationApi
             throw new \InvalidArgumentException('invalid length for "$guid" when calling DeliveryInformationApi.searchUndeliverableContact, must be bigger than or equal to 30.');
         }
 
-        // verify the required parameter 'firstName' is set
-        if ($firstName === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $firstName when calling searchUndeliverableContact');
+        // verify the required parameter 'first_name' is set
+        if ($first_name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $first_name when calling searchUndeliverableContact');
         }
-        if ((strlen($firstName) > 30)) {
-            throw new \InvalidArgumentException('invalid length for "$firstName" when calling DeliveryInformationApi.searchUndeliverableContact, must be smaller than or equal to 30.');
+        if ((strlen($first_name) > 30)) {
+            throw new \InvalidArgumentException('invalid length for "$first_name" when calling DeliveryInformationApi.searchUndeliverableContact, must be smaller than or equal to 30.');
         }
-        if ((strlen($firstName) < 1)) {
-            throw new \InvalidArgumentException('invalid length for "$firstName" when calling DeliveryInformationApi.searchUndeliverableContact, must be bigger than or equal to 1.');
-        }
-
-        // verify the required parameter 'lastName' is set
-        if ($lastName === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $lastName when calling searchUndeliverableContact');
-        }
-        if ((strlen($lastName) > 30)) {
-            throw new \InvalidArgumentException('invalid length for "$lastName" when calling DeliveryInformationApi.searchUndeliverableContact, must be smaller than or equal to 30.');
-        }
-        if ((strlen($lastName) < 1)) {
-            throw new \InvalidArgumentException('invalid length for "$lastName" when calling DeliveryInformationApi.searchUndeliverableContact, must be bigger than or equal to 1.');
+        if ((strlen($first_name) < 1)) {
+            throw new \InvalidArgumentException('invalid length for "$first_name" when calling DeliveryInformationApi.searchUndeliverableContact, must be bigger than or equal to 1.');
         }
 
-        // verify the required parameter 'countryCode' is set
-        if ($countryCode === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $countryCode when calling searchUndeliverableContact');
+        // verify the required parameter 'last_name' is set
+        if ($last_name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $last_name when calling searchUndeliverableContact');
         }
-        if ((strlen($countryCode) > 2)) {
-            throw new \InvalidArgumentException('invalid length for "$countryCode" when calling DeliveryInformationApi.searchUndeliverableContact, must be smaller than or equal to 2.');
+        if ((strlen($last_name) > 30)) {
+            throw new \InvalidArgumentException('invalid length for "$last_name" when calling DeliveryInformationApi.searchUndeliverableContact, must be smaller than or equal to 30.');
         }
-        if ((strlen($countryCode) < 2)) {
-            throw new \InvalidArgumentException('invalid length for "$countryCode" when calling DeliveryInformationApi.searchUndeliverableContact, must be bigger than or equal to 2.');
+        if ((strlen($last_name) < 1)) {
+            throw new \InvalidArgumentException('invalid length for "$last_name" when calling DeliveryInformationApi.searchUndeliverableContact, must be bigger than or equal to 1.');
+        }
+
+        // verify the required parameter 'country_code' is set
+        if ($country_code === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $country_code when calling searchUndeliverableContact');
+        }
+        if ((strlen($country_code) > 2)) {
+            throw new \InvalidArgumentException('invalid length for "$country_code" when calling DeliveryInformationApi.searchUndeliverableContact, must be smaller than or equal to 2.');
+        }
+        if ((strlen($country_code) < 2)) {
+            throw new \InvalidArgumentException('invalid length for "$country_code" when calling DeliveryInformationApi.searchUndeliverableContact, must be bigger than or equal to 2.');
         }
 
         // verify the required parameter 'zip' is set
@@ -250,16 +250,16 @@ class DeliveryInformationApi
             $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
         }
         // form params
-        if ($firstName !== null) {
-            $formParams['first_name'] = $this->apiClient->getSerializer()->toFormValue($firstName);
+        if ($first_name !== null) {
+            $formParams['first_name'] = $this->apiClient->getSerializer()->toFormValue($first_name);
         }
         // form params
-        if ($lastName !== null) {
-            $formParams['last_name'] = $this->apiClient->getSerializer()->toFormValue($lastName);
+        if ($last_name !== null) {
+            $formParams['last_name'] = $this->apiClient->getSerializer()->toFormValue($last_name);
         }
         // form params
-        if ($countryCode !== null) {
-            $formParams['country_code'] = $this->apiClient->getSerializer()->toFormValue($countryCode);
+        if ($country_code !== null) {
+            $formParams['country_code'] = $this->apiClient->getSerializer()->toFormValue($country_code);
         }
         // form params
         if ($zip !== null) {

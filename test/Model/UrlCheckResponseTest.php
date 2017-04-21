@@ -112,7 +112,7 @@ class UrlCheckResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "httpCode"
+     * Test attribute "http_code"
      */
     public function testPropertyHttpCode()
     {
@@ -120,7 +120,7 @@ class UrlCheckResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "totalTime"
+     * Test attribute "total_time"
      */
     public function testPropertyTotalTime()
     {
@@ -128,7 +128,7 @@ class UrlCheckResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "namelookupTime"
+     * Test attribute "namelookup_time"
      */
     public function testPropertyNamelookupTime()
     {
@@ -136,7 +136,7 @@ class UrlCheckResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "connectTime"
+     * Test attribute "connect_time"
      */
     public function testPropertyConnectTime()
     {
@@ -144,7 +144,7 @@ class UrlCheckResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "pretransferTime"
+     * Test attribute "pretransfer_time"
      */
     public function testPropertyPretransferTime()
     {
@@ -152,7 +152,7 @@ class UrlCheckResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "starttransferTime"
+     * Test attribute "starttransfer_time"
      */
     public function testPropertyStarttransferTime()
     {
@@ -160,7 +160,7 @@ class UrlCheckResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "primaryIp"
+     * Test attribute "primary_ip"
      */
     public function testPropertyPrimaryIp()
     {
@@ -168,7 +168,7 @@ class UrlCheckResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "primaryPort"
+     * Test attribute "primary_port"
      */
     public function testPropertyPrimaryPort()
     {
@@ -176,7 +176,7 @@ class UrlCheckResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "downloadContentLength"
+     * Test attribute "download_content_length"
      */
     public function testPropertyDownloadContentLength()
     {
@@ -184,7 +184,7 @@ class UrlCheckResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "contentType"
+     * Test attribute "content_type"
      */
     public function testPropertyContentType()
     {

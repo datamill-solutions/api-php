@@ -68,59 +68,59 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'status' => 'string',
-        'statusDescription' => 'string',
-        'companyName' => 'string',
-        'companyName2' => 'string',
-        'continentName' => 'string',
-        'countryCode' => 'string',
-        'countryCode3' => 'string',
+        'status_description' => 'string',
+        'company_name' => 'string',
+        'company_name_2' => 'string',
+        'continent_name' => 'string',
+        'country_code' => 'string',
+        'country_code_3' => 'string',
         'zip' => 'string',
         'city' => 'string',
         'street' => 'string',
-        'houseNumber' => 'string',
-        'phoneNumber' => 'string',
-        'faxNumber' => 'string',
-        'stateName' => 'string',
-        'stateCode' => 'string',
-        'ceoName' => 'string',
-        'ceoTitle' => 'string',
-        'ceoSecondary' => 'string[]',
-        'sicCode' => 'string',
-        'sicDescription' => 'string',
-        'yearStarted' => 'string',
-        'annualTurnoverLocalCurrency' => 'int',
-        'annualTurnoverIndicatorCode' => 'string',
-        'annualTurnoverIndicatorDescription' => 'string',
-        'annualTurnoverUsd' => 'int',
-        'netIncome' => 'int',
-        'netIncomeUsd' => 'int',
-        'netWorth' => 'int',
-        'netWorthUsd' => 'int',
-        'currencyCode' => 'string',
-        'currencyName' => 'string',
-        'marketabilityCode' => 'string',
-        'marketabilityDescription' => 'string',
-        'totalEmployees' => 'int',
-        'totalEmployeesIndicator' => 'string',
-        'totalEmployeesIndicatorDescription' => 'string',
-        'totalEmployeesPhysicalAddress' => 'int',
-        'totalEmployeesPhysicalAddressIndicator' => 'string',
-        'importExportIndicator' => 'string',
-        'importExportIndicatorDescription' => 'string',
-        'legalFormCode' => 'int',
-        'legalFormDescription' => 'string',
-        'businessStructureCode' => 'string',
-        'businessStructureDescription' => 'string',
-        'businessRegistrationNumberCode' => 'string',
-        'businessRegistrationNumberCodeDescription' => 'string',
-        'undeliverableIndicator' => 'string',
-        'undeliverableDescription' => 'string',
-        'financialStatementDate' => '\DateTime',
-        'reportDate' => '\DateTime',
-        'isOnlyAvailableAddress' => 'bool',
-        'isSubsidiary' => 'bool',
-        'totalEmployeesIncludingPrincipalsIndicator' => 'bool',
-        'isOutOfBusiness' => 'bool'
+        'house_number' => 'string',
+        'phone_number' => 'string',
+        'fax_number' => 'string',
+        'state_name' => 'string',
+        'state_code' => 'string',
+        'ceo_name' => 'string',
+        'ceo_title' => 'string',
+        'ceo_secondary' => 'string[]',
+        'sic_code' => 'string',
+        'sic_description' => 'string',
+        'year_started' => 'string',
+        'annual_turnover_local_currency' => 'int',
+        'annual_turnover_indicator_code' => 'string',
+        'annual_turnover_indicator_description' => 'string',
+        'annual_turnover_usd' => 'int',
+        'net_income' => 'int',
+        'net_income_usd' => 'int',
+        'net_worth' => 'int',
+        'net_worth_usd' => 'int',
+        'currency_code' => 'string',
+        'currency_name' => 'string',
+        'marketability_code' => 'string',
+        'marketability_description' => 'string',
+        'total_employees' => 'int',
+        'total_employees_indicator' => 'string',
+        'total_employees_indicator_description' => 'string',
+        'total_employees_physical_address' => 'int',
+        'total_employees_physical_address_indicator' => 'string',
+        'import_export_indicator' => 'string',
+        'import_export_indicator_description' => 'string',
+        'legal_form_code' => 'int',
+        'legal_form_description' => 'string',
+        'business_structure_code' => 'string',
+        'business_structure_description' => 'string',
+        'business_registration_number_code' => 'string',
+        'business_registration_number_code_description' => 'string',
+        'undeliverable_indicator' => 'string',
+        'undeliverable_description' => 'string',
+        'financial_statement_date' => '\DateTime',
+        'report_date' => '\DateTime',
+        'is_only_available_address' => 'bool',
+        'is_subsidiary' => 'bool',
+        'total_employees_including_principals_indicator' => 'bool',
+        'is_out_of_business' => 'bool'
     ];
 
     public static function swaggerTypes()
@@ -134,59 +134,59 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
      */
     protected static $attributeMap = [
         'status' => 'status',
-        'statusDescription' => 'status_description',
-        'companyName' => 'company_name',
-        'companyName2' => 'company_name_2',
-        'continentName' => 'continent_name',
-        'countryCode' => 'country_code',
-        'countryCode3' => 'country_code_3',
+        'status_description' => 'status_description',
+        'company_name' => 'company_name',
+        'company_name_2' => 'company_name_2',
+        'continent_name' => 'continent_name',
+        'country_code' => 'country_code',
+        'country_code_3' => 'country_code_3',
         'zip' => 'zip',
         'city' => 'city',
         'street' => 'street',
-        'houseNumber' => 'house_number',
-        'phoneNumber' => 'phone_number',
-        'faxNumber' => 'fax_number',
-        'stateName' => 'state_name',
-        'stateCode' => 'state_code',
-        'ceoName' => 'ceo_name',
-        'ceoTitle' => 'ceo_title',
-        'ceoSecondary' => 'ceo_secondary',
-        'sicCode' => 'sic_code',
-        'sicDescription' => 'sic_description',
-        'yearStarted' => 'year_started',
-        'annualTurnoverLocalCurrency' => 'annual_turnover_local_currency',
-        'annualTurnoverIndicatorCode' => 'annual_turnover_indicator_code',
-        'annualTurnoverIndicatorDescription' => 'annual_turnover_indicator_description',
-        'annualTurnoverUsd' => 'annual_turnover_usd',
-        'netIncome' => 'net_income',
-        'netIncomeUsd' => 'net_income_usd',
-        'netWorth' => 'net_worth',
-        'netWorthUsd' => 'net_worth_usd',
-        'currencyCode' => 'currency_code',
-        'currencyName' => 'currency_name',
-        'marketabilityCode' => 'marketability_code',
-        'marketabilityDescription' => 'marketability_description',
-        'totalEmployees' => 'total_employees',
-        'totalEmployeesIndicator' => 'total_employees_indicator',
-        'totalEmployeesIndicatorDescription' => 'total_employees_indicator_description',
-        'totalEmployeesPhysicalAddress' => 'total_employees_physical_address',
-        'totalEmployeesPhysicalAddressIndicator' => 'total_employees_physical_address_indicator',
-        'importExportIndicator' => 'import_export_indicator',
-        'importExportIndicatorDescription' => 'import_export_indicator_description',
-        'legalFormCode' => 'legal_form_code',
-        'legalFormDescription' => 'legal_form_description',
-        'businessStructureCode' => 'business_structure_code',
-        'businessStructureDescription' => 'business_structure_description',
-        'businessRegistrationNumberCode' => 'business_registration_number_code',
-        'businessRegistrationNumberCodeDescription' => 'business_registration_number_code_description',
-        'undeliverableIndicator' => 'undeliverable_indicator',
-        'undeliverableDescription' => 'undeliverable_description',
-        'financialStatementDate' => 'financial_statement_date',
-        'reportDate' => 'report_date',
-        'isOnlyAvailableAddress' => 'is_only_available_address',
-        'isSubsidiary' => 'is_subsidiary',
-        'totalEmployeesIncludingPrincipalsIndicator' => 'total_employees_including_principals_indicator',
-        'isOutOfBusiness' => 'is_out_of_business'
+        'house_number' => 'house_number',
+        'phone_number' => 'phone_number',
+        'fax_number' => 'fax_number',
+        'state_name' => 'state_name',
+        'state_code' => 'state_code',
+        'ceo_name' => 'ceo_name',
+        'ceo_title' => 'ceo_title',
+        'ceo_secondary' => 'ceo_secondary',
+        'sic_code' => 'sic_code',
+        'sic_description' => 'sic_description',
+        'year_started' => 'year_started',
+        'annual_turnover_local_currency' => 'annual_turnover_local_currency',
+        'annual_turnover_indicator_code' => 'annual_turnover_indicator_code',
+        'annual_turnover_indicator_description' => 'annual_turnover_indicator_description',
+        'annual_turnover_usd' => 'annual_turnover_usd',
+        'net_income' => 'net_income',
+        'net_income_usd' => 'net_income_usd',
+        'net_worth' => 'net_worth',
+        'net_worth_usd' => 'net_worth_usd',
+        'currency_code' => 'currency_code',
+        'currency_name' => 'currency_name',
+        'marketability_code' => 'marketability_code',
+        'marketability_description' => 'marketability_description',
+        'total_employees' => 'total_employees',
+        'total_employees_indicator' => 'total_employees_indicator',
+        'total_employees_indicator_description' => 'total_employees_indicator_description',
+        'total_employees_physical_address' => 'total_employees_physical_address',
+        'total_employees_physical_address_indicator' => 'total_employees_physical_address_indicator',
+        'import_export_indicator' => 'import_export_indicator',
+        'import_export_indicator_description' => 'import_export_indicator_description',
+        'legal_form_code' => 'legal_form_code',
+        'legal_form_description' => 'legal_form_description',
+        'business_structure_code' => 'business_structure_code',
+        'business_structure_description' => 'business_structure_description',
+        'business_registration_number_code' => 'business_registration_number_code',
+        'business_registration_number_code_description' => 'business_registration_number_code_description',
+        'undeliverable_indicator' => 'undeliverable_indicator',
+        'undeliverable_description' => 'undeliverable_description',
+        'financial_statement_date' => 'financial_statement_date',
+        'report_date' => 'report_date',
+        'is_only_available_address' => 'is_only_available_address',
+        'is_subsidiary' => 'is_subsidiary',
+        'total_employees_including_principals_indicator' => 'total_employees_including_principals_indicator',
+        'is_out_of_business' => 'is_out_of_business'
     ];
 
 
@@ -196,59 +196,59 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
      */
     protected static $setters = [
         'status' => 'setStatus',
-        'statusDescription' => 'setStatusDescription',
-        'companyName' => 'setCompanyName',
-        'companyName2' => 'setCompanyName2',
-        'continentName' => 'setContinentName',
-        'countryCode' => 'setCountryCode',
-        'countryCode3' => 'setCountryCode3',
+        'status_description' => 'setStatusDescription',
+        'company_name' => 'setCompanyName',
+        'company_name_2' => 'setCompanyName2',
+        'continent_name' => 'setContinentName',
+        'country_code' => 'setCountryCode',
+        'country_code_3' => 'setCountryCode3',
         'zip' => 'setZip',
         'city' => 'setCity',
         'street' => 'setStreet',
-        'houseNumber' => 'setHouseNumber',
-        'phoneNumber' => 'setPhoneNumber',
-        'faxNumber' => 'setFaxNumber',
-        'stateName' => 'setStateName',
-        'stateCode' => 'setStateCode',
-        'ceoName' => 'setCeoName',
-        'ceoTitle' => 'setCeoTitle',
-        'ceoSecondary' => 'setCeoSecondary',
-        'sicCode' => 'setSicCode',
-        'sicDescription' => 'setSicDescription',
-        'yearStarted' => 'setYearStarted',
-        'annualTurnoverLocalCurrency' => 'setAnnualTurnoverLocalCurrency',
-        'annualTurnoverIndicatorCode' => 'setAnnualTurnoverIndicatorCode',
-        'annualTurnoverIndicatorDescription' => 'setAnnualTurnoverIndicatorDescription',
-        'annualTurnoverUsd' => 'setAnnualTurnoverUsd',
-        'netIncome' => 'setNetIncome',
-        'netIncomeUsd' => 'setNetIncomeUsd',
-        'netWorth' => 'setNetWorth',
-        'netWorthUsd' => 'setNetWorthUsd',
-        'currencyCode' => 'setCurrencyCode',
-        'currencyName' => 'setCurrencyName',
-        'marketabilityCode' => 'setMarketabilityCode',
-        'marketabilityDescription' => 'setMarketabilityDescription',
-        'totalEmployees' => 'setTotalEmployees',
-        'totalEmployeesIndicator' => 'setTotalEmployeesIndicator',
-        'totalEmployeesIndicatorDescription' => 'setTotalEmployeesIndicatorDescription',
-        'totalEmployeesPhysicalAddress' => 'setTotalEmployeesPhysicalAddress',
-        'totalEmployeesPhysicalAddressIndicator' => 'setTotalEmployeesPhysicalAddressIndicator',
-        'importExportIndicator' => 'setImportExportIndicator',
-        'importExportIndicatorDescription' => 'setImportExportIndicatorDescription',
-        'legalFormCode' => 'setLegalFormCode',
-        'legalFormDescription' => 'setLegalFormDescription',
-        'businessStructureCode' => 'setBusinessStructureCode',
-        'businessStructureDescription' => 'setBusinessStructureDescription',
-        'businessRegistrationNumberCode' => 'setBusinessRegistrationNumberCode',
-        'businessRegistrationNumberCodeDescription' => 'setBusinessRegistrationNumberCodeDescription',
-        'undeliverableIndicator' => 'setUndeliverableIndicator',
-        'undeliverableDescription' => 'setUndeliverableDescription',
-        'financialStatementDate' => 'setFinancialStatementDate',
-        'reportDate' => 'setReportDate',
-        'isOnlyAvailableAddress' => 'setIsOnlyAvailableAddress',
-        'isSubsidiary' => 'setIsSubsidiary',
-        'totalEmployeesIncludingPrincipalsIndicator' => 'setTotalEmployeesIncludingPrincipalsIndicator',
-        'isOutOfBusiness' => 'setIsOutOfBusiness'
+        'house_number' => 'setHouseNumber',
+        'phone_number' => 'setPhoneNumber',
+        'fax_number' => 'setFaxNumber',
+        'state_name' => 'setStateName',
+        'state_code' => 'setStateCode',
+        'ceo_name' => 'setCeoName',
+        'ceo_title' => 'setCeoTitle',
+        'ceo_secondary' => 'setCeoSecondary',
+        'sic_code' => 'setSicCode',
+        'sic_description' => 'setSicDescription',
+        'year_started' => 'setYearStarted',
+        'annual_turnover_local_currency' => 'setAnnualTurnoverLocalCurrency',
+        'annual_turnover_indicator_code' => 'setAnnualTurnoverIndicatorCode',
+        'annual_turnover_indicator_description' => 'setAnnualTurnoverIndicatorDescription',
+        'annual_turnover_usd' => 'setAnnualTurnoverUsd',
+        'net_income' => 'setNetIncome',
+        'net_income_usd' => 'setNetIncomeUsd',
+        'net_worth' => 'setNetWorth',
+        'net_worth_usd' => 'setNetWorthUsd',
+        'currency_code' => 'setCurrencyCode',
+        'currency_name' => 'setCurrencyName',
+        'marketability_code' => 'setMarketabilityCode',
+        'marketability_description' => 'setMarketabilityDescription',
+        'total_employees' => 'setTotalEmployees',
+        'total_employees_indicator' => 'setTotalEmployeesIndicator',
+        'total_employees_indicator_description' => 'setTotalEmployeesIndicatorDescription',
+        'total_employees_physical_address' => 'setTotalEmployeesPhysicalAddress',
+        'total_employees_physical_address_indicator' => 'setTotalEmployeesPhysicalAddressIndicator',
+        'import_export_indicator' => 'setImportExportIndicator',
+        'import_export_indicator_description' => 'setImportExportIndicatorDescription',
+        'legal_form_code' => 'setLegalFormCode',
+        'legal_form_description' => 'setLegalFormDescription',
+        'business_structure_code' => 'setBusinessStructureCode',
+        'business_structure_description' => 'setBusinessStructureDescription',
+        'business_registration_number_code' => 'setBusinessRegistrationNumberCode',
+        'business_registration_number_code_description' => 'setBusinessRegistrationNumberCodeDescription',
+        'undeliverable_indicator' => 'setUndeliverableIndicator',
+        'undeliverable_description' => 'setUndeliverableDescription',
+        'financial_statement_date' => 'setFinancialStatementDate',
+        'report_date' => 'setReportDate',
+        'is_only_available_address' => 'setIsOnlyAvailableAddress',
+        'is_subsidiary' => 'setIsSubsidiary',
+        'total_employees_including_principals_indicator' => 'setTotalEmployeesIncludingPrincipalsIndicator',
+        'is_out_of_business' => 'setIsOutOfBusiness'
     ];
 
 
@@ -258,59 +258,59 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
      */
     protected static $getters = [
         'status' => 'getStatus',
-        'statusDescription' => 'getStatusDescription',
-        'companyName' => 'getCompanyName',
-        'companyName2' => 'getCompanyName2',
-        'continentName' => 'getContinentName',
-        'countryCode' => 'getCountryCode',
-        'countryCode3' => 'getCountryCode3',
+        'status_description' => 'getStatusDescription',
+        'company_name' => 'getCompanyName',
+        'company_name_2' => 'getCompanyName2',
+        'continent_name' => 'getContinentName',
+        'country_code' => 'getCountryCode',
+        'country_code_3' => 'getCountryCode3',
         'zip' => 'getZip',
         'city' => 'getCity',
         'street' => 'getStreet',
-        'houseNumber' => 'getHouseNumber',
-        'phoneNumber' => 'getPhoneNumber',
-        'faxNumber' => 'getFaxNumber',
-        'stateName' => 'getStateName',
-        'stateCode' => 'getStateCode',
-        'ceoName' => 'getCeoName',
-        'ceoTitle' => 'getCeoTitle',
-        'ceoSecondary' => 'getCeoSecondary',
-        'sicCode' => 'getSicCode',
-        'sicDescription' => 'getSicDescription',
-        'yearStarted' => 'getYearStarted',
-        'annualTurnoverLocalCurrency' => 'getAnnualTurnoverLocalCurrency',
-        'annualTurnoverIndicatorCode' => 'getAnnualTurnoverIndicatorCode',
-        'annualTurnoverIndicatorDescription' => 'getAnnualTurnoverIndicatorDescription',
-        'annualTurnoverUsd' => 'getAnnualTurnoverUsd',
-        'netIncome' => 'getNetIncome',
-        'netIncomeUsd' => 'getNetIncomeUsd',
-        'netWorth' => 'getNetWorth',
-        'netWorthUsd' => 'getNetWorthUsd',
-        'currencyCode' => 'getCurrencyCode',
-        'currencyName' => 'getCurrencyName',
-        'marketabilityCode' => 'getMarketabilityCode',
-        'marketabilityDescription' => 'getMarketabilityDescription',
-        'totalEmployees' => 'getTotalEmployees',
-        'totalEmployeesIndicator' => 'getTotalEmployeesIndicator',
-        'totalEmployeesIndicatorDescription' => 'getTotalEmployeesIndicatorDescription',
-        'totalEmployeesPhysicalAddress' => 'getTotalEmployeesPhysicalAddress',
-        'totalEmployeesPhysicalAddressIndicator' => 'getTotalEmployeesPhysicalAddressIndicator',
-        'importExportIndicator' => 'getImportExportIndicator',
-        'importExportIndicatorDescription' => 'getImportExportIndicatorDescription',
-        'legalFormCode' => 'getLegalFormCode',
-        'legalFormDescription' => 'getLegalFormDescription',
-        'businessStructureCode' => 'getBusinessStructureCode',
-        'businessStructureDescription' => 'getBusinessStructureDescription',
-        'businessRegistrationNumberCode' => 'getBusinessRegistrationNumberCode',
-        'businessRegistrationNumberCodeDescription' => 'getBusinessRegistrationNumberCodeDescription',
-        'undeliverableIndicator' => 'getUndeliverableIndicator',
-        'undeliverableDescription' => 'getUndeliverableDescription',
-        'financialStatementDate' => 'getFinancialStatementDate',
-        'reportDate' => 'getReportDate',
-        'isOnlyAvailableAddress' => 'getIsOnlyAvailableAddress',
-        'isSubsidiary' => 'getIsSubsidiary',
-        'totalEmployeesIncludingPrincipalsIndicator' => 'getTotalEmployeesIncludingPrincipalsIndicator',
-        'isOutOfBusiness' => 'getIsOutOfBusiness'
+        'house_number' => 'getHouseNumber',
+        'phone_number' => 'getPhoneNumber',
+        'fax_number' => 'getFaxNumber',
+        'state_name' => 'getStateName',
+        'state_code' => 'getStateCode',
+        'ceo_name' => 'getCeoName',
+        'ceo_title' => 'getCeoTitle',
+        'ceo_secondary' => 'getCeoSecondary',
+        'sic_code' => 'getSicCode',
+        'sic_description' => 'getSicDescription',
+        'year_started' => 'getYearStarted',
+        'annual_turnover_local_currency' => 'getAnnualTurnoverLocalCurrency',
+        'annual_turnover_indicator_code' => 'getAnnualTurnoverIndicatorCode',
+        'annual_turnover_indicator_description' => 'getAnnualTurnoverIndicatorDescription',
+        'annual_turnover_usd' => 'getAnnualTurnoverUsd',
+        'net_income' => 'getNetIncome',
+        'net_income_usd' => 'getNetIncomeUsd',
+        'net_worth' => 'getNetWorth',
+        'net_worth_usd' => 'getNetWorthUsd',
+        'currency_code' => 'getCurrencyCode',
+        'currency_name' => 'getCurrencyName',
+        'marketability_code' => 'getMarketabilityCode',
+        'marketability_description' => 'getMarketabilityDescription',
+        'total_employees' => 'getTotalEmployees',
+        'total_employees_indicator' => 'getTotalEmployeesIndicator',
+        'total_employees_indicator_description' => 'getTotalEmployeesIndicatorDescription',
+        'total_employees_physical_address' => 'getTotalEmployeesPhysicalAddress',
+        'total_employees_physical_address_indicator' => 'getTotalEmployeesPhysicalAddressIndicator',
+        'import_export_indicator' => 'getImportExportIndicator',
+        'import_export_indicator_description' => 'getImportExportIndicatorDescription',
+        'legal_form_code' => 'getLegalFormCode',
+        'legal_form_description' => 'getLegalFormDescription',
+        'business_structure_code' => 'getBusinessStructureCode',
+        'business_structure_description' => 'getBusinessStructureDescription',
+        'business_registration_number_code' => 'getBusinessRegistrationNumberCode',
+        'business_registration_number_code_description' => 'getBusinessRegistrationNumberCodeDescription',
+        'undeliverable_indicator' => 'getUndeliverableIndicator',
+        'undeliverable_description' => 'getUndeliverableDescription',
+        'financial_statement_date' => 'getFinancialStatementDate',
+        'report_date' => 'getReportDate',
+        'is_only_available_address' => 'getIsOnlyAvailableAddress',
+        'is_subsidiary' => 'getIsSubsidiary',
+        'total_employees_including_principals_indicator' => 'getTotalEmployeesIncludingPrincipalsIndicator',
+        'is_out_of_business' => 'getIsOutOfBusiness'
     ];
 
     public static function attributeMap()
@@ -375,59 +375,59 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['statusDescription'] = isset($data['statusDescription']) ? $data['statusDescription'] : null;
-        $this->container['companyName'] = isset($data['companyName']) ? $data['companyName'] : null;
-        $this->container['companyName2'] = isset($data['companyName2']) ? $data['companyName2'] : null;
-        $this->container['continentName'] = isset($data['continentName']) ? $data['continentName'] : null;
-        $this->container['countryCode'] = isset($data['countryCode']) ? $data['countryCode'] : null;
-        $this->container['countryCode3'] = isset($data['countryCode3']) ? $data['countryCode3'] : null;
+        $this->container['status_description'] = isset($data['status_description']) ? $data['status_description'] : null;
+        $this->container['company_name'] = isset($data['company_name']) ? $data['company_name'] : null;
+        $this->container['company_name_2'] = isset($data['company_name_2']) ? $data['company_name_2'] : null;
+        $this->container['continent_name'] = isset($data['continent_name']) ? $data['continent_name'] : null;
+        $this->container['country_code'] = isset($data['country_code']) ? $data['country_code'] : null;
+        $this->container['country_code_3'] = isset($data['country_code_3']) ? $data['country_code_3'] : null;
         $this->container['zip'] = isset($data['zip']) ? $data['zip'] : null;
         $this->container['city'] = isset($data['city']) ? $data['city'] : null;
         $this->container['street'] = isset($data['street']) ? $data['street'] : null;
-        $this->container['houseNumber'] = isset($data['houseNumber']) ? $data['houseNumber'] : null;
-        $this->container['phoneNumber'] = isset($data['phoneNumber']) ? $data['phoneNumber'] : null;
-        $this->container['faxNumber'] = isset($data['faxNumber']) ? $data['faxNumber'] : null;
-        $this->container['stateName'] = isset($data['stateName']) ? $data['stateName'] : null;
-        $this->container['stateCode'] = isset($data['stateCode']) ? $data['stateCode'] : null;
-        $this->container['ceoName'] = isset($data['ceoName']) ? $data['ceoName'] : null;
-        $this->container['ceoTitle'] = isset($data['ceoTitle']) ? $data['ceoTitle'] : null;
-        $this->container['ceoSecondary'] = isset($data['ceoSecondary']) ? $data['ceoSecondary'] : null;
-        $this->container['sicCode'] = isset($data['sicCode']) ? $data['sicCode'] : null;
-        $this->container['sicDescription'] = isset($data['sicDescription']) ? $data['sicDescription'] : null;
-        $this->container['yearStarted'] = isset($data['yearStarted']) ? $data['yearStarted'] : null;
-        $this->container['annualTurnoverLocalCurrency'] = isset($data['annualTurnoverLocalCurrency']) ? $data['annualTurnoverLocalCurrency'] : null;
-        $this->container['annualTurnoverIndicatorCode'] = isset($data['annualTurnoverIndicatorCode']) ? $data['annualTurnoverIndicatorCode'] : null;
-        $this->container['annualTurnoverIndicatorDescription'] = isset($data['annualTurnoverIndicatorDescription']) ? $data['annualTurnoverIndicatorDescription'] : null;
-        $this->container['annualTurnoverUsd'] = isset($data['annualTurnoverUsd']) ? $data['annualTurnoverUsd'] : null;
-        $this->container['netIncome'] = isset($data['netIncome']) ? $data['netIncome'] : null;
-        $this->container['netIncomeUsd'] = isset($data['netIncomeUsd']) ? $data['netIncomeUsd'] : null;
-        $this->container['netWorth'] = isset($data['netWorth']) ? $data['netWorth'] : null;
-        $this->container['netWorthUsd'] = isset($data['netWorthUsd']) ? $data['netWorthUsd'] : null;
-        $this->container['currencyCode'] = isset($data['currencyCode']) ? $data['currencyCode'] : null;
-        $this->container['currencyName'] = isset($data['currencyName']) ? $data['currencyName'] : null;
-        $this->container['marketabilityCode'] = isset($data['marketabilityCode']) ? $data['marketabilityCode'] : null;
-        $this->container['marketabilityDescription'] = isset($data['marketabilityDescription']) ? $data['marketabilityDescription'] : null;
-        $this->container['totalEmployees'] = isset($data['totalEmployees']) ? $data['totalEmployees'] : null;
-        $this->container['totalEmployeesIndicator'] = isset($data['totalEmployeesIndicator']) ? $data['totalEmployeesIndicator'] : null;
-        $this->container['totalEmployeesIndicatorDescription'] = isset($data['totalEmployeesIndicatorDescription']) ? $data['totalEmployeesIndicatorDescription'] : null;
-        $this->container['totalEmployeesPhysicalAddress'] = isset($data['totalEmployeesPhysicalAddress']) ? $data['totalEmployeesPhysicalAddress'] : null;
-        $this->container['totalEmployeesPhysicalAddressIndicator'] = isset($data['totalEmployeesPhysicalAddressIndicator']) ? $data['totalEmployeesPhysicalAddressIndicator'] : null;
-        $this->container['importExportIndicator'] = isset($data['importExportIndicator']) ? $data['importExportIndicator'] : null;
-        $this->container['importExportIndicatorDescription'] = isset($data['importExportIndicatorDescription']) ? $data['importExportIndicatorDescription'] : null;
-        $this->container['legalFormCode'] = isset($data['legalFormCode']) ? $data['legalFormCode'] : null;
-        $this->container['legalFormDescription'] = isset($data['legalFormDescription']) ? $data['legalFormDescription'] : null;
-        $this->container['businessStructureCode'] = isset($data['businessStructureCode']) ? $data['businessStructureCode'] : null;
-        $this->container['businessStructureDescription'] = isset($data['businessStructureDescription']) ? $data['businessStructureDescription'] : null;
-        $this->container['businessRegistrationNumberCode'] = isset($data['businessRegistrationNumberCode']) ? $data['businessRegistrationNumberCode'] : null;
-        $this->container['businessRegistrationNumberCodeDescription'] = isset($data['businessRegistrationNumberCodeDescription']) ? $data['businessRegistrationNumberCodeDescription'] : null;
-        $this->container['undeliverableIndicator'] = isset($data['undeliverableIndicator']) ? $data['undeliverableIndicator'] : null;
-        $this->container['undeliverableDescription'] = isset($data['undeliverableDescription']) ? $data['undeliverableDescription'] : null;
-        $this->container['financialStatementDate'] = isset($data['financialStatementDate']) ? $data['financialStatementDate'] : null;
-        $this->container['reportDate'] = isset($data['reportDate']) ? $data['reportDate'] : null;
-        $this->container['isOnlyAvailableAddress'] = isset($data['isOnlyAvailableAddress']) ? $data['isOnlyAvailableAddress'] : null;
-        $this->container['isSubsidiary'] = isset($data['isSubsidiary']) ? $data['isSubsidiary'] : null;
-        $this->container['totalEmployeesIncludingPrincipalsIndicator'] = isset($data['totalEmployeesIncludingPrincipalsIndicator']) ? $data['totalEmployeesIncludingPrincipalsIndicator'] : null;
-        $this->container['isOutOfBusiness'] = isset($data['isOutOfBusiness']) ? $data['isOutOfBusiness'] : null;
+        $this->container['house_number'] = isset($data['house_number']) ? $data['house_number'] : null;
+        $this->container['phone_number'] = isset($data['phone_number']) ? $data['phone_number'] : null;
+        $this->container['fax_number'] = isset($data['fax_number']) ? $data['fax_number'] : null;
+        $this->container['state_name'] = isset($data['state_name']) ? $data['state_name'] : null;
+        $this->container['state_code'] = isset($data['state_code']) ? $data['state_code'] : null;
+        $this->container['ceo_name'] = isset($data['ceo_name']) ? $data['ceo_name'] : null;
+        $this->container['ceo_title'] = isset($data['ceo_title']) ? $data['ceo_title'] : null;
+        $this->container['ceo_secondary'] = isset($data['ceo_secondary']) ? $data['ceo_secondary'] : null;
+        $this->container['sic_code'] = isset($data['sic_code']) ? $data['sic_code'] : null;
+        $this->container['sic_description'] = isset($data['sic_description']) ? $data['sic_description'] : null;
+        $this->container['year_started'] = isset($data['year_started']) ? $data['year_started'] : null;
+        $this->container['annual_turnover_local_currency'] = isset($data['annual_turnover_local_currency']) ? $data['annual_turnover_local_currency'] : null;
+        $this->container['annual_turnover_indicator_code'] = isset($data['annual_turnover_indicator_code']) ? $data['annual_turnover_indicator_code'] : null;
+        $this->container['annual_turnover_indicator_description'] = isset($data['annual_turnover_indicator_description']) ? $data['annual_turnover_indicator_description'] : null;
+        $this->container['annual_turnover_usd'] = isset($data['annual_turnover_usd']) ? $data['annual_turnover_usd'] : null;
+        $this->container['net_income'] = isset($data['net_income']) ? $data['net_income'] : null;
+        $this->container['net_income_usd'] = isset($data['net_income_usd']) ? $data['net_income_usd'] : null;
+        $this->container['net_worth'] = isset($data['net_worth']) ? $data['net_worth'] : null;
+        $this->container['net_worth_usd'] = isset($data['net_worth_usd']) ? $data['net_worth_usd'] : null;
+        $this->container['currency_code'] = isset($data['currency_code']) ? $data['currency_code'] : null;
+        $this->container['currency_name'] = isset($data['currency_name']) ? $data['currency_name'] : null;
+        $this->container['marketability_code'] = isset($data['marketability_code']) ? $data['marketability_code'] : null;
+        $this->container['marketability_description'] = isset($data['marketability_description']) ? $data['marketability_description'] : null;
+        $this->container['total_employees'] = isset($data['total_employees']) ? $data['total_employees'] : null;
+        $this->container['total_employees_indicator'] = isset($data['total_employees_indicator']) ? $data['total_employees_indicator'] : null;
+        $this->container['total_employees_indicator_description'] = isset($data['total_employees_indicator_description']) ? $data['total_employees_indicator_description'] : null;
+        $this->container['total_employees_physical_address'] = isset($data['total_employees_physical_address']) ? $data['total_employees_physical_address'] : null;
+        $this->container['total_employees_physical_address_indicator'] = isset($data['total_employees_physical_address_indicator']) ? $data['total_employees_physical_address_indicator'] : null;
+        $this->container['import_export_indicator'] = isset($data['import_export_indicator']) ? $data['import_export_indicator'] : null;
+        $this->container['import_export_indicator_description'] = isset($data['import_export_indicator_description']) ? $data['import_export_indicator_description'] : null;
+        $this->container['legal_form_code'] = isset($data['legal_form_code']) ? $data['legal_form_code'] : null;
+        $this->container['legal_form_description'] = isset($data['legal_form_description']) ? $data['legal_form_description'] : null;
+        $this->container['business_structure_code'] = isset($data['business_structure_code']) ? $data['business_structure_code'] : null;
+        $this->container['business_structure_description'] = isset($data['business_structure_description']) ? $data['business_structure_description'] : null;
+        $this->container['business_registration_number_code'] = isset($data['business_registration_number_code']) ? $data['business_registration_number_code'] : null;
+        $this->container['business_registration_number_code_description'] = isset($data['business_registration_number_code_description']) ? $data['business_registration_number_code_description'] : null;
+        $this->container['undeliverable_indicator'] = isset($data['undeliverable_indicator']) ? $data['undeliverable_indicator'] : null;
+        $this->container['undeliverable_description'] = isset($data['undeliverable_description']) ? $data['undeliverable_description'] : null;
+        $this->container['financial_statement_date'] = isset($data['financial_statement_date']) ? $data['financial_statement_date'] : null;
+        $this->container['report_date'] = isset($data['report_date']) ? $data['report_date'] : null;
+        $this->container['is_only_available_address'] = isset($data['is_only_available_address']) ? $data['is_only_available_address'] : null;
+        $this->container['is_subsidiary'] = isset($data['is_subsidiary']) ? $data['is_subsidiary'] : null;
+        $this->container['total_employees_including_principals_indicator'] = isset($data['total_employees_including_principals_indicator']) ? $data['total_employees_including_principals_indicator'] : null;
+        $this->container['is_out_of_business'] = isset($data['is_out_of_business']) ? $data['is_out_of_business'] : null;
     }
 
     /**
@@ -446,12 +446,12 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
             $invalid_properties[] = "invalid value for 'status', must be one of '0', '1'.";
         }
 
-        if ($this->container['statusDescription'] === null) {
-            $invalid_properties[] = "'statusDescription' can't be null";
+        if ($this->container['status_description'] === null) {
+            $invalid_properties[] = "'status_description' can't be null";
         }
         $allowed_values = ["company found", "company not found", "invalid duns number"];
-        if (!in_array($this->container['statusDescription'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'statusDescription', must be one of 'company found', 'company not found', 'invalid duns number'.";
+        if (!in_array($this->container['status_description'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'status_description', must be one of 'company found', 'company not found', 'invalid duns number'.";
         }
 
         return $invalid_properties;
@@ -472,11 +472,11 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
         if (!in_array($this->container['status'], $allowed_values)) {
             return false;
         }
-        if ($this->container['statusDescription'] === null) {
+        if ($this->container['status_description'] === null) {
             return false;
         }
         $allowed_values = ["company found", "company not found", "invalid duns number"];
-        if (!in_array($this->container['statusDescription'], $allowed_values)) {
+        if (!in_array($this->container['status_description'], $allowed_values)) {
             return false;
         }
         return true;
@@ -509,131 +509,131 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
     }
 
     /**
-     * Gets statusDescription
+     * Gets status_description
      * @return string
      */
     public function getStatusDescription()
     {
-        return $this->container['statusDescription'];
+        return $this->container['status_description'];
     }
 
     /**
-     * Sets statusDescription
-     * @param string $statusDescription
+     * Sets status_description
+     * @param string $status_description
      * @return $this
      */
-    public function setStatusDescription($statusDescription)
+    public function setStatusDescription($status_description)
     {
         $allowed_values = array('company found', 'company not found', 'invalid duns number');
-        if ((!in_array($statusDescription, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'statusDescription', must be one of 'company found', 'company not found', 'invalid duns number'");
+        if ((!in_array($status_description, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'status_description', must be one of 'company found', 'company not found', 'invalid duns number'");
         }
-        $this->container['statusDescription'] = $statusDescription;
+        $this->container['status_description'] = $status_description;
 
         return $this;
     }
 
     /**
-     * Gets companyName
+     * Gets company_name
      * @return string
      */
     public function getCompanyName()
     {
-        return $this->container['companyName'];
+        return $this->container['company_name'];
     }
 
     /**
-     * Sets companyName
-     * @param string $companyName
+     * Sets company_name
+     * @param string $company_name
      * @return $this
      */
-    public function setCompanyName($companyName)
+    public function setCompanyName($company_name)
     {
-        $this->container['companyName'] = $companyName;
+        $this->container['company_name'] = $company_name;
 
         return $this;
     }
 
     /**
-     * Gets companyName2
+     * Gets company_name_2
      * @return string
      */
     public function getCompanyName2()
     {
-        return $this->container['companyName2'];
+        return $this->container['company_name_2'];
     }
 
     /**
-     * Sets companyName2
-     * @param string $companyName2
+     * Sets company_name_2
+     * @param string $company_name_2
      * @return $this
      */
-    public function setCompanyName2($companyName2)
+    public function setCompanyName2($company_name_2)
     {
-        $this->container['companyName2'] = $companyName2;
+        $this->container['company_name_2'] = $company_name_2;
 
         return $this;
     }
 
     /**
-     * Gets continentName
+     * Gets continent_name
      * @return string
      */
     public function getContinentName()
     {
-        return $this->container['continentName'];
+        return $this->container['continent_name'];
     }
 
     /**
-     * Sets continentName
-     * @param string $continentName
+     * Sets continent_name
+     * @param string $continent_name
      * @return $this
      */
-    public function setContinentName($continentName)
+    public function setContinentName($continent_name)
     {
-        $this->container['continentName'] = $continentName;
+        $this->container['continent_name'] = $continent_name;
 
         return $this;
     }
 
     /**
-     * Gets countryCode
+     * Gets country_code
      * @return string
      */
     public function getCountryCode()
     {
-        return $this->container['countryCode'];
+        return $this->container['country_code'];
     }
 
     /**
-     * Sets countryCode
-     * @param string $countryCode
+     * Sets country_code
+     * @param string $country_code
      * @return $this
      */
-    public function setCountryCode($countryCode)
+    public function setCountryCode($country_code)
     {
-        $this->container['countryCode'] = $countryCode;
+        $this->container['country_code'] = $country_code;
 
         return $this;
     }
 
     /**
-     * Gets countryCode3
+     * Gets country_code_3
      * @return string
      */
     public function getCountryCode3()
     {
-        return $this->container['countryCode3'];
+        return $this->container['country_code_3'];
     }
 
     /**
-     * Sets countryCode3
-     * @param string $countryCode3
+     * Sets country_code_3
+     * @param string $country_code_3
      * @return $this
      */
-    public function setCountryCode3($countryCode3)
+    public function setCountryCode3($country_code_3)
     {
-        $this->container['countryCode3'] = $countryCode3;
+        $this->container['country_code_3'] = $country_code_3;
 
         return $this;
     }
@@ -702,925 +702,925 @@ class BusinessDataDunsResolveResponse implements ArrayAccess
     }
 
     /**
-     * Gets houseNumber
+     * Gets house_number
      * @return string
      */
     public function getHouseNumber()
     {
-        return $this->container['houseNumber'];
+        return $this->container['house_number'];
     }
 
     /**
-     * Sets houseNumber
-     * @param string $houseNumber
+     * Sets house_number
+     * @param string $house_number
      * @return $this
      */
-    public function setHouseNumber($houseNumber)
+    public function setHouseNumber($house_number)
     {
-        $this->container['houseNumber'] = $houseNumber;
+        $this->container['house_number'] = $house_number;
 
         return $this;
     }
 
     /**
-     * Gets phoneNumber
+     * Gets phone_number
      * @return string
      */
     public function getPhoneNumber()
     {
-        return $this->container['phoneNumber'];
+        return $this->container['phone_number'];
     }
 
     /**
-     * Sets phoneNumber
-     * @param string $phoneNumber
+     * Sets phone_number
+     * @param string $phone_number
      * @return $this
      */
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phone_number)
     {
-        $this->container['phoneNumber'] = $phoneNumber;
+        $this->container['phone_number'] = $phone_number;
 
         return $this;
     }
 
     /**
-     * Gets faxNumber
+     * Gets fax_number
      * @return string
      */
     public function getFaxNumber()
     {
-        return $this->container['faxNumber'];
+        return $this->container['fax_number'];
     }
 
     /**
-     * Sets faxNumber
-     * @param string $faxNumber
+     * Sets fax_number
+     * @param string $fax_number
      * @return $this
      */
-    public function setFaxNumber($faxNumber)
+    public function setFaxNumber($fax_number)
     {
-        $this->container['faxNumber'] = $faxNumber;
+        $this->container['fax_number'] = $fax_number;
 
         return $this;
     }
 
     /**
-     * Gets stateName
+     * Gets state_name
      * @return string
      */
     public function getStateName()
     {
-        return $this->container['stateName'];
+        return $this->container['state_name'];
     }
 
     /**
-     * Sets stateName
-     * @param string $stateName
+     * Sets state_name
+     * @param string $state_name
      * @return $this
      */
-    public function setStateName($stateName)
+    public function setStateName($state_name)
     {
-        $this->container['stateName'] = $stateName;
+        $this->container['state_name'] = $state_name;
 
         return $this;
     }
 
     /**
-     * Gets stateCode
+     * Gets state_code
      * @return string
      */
     public function getStateCode()
     {
-        return $this->container['stateCode'];
+        return $this->container['state_code'];
     }
 
     /**
-     * Sets stateCode
-     * @param string $stateCode
+     * Sets state_code
+     * @param string $state_code
      * @return $this
      */
-    public function setStateCode($stateCode)
+    public function setStateCode($state_code)
     {
-        $this->container['stateCode'] = $stateCode;
+        $this->container['state_code'] = $state_code;
 
         return $this;
     }
 
     /**
-     * Gets ceoName
+     * Gets ceo_name
      * @return string
      */
     public function getCeoName()
     {
-        return $this->container['ceoName'];
+        return $this->container['ceo_name'];
     }
 
     /**
-     * Sets ceoName
-     * @param string $ceoName
+     * Sets ceo_name
+     * @param string $ceo_name
      * @return $this
      */
-    public function setCeoName($ceoName)
+    public function setCeoName($ceo_name)
     {
-        $this->container['ceoName'] = $ceoName;
+        $this->container['ceo_name'] = $ceo_name;
 
         return $this;
     }
 
     /**
-     * Gets ceoTitle
+     * Gets ceo_title
      * @return string
      */
     public function getCeoTitle()
     {
-        return $this->container['ceoTitle'];
+        return $this->container['ceo_title'];
     }
 
     /**
-     * Sets ceoTitle
-     * @param string $ceoTitle
+     * Sets ceo_title
+     * @param string $ceo_title
      * @return $this
      */
-    public function setCeoTitle($ceoTitle)
+    public function setCeoTitle($ceo_title)
     {
-        $this->container['ceoTitle'] = $ceoTitle;
+        $this->container['ceo_title'] = $ceo_title;
 
         return $this;
     }
 
     /**
-     * Gets ceoSecondary
+     * Gets ceo_secondary
      * @return string[]
      */
     public function getCeoSecondary()
     {
-        return $this->container['ceoSecondary'];
+        return $this->container['ceo_secondary'];
     }
 
     /**
-     * Sets ceoSecondary
-     * @param string[] $ceoSecondary
+     * Sets ceo_secondary
+     * @param string[] $ceo_secondary
      * @return $this
      */
-    public function setCeoSecondary($ceoSecondary)
+    public function setCeoSecondary($ceo_secondary)
     {
-        $this->container['ceoSecondary'] = $ceoSecondary;
+        $this->container['ceo_secondary'] = $ceo_secondary;
 
         return $this;
     }
 
     /**
-     * Gets sicCode
+     * Gets sic_code
      * @return string
      */
     public function getSicCode()
     {
-        return $this->container['sicCode'];
+        return $this->container['sic_code'];
     }
 
     /**
-     * Sets sicCode
-     * @param string $sicCode
+     * Sets sic_code
+     * @param string $sic_code
      * @return $this
      */
-    public function setSicCode($sicCode)
+    public function setSicCode($sic_code)
     {
-        $this->container['sicCode'] = $sicCode;
+        $this->container['sic_code'] = $sic_code;
 
         return $this;
     }
 
     /**
-     * Gets sicDescription
+     * Gets sic_description
      * @return string
      */
     public function getSicDescription()
     {
-        return $this->container['sicDescription'];
+        return $this->container['sic_description'];
     }
 
     /**
-     * Sets sicDescription
-     * @param string $sicDescription
+     * Sets sic_description
+     * @param string $sic_description
      * @return $this
      */
-    public function setSicDescription($sicDescription)
+    public function setSicDescription($sic_description)
     {
-        $this->container['sicDescription'] = $sicDescription;
+        $this->container['sic_description'] = $sic_description;
 
         return $this;
     }
 
     /**
-     * Gets yearStarted
+     * Gets year_started
      * @return string
      */
     public function getYearStarted()
     {
-        return $this->container['yearStarted'];
+        return $this->container['year_started'];
     }
 
     /**
-     * Sets yearStarted
-     * @param string $yearStarted
+     * Sets year_started
+     * @param string $year_started
      * @return $this
      */
-    public function setYearStarted($yearStarted)
+    public function setYearStarted($year_started)
     {
-        $this->container['yearStarted'] = $yearStarted;
+        $this->container['year_started'] = $year_started;
 
         return $this;
     }
 
     /**
-     * Gets annualTurnoverLocalCurrency
+     * Gets annual_turnover_local_currency
      * @return int
      */
     public function getAnnualTurnoverLocalCurrency()
     {
-        return $this->container['annualTurnoverLocalCurrency'];
+        return $this->container['annual_turnover_local_currency'];
     }
 
     /**
-     * Sets annualTurnoverLocalCurrency
-     * @param int $annualTurnoverLocalCurrency
+     * Sets annual_turnover_local_currency
+     * @param int $annual_turnover_local_currency
      * @return $this
      */
-    public function setAnnualTurnoverLocalCurrency($annualTurnoverLocalCurrency)
+    public function setAnnualTurnoverLocalCurrency($annual_turnover_local_currency)
     {
-        $this->container['annualTurnoverLocalCurrency'] = $annualTurnoverLocalCurrency;
+        $this->container['annual_turnover_local_currency'] = $annual_turnover_local_currency;
 
         return $this;
     }
 
     /**
-     * Gets annualTurnoverIndicatorCode
+     * Gets annual_turnover_indicator_code
      * @return string
      */
     public function getAnnualTurnoverIndicatorCode()
     {
-        return $this->container['annualTurnoverIndicatorCode'];
+        return $this->container['annual_turnover_indicator_code'];
     }
 
     /**
-     * Sets annualTurnoverIndicatorCode
-     * @param string $annualTurnoverIndicatorCode
+     * Sets annual_turnover_indicator_code
+     * @param string $annual_turnover_indicator_code
      * @return $this
      */
-    public function setAnnualTurnoverIndicatorCode($annualTurnoverIndicatorCode)
+    public function setAnnualTurnoverIndicatorCode($annual_turnover_indicator_code)
     {
-        $this->container['annualTurnoverIndicatorCode'] = $annualTurnoverIndicatorCode;
+        $this->container['annual_turnover_indicator_code'] = $annual_turnover_indicator_code;
 
         return $this;
     }
 
     /**
-     * Gets annualTurnoverIndicatorDescription
+     * Gets annual_turnover_indicator_description
      * @return string
      */
     public function getAnnualTurnoverIndicatorDescription()
     {
-        return $this->container['annualTurnoverIndicatorDescription'];
+        return $this->container['annual_turnover_indicator_description'];
     }
 
     /**
-     * Sets annualTurnoverIndicatorDescription
-     * @param string $annualTurnoverIndicatorDescription
+     * Sets annual_turnover_indicator_description
+     * @param string $annual_turnover_indicator_description
      * @return $this
      */
-    public function setAnnualTurnoverIndicatorDescription($annualTurnoverIndicatorDescription)
+    public function setAnnualTurnoverIndicatorDescription($annual_turnover_indicator_description)
     {
-        $this->container['annualTurnoverIndicatorDescription'] = $annualTurnoverIndicatorDescription;
+        $this->container['annual_turnover_indicator_description'] = $annual_turnover_indicator_description;
 
         return $this;
     }
 
     /**
-     * Gets annualTurnoverUsd
+     * Gets annual_turnover_usd
      * @return int
      */
     public function getAnnualTurnoverUsd()
     {
-        return $this->container['annualTurnoverUsd'];
+        return $this->container['annual_turnover_usd'];
     }
 
     /**
-     * Sets annualTurnoverUsd
-     * @param int $annualTurnoverUsd
+     * Sets annual_turnover_usd
+     * @param int $annual_turnover_usd
      * @return $this
      */
-    public function setAnnualTurnoverUsd($annualTurnoverUsd)
+    public function setAnnualTurnoverUsd($annual_turnover_usd)
     {
-        $this->container['annualTurnoverUsd'] = $annualTurnoverUsd;
+        $this->container['annual_turnover_usd'] = $annual_turnover_usd;
 
         return $this;
     }
 
     /**
-     * Gets netIncome
+     * Gets net_income
      * @return int
      */
     public function getNetIncome()
     {
-        return $this->container['netIncome'];
+        return $this->container['net_income'];
     }
 
     /**
-     * Sets netIncome
-     * @param int $netIncome
+     * Sets net_income
+     * @param int $net_income
      * @return $this
      */
-    public function setNetIncome($netIncome)
+    public function setNetIncome($net_income)
     {
-        $this->container['netIncome'] = $netIncome;
+        $this->container['net_income'] = $net_income;
 
         return $this;
     }
 
     /**
-     * Gets netIncomeUsd
+     * Gets net_income_usd
      * @return int
      */
     public function getNetIncomeUsd()
     {
-        return $this->container['netIncomeUsd'];
+        return $this->container['net_income_usd'];
     }
 
     /**
-     * Sets netIncomeUsd
-     * @param int $netIncomeUsd
+     * Sets net_income_usd
+     * @param int $net_income_usd
      * @return $this
      */
-    public function setNetIncomeUsd($netIncomeUsd)
+    public function setNetIncomeUsd($net_income_usd)
     {
-        $this->container['netIncomeUsd'] = $netIncomeUsd;
+        $this->container['net_income_usd'] = $net_income_usd;
 
         return $this;
     }
 
     /**
-     * Gets netWorth
+     * Gets net_worth
      * @return int
      */
     public function getNetWorth()
     {
-        return $this->container['netWorth'];
+        return $this->container['net_worth'];
     }
 
     /**
-     * Sets netWorth
-     * @param int $netWorth
+     * Sets net_worth
+     * @param int $net_worth
      * @return $this
      */
-    public function setNetWorth($netWorth)
+    public function setNetWorth($net_worth)
     {
-        $this->container['netWorth'] = $netWorth;
+        $this->container['net_worth'] = $net_worth;
 
         return $this;
     }
 
     /**
-     * Gets netWorthUsd
+     * Gets net_worth_usd
      * @return int
      */
     public function getNetWorthUsd()
     {
-        return $this->container['netWorthUsd'];
+        return $this->container['net_worth_usd'];
     }
 
     /**
-     * Sets netWorthUsd
-     * @param int $netWorthUsd
+     * Sets net_worth_usd
+     * @param int $net_worth_usd
      * @return $this
      */
-    public function setNetWorthUsd($netWorthUsd)
+    public function setNetWorthUsd($net_worth_usd)
     {
-        $this->container['netWorthUsd'] = $netWorthUsd;
+        $this->container['net_worth_usd'] = $net_worth_usd;
 
         return $this;
     }
 
     /**
-     * Gets currencyCode
+     * Gets currency_code
      * @return string
      */
     public function getCurrencyCode()
     {
-        return $this->container['currencyCode'];
+        return $this->container['currency_code'];
     }
 
     /**
-     * Sets currencyCode
-     * @param string $currencyCode
+     * Sets currency_code
+     * @param string $currency_code
      * @return $this
      */
-    public function setCurrencyCode($currencyCode)
+    public function setCurrencyCode($currency_code)
     {
-        $this->container['currencyCode'] = $currencyCode;
+        $this->container['currency_code'] = $currency_code;
 
         return $this;
     }
 
     /**
-     * Gets currencyName
+     * Gets currency_name
      * @return string
      */
     public function getCurrencyName()
     {
-        return $this->container['currencyName'];
+        return $this->container['currency_name'];
     }
 
     /**
-     * Sets currencyName
-     * @param string $currencyName
+     * Sets currency_name
+     * @param string $currency_name
      * @return $this
      */
-    public function setCurrencyName($currencyName)
+    public function setCurrencyName($currency_name)
     {
-        $this->container['currencyName'] = $currencyName;
+        $this->container['currency_name'] = $currency_name;
 
         return $this;
     }
 
     /**
-     * Gets marketabilityCode
+     * Gets marketability_code
      * @return string
      */
     public function getMarketabilityCode()
     {
-        return $this->container['marketabilityCode'];
+        return $this->container['marketability_code'];
     }
 
     /**
-     * Sets marketabilityCode
-     * @param string $marketabilityCode
+     * Sets marketability_code
+     * @param string $marketability_code
      * @return $this
      */
-    public function setMarketabilityCode($marketabilityCode)
+    public function setMarketabilityCode($marketability_code)
     {
-        $this->container['marketabilityCode'] = $marketabilityCode;
+        $this->container['marketability_code'] = $marketability_code;
 
         return $this;
     }
 
     /**
-     * Gets marketabilityDescription
+     * Gets marketability_description
      * @return string
      */
     public function getMarketabilityDescription()
     {
-        return $this->container['marketabilityDescription'];
+        return $this->container['marketability_description'];
     }
 
     /**
-     * Sets marketabilityDescription
-     * @param string $marketabilityDescription
+     * Sets marketability_description
+     * @param string $marketability_description
      * @return $this
      */
-    public function setMarketabilityDescription($marketabilityDescription)
+    public function setMarketabilityDescription($marketability_description)
     {
-        $this->container['marketabilityDescription'] = $marketabilityDescription;
+        $this->container['marketability_description'] = $marketability_description;
 
         return $this;
     }
 
     /**
-     * Gets totalEmployees
+     * Gets total_employees
      * @return int
      */
     public function getTotalEmployees()
     {
-        return $this->container['totalEmployees'];
+        return $this->container['total_employees'];
     }
 
     /**
-     * Sets totalEmployees
-     * @param int $totalEmployees
+     * Sets total_employees
+     * @param int $total_employees
      * @return $this
      */
-    public function setTotalEmployees($totalEmployees)
+    public function setTotalEmployees($total_employees)
     {
-        $this->container['totalEmployees'] = $totalEmployees;
+        $this->container['total_employees'] = $total_employees;
 
         return $this;
     }
 
     /**
-     * Gets totalEmployeesIndicator
+     * Gets total_employees_indicator
      * @return string
      */
     public function getTotalEmployeesIndicator()
     {
-        return $this->container['totalEmployeesIndicator'];
+        return $this->container['total_employees_indicator'];
     }
 
     /**
-     * Sets totalEmployeesIndicator
-     * @param string $totalEmployeesIndicator
+     * Sets total_employees_indicator
+     * @param string $total_employees_indicator
      * @return $this
      */
-    public function setTotalEmployeesIndicator($totalEmployeesIndicator)
+    public function setTotalEmployeesIndicator($total_employees_indicator)
     {
-        $this->container['totalEmployeesIndicator'] = $totalEmployeesIndicator;
+        $this->container['total_employees_indicator'] = $total_employees_indicator;
 
         return $this;
     }
 
     /**
-     * Gets totalEmployeesIndicatorDescription
+     * Gets total_employees_indicator_description
      * @return string
      */
     public function getTotalEmployeesIndicatorDescription()
     {
-        return $this->container['totalEmployeesIndicatorDescription'];
+        return $this->container['total_employees_indicator_description'];
     }
 
     /**
-     * Sets totalEmployeesIndicatorDescription
-     * @param string $totalEmployeesIndicatorDescription
+     * Sets total_employees_indicator_description
+     * @param string $total_employees_indicator_description
      * @return $this
      */
-    public function setTotalEmployeesIndicatorDescription($totalEmployeesIndicatorDescription)
+    public function setTotalEmployeesIndicatorDescription($total_employees_indicator_description)
     {
-        $this->container['totalEmployeesIndicatorDescription'] = $totalEmployeesIndicatorDescription;
+        $this->container['total_employees_indicator_description'] = $total_employees_indicator_description;
 
         return $this;
     }
 
     /**
-     * Gets totalEmployeesPhysicalAddress
+     * Gets total_employees_physical_address
      * @return int
      */
     public function getTotalEmployeesPhysicalAddress()
     {
-        return $this->container['totalEmployeesPhysicalAddress'];
+        return $this->container['total_employees_physical_address'];
     }
 
     /**
-     * Sets totalEmployeesPhysicalAddress
-     * @param int $totalEmployeesPhysicalAddress
+     * Sets total_employees_physical_address
+     * @param int $total_employees_physical_address
      * @return $this
      */
-    public function setTotalEmployeesPhysicalAddress($totalEmployeesPhysicalAddress)
+    public function setTotalEmployeesPhysicalAddress($total_employees_physical_address)
     {
-        $this->container['totalEmployeesPhysicalAddress'] = $totalEmployeesPhysicalAddress;
+        $this->container['total_employees_physical_address'] = $total_employees_physical_address;
 
         return $this;
     }
 
     /**
-     * Gets totalEmployeesPhysicalAddressIndicator
+     * Gets total_employees_physical_address_indicator
      * @return string
      */
     public function getTotalEmployeesPhysicalAddressIndicator()
     {
-        return $this->container['totalEmployeesPhysicalAddressIndicator'];
+        return $this->container['total_employees_physical_address_indicator'];
     }
 
     /**
-     * Sets totalEmployeesPhysicalAddressIndicator
-     * @param string $totalEmployeesPhysicalAddressIndicator
+     * Sets total_employees_physical_address_indicator
+     * @param string $total_employees_physical_address_indicator
      * @return $this
      */
-    public function setTotalEmployeesPhysicalAddressIndicator($totalEmployeesPhysicalAddressIndicator)
+    public function setTotalEmployeesPhysicalAddressIndicator($total_employees_physical_address_indicator)
     {
-        $this->container['totalEmployeesPhysicalAddressIndicator'] = $totalEmployeesPhysicalAddressIndicator;
+        $this->container['total_employees_physical_address_indicator'] = $total_employees_physical_address_indicator;
 
         return $this;
     }
 
     /**
-     * Gets importExportIndicator
+     * Gets import_export_indicator
      * @return string
      */
     public function getImportExportIndicator()
     {
-        return $this->container['importExportIndicator'];
+        return $this->container['import_export_indicator'];
     }
 
     /**
-     * Sets importExportIndicator
-     * @param string $importExportIndicator
+     * Sets import_export_indicator
+     * @param string $import_export_indicator
      * @return $this
      */
-    public function setImportExportIndicator($importExportIndicator)
+    public function setImportExportIndicator($import_export_indicator)
     {
-        $this->container['importExportIndicator'] = $importExportIndicator;
+        $this->container['import_export_indicator'] = $import_export_indicator;
 
         return $this;
     }
 
     /**
-     * Gets importExportIndicatorDescription
+     * Gets import_export_indicator_description
      * @return string
      */
     public function getImportExportIndicatorDescription()
     {
-        return $this->container['importExportIndicatorDescription'];
+        return $this->container['import_export_indicator_description'];
     }
 
     /**
-     * Sets importExportIndicatorDescription
-     * @param string $importExportIndicatorDescription
+     * Sets import_export_indicator_description
+     * @param string $import_export_indicator_description
      * @return $this
      */
-    public function setImportExportIndicatorDescription($importExportIndicatorDescription)
+    public function setImportExportIndicatorDescription($import_export_indicator_description)
     {
-        $this->container['importExportIndicatorDescription'] = $importExportIndicatorDescription;
+        $this->container['import_export_indicator_description'] = $import_export_indicator_description;
 
         return $this;
     }
 
     /**
-     * Gets legalFormCode
+     * Gets legal_form_code
      * @return int
      */
     public function getLegalFormCode()
     {
-        return $this->container['legalFormCode'];
+        return $this->container['legal_form_code'];
     }
 
     /**
-     * Sets legalFormCode
-     * @param int $legalFormCode
+     * Sets legal_form_code
+     * @param int $legal_form_code
      * @return $this
      */
-    public function setLegalFormCode($legalFormCode)
+    public function setLegalFormCode($legal_form_code)
     {
-        $this->container['legalFormCode'] = $legalFormCode;
+        $this->container['legal_form_code'] = $legal_form_code;
 
         return $this;
     }
 
     /**
-     * Gets legalFormDescription
+     * Gets legal_form_description
      * @return string
      */
     public function getLegalFormDescription()
     {
-        return $this->container['legalFormDescription'];
+        return $this->container['legal_form_description'];
     }
 
     /**
-     * Sets legalFormDescription
-     * @param string $legalFormDescription
+     * Sets legal_form_description
+     * @param string $legal_form_description
      * @return $this
      */
-    public function setLegalFormDescription($legalFormDescription)
+    public function setLegalFormDescription($legal_form_description)
     {
-        $this->container['legalFormDescription'] = $legalFormDescription;
+        $this->container['legal_form_description'] = $legal_form_description;
 
         return $this;
     }
 
     /**
-     * Gets businessStructureCode
+     * Gets business_structure_code
      * @return string
      */
     public function getBusinessStructureCode()
     {
-        return $this->container['businessStructureCode'];
+        return $this->container['business_structure_code'];
     }
 
     /**
-     * Sets businessStructureCode
-     * @param string $businessStructureCode
+     * Sets business_structure_code
+     * @param string $business_structure_code
      * @return $this
      */
-    public function setBusinessStructureCode($businessStructureCode)
+    public function setBusinessStructureCode($business_structure_code)
     {
-        $this->container['businessStructureCode'] = $businessStructureCode;
+        $this->container['business_structure_code'] = $business_structure_code;
 
         return $this;
     }
 
     /**
-     * Gets businessStructureDescription
+     * Gets business_structure_description
      * @return string
      */
     public function getBusinessStructureDescription()
     {
-        return $this->container['businessStructureDescription'];
+        return $this->container['business_structure_description'];
     }
 
     /**
-     * Sets businessStructureDescription
-     * @param string $businessStructureDescription
+     * Sets business_structure_description
+     * @param string $business_structure_description
      * @return $this
      */
-    public function setBusinessStructureDescription($businessStructureDescription)
+    public function setBusinessStructureDescription($business_structure_description)
     {
-        $this->container['businessStructureDescription'] = $businessStructureDescription;
+        $this->container['business_structure_description'] = $business_structure_description;
 
         return $this;
     }
 
     /**
-     * Gets businessRegistrationNumberCode
+     * Gets business_registration_number_code
      * @return string
      */
     public function getBusinessRegistrationNumberCode()
     {
-        return $this->container['businessRegistrationNumberCode'];
+        return $this->container['business_registration_number_code'];
     }
 
     /**
-     * Sets businessRegistrationNumberCode
-     * @param string $businessRegistrationNumberCode
+     * Sets business_registration_number_code
+     * @param string $business_registration_number_code
      * @return $this
      */
-    public function setBusinessRegistrationNumberCode($businessRegistrationNumberCode)
+    public function setBusinessRegistrationNumberCode($business_registration_number_code)
     {
-        $this->container['businessRegistrationNumberCode'] = $businessRegistrationNumberCode;
+        $this->container['business_registration_number_code'] = $business_registration_number_code;
 
         return $this;
     }
 
     /**
-     * Gets businessRegistrationNumberCodeDescription
+     * Gets business_registration_number_code_description
      * @return string
      */
     public function getBusinessRegistrationNumberCodeDescription()
     {
-        return $this->container['businessRegistrationNumberCodeDescription'];
+        return $this->container['business_registration_number_code_description'];
     }
 
     /**
-     * Sets businessRegistrationNumberCodeDescription
-     * @param string $businessRegistrationNumberCodeDescription
+     * Sets business_registration_number_code_description
+     * @param string $business_registration_number_code_description
      * @return $this
      */
-    public function setBusinessRegistrationNumberCodeDescription($businessRegistrationNumberCodeDescription)
+    public function setBusinessRegistrationNumberCodeDescription($business_registration_number_code_description)
     {
-        $this->container['businessRegistrationNumberCodeDescription'] = $businessRegistrationNumberCodeDescription;
+        $this->container['business_registration_number_code_description'] = $business_registration_number_code_description;
 
         return $this;
     }
 
     /**
-     * Gets undeliverableIndicator
+     * Gets undeliverable_indicator
      * @return string
      */
     public function getUndeliverableIndicator()
     {
-        return $this->container['undeliverableIndicator'];
+        return $this->container['undeliverable_indicator'];
     }
 
     /**
-     * Sets undeliverableIndicator
-     * @param string $undeliverableIndicator
+     * Sets undeliverable_indicator
+     * @param string $undeliverable_indicator
      * @return $this
      */
-    public function setUndeliverableIndicator($undeliverableIndicator)
+    public function setUndeliverableIndicator($undeliverable_indicator)
     {
-        $this->container['undeliverableIndicator'] = $undeliverableIndicator;
+        $this->container['undeliverable_indicator'] = $undeliverable_indicator;
 
         return $this;
     }
 
     /**
-     * Gets undeliverableDescription
+     * Gets undeliverable_description
      * @return string
      */
     public function getUndeliverableDescription()
     {
-        return $this->container['undeliverableDescription'];
+        return $this->container['undeliverable_description'];
     }
 
     /**
-     * Sets undeliverableDescription
-     * @param string $undeliverableDescription
+     * Sets undeliverable_description
+     * @param string $undeliverable_description
      * @return $this
      */
-    public function setUndeliverableDescription($undeliverableDescription)
+    public function setUndeliverableDescription($undeliverable_description)
     {
-        $this->container['undeliverableDescription'] = $undeliverableDescription;
+        $this->container['undeliverable_description'] = $undeliverable_description;
 
         return $this;
     }
 
     /**
-     * Gets financialStatementDate
+     * Gets financial_statement_date
      * @return \DateTime
      */
     public function getFinancialStatementDate()
     {
-        return $this->container['financialStatementDate'];
+        return $this->container['financial_statement_date'];
     }
 
     /**
-     * Sets financialStatementDate
-     * @param \DateTime $financialStatementDate
+     * Sets financial_statement_date
+     * @param \DateTime $financial_statement_date
      * @return $this
      */
-    public function setFinancialStatementDate($financialStatementDate)
+    public function setFinancialStatementDate($financial_statement_date)
     {
-        $this->container['financialStatementDate'] = $financialStatementDate;
+        $this->container['financial_statement_date'] = $financial_statement_date;
 
         return $this;
     }
 
     /**
-     * Gets reportDate
+     * Gets report_date
      * @return \DateTime
      */
     public function getReportDate()
     {
-        return $this->container['reportDate'];
+        return $this->container['report_date'];
     }
 
     /**
-     * Sets reportDate
-     * @param \DateTime $reportDate
+     * Sets report_date
+     * @param \DateTime $report_date
      * @return $this
      */
-    public function setReportDate($reportDate)
+    public function setReportDate($report_date)
     {
-        $this->container['reportDate'] = $reportDate;
+        $this->container['report_date'] = $report_date;
 
         return $this;
     }
 
     /**
-     * Gets isOnlyAvailableAddress
+     * Gets is_only_available_address
      * @return bool
      */
     public function getIsOnlyAvailableAddress()
     {
-        return $this->container['isOnlyAvailableAddress'];
+        return $this->container['is_only_available_address'];
     }
 
     /**
-     * Sets isOnlyAvailableAddress
-     * @param bool $isOnlyAvailableAddress
+     * Sets is_only_available_address
+     * @param bool $is_only_available_address
      * @return $this
      */
-    public function setIsOnlyAvailableAddress($isOnlyAvailableAddress)
+    public function setIsOnlyAvailableAddress($is_only_available_address)
     {
-        $this->container['isOnlyAvailableAddress'] = $isOnlyAvailableAddress;
+        $this->container['is_only_available_address'] = $is_only_available_address;
 
         return $this;
     }
 
     /**
-     * Gets isSubsidiary
+     * Gets is_subsidiary
      * @return bool
      */
     public function getIsSubsidiary()
     {
-        return $this->container['isSubsidiary'];
+        return $this->container['is_subsidiary'];
     }
 
     /**
-     * Sets isSubsidiary
-     * @param bool $isSubsidiary
+     * Sets is_subsidiary
+     * @param bool $is_subsidiary
      * @return $this
      */
-    public function setIsSubsidiary($isSubsidiary)
+    public function setIsSubsidiary($is_subsidiary)
     {
-        $this->container['isSubsidiary'] = $isSubsidiary;
+        $this->container['is_subsidiary'] = $is_subsidiary;
 
         return $this;
     }
 
     /**
-     * Gets totalEmployeesIncludingPrincipalsIndicator
+     * Gets total_employees_including_principals_indicator
      * @return bool
      */
     public function getTotalEmployeesIncludingPrincipalsIndicator()
     {
-        return $this->container['totalEmployeesIncludingPrincipalsIndicator'];
+        return $this->container['total_employees_including_principals_indicator'];
     }
 
     /**
-     * Sets totalEmployeesIncludingPrincipalsIndicator
-     * @param bool $totalEmployeesIncludingPrincipalsIndicator
+     * Sets total_employees_including_principals_indicator
+     * @param bool $total_employees_including_principals_indicator
      * @return $this
      */
-    public function setTotalEmployeesIncludingPrincipalsIndicator($totalEmployeesIncludingPrincipalsIndicator)
+    public function setTotalEmployeesIncludingPrincipalsIndicator($total_employees_including_principals_indicator)
     {
-        $this->container['totalEmployeesIncludingPrincipalsIndicator'] = $totalEmployeesIncludingPrincipalsIndicator;
+        $this->container['total_employees_including_principals_indicator'] = $total_employees_including_principals_indicator;
 
         return $this;
     }
 
     /**
-     * Gets isOutOfBusiness
+     * Gets is_out_of_business
      * @return bool
      */
     public function getIsOutOfBusiness()
     {
-        return $this->container['isOutOfBusiness'];
+        return $this->container['is_out_of_business'];
     }
 
     /**
-     * Sets isOutOfBusiness
-     * @param bool $isOutOfBusiness
+     * Sets is_out_of_business
+     * @param bool $is_out_of_business
      * @return $this
      */
-    public function setIsOutOfBusiness($isOutOfBusiness)
+    public function setIsOutOfBusiness($is_out_of_business)
     {
-        $this->container['isOutOfBusiness'] = $isOutOfBusiness;
+        $this->container['is_out_of_business'] = $is_out_of_business;
 
         return $this;
     }

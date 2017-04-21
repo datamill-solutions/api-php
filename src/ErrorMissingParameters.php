@@ -69,7 +69,7 @@ class ErrorMissingParameters implements ArrayAccess
     protected static $swaggerTypes = [
         'errorcode' => 'int',
         'errormessage' => 'string',
-        'errorDescription' => 'object'
+        'error_description' => 'object'
     ];
 
     public static function swaggerTypes()
@@ -84,7 +84,7 @@ class ErrorMissingParameters implements ArrayAccess
     protected static $attributeMap = [
         'errorcode' => 'errorcode',
         'errormessage' => 'errormessage',
-        'errorDescription' => 'error_description'
+        'error_description' => 'error_description'
     ];
 
 
@@ -95,7 +95,7 @@ class ErrorMissingParameters implements ArrayAccess
     protected static $setters = [
         'errorcode' => 'setErrorcode',
         'errormessage' => 'setErrormessage',
-        'errorDescription' => 'setErrorDescription'
+        'error_description' => 'setErrorDescription'
     ];
 
 
@@ -106,7 +106,7 @@ class ErrorMissingParameters implements ArrayAccess
     protected static $getters = [
         'errorcode' => 'getErrorcode',
         'errormessage' => 'getErrormessage',
-        'errorDescription' => 'getErrorDescription'
+        'error_description' => 'getErrorDescription'
     ];
 
     public static function attributeMap()
@@ -142,7 +142,7 @@ class ErrorMissingParameters implements ArrayAccess
     {
         $this->container['errorcode'] = isset($data['errorcode']) ? $data['errorcode'] : null;
         $this->container['errormessage'] = isset($data['errormessage']) ? $data['errormessage'] : null;
-        $this->container['errorDescription'] = isset($data['errorDescription']) ? $data['errorDescription'] : null;
+        $this->container['error_description'] = isset($data['error_description']) ? $data['error_description'] : null;
     }
 
     /**
@@ -159,8 +159,8 @@ class ErrorMissingParameters implements ArrayAccess
         if ($this->container['errormessage'] === null) {
             $invalid_properties[] = "'errormessage' can't be null";
         }
-        if ($this->container['errorDescription'] === null) {
-            $invalid_properties[] = "'errorDescription' can't be null";
+        if ($this->container['error_description'] === null) {
+            $invalid_properties[] = "'error_description' can't be null";
         }
         return $invalid_properties;
     }
@@ -179,7 +179,7 @@ class ErrorMissingParameters implements ArrayAccess
         if ($this->container['errormessage'] === null) {
             return false;
         }
-        if ($this->container['errorDescription'] === null) {
+        if ($this->container['error_description'] === null) {
             return false;
         }
         return true;
@@ -229,22 +229,22 @@ class ErrorMissingParameters implements ArrayAccess
     }
 
     /**
-     * Gets errorDescription
+     * Gets error_description
      * @return object
      */
     public function getErrorDescription()
     {
-        return $this->container['errorDescription'];
+        return $this->container['error_description'];
     }
 
     /**
-     * Sets errorDescription
-     * @param object $errorDescription
+     * Sets error_description
+     * @param object $error_description
      * @return $this
      */
-    public function setErrorDescription($errorDescription)
+    public function setErrorDescription($error_description)
     {
-        $this->container['errorDescription'] = $errorDescription;
+        $this->container['error_description'] = $error_description;
 
         return $this;
     }

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **searchUndeliverableContact**
-> \DataMill\BusinessDataUndeliverableContactsResponse searchUndeliverableContact($license, $guid, $firstName, $lastName, $countryCode, $zip, $street, $reason)
+> \DataMill\BusinessDataUndeliverableContactsResponse searchUndeliverableContact($license, $guid, $first_name, $last_name, $country_code, $zip, $street, $reason)
 
 Find moved and deceased contacts
 
@@ -22,15 +22,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new DataMill\Api\DeliveryInformationApi();
 $license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$firstName = "firstName_example"; // string | The person's first name
-$lastName = "lastName_example"; // string | The person's last name
-$countryCode = "countryCode_example"; // string | ISO 3166-1 alpha-2 country code e.g. 'US'. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information.
+$first_name = "first_name_example"; // string | The person's first name
+$last_name = "last_name_example"; // string | The person's last name
+$country_code = "country_code_example"; // string | ISO 3166-1 alpha-2 country code e.g. 'US'. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information.
 $zip = "zip_example"; // string | Last known postal code the person lives in
 $street = "street_example"; // string | Last known street name the person lives in
 $reason = "reason_example"; // string | Free-form text written in english why you submit the query.
 
 try {
-    $result = $api_instance->searchUndeliverableContact($license, $guid, $firstName, $lastName, $countryCode, $zip, $street, $reason);
+    $result = $api_instance->searchUndeliverableContact($license, $guid, $first_name, $last_name, $country_code, $zip, $street, $reason);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryInformationApi->searchUndeliverableContact: ', $e->getMessage(), PHP_EOL;
@@ -44,9 +44,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **firstName** | **string**| The person&#39;s first name |
- **lastName** | **string**| The person&#39;s last name |
- **countryCode** | **string**| ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. |
+ **first_name** | **string**| The person&#39;s first name |
+ **last_name** | **string**| The person&#39;s last name |
+ **country_code** | **string**| ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. |
  **zip** | **string**| Last known postal code the person lives in |
  **street** | **string**| Last known street name the person lives in |
  **reason** | **string**| Free-form text written in english why you submit the query. |

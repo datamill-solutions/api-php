@@ -78,9 +78,9 @@ class VatResolveResponse implements ArrayAccess
         'zip' => 'string',
         'street' => 'string',
         'housenumber' => 'string',
-        'additionalData' => 'string',
-        'rawAddress' => 'string',
-        'countrycodeIso3' => 'string',
+        'additional_data' => 'string',
+        'raw_address' => 'string',
+        'countrycode_iso_3' => 'string',
         'relevance' => 'string',
         'latitude' => 'string',
         'longitude' => 'string',
@@ -108,9 +108,9 @@ class VatResolveResponse implements ArrayAccess
         'zip' => 'zip',
         'street' => 'street',
         'housenumber' => 'housenumber',
-        'additionalData' => 'additional_data',
-        'rawAddress' => 'raw_address',
-        'countrycodeIso3' => 'countrycode_iso_3',
+        'additional_data' => 'additional_data',
+        'raw_address' => 'raw_address',
+        'countrycode_iso_3' => 'countrycode_iso_3',
         'relevance' => 'relevance',
         'latitude' => 'latitude',
         'longitude' => 'longitude',
@@ -134,9 +134,9 @@ class VatResolveResponse implements ArrayAccess
         'zip' => 'setZip',
         'street' => 'setStreet',
         'housenumber' => 'setHousenumber',
-        'additionalData' => 'setAdditionalData',
-        'rawAddress' => 'setRawAddress',
-        'countrycodeIso3' => 'setCountrycodeIso3',
+        'additional_data' => 'setAdditionalData',
+        'raw_address' => 'setRawAddress',
+        'countrycode_iso_3' => 'setCountrycodeIso3',
         'relevance' => 'setRelevance',
         'latitude' => 'setLatitude',
         'longitude' => 'setLongitude',
@@ -160,9 +160,9 @@ class VatResolveResponse implements ArrayAccess
         'zip' => 'getZip',
         'street' => 'getStreet',
         'housenumber' => 'getHousenumber',
-        'additionalData' => 'getAdditionalData',
-        'rawAddress' => 'getRawAddress',
-        'countrycodeIso3' => 'getCountrycodeIso3',
+        'additional_data' => 'getAdditionalData',
+        'raw_address' => 'getRawAddress',
+        'countrycode_iso_3' => 'getCountrycodeIso3',
         'relevance' => 'getRelevance',
         'latitude' => 'getLatitude',
         'longitude' => 'getLongitude',
@@ -211,9 +211,9 @@ class VatResolveResponse implements ArrayAccess
         $this->container['zip'] = isset($data['zip']) ? $data['zip'] : null;
         $this->container['street'] = isset($data['street']) ? $data['street'] : null;
         $this->container['housenumber'] = isset($data['housenumber']) ? $data['housenumber'] : null;
-        $this->container['additionalData'] = isset($data['additionalData']) ? $data['additionalData'] : null;
-        $this->container['rawAddress'] = isset($data['rawAddress']) ? $data['rawAddress'] : null;
-        $this->container['countrycodeIso3'] = isset($data['countrycodeIso3']) ? $data['countrycodeIso3'] : null;
+        $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
+        $this->container['raw_address'] = isset($data['raw_address']) ? $data['raw_address'] : null;
+        $this->container['countrycode_iso_3'] = isset($data['countrycode_iso_3']) ? $data['countrycode_iso_3'] : null;
         $this->container['relevance'] = isset($data['relevance']) ? $data['relevance'] : null;
         $this->container['latitude'] = isset($data['latitude']) ? $data['latitude'] : null;
         $this->container['longitude'] = isset($data['longitude']) ? $data['longitude'] : null;
@@ -261,14 +261,14 @@ class VatResolveResponse implements ArrayAccess
         if ($this->container['housenumber'] === null) {
             $invalid_properties[] = "'housenumber' can't be null";
         }
-        if ($this->container['additionalData'] === null) {
-            $invalid_properties[] = "'additionalData' can't be null";
+        if ($this->container['additional_data'] === null) {
+            $invalid_properties[] = "'additional_data' can't be null";
         }
-        if ($this->container['rawAddress'] === null) {
-            $invalid_properties[] = "'rawAddress' can't be null";
+        if ($this->container['raw_address'] === null) {
+            $invalid_properties[] = "'raw_address' can't be null";
         }
-        if ($this->container['countrycodeIso3'] === null) {
-            $invalid_properties[] = "'countrycodeIso3' can't be null";
+        if ($this->container['countrycode_iso_3'] === null) {
+            $invalid_properties[] = "'countrycode_iso_3' can't be null";
         }
         if ($this->container['relevance'] === null) {
             $invalid_properties[] = "'relevance' can't be null";
@@ -326,13 +326,13 @@ class VatResolveResponse implements ArrayAccess
         if ($this->container['housenumber'] === null) {
             return false;
         }
-        if ($this->container['additionalData'] === null) {
+        if ($this->container['additional_data'] === null) {
             return false;
         }
-        if ($this->container['rawAddress'] === null) {
+        if ($this->container['raw_address'] === null) {
             return false;
         }
-        if ($this->container['countrycodeIso3'] === null) {
+        if ($this->container['countrycode_iso_3'] === null) {
             return false;
         }
         if ($this->container['relevance'] === null) {
@@ -583,64 +583,64 @@ class VatResolveResponse implements ArrayAccess
     }
 
     /**
-     * Gets additionalData
+     * Gets additional_data
      * @return string
      */
     public function getAdditionalData()
     {
-        return $this->container['additionalData'];
+        return $this->container['additional_data'];
     }
 
     /**
-     * Sets additionalData
-     * @param string $additionalData
+     * Sets additional_data
+     * @param string $additional_data
      * @return $this
      */
-    public function setAdditionalData($additionalData)
+    public function setAdditionalData($additional_data)
     {
-        $this->container['additionalData'] = $additionalData;
+        $this->container['additional_data'] = $additional_data;
 
         return $this;
     }
 
     /**
-     * Gets rawAddress
+     * Gets raw_address
      * @return string
      */
     public function getRawAddress()
     {
-        return $this->container['rawAddress'];
+        return $this->container['raw_address'];
     }
 
     /**
-     * Sets rawAddress
-     * @param string $rawAddress
+     * Sets raw_address
+     * @param string $raw_address
      * @return $this
      */
-    public function setRawAddress($rawAddress)
+    public function setRawAddress($raw_address)
     {
-        $this->container['rawAddress'] = $rawAddress;
+        $this->container['raw_address'] = $raw_address;
 
         return $this;
     }
 
     /**
-     * Gets countrycodeIso3
+     * Gets countrycode_iso_3
      * @return string
      */
     public function getCountrycodeIso3()
     {
-        return $this->container['countrycodeIso3'];
+        return $this->container['countrycode_iso_3'];
     }
 
     /**
-     * Sets countrycodeIso3
-     * @param string $countrycodeIso3
+     * Sets countrycode_iso_3
+     * @param string $countrycode_iso_3
      * @return $this
      */
-    public function setCountrycodeIso3($countrycodeIso3)
+    public function setCountrycodeIso3($countrycode_iso_3)
     {
-        $this->container['countrycodeIso3'] = $countrycodeIso3;
+        $this->container['countrycode_iso_3'] = $countrycode_iso_3;
 
         return $this;
     }

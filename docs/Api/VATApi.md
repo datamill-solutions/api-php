@@ -110,7 +110,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchVAT**
-> \DataMill\VatSearchResponse searchVAT($license, $guid, $company, $city, $countryCode, $limit, $minScore)
+> \DataMill\VatSearchResponse searchVAT($license, $guid, $company, $city, $country_code, $limit, $min_score)
 
 Find VAT number and company information by name
 
@@ -126,12 +126,12 @@ $license = "license_example"; // string | The license key is part of the authent
 $guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $company = "company_example"; // string | The name of an company. You may enter the fully qualified name or only partial information.
 $city = "city_example"; // string | The city where the company's headquarters is located.
-$countryCode = "countryCode_example"; // string | ISO 3166-1 alpha-2 country code to specify in which country to look for. Possible countries are: **AT, BE, CZ, DK, FI, GB, GR, HU, IT, LU, MT, SI**
+$country_code = "country_code_example"; // string | ISO 3166-1 alpha-2 country code to specify in which country to look for. Possible countries are: **AT, BE, CZ, DK, FI, GB, GR, HU, IT, LU, MT, SI**
 $limit = "10"; // string | The maximum amount of results returned if multiple companies are found. Default value is **10**.
-$minScore = "0.8"; // string | Threshold to set the minimum score rate of results being returned. Default: **0.8**
+$min_score = "0.8"; // string | Threshold to set the minimum score rate of results being returned. Default: **0.8**
 
 try {
-    $result = $api_instance->searchVAT($license, $guid, $company, $city, $countryCode, $limit, $minScore);
+    $result = $api_instance->searchVAT($license, $guid, $company, $city, $country_code, $limit, $min_score);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VATApi->searchVAT: ', $e->getMessage(), PHP_EOL;
@@ -147,9 +147,9 @@ Name | Type | Description  | Notes
  **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **company** | **string**| The name of an company. You may enter the fully qualified name or only partial information. |
  **city** | **string**| The city where the company&#39;s headquarters is located. | [optional]
- **countryCode** | **string**| ISO 3166-1 alpha-2 country code to specify in which country to look for. Possible countries are: **AT, BE, CZ, DK, FI, GB, GR, HU, IT, LU, MT, SI** | [optional]
+ **country_code** | **string**| ISO 3166-1 alpha-2 country code to specify in which country to look for. Possible countries are: **AT, BE, CZ, DK, FI, GB, GR, HU, IT, LU, MT, SI** | [optional]
  **limit** | **string**| The maximum amount of results returned if multiple companies are found. Default value is **10**. | [optional] [default to 10]
- **minScore** | **string**| Threshold to set the minimum score rate of results being returned. Default: **0.8** | [optional] [default to 0.8]
+ **min_score** | **string**| Threshold to set the minimum score rate of results being returned. Default: **0.8** | [optional] [default to 0.8]
 
 ### Return type
 

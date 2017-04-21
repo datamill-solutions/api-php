@@ -68,7 +68,7 @@ class EmailSyntaxCheckResponse implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'valid' => 'string',
-        'statusCode' => 'string'
+        'status_code' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -82,7 +82,7 @@ class EmailSyntaxCheckResponse implements ArrayAccess
      */
     protected static $attributeMap = [
         'valid' => 'valid',
-        'statusCode' => 'status_code'
+        'status_code' => 'status_code'
     ];
 
 
@@ -92,7 +92,7 @@ class EmailSyntaxCheckResponse implements ArrayAccess
      */
     protected static $setters = [
         'valid' => 'setValid',
-        'statusCode' => 'setStatusCode'
+        'status_code' => 'setStatusCode'
     ];
 
 
@@ -102,7 +102,7 @@ class EmailSyntaxCheckResponse implements ArrayAccess
      */
     protected static $getters = [
         'valid' => 'getValid',
-        'statusCode' => 'getStatusCode'
+        'status_code' => 'getStatusCode'
     ];
 
     public static function attributeMap()
@@ -165,7 +165,7 @@ class EmailSyntaxCheckResponse implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['valid'] = isset($data['valid']) ? $data['valid'] : null;
-        $this->container['statusCode'] = isset($data['statusCode']) ? $data['statusCode'] : null;
+        $this->container['status_code'] = isset($data['status_code']) ? $data['status_code'] : null;
     }
 
     /**
@@ -184,12 +184,12 @@ class EmailSyntaxCheckResponse implements ArrayAccess
             $invalid_properties[] = "invalid value for 'valid', must be one of '0', '1'.";
         }
 
-        if ($this->container['statusCode'] === null) {
-            $invalid_properties[] = "'statusCode' can't be null";
+        if ($this->container['status_code'] === null) {
+            $invalid_properties[] = "'status_code' can't be null";
         }
         $allowed_values = ["1", "10"];
-        if (!in_array($this->container['statusCode'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'statusCode', must be one of '1', '10'.";
+        if (!in_array($this->container['status_code'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'status_code', must be one of '1', '10'.";
         }
 
         return $invalid_properties;
@@ -210,11 +210,11 @@ class EmailSyntaxCheckResponse implements ArrayAccess
         if (!in_array($this->container['valid'], $allowed_values)) {
             return false;
         }
-        if ($this->container['statusCode'] === null) {
+        if ($this->container['status_code'] === null) {
             return false;
         }
         $allowed_values = ["1", "10"];
-        if (!in_array($this->container['statusCode'], $allowed_values)) {
+        if (!in_array($this->container['status_code'], $allowed_values)) {
             return false;
         }
         return true;
@@ -247,26 +247,26 @@ class EmailSyntaxCheckResponse implements ArrayAccess
     }
 
     /**
-     * Gets statusCode
+     * Gets status_code
      * @return string
      */
     public function getStatusCode()
     {
-        return $this->container['statusCode'];
+        return $this->container['status_code'];
     }
 
     /**
-     * Sets statusCode
-     * @param string $statusCode Unique status code for each possible validation state. '10' for invalid and '1' for valid syntax.
+     * Sets status_code
+     * @param string $status_code Unique status code for each possible validation state. '10' for invalid and '1' for valid syntax.
      * @return $this
      */
-    public function setStatusCode($statusCode)
+    public function setStatusCode($status_code)
     {
         $allowed_values = array('1', '10');
-        if ((!in_array($statusCode, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'statusCode', must be one of '1', '10'");
+        if ((!in_array($status_code, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'status_code', must be one of '1', '10'");
         }
-        $this->container['statusCode'] = $statusCode;
+        $this->container['status_code'] = $status_code;
 
         return $this;
     }

@@ -112,7 +112,7 @@ class EmailExtendedCheckResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "statusCode"
+     * Test attribute "status_code"
      */
     public function testPropertyStatusCode()
     {

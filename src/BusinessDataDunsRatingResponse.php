@@ -68,64 +68,64 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'status' => 'string',
-        'statusDescription' => 'string',
-        'dunsNumber' => 'string',
-        'companyName' => 'string',
-        'continentName' => 'string',
-        'countryCode' => 'string',
-        'countryCode3' => 'string',
-        'countryName' => 'string',
+        'status_description' => 'string',
+        'duns_number' => 'string',
+        'company_name' => 'string',
+        'continent_name' => 'string',
+        'country_code' => 'string',
+        'country_code_3' => 'string',
+        'country_name' => 'string',
         'zip' => 'string',
         'city' => 'string',
         'street' => 'string',
-        'houseNumber' => 'string',
-        'phoneNumber' => 'string',
-        'faxNumber' => 'string',
-        'stateName' => 'string',
-        'ceoName' => 'string',
-        'ceoTitle' => 'string',
-        'sicCode' => 'string',
-        'sicDescription' => 'string',
-        'sicVersion' => 'string',
-        'yearStarted' => 'string',
-        'netWorth' => 'int',
-        'currencyCode' => 'string',
-        'currencyName' => 'string',
-        'totalEmployees' => 'int',
-        'totalEmployeesIndicator' => 'string',
-        'totalEmployeesIndicatorDescription' => 'string',
-        'legalFormCode' => 'int',
-        'legalFormDescription' => 'string',
-        'reportDate' => '\DateTime',
-        'isOutOfBusiness' => 'bool',
-        'isBranch' => 'bool',
-        'businessRegistrationNumber' => 'string',
-        'businessRegistrationType' => 'string',
-        'incorporationYear' => 'string',
-        'tradeStyles' => 'string[]',
-        'enquiryDuns' => 'string',
+        'house_number' => 'string',
+        'phone_number' => 'string',
+        'fax_number' => 'string',
+        'state_name' => 'string',
+        'ceo_name' => 'string',
+        'ceo_title' => 'string',
+        'sic_code' => 'string',
+        'sic_description' => 'string',
+        'sic_version' => 'string',
+        'year_started' => 'string',
+        'net_worth' => 'int',
+        'currency_code' => 'string',
+        'currency_name' => 'string',
+        'total_employees' => 'int',
+        'total_employees_indicator' => 'string',
+        'total_employees_indicator_description' => 'string',
+        'legal_form_code' => 'int',
+        'legal_form_description' => 'string',
+        'report_date' => '\DateTime',
+        'is_out_of_business' => 'bool',
+        'is_branch' => 'bool',
+        'business_registration_number' => 'string',
+        'business_registration_type' => 'string',
+        'incorporation_year' => 'string',
+        'trade_styles' => 'string[]',
+        'enquiry_duns' => 'string',
         'sales' => 'int',
-        'salesEstimatedDescription' => 'string',
-        'paydexScore' => 'int',
-        'paydexScoreDescription' => 'string',
-        'paydexNorm' => 'int',
-        'intangibleAssets' => 'int',
-        'maxCreditRecommendation' => 'int',
-        'dubRating' => 'string',
-        'dubRatingFinancialStrength' => 'string',
-        'dubRatingRisk' => 'string',
-        'dubRatingRiskDescription' => 'string',
-        'hasOpenClaims' => 'bool',
-        'hasCriminalProceedings' => 'bool',
-        'hasDisasterEvent' => 'bool',
-        'hasFinancialEmbarrassment' => 'bool',
-        'hasFinancialLegalEvent' => 'bool',
-        'hasSpecialEvent' => 'bool',
-        'hasOtherEvent' => 'bool',
-        'hasSecuredFilings' => 'bool',
-        'hasLawsuit' => 'bool',
-        'areEmployeesEstimated' => 'bool',
-        'areSalesEstimated' => 'bool'
+        'sales_estimated_description' => 'string',
+        'paydex_score' => 'int',
+        'paydex_score_description' => 'string',
+        'paydex_norm' => 'int',
+        'intangible_assets' => 'int',
+        'max_credit_recommendation' => 'int',
+        'dub_rating' => 'string',
+        'dub_rating_financial_strength' => 'string',
+        'dub_rating_risk' => 'string',
+        'dub_rating_risk_description' => 'string',
+        'has_open_claims' => 'bool',
+        'has_criminal_proceedings' => 'bool',
+        'has_disaster_event' => 'bool',
+        'has_financial_embarrassment' => 'bool',
+        'has_financial_legal_event' => 'bool',
+        'has_special_event' => 'bool',
+        'has_other_event' => 'bool',
+        'has_secured_filings' => 'bool',
+        'has_lawsuit' => 'bool',
+        'are_employees_estimated' => 'bool',
+        'are_sales_estimated' => 'bool'
     ];
 
     public static function swaggerTypes()
@@ -139,64 +139,64 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
      */
     protected static $attributeMap = [
         'status' => 'status',
-        'statusDescription' => 'status_description',
-        'dunsNumber' => 'duns_number',
-        'companyName' => 'company_name',
-        'continentName' => 'continent_name',
-        'countryCode' => 'country_code',
-        'countryCode3' => 'country_code_3',
-        'countryName' => 'country_name',
+        'status_description' => 'status_description',
+        'duns_number' => 'duns_number',
+        'company_name' => 'company_name',
+        'continent_name' => 'continent_name',
+        'country_code' => 'country_code',
+        'country_code_3' => 'country_code_3',
+        'country_name' => 'country_name',
         'zip' => 'zip',
         'city' => 'city',
         'street' => 'street',
-        'houseNumber' => 'house_number',
-        'phoneNumber' => 'phone_number',
-        'faxNumber' => 'fax_number',
-        'stateName' => 'state_name',
-        'ceoName' => 'ceo_name',
-        'ceoTitle' => 'ceo_title',
-        'sicCode' => 'sic_code',
-        'sicDescription' => 'sic_description',
-        'sicVersion' => 'sic_version',
-        'yearStarted' => 'year_started',
-        'netWorth' => 'net_worth',
-        'currencyCode' => 'currency_code',
-        'currencyName' => 'currency_name',
-        'totalEmployees' => 'total_employees',
-        'totalEmployeesIndicator' => 'total_employees_indicator',
-        'totalEmployeesIndicatorDescription' => 'total_employees_indicator_description',
-        'legalFormCode' => 'legal_form_code',
-        'legalFormDescription' => 'legal_form_description',
-        'reportDate' => 'report_date',
-        'isOutOfBusiness' => 'is_out_of_business',
-        'isBranch' => 'is_branch',
-        'businessRegistrationNumber' => 'business_registration_number',
-        'businessRegistrationType' => 'business_registration_type',
-        'incorporationYear' => 'incorporation_year',
-        'tradeStyles' => 'trade_styles',
-        'enquiryDuns' => 'enquiry_duns',
+        'house_number' => 'house_number',
+        'phone_number' => 'phone_number',
+        'fax_number' => 'fax_number',
+        'state_name' => 'state_name',
+        'ceo_name' => 'ceo_name',
+        'ceo_title' => 'ceo_title',
+        'sic_code' => 'sic_code',
+        'sic_description' => 'sic_description',
+        'sic_version' => 'sic_version',
+        'year_started' => 'year_started',
+        'net_worth' => 'net_worth',
+        'currency_code' => 'currency_code',
+        'currency_name' => 'currency_name',
+        'total_employees' => 'total_employees',
+        'total_employees_indicator' => 'total_employees_indicator',
+        'total_employees_indicator_description' => 'total_employees_indicator_description',
+        'legal_form_code' => 'legal_form_code',
+        'legal_form_description' => 'legal_form_description',
+        'report_date' => 'report_date',
+        'is_out_of_business' => 'is_out_of_business',
+        'is_branch' => 'is_branch',
+        'business_registration_number' => 'business_registration_number',
+        'business_registration_type' => 'business_registration_type',
+        'incorporation_year' => 'incorporation_year',
+        'trade_styles' => 'trade_styles',
+        'enquiry_duns' => 'enquiry_duns',
         'sales' => 'sales',
-        'salesEstimatedDescription' => 'sales_estimated_description',
-        'paydexScore' => 'paydex_score',
-        'paydexScoreDescription' => 'paydex_score_description',
-        'paydexNorm' => 'paydex_norm',
-        'intangibleAssets' => 'intangible_assets',
-        'maxCreditRecommendation' => 'max_credit_recommendation',
-        'dubRating' => 'dub_rating',
-        'dubRatingFinancialStrength' => 'dub_rating_financial_strength',
-        'dubRatingRisk' => 'dub_rating_risk',
-        'dubRatingRiskDescription' => 'dub_rating_risk_description',
-        'hasOpenClaims' => 'has_open_claims',
-        'hasCriminalProceedings' => 'has_criminal_proceedings',
-        'hasDisasterEvent' => 'has_disaster_event',
-        'hasFinancialEmbarrassment' => 'has_financial_embarrassment',
-        'hasFinancialLegalEvent' => 'has_financial_legal_event',
-        'hasSpecialEvent' => 'has_special_event',
-        'hasOtherEvent' => 'has_other_event',
-        'hasSecuredFilings' => 'has_secured_filings',
-        'hasLawsuit' => 'has_lawsuit',
-        'areEmployeesEstimated' => 'are_employees_estimated',
-        'areSalesEstimated' => 'are_sales_estimated'
+        'sales_estimated_description' => 'sales_estimated_description',
+        'paydex_score' => 'paydex_score',
+        'paydex_score_description' => 'paydex_score_description',
+        'paydex_norm' => 'paydex_norm',
+        'intangible_assets' => 'intangible_assets',
+        'max_credit_recommendation' => 'max_credit_recommendation',
+        'dub_rating' => 'dub_rating',
+        'dub_rating_financial_strength' => 'dub_rating_financial_strength',
+        'dub_rating_risk' => 'dub_rating_risk',
+        'dub_rating_risk_description' => 'dub_rating_risk_description',
+        'has_open_claims' => 'has_open_claims',
+        'has_criminal_proceedings' => 'has_criminal_proceedings',
+        'has_disaster_event' => 'has_disaster_event',
+        'has_financial_embarrassment' => 'has_financial_embarrassment',
+        'has_financial_legal_event' => 'has_financial_legal_event',
+        'has_special_event' => 'has_special_event',
+        'has_other_event' => 'has_other_event',
+        'has_secured_filings' => 'has_secured_filings',
+        'has_lawsuit' => 'has_lawsuit',
+        'are_employees_estimated' => 'are_employees_estimated',
+        'are_sales_estimated' => 'are_sales_estimated'
     ];
 
 
@@ -206,64 +206,64 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
      */
     protected static $setters = [
         'status' => 'setStatus',
-        'statusDescription' => 'setStatusDescription',
-        'dunsNumber' => 'setDunsNumber',
-        'companyName' => 'setCompanyName',
-        'continentName' => 'setContinentName',
-        'countryCode' => 'setCountryCode',
-        'countryCode3' => 'setCountryCode3',
-        'countryName' => 'setCountryName',
+        'status_description' => 'setStatusDescription',
+        'duns_number' => 'setDunsNumber',
+        'company_name' => 'setCompanyName',
+        'continent_name' => 'setContinentName',
+        'country_code' => 'setCountryCode',
+        'country_code_3' => 'setCountryCode3',
+        'country_name' => 'setCountryName',
         'zip' => 'setZip',
         'city' => 'setCity',
         'street' => 'setStreet',
-        'houseNumber' => 'setHouseNumber',
-        'phoneNumber' => 'setPhoneNumber',
-        'faxNumber' => 'setFaxNumber',
-        'stateName' => 'setStateName',
-        'ceoName' => 'setCeoName',
-        'ceoTitle' => 'setCeoTitle',
-        'sicCode' => 'setSicCode',
-        'sicDescription' => 'setSicDescription',
-        'sicVersion' => 'setSicVersion',
-        'yearStarted' => 'setYearStarted',
-        'netWorth' => 'setNetWorth',
-        'currencyCode' => 'setCurrencyCode',
-        'currencyName' => 'setCurrencyName',
-        'totalEmployees' => 'setTotalEmployees',
-        'totalEmployeesIndicator' => 'setTotalEmployeesIndicator',
-        'totalEmployeesIndicatorDescription' => 'setTotalEmployeesIndicatorDescription',
-        'legalFormCode' => 'setLegalFormCode',
-        'legalFormDescription' => 'setLegalFormDescription',
-        'reportDate' => 'setReportDate',
-        'isOutOfBusiness' => 'setIsOutOfBusiness',
-        'isBranch' => 'setIsBranch',
-        'businessRegistrationNumber' => 'setBusinessRegistrationNumber',
-        'businessRegistrationType' => 'setBusinessRegistrationType',
-        'incorporationYear' => 'setIncorporationYear',
-        'tradeStyles' => 'setTradeStyles',
-        'enquiryDuns' => 'setEnquiryDuns',
+        'house_number' => 'setHouseNumber',
+        'phone_number' => 'setPhoneNumber',
+        'fax_number' => 'setFaxNumber',
+        'state_name' => 'setStateName',
+        'ceo_name' => 'setCeoName',
+        'ceo_title' => 'setCeoTitle',
+        'sic_code' => 'setSicCode',
+        'sic_description' => 'setSicDescription',
+        'sic_version' => 'setSicVersion',
+        'year_started' => 'setYearStarted',
+        'net_worth' => 'setNetWorth',
+        'currency_code' => 'setCurrencyCode',
+        'currency_name' => 'setCurrencyName',
+        'total_employees' => 'setTotalEmployees',
+        'total_employees_indicator' => 'setTotalEmployeesIndicator',
+        'total_employees_indicator_description' => 'setTotalEmployeesIndicatorDescription',
+        'legal_form_code' => 'setLegalFormCode',
+        'legal_form_description' => 'setLegalFormDescription',
+        'report_date' => 'setReportDate',
+        'is_out_of_business' => 'setIsOutOfBusiness',
+        'is_branch' => 'setIsBranch',
+        'business_registration_number' => 'setBusinessRegistrationNumber',
+        'business_registration_type' => 'setBusinessRegistrationType',
+        'incorporation_year' => 'setIncorporationYear',
+        'trade_styles' => 'setTradeStyles',
+        'enquiry_duns' => 'setEnquiryDuns',
         'sales' => 'setSales',
-        'salesEstimatedDescription' => 'setSalesEstimatedDescription',
-        'paydexScore' => 'setPaydexScore',
-        'paydexScoreDescription' => 'setPaydexScoreDescription',
-        'paydexNorm' => 'setPaydexNorm',
-        'intangibleAssets' => 'setIntangibleAssets',
-        'maxCreditRecommendation' => 'setMaxCreditRecommendation',
-        'dubRating' => 'setDubRating',
-        'dubRatingFinancialStrength' => 'setDubRatingFinancialStrength',
-        'dubRatingRisk' => 'setDubRatingRisk',
-        'dubRatingRiskDescription' => 'setDubRatingRiskDescription',
-        'hasOpenClaims' => 'setHasOpenClaims',
-        'hasCriminalProceedings' => 'setHasCriminalProceedings',
-        'hasDisasterEvent' => 'setHasDisasterEvent',
-        'hasFinancialEmbarrassment' => 'setHasFinancialEmbarrassment',
-        'hasFinancialLegalEvent' => 'setHasFinancialLegalEvent',
-        'hasSpecialEvent' => 'setHasSpecialEvent',
-        'hasOtherEvent' => 'setHasOtherEvent',
-        'hasSecuredFilings' => 'setHasSecuredFilings',
-        'hasLawsuit' => 'setHasLawsuit',
-        'areEmployeesEstimated' => 'setAreEmployeesEstimated',
-        'areSalesEstimated' => 'setAreSalesEstimated'
+        'sales_estimated_description' => 'setSalesEstimatedDescription',
+        'paydex_score' => 'setPaydexScore',
+        'paydex_score_description' => 'setPaydexScoreDescription',
+        'paydex_norm' => 'setPaydexNorm',
+        'intangible_assets' => 'setIntangibleAssets',
+        'max_credit_recommendation' => 'setMaxCreditRecommendation',
+        'dub_rating' => 'setDubRating',
+        'dub_rating_financial_strength' => 'setDubRatingFinancialStrength',
+        'dub_rating_risk' => 'setDubRatingRisk',
+        'dub_rating_risk_description' => 'setDubRatingRiskDescription',
+        'has_open_claims' => 'setHasOpenClaims',
+        'has_criminal_proceedings' => 'setHasCriminalProceedings',
+        'has_disaster_event' => 'setHasDisasterEvent',
+        'has_financial_embarrassment' => 'setHasFinancialEmbarrassment',
+        'has_financial_legal_event' => 'setHasFinancialLegalEvent',
+        'has_special_event' => 'setHasSpecialEvent',
+        'has_other_event' => 'setHasOtherEvent',
+        'has_secured_filings' => 'setHasSecuredFilings',
+        'has_lawsuit' => 'setHasLawsuit',
+        'are_employees_estimated' => 'setAreEmployeesEstimated',
+        'are_sales_estimated' => 'setAreSalesEstimated'
     ];
 
 
@@ -273,64 +273,64 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
      */
     protected static $getters = [
         'status' => 'getStatus',
-        'statusDescription' => 'getStatusDescription',
-        'dunsNumber' => 'getDunsNumber',
-        'companyName' => 'getCompanyName',
-        'continentName' => 'getContinentName',
-        'countryCode' => 'getCountryCode',
-        'countryCode3' => 'getCountryCode3',
-        'countryName' => 'getCountryName',
+        'status_description' => 'getStatusDescription',
+        'duns_number' => 'getDunsNumber',
+        'company_name' => 'getCompanyName',
+        'continent_name' => 'getContinentName',
+        'country_code' => 'getCountryCode',
+        'country_code_3' => 'getCountryCode3',
+        'country_name' => 'getCountryName',
         'zip' => 'getZip',
         'city' => 'getCity',
         'street' => 'getStreet',
-        'houseNumber' => 'getHouseNumber',
-        'phoneNumber' => 'getPhoneNumber',
-        'faxNumber' => 'getFaxNumber',
-        'stateName' => 'getStateName',
-        'ceoName' => 'getCeoName',
-        'ceoTitle' => 'getCeoTitle',
-        'sicCode' => 'getSicCode',
-        'sicDescription' => 'getSicDescription',
-        'sicVersion' => 'getSicVersion',
-        'yearStarted' => 'getYearStarted',
-        'netWorth' => 'getNetWorth',
-        'currencyCode' => 'getCurrencyCode',
-        'currencyName' => 'getCurrencyName',
-        'totalEmployees' => 'getTotalEmployees',
-        'totalEmployeesIndicator' => 'getTotalEmployeesIndicator',
-        'totalEmployeesIndicatorDescription' => 'getTotalEmployeesIndicatorDescription',
-        'legalFormCode' => 'getLegalFormCode',
-        'legalFormDescription' => 'getLegalFormDescription',
-        'reportDate' => 'getReportDate',
-        'isOutOfBusiness' => 'getIsOutOfBusiness',
-        'isBranch' => 'getIsBranch',
-        'businessRegistrationNumber' => 'getBusinessRegistrationNumber',
-        'businessRegistrationType' => 'getBusinessRegistrationType',
-        'incorporationYear' => 'getIncorporationYear',
-        'tradeStyles' => 'getTradeStyles',
-        'enquiryDuns' => 'getEnquiryDuns',
+        'house_number' => 'getHouseNumber',
+        'phone_number' => 'getPhoneNumber',
+        'fax_number' => 'getFaxNumber',
+        'state_name' => 'getStateName',
+        'ceo_name' => 'getCeoName',
+        'ceo_title' => 'getCeoTitle',
+        'sic_code' => 'getSicCode',
+        'sic_description' => 'getSicDescription',
+        'sic_version' => 'getSicVersion',
+        'year_started' => 'getYearStarted',
+        'net_worth' => 'getNetWorth',
+        'currency_code' => 'getCurrencyCode',
+        'currency_name' => 'getCurrencyName',
+        'total_employees' => 'getTotalEmployees',
+        'total_employees_indicator' => 'getTotalEmployeesIndicator',
+        'total_employees_indicator_description' => 'getTotalEmployeesIndicatorDescription',
+        'legal_form_code' => 'getLegalFormCode',
+        'legal_form_description' => 'getLegalFormDescription',
+        'report_date' => 'getReportDate',
+        'is_out_of_business' => 'getIsOutOfBusiness',
+        'is_branch' => 'getIsBranch',
+        'business_registration_number' => 'getBusinessRegistrationNumber',
+        'business_registration_type' => 'getBusinessRegistrationType',
+        'incorporation_year' => 'getIncorporationYear',
+        'trade_styles' => 'getTradeStyles',
+        'enquiry_duns' => 'getEnquiryDuns',
         'sales' => 'getSales',
-        'salesEstimatedDescription' => 'getSalesEstimatedDescription',
-        'paydexScore' => 'getPaydexScore',
-        'paydexScoreDescription' => 'getPaydexScoreDescription',
-        'paydexNorm' => 'getPaydexNorm',
-        'intangibleAssets' => 'getIntangibleAssets',
-        'maxCreditRecommendation' => 'getMaxCreditRecommendation',
-        'dubRating' => 'getDubRating',
-        'dubRatingFinancialStrength' => 'getDubRatingFinancialStrength',
-        'dubRatingRisk' => 'getDubRatingRisk',
-        'dubRatingRiskDescription' => 'getDubRatingRiskDescription',
-        'hasOpenClaims' => 'getHasOpenClaims',
-        'hasCriminalProceedings' => 'getHasCriminalProceedings',
-        'hasDisasterEvent' => 'getHasDisasterEvent',
-        'hasFinancialEmbarrassment' => 'getHasFinancialEmbarrassment',
-        'hasFinancialLegalEvent' => 'getHasFinancialLegalEvent',
-        'hasSpecialEvent' => 'getHasSpecialEvent',
-        'hasOtherEvent' => 'getHasOtherEvent',
-        'hasSecuredFilings' => 'getHasSecuredFilings',
-        'hasLawsuit' => 'getHasLawsuit',
-        'areEmployeesEstimated' => 'getAreEmployeesEstimated',
-        'areSalesEstimated' => 'getAreSalesEstimated'
+        'sales_estimated_description' => 'getSalesEstimatedDescription',
+        'paydex_score' => 'getPaydexScore',
+        'paydex_score_description' => 'getPaydexScoreDescription',
+        'paydex_norm' => 'getPaydexNorm',
+        'intangible_assets' => 'getIntangibleAssets',
+        'max_credit_recommendation' => 'getMaxCreditRecommendation',
+        'dub_rating' => 'getDubRating',
+        'dub_rating_financial_strength' => 'getDubRatingFinancialStrength',
+        'dub_rating_risk' => 'getDubRatingRisk',
+        'dub_rating_risk_description' => 'getDubRatingRiskDescription',
+        'has_open_claims' => 'getHasOpenClaims',
+        'has_criminal_proceedings' => 'getHasCriminalProceedings',
+        'has_disaster_event' => 'getHasDisasterEvent',
+        'has_financial_embarrassment' => 'getHasFinancialEmbarrassment',
+        'has_financial_legal_event' => 'getHasFinancialLegalEvent',
+        'has_special_event' => 'getHasSpecialEvent',
+        'has_other_event' => 'getHasOtherEvent',
+        'has_secured_filings' => 'getHasSecuredFilings',
+        'has_lawsuit' => 'getHasLawsuit',
+        'are_employees_estimated' => 'getAreEmployeesEstimated',
+        'are_sales_estimated' => 'getAreSalesEstimated'
     ];
 
     public static function attributeMap()
@@ -395,64 +395,64 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['statusDescription'] = isset($data['statusDescription']) ? $data['statusDescription'] : null;
-        $this->container['dunsNumber'] = isset($data['dunsNumber']) ? $data['dunsNumber'] : null;
-        $this->container['companyName'] = isset($data['companyName']) ? $data['companyName'] : null;
-        $this->container['continentName'] = isset($data['continentName']) ? $data['continentName'] : null;
-        $this->container['countryCode'] = isset($data['countryCode']) ? $data['countryCode'] : null;
-        $this->container['countryCode3'] = isset($data['countryCode3']) ? $data['countryCode3'] : null;
-        $this->container['countryName'] = isset($data['countryName']) ? $data['countryName'] : null;
+        $this->container['status_description'] = isset($data['status_description']) ? $data['status_description'] : null;
+        $this->container['duns_number'] = isset($data['duns_number']) ? $data['duns_number'] : null;
+        $this->container['company_name'] = isset($data['company_name']) ? $data['company_name'] : null;
+        $this->container['continent_name'] = isset($data['continent_name']) ? $data['continent_name'] : null;
+        $this->container['country_code'] = isset($data['country_code']) ? $data['country_code'] : null;
+        $this->container['country_code_3'] = isset($data['country_code_3']) ? $data['country_code_3'] : null;
+        $this->container['country_name'] = isset($data['country_name']) ? $data['country_name'] : null;
         $this->container['zip'] = isset($data['zip']) ? $data['zip'] : null;
         $this->container['city'] = isset($data['city']) ? $data['city'] : null;
         $this->container['street'] = isset($data['street']) ? $data['street'] : null;
-        $this->container['houseNumber'] = isset($data['houseNumber']) ? $data['houseNumber'] : null;
-        $this->container['phoneNumber'] = isset($data['phoneNumber']) ? $data['phoneNumber'] : null;
-        $this->container['faxNumber'] = isset($data['faxNumber']) ? $data['faxNumber'] : null;
-        $this->container['stateName'] = isset($data['stateName']) ? $data['stateName'] : null;
-        $this->container['ceoName'] = isset($data['ceoName']) ? $data['ceoName'] : null;
-        $this->container['ceoTitle'] = isset($data['ceoTitle']) ? $data['ceoTitle'] : null;
-        $this->container['sicCode'] = isset($data['sicCode']) ? $data['sicCode'] : null;
-        $this->container['sicDescription'] = isset($data['sicDescription']) ? $data['sicDescription'] : null;
-        $this->container['sicVersion'] = isset($data['sicVersion']) ? $data['sicVersion'] : null;
-        $this->container['yearStarted'] = isset($data['yearStarted']) ? $data['yearStarted'] : null;
-        $this->container['netWorth'] = isset($data['netWorth']) ? $data['netWorth'] : null;
-        $this->container['currencyCode'] = isset($data['currencyCode']) ? $data['currencyCode'] : null;
-        $this->container['currencyName'] = isset($data['currencyName']) ? $data['currencyName'] : null;
-        $this->container['totalEmployees'] = isset($data['totalEmployees']) ? $data['totalEmployees'] : null;
-        $this->container['totalEmployeesIndicator'] = isset($data['totalEmployeesIndicator']) ? $data['totalEmployeesIndicator'] : null;
-        $this->container['totalEmployeesIndicatorDescription'] = isset($data['totalEmployeesIndicatorDescription']) ? $data['totalEmployeesIndicatorDescription'] : null;
-        $this->container['legalFormCode'] = isset($data['legalFormCode']) ? $data['legalFormCode'] : null;
-        $this->container['legalFormDescription'] = isset($data['legalFormDescription']) ? $data['legalFormDescription'] : null;
-        $this->container['reportDate'] = isset($data['reportDate']) ? $data['reportDate'] : null;
-        $this->container['isOutOfBusiness'] = isset($data['isOutOfBusiness']) ? $data['isOutOfBusiness'] : null;
-        $this->container['isBranch'] = isset($data['isBranch']) ? $data['isBranch'] : null;
-        $this->container['businessRegistrationNumber'] = isset($data['businessRegistrationNumber']) ? $data['businessRegistrationNumber'] : null;
-        $this->container['businessRegistrationType'] = isset($data['businessRegistrationType']) ? $data['businessRegistrationType'] : null;
-        $this->container['incorporationYear'] = isset($data['incorporationYear']) ? $data['incorporationYear'] : null;
-        $this->container['tradeStyles'] = isset($data['tradeStyles']) ? $data['tradeStyles'] : null;
-        $this->container['enquiryDuns'] = isset($data['enquiryDuns']) ? $data['enquiryDuns'] : null;
+        $this->container['house_number'] = isset($data['house_number']) ? $data['house_number'] : null;
+        $this->container['phone_number'] = isset($data['phone_number']) ? $data['phone_number'] : null;
+        $this->container['fax_number'] = isset($data['fax_number']) ? $data['fax_number'] : null;
+        $this->container['state_name'] = isset($data['state_name']) ? $data['state_name'] : null;
+        $this->container['ceo_name'] = isset($data['ceo_name']) ? $data['ceo_name'] : null;
+        $this->container['ceo_title'] = isset($data['ceo_title']) ? $data['ceo_title'] : null;
+        $this->container['sic_code'] = isset($data['sic_code']) ? $data['sic_code'] : null;
+        $this->container['sic_description'] = isset($data['sic_description']) ? $data['sic_description'] : null;
+        $this->container['sic_version'] = isset($data['sic_version']) ? $data['sic_version'] : null;
+        $this->container['year_started'] = isset($data['year_started']) ? $data['year_started'] : null;
+        $this->container['net_worth'] = isset($data['net_worth']) ? $data['net_worth'] : null;
+        $this->container['currency_code'] = isset($data['currency_code']) ? $data['currency_code'] : null;
+        $this->container['currency_name'] = isset($data['currency_name']) ? $data['currency_name'] : null;
+        $this->container['total_employees'] = isset($data['total_employees']) ? $data['total_employees'] : null;
+        $this->container['total_employees_indicator'] = isset($data['total_employees_indicator']) ? $data['total_employees_indicator'] : null;
+        $this->container['total_employees_indicator_description'] = isset($data['total_employees_indicator_description']) ? $data['total_employees_indicator_description'] : null;
+        $this->container['legal_form_code'] = isset($data['legal_form_code']) ? $data['legal_form_code'] : null;
+        $this->container['legal_form_description'] = isset($data['legal_form_description']) ? $data['legal_form_description'] : null;
+        $this->container['report_date'] = isset($data['report_date']) ? $data['report_date'] : null;
+        $this->container['is_out_of_business'] = isset($data['is_out_of_business']) ? $data['is_out_of_business'] : null;
+        $this->container['is_branch'] = isset($data['is_branch']) ? $data['is_branch'] : null;
+        $this->container['business_registration_number'] = isset($data['business_registration_number']) ? $data['business_registration_number'] : null;
+        $this->container['business_registration_type'] = isset($data['business_registration_type']) ? $data['business_registration_type'] : null;
+        $this->container['incorporation_year'] = isset($data['incorporation_year']) ? $data['incorporation_year'] : null;
+        $this->container['trade_styles'] = isset($data['trade_styles']) ? $data['trade_styles'] : null;
+        $this->container['enquiry_duns'] = isset($data['enquiry_duns']) ? $data['enquiry_duns'] : null;
         $this->container['sales'] = isset($data['sales']) ? $data['sales'] : null;
-        $this->container['salesEstimatedDescription'] = isset($data['salesEstimatedDescription']) ? $data['salesEstimatedDescription'] : null;
-        $this->container['paydexScore'] = isset($data['paydexScore']) ? $data['paydexScore'] : null;
-        $this->container['paydexScoreDescription'] = isset($data['paydexScoreDescription']) ? $data['paydexScoreDescription'] : null;
-        $this->container['paydexNorm'] = isset($data['paydexNorm']) ? $data['paydexNorm'] : null;
-        $this->container['intangibleAssets'] = isset($data['intangibleAssets']) ? $data['intangibleAssets'] : null;
-        $this->container['maxCreditRecommendation'] = isset($data['maxCreditRecommendation']) ? $data['maxCreditRecommendation'] : null;
-        $this->container['dubRating'] = isset($data['dubRating']) ? $data['dubRating'] : null;
-        $this->container['dubRatingFinancialStrength'] = isset($data['dubRatingFinancialStrength']) ? $data['dubRatingFinancialStrength'] : null;
-        $this->container['dubRatingRisk'] = isset($data['dubRatingRisk']) ? $data['dubRatingRisk'] : null;
-        $this->container['dubRatingRiskDescription'] = isset($data['dubRatingRiskDescription']) ? $data['dubRatingRiskDescription'] : null;
-        $this->container['hasOpenClaims'] = isset($data['hasOpenClaims']) ? $data['hasOpenClaims'] : null;
-        $this->container['hasCriminalProceedings'] = isset($data['hasCriminalProceedings']) ? $data['hasCriminalProceedings'] : null;
-        $this->container['hasDisasterEvent'] = isset($data['hasDisasterEvent']) ? $data['hasDisasterEvent'] : null;
-        $this->container['hasFinancialEmbarrassment'] = isset($data['hasFinancialEmbarrassment']) ? $data['hasFinancialEmbarrassment'] : null;
-        $this->container['hasFinancialLegalEvent'] = isset($data['hasFinancialLegalEvent']) ? $data['hasFinancialLegalEvent'] : null;
-        $this->container['hasSpecialEvent'] = isset($data['hasSpecialEvent']) ? $data['hasSpecialEvent'] : null;
-        $this->container['hasOtherEvent'] = isset($data['hasOtherEvent']) ? $data['hasOtherEvent'] : null;
-        $this->container['hasSecuredFilings'] = isset($data['hasSecuredFilings']) ? $data['hasSecuredFilings'] : null;
-        $this->container['hasLawsuit'] = isset($data['hasLawsuit']) ? $data['hasLawsuit'] : null;
-        $this->container['areEmployeesEstimated'] = isset($data['areEmployeesEstimated']) ? $data['areEmployeesEstimated'] : null;
-        $this->container['areSalesEstimated'] = isset($data['areSalesEstimated']) ? $data['areSalesEstimated'] : null;
+        $this->container['sales_estimated_description'] = isset($data['sales_estimated_description']) ? $data['sales_estimated_description'] : null;
+        $this->container['paydex_score'] = isset($data['paydex_score']) ? $data['paydex_score'] : null;
+        $this->container['paydex_score_description'] = isset($data['paydex_score_description']) ? $data['paydex_score_description'] : null;
+        $this->container['paydex_norm'] = isset($data['paydex_norm']) ? $data['paydex_norm'] : null;
+        $this->container['intangible_assets'] = isset($data['intangible_assets']) ? $data['intangible_assets'] : null;
+        $this->container['max_credit_recommendation'] = isset($data['max_credit_recommendation']) ? $data['max_credit_recommendation'] : null;
+        $this->container['dub_rating'] = isset($data['dub_rating']) ? $data['dub_rating'] : null;
+        $this->container['dub_rating_financial_strength'] = isset($data['dub_rating_financial_strength']) ? $data['dub_rating_financial_strength'] : null;
+        $this->container['dub_rating_risk'] = isset($data['dub_rating_risk']) ? $data['dub_rating_risk'] : null;
+        $this->container['dub_rating_risk_description'] = isset($data['dub_rating_risk_description']) ? $data['dub_rating_risk_description'] : null;
+        $this->container['has_open_claims'] = isset($data['has_open_claims']) ? $data['has_open_claims'] : null;
+        $this->container['has_criminal_proceedings'] = isset($data['has_criminal_proceedings']) ? $data['has_criminal_proceedings'] : null;
+        $this->container['has_disaster_event'] = isset($data['has_disaster_event']) ? $data['has_disaster_event'] : null;
+        $this->container['has_financial_embarrassment'] = isset($data['has_financial_embarrassment']) ? $data['has_financial_embarrassment'] : null;
+        $this->container['has_financial_legal_event'] = isset($data['has_financial_legal_event']) ? $data['has_financial_legal_event'] : null;
+        $this->container['has_special_event'] = isset($data['has_special_event']) ? $data['has_special_event'] : null;
+        $this->container['has_other_event'] = isset($data['has_other_event']) ? $data['has_other_event'] : null;
+        $this->container['has_secured_filings'] = isset($data['has_secured_filings']) ? $data['has_secured_filings'] : null;
+        $this->container['has_lawsuit'] = isset($data['has_lawsuit']) ? $data['has_lawsuit'] : null;
+        $this->container['are_employees_estimated'] = isset($data['are_employees_estimated']) ? $data['are_employees_estimated'] : null;
+        $this->container['are_sales_estimated'] = isset($data['are_sales_estimated']) ? $data['are_sales_estimated'] : null;
     }
 
     /**
@@ -471,12 +471,12 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
             $invalid_properties[] = "invalid value for 'status', must be one of '0', '1'.";
         }
 
-        if ($this->container['statusDescription'] === null) {
-            $invalid_properties[] = "'statusDescription' can't be null";
+        if ($this->container['status_description'] === null) {
+            $invalid_properties[] = "'status_description' can't be null";
         }
         $allowed_values = ["company found", "company not found", "invalid duns number"];
-        if (!in_array($this->container['statusDescription'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'statusDescription', must be one of 'company found', 'company not found', 'invalid duns number'.";
+        if (!in_array($this->container['status_description'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'status_description', must be one of 'company found', 'company not found', 'invalid duns number'.";
         }
 
         return $invalid_properties;
@@ -497,11 +497,11 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
         if (!in_array($this->container['status'], $allowed_values)) {
             return false;
         }
-        if ($this->container['statusDescription'] === null) {
+        if ($this->container['status_description'] === null) {
             return false;
         }
         $allowed_values = ["company found", "company not found", "invalid duns number"];
-        if (!in_array($this->container['statusDescription'], $allowed_values)) {
+        if (!in_array($this->container['status_description'], $allowed_values)) {
             return false;
         }
         return true;
@@ -534,152 +534,152 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
     }
 
     /**
-     * Gets statusDescription
+     * Gets status_description
      * @return string
      */
     public function getStatusDescription()
     {
-        return $this->container['statusDescription'];
+        return $this->container['status_description'];
     }
 
     /**
-     * Sets statusDescription
-     * @param string $statusDescription
+     * Sets status_description
+     * @param string $status_description
      * @return $this
      */
-    public function setStatusDescription($statusDescription)
+    public function setStatusDescription($status_description)
     {
         $allowed_values = array('company found', 'company not found', 'invalid duns number');
-        if ((!in_array($statusDescription, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'statusDescription', must be one of 'company found', 'company not found', 'invalid duns number'");
+        if ((!in_array($status_description, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'status_description', must be one of 'company found', 'company not found', 'invalid duns number'");
         }
-        $this->container['statusDescription'] = $statusDescription;
+        $this->container['status_description'] = $status_description;
 
         return $this;
     }
 
     /**
-     * Gets dunsNumber
+     * Gets duns_number
      * @return string
      */
     public function getDunsNumber()
     {
-        return $this->container['dunsNumber'];
+        return $this->container['duns_number'];
     }
 
     /**
-     * Sets dunsNumber
-     * @param string $dunsNumber
+     * Sets duns_number
+     * @param string $duns_number
      * @return $this
      */
-    public function setDunsNumber($dunsNumber)
+    public function setDunsNumber($duns_number)
     {
-        $this->container['dunsNumber'] = $dunsNumber;
+        $this->container['duns_number'] = $duns_number;
 
         return $this;
     }
 
     /**
-     * Gets companyName
+     * Gets company_name
      * @return string
      */
     public function getCompanyName()
     {
-        return $this->container['companyName'];
+        return $this->container['company_name'];
     }
 
     /**
-     * Sets companyName
-     * @param string $companyName
+     * Sets company_name
+     * @param string $company_name
      * @return $this
      */
-    public function setCompanyName($companyName)
+    public function setCompanyName($company_name)
     {
-        $this->container['companyName'] = $companyName;
+        $this->container['company_name'] = $company_name;
 
         return $this;
     }
 
     /**
-     * Gets continentName
+     * Gets continent_name
      * @return string
      */
     public function getContinentName()
     {
-        return $this->container['continentName'];
+        return $this->container['continent_name'];
     }
 
     /**
-     * Sets continentName
-     * @param string $continentName
+     * Sets continent_name
+     * @param string $continent_name
      * @return $this
      */
-    public function setContinentName($continentName)
+    public function setContinentName($continent_name)
     {
-        $this->container['continentName'] = $continentName;
+        $this->container['continent_name'] = $continent_name;
 
         return $this;
     }
 
     /**
-     * Gets countryCode
+     * Gets country_code
      * @return string
      */
     public function getCountryCode()
     {
-        return $this->container['countryCode'];
+        return $this->container['country_code'];
     }
 
     /**
-     * Sets countryCode
-     * @param string $countryCode
+     * Sets country_code
+     * @param string $country_code
      * @return $this
      */
-    public function setCountryCode($countryCode)
+    public function setCountryCode($country_code)
     {
-        $this->container['countryCode'] = $countryCode;
+        $this->container['country_code'] = $country_code;
 
         return $this;
     }
 
     /**
-     * Gets countryCode3
+     * Gets country_code_3
      * @return string
      */
     public function getCountryCode3()
     {
-        return $this->container['countryCode3'];
+        return $this->container['country_code_3'];
     }
 
     /**
-     * Sets countryCode3
-     * @param string $countryCode3
+     * Sets country_code_3
+     * @param string $country_code_3
      * @return $this
      */
-    public function setCountryCode3($countryCode3)
+    public function setCountryCode3($country_code_3)
     {
-        $this->container['countryCode3'] = $countryCode3;
+        $this->container['country_code_3'] = $country_code_3;
 
         return $this;
     }
 
     /**
-     * Gets countryName
+     * Gets country_name
      * @return string
      */
     public function getCountryName()
     {
-        return $this->container['countryName'];
+        return $this->container['country_name'];
     }
 
     /**
-     * Sets countryName
-     * @param string $countryName
+     * Sets country_name
+     * @param string $country_name
      * @return $this
      */
-    public function setCountryName($countryName)
+    public function setCountryName($country_name)
     {
-        $this->container['countryName'] = $countryName;
+        $this->container['country_name'] = $country_name;
 
         return $this;
     }
@@ -748,547 +748,547 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
     }
 
     /**
-     * Gets houseNumber
+     * Gets house_number
      * @return string
      */
     public function getHouseNumber()
     {
-        return $this->container['houseNumber'];
+        return $this->container['house_number'];
     }
 
     /**
-     * Sets houseNumber
-     * @param string $houseNumber
+     * Sets house_number
+     * @param string $house_number
      * @return $this
      */
-    public function setHouseNumber($houseNumber)
+    public function setHouseNumber($house_number)
     {
-        $this->container['houseNumber'] = $houseNumber;
+        $this->container['house_number'] = $house_number;
 
         return $this;
     }
 
     /**
-     * Gets phoneNumber
+     * Gets phone_number
      * @return string
      */
     public function getPhoneNumber()
     {
-        return $this->container['phoneNumber'];
+        return $this->container['phone_number'];
     }
 
     /**
-     * Sets phoneNumber
-     * @param string $phoneNumber
+     * Sets phone_number
+     * @param string $phone_number
      * @return $this
      */
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phone_number)
     {
-        $this->container['phoneNumber'] = $phoneNumber;
+        $this->container['phone_number'] = $phone_number;
 
         return $this;
     }
 
     /**
-     * Gets faxNumber
+     * Gets fax_number
      * @return string
      */
     public function getFaxNumber()
     {
-        return $this->container['faxNumber'];
+        return $this->container['fax_number'];
     }
 
     /**
-     * Sets faxNumber
-     * @param string $faxNumber
+     * Sets fax_number
+     * @param string $fax_number
      * @return $this
      */
-    public function setFaxNumber($faxNumber)
+    public function setFaxNumber($fax_number)
     {
-        $this->container['faxNumber'] = $faxNumber;
+        $this->container['fax_number'] = $fax_number;
 
         return $this;
     }
 
     /**
-     * Gets stateName
+     * Gets state_name
      * @return string
      */
     public function getStateName()
     {
-        return $this->container['stateName'];
+        return $this->container['state_name'];
     }
 
     /**
-     * Sets stateName
-     * @param string $stateName
+     * Sets state_name
+     * @param string $state_name
      * @return $this
      */
-    public function setStateName($stateName)
+    public function setStateName($state_name)
     {
-        $this->container['stateName'] = $stateName;
+        $this->container['state_name'] = $state_name;
 
         return $this;
     }
 
     /**
-     * Gets ceoName
+     * Gets ceo_name
      * @return string
      */
     public function getCeoName()
     {
-        return $this->container['ceoName'];
+        return $this->container['ceo_name'];
     }
 
     /**
-     * Sets ceoName
-     * @param string $ceoName
+     * Sets ceo_name
+     * @param string $ceo_name
      * @return $this
      */
-    public function setCeoName($ceoName)
+    public function setCeoName($ceo_name)
     {
-        $this->container['ceoName'] = $ceoName;
+        $this->container['ceo_name'] = $ceo_name;
 
         return $this;
     }
 
     /**
-     * Gets ceoTitle
+     * Gets ceo_title
      * @return string
      */
     public function getCeoTitle()
     {
-        return $this->container['ceoTitle'];
+        return $this->container['ceo_title'];
     }
 
     /**
-     * Sets ceoTitle
-     * @param string $ceoTitle
+     * Sets ceo_title
+     * @param string $ceo_title
      * @return $this
      */
-    public function setCeoTitle($ceoTitle)
+    public function setCeoTitle($ceo_title)
     {
-        $this->container['ceoTitle'] = $ceoTitle;
+        $this->container['ceo_title'] = $ceo_title;
 
         return $this;
     }
 
     /**
-     * Gets sicCode
+     * Gets sic_code
      * @return string
      */
     public function getSicCode()
     {
-        return $this->container['sicCode'];
+        return $this->container['sic_code'];
     }
 
     /**
-     * Sets sicCode
-     * @param string $sicCode
+     * Sets sic_code
+     * @param string $sic_code
      * @return $this
      */
-    public function setSicCode($sicCode)
+    public function setSicCode($sic_code)
     {
-        $this->container['sicCode'] = $sicCode;
+        $this->container['sic_code'] = $sic_code;
 
         return $this;
     }
 
     /**
-     * Gets sicDescription
+     * Gets sic_description
      * @return string
      */
     public function getSicDescription()
     {
-        return $this->container['sicDescription'];
+        return $this->container['sic_description'];
     }
 
     /**
-     * Sets sicDescription
-     * @param string $sicDescription
+     * Sets sic_description
+     * @param string $sic_description
      * @return $this
      */
-    public function setSicDescription($sicDescription)
+    public function setSicDescription($sic_description)
     {
-        $this->container['sicDescription'] = $sicDescription;
+        $this->container['sic_description'] = $sic_description;
 
         return $this;
     }
 
     /**
-     * Gets sicVersion
+     * Gets sic_version
      * @return string
      */
     public function getSicVersion()
     {
-        return $this->container['sicVersion'];
+        return $this->container['sic_version'];
     }
 
     /**
-     * Sets sicVersion
-     * @param string $sicVersion
+     * Sets sic_version
+     * @param string $sic_version
      * @return $this
      */
-    public function setSicVersion($sicVersion)
+    public function setSicVersion($sic_version)
     {
-        $this->container['sicVersion'] = $sicVersion;
+        $this->container['sic_version'] = $sic_version;
 
         return $this;
     }
 
     /**
-     * Gets yearStarted
+     * Gets year_started
      * @return string
      */
     public function getYearStarted()
     {
-        return $this->container['yearStarted'];
+        return $this->container['year_started'];
     }
 
     /**
-     * Sets yearStarted
-     * @param string $yearStarted
+     * Sets year_started
+     * @param string $year_started
      * @return $this
      */
-    public function setYearStarted($yearStarted)
+    public function setYearStarted($year_started)
     {
-        $this->container['yearStarted'] = $yearStarted;
+        $this->container['year_started'] = $year_started;
 
         return $this;
     }
 
     /**
-     * Gets netWorth
+     * Gets net_worth
      * @return int
      */
     public function getNetWorth()
     {
-        return $this->container['netWorth'];
+        return $this->container['net_worth'];
     }
 
     /**
-     * Sets netWorth
-     * @param int $netWorth
+     * Sets net_worth
+     * @param int $net_worth
      * @return $this
      */
-    public function setNetWorth($netWorth)
+    public function setNetWorth($net_worth)
     {
-        $this->container['netWorth'] = $netWorth;
+        $this->container['net_worth'] = $net_worth;
 
         return $this;
     }
 
     /**
-     * Gets currencyCode
+     * Gets currency_code
      * @return string
      */
     public function getCurrencyCode()
     {
-        return $this->container['currencyCode'];
+        return $this->container['currency_code'];
     }
 
     /**
-     * Sets currencyCode
-     * @param string $currencyCode
+     * Sets currency_code
+     * @param string $currency_code
      * @return $this
      */
-    public function setCurrencyCode($currencyCode)
+    public function setCurrencyCode($currency_code)
     {
-        $this->container['currencyCode'] = $currencyCode;
+        $this->container['currency_code'] = $currency_code;
 
         return $this;
     }
 
     /**
-     * Gets currencyName
+     * Gets currency_name
      * @return string
      */
     public function getCurrencyName()
     {
-        return $this->container['currencyName'];
+        return $this->container['currency_name'];
     }
 
     /**
-     * Sets currencyName
-     * @param string $currencyName
+     * Sets currency_name
+     * @param string $currency_name
      * @return $this
      */
-    public function setCurrencyName($currencyName)
+    public function setCurrencyName($currency_name)
     {
-        $this->container['currencyName'] = $currencyName;
+        $this->container['currency_name'] = $currency_name;
 
         return $this;
     }
 
     /**
-     * Gets totalEmployees
+     * Gets total_employees
      * @return int
      */
     public function getTotalEmployees()
     {
-        return $this->container['totalEmployees'];
+        return $this->container['total_employees'];
     }
 
     /**
-     * Sets totalEmployees
-     * @param int $totalEmployees
+     * Sets total_employees
+     * @param int $total_employees
      * @return $this
      */
-    public function setTotalEmployees($totalEmployees)
+    public function setTotalEmployees($total_employees)
     {
-        $this->container['totalEmployees'] = $totalEmployees;
+        $this->container['total_employees'] = $total_employees;
 
         return $this;
     }
 
     /**
-     * Gets totalEmployeesIndicator
+     * Gets total_employees_indicator
      * @return string
      */
     public function getTotalEmployeesIndicator()
     {
-        return $this->container['totalEmployeesIndicator'];
+        return $this->container['total_employees_indicator'];
     }
 
     /**
-     * Sets totalEmployeesIndicator
-     * @param string $totalEmployeesIndicator
+     * Sets total_employees_indicator
+     * @param string $total_employees_indicator
      * @return $this
      */
-    public function setTotalEmployeesIndicator($totalEmployeesIndicator)
+    public function setTotalEmployeesIndicator($total_employees_indicator)
     {
-        $this->container['totalEmployeesIndicator'] = $totalEmployeesIndicator;
+        $this->container['total_employees_indicator'] = $total_employees_indicator;
 
         return $this;
     }
 
     /**
-     * Gets totalEmployeesIndicatorDescription
+     * Gets total_employees_indicator_description
      * @return string
      */
     public function getTotalEmployeesIndicatorDescription()
     {
-        return $this->container['totalEmployeesIndicatorDescription'];
+        return $this->container['total_employees_indicator_description'];
     }
 
     /**
-     * Sets totalEmployeesIndicatorDescription
-     * @param string $totalEmployeesIndicatorDescription
+     * Sets total_employees_indicator_description
+     * @param string $total_employees_indicator_description
      * @return $this
      */
-    public function setTotalEmployeesIndicatorDescription($totalEmployeesIndicatorDescription)
+    public function setTotalEmployeesIndicatorDescription($total_employees_indicator_description)
     {
-        $this->container['totalEmployeesIndicatorDescription'] = $totalEmployeesIndicatorDescription;
+        $this->container['total_employees_indicator_description'] = $total_employees_indicator_description;
 
         return $this;
     }
 
     /**
-     * Gets legalFormCode
+     * Gets legal_form_code
      * @return int
      */
     public function getLegalFormCode()
     {
-        return $this->container['legalFormCode'];
+        return $this->container['legal_form_code'];
     }
 
     /**
-     * Sets legalFormCode
-     * @param int $legalFormCode
+     * Sets legal_form_code
+     * @param int $legal_form_code
      * @return $this
      */
-    public function setLegalFormCode($legalFormCode)
+    public function setLegalFormCode($legal_form_code)
     {
-        $this->container['legalFormCode'] = $legalFormCode;
+        $this->container['legal_form_code'] = $legal_form_code;
 
         return $this;
     }
 
     /**
-     * Gets legalFormDescription
+     * Gets legal_form_description
      * @return string
      */
     public function getLegalFormDescription()
     {
-        return $this->container['legalFormDescription'];
+        return $this->container['legal_form_description'];
     }
 
     /**
-     * Sets legalFormDescription
-     * @param string $legalFormDescription
+     * Sets legal_form_description
+     * @param string $legal_form_description
      * @return $this
      */
-    public function setLegalFormDescription($legalFormDescription)
+    public function setLegalFormDescription($legal_form_description)
     {
-        $this->container['legalFormDescription'] = $legalFormDescription;
+        $this->container['legal_form_description'] = $legal_form_description;
 
         return $this;
     }
 
     /**
-     * Gets reportDate
+     * Gets report_date
      * @return \DateTime
      */
     public function getReportDate()
     {
-        return $this->container['reportDate'];
+        return $this->container['report_date'];
     }
 
     /**
-     * Sets reportDate
-     * @param \DateTime $reportDate
+     * Sets report_date
+     * @param \DateTime $report_date
      * @return $this
      */
-    public function setReportDate($reportDate)
+    public function setReportDate($report_date)
     {
-        $this->container['reportDate'] = $reportDate;
+        $this->container['report_date'] = $report_date;
 
         return $this;
     }
 
     /**
-     * Gets isOutOfBusiness
+     * Gets is_out_of_business
      * @return bool
      */
     public function getIsOutOfBusiness()
     {
-        return $this->container['isOutOfBusiness'];
+        return $this->container['is_out_of_business'];
     }
 
     /**
-     * Sets isOutOfBusiness
-     * @param bool $isOutOfBusiness
+     * Sets is_out_of_business
+     * @param bool $is_out_of_business
      * @return $this
      */
-    public function setIsOutOfBusiness($isOutOfBusiness)
+    public function setIsOutOfBusiness($is_out_of_business)
     {
-        $this->container['isOutOfBusiness'] = $isOutOfBusiness;
+        $this->container['is_out_of_business'] = $is_out_of_business;
 
         return $this;
     }
 
     /**
-     * Gets isBranch
+     * Gets is_branch
      * @return bool
      */
     public function getIsBranch()
     {
-        return $this->container['isBranch'];
+        return $this->container['is_branch'];
     }
 
     /**
-     * Sets isBranch
-     * @param bool $isBranch
+     * Sets is_branch
+     * @param bool $is_branch
      * @return $this
      */
-    public function setIsBranch($isBranch)
+    public function setIsBranch($is_branch)
     {
-        $this->container['isBranch'] = $isBranch;
+        $this->container['is_branch'] = $is_branch;
 
         return $this;
     }
 
     /**
-     * Gets businessRegistrationNumber
+     * Gets business_registration_number
      * @return string
      */
     public function getBusinessRegistrationNumber()
     {
-        return $this->container['businessRegistrationNumber'];
+        return $this->container['business_registration_number'];
     }
 
     /**
-     * Sets businessRegistrationNumber
-     * @param string $businessRegistrationNumber
+     * Sets business_registration_number
+     * @param string $business_registration_number
      * @return $this
      */
-    public function setBusinessRegistrationNumber($businessRegistrationNumber)
+    public function setBusinessRegistrationNumber($business_registration_number)
     {
-        $this->container['businessRegistrationNumber'] = $businessRegistrationNumber;
+        $this->container['business_registration_number'] = $business_registration_number;
 
         return $this;
     }
 
     /**
-     * Gets businessRegistrationType
+     * Gets business_registration_type
      * @return string
      */
     public function getBusinessRegistrationType()
     {
-        return $this->container['businessRegistrationType'];
+        return $this->container['business_registration_type'];
     }
 
     /**
-     * Sets businessRegistrationType
-     * @param string $businessRegistrationType
+     * Sets business_registration_type
+     * @param string $business_registration_type
      * @return $this
      */
-    public function setBusinessRegistrationType($businessRegistrationType)
+    public function setBusinessRegistrationType($business_registration_type)
     {
-        $this->container['businessRegistrationType'] = $businessRegistrationType;
+        $this->container['business_registration_type'] = $business_registration_type;
 
         return $this;
     }
 
     /**
-     * Gets incorporationYear
+     * Gets incorporation_year
      * @return string
      */
     public function getIncorporationYear()
     {
-        return $this->container['incorporationYear'];
+        return $this->container['incorporation_year'];
     }
 
     /**
-     * Sets incorporationYear
-     * @param string $incorporationYear
+     * Sets incorporation_year
+     * @param string $incorporation_year
      * @return $this
      */
-    public function setIncorporationYear($incorporationYear)
+    public function setIncorporationYear($incorporation_year)
     {
-        $this->container['incorporationYear'] = $incorporationYear;
+        $this->container['incorporation_year'] = $incorporation_year;
 
         return $this;
     }
 
     /**
-     * Gets tradeStyles
+     * Gets trade_styles
      * @return string[]
      */
     public function getTradeStyles()
     {
-        return $this->container['tradeStyles'];
+        return $this->container['trade_styles'];
     }
 
     /**
-     * Sets tradeStyles
-     * @param string[] $tradeStyles
+     * Sets trade_styles
+     * @param string[] $trade_styles
      * @return $this
      */
-    public function setTradeStyles($tradeStyles)
+    public function setTradeStyles($trade_styles)
     {
-        $this->container['tradeStyles'] = $tradeStyles;
+        $this->container['trade_styles'] = $trade_styles;
 
         return $this;
     }
 
     /**
-     * Gets enquiryDuns
+     * Gets enquiry_duns
      * @return string
      */
     public function getEnquiryDuns()
     {
-        return $this->container['enquiryDuns'];
+        return $this->container['enquiry_duns'];
     }
 
     /**
-     * Sets enquiryDuns
-     * @param string $enquiryDuns
+     * Sets enquiry_duns
+     * @param string $enquiry_duns
      * @return $this
      */
-    public function setEnquiryDuns($enquiryDuns)
+    public function setEnquiryDuns($enquiry_duns)
     {
-        $this->container['enquiryDuns'] = $enquiryDuns;
+        $this->container['enquiry_duns'] = $enquiry_duns;
 
         return $this;
     }
@@ -1315,442 +1315,442 @@ class BusinessDataDunsRatingResponse implements ArrayAccess
     }
 
     /**
-     * Gets salesEstimatedDescription
+     * Gets sales_estimated_description
      * @return string
      */
     public function getSalesEstimatedDescription()
     {
-        return $this->container['salesEstimatedDescription'];
+        return $this->container['sales_estimated_description'];
     }
 
     /**
-     * Sets salesEstimatedDescription
-     * @param string $salesEstimatedDescription
+     * Sets sales_estimated_description
+     * @param string $sales_estimated_description
      * @return $this
      */
-    public function setSalesEstimatedDescription($salesEstimatedDescription)
+    public function setSalesEstimatedDescription($sales_estimated_description)
     {
-        $this->container['salesEstimatedDescription'] = $salesEstimatedDescription;
+        $this->container['sales_estimated_description'] = $sales_estimated_description;
 
         return $this;
     }
 
     /**
-     * Gets paydexScore
+     * Gets paydex_score
      * @return int
      */
     public function getPaydexScore()
     {
-        return $this->container['paydexScore'];
+        return $this->container['paydex_score'];
     }
 
     /**
-     * Sets paydexScore
-     * @param int $paydexScore
+     * Sets paydex_score
+     * @param int $paydex_score
      * @return $this
      */
-    public function setPaydexScore($paydexScore)
+    public function setPaydexScore($paydex_score)
     {
-        $this->container['paydexScore'] = $paydexScore;
+        $this->container['paydex_score'] = $paydex_score;
 
         return $this;
     }
 
     /**
-     * Gets paydexScoreDescription
+     * Gets paydex_score_description
      * @return string
      */
     public function getPaydexScoreDescription()
     {
-        return $this->container['paydexScoreDescription'];
+        return $this->container['paydex_score_description'];
     }
 
     /**
-     * Sets paydexScoreDescription
-     * @param string $paydexScoreDescription
+     * Sets paydex_score_description
+     * @param string $paydex_score_description
      * @return $this
      */
-    public function setPaydexScoreDescription($paydexScoreDescription)
+    public function setPaydexScoreDescription($paydex_score_description)
     {
-        $this->container['paydexScoreDescription'] = $paydexScoreDescription;
+        $this->container['paydex_score_description'] = $paydex_score_description;
 
         return $this;
     }
 
     /**
-     * Gets paydexNorm
+     * Gets paydex_norm
      * @return int
      */
     public function getPaydexNorm()
     {
-        return $this->container['paydexNorm'];
+        return $this->container['paydex_norm'];
     }
 
     /**
-     * Sets paydexNorm
-     * @param int $paydexNorm
+     * Sets paydex_norm
+     * @param int $paydex_norm
      * @return $this
      */
-    public function setPaydexNorm($paydexNorm)
+    public function setPaydexNorm($paydex_norm)
     {
-        $this->container['paydexNorm'] = $paydexNorm;
+        $this->container['paydex_norm'] = $paydex_norm;
 
         return $this;
     }
 
     /**
-     * Gets intangibleAssets
+     * Gets intangible_assets
      * @return int
      */
     public function getIntangibleAssets()
     {
-        return $this->container['intangibleAssets'];
+        return $this->container['intangible_assets'];
     }
 
     /**
-     * Sets intangibleAssets
-     * @param int $intangibleAssets
+     * Sets intangible_assets
+     * @param int $intangible_assets
      * @return $this
      */
-    public function setIntangibleAssets($intangibleAssets)
+    public function setIntangibleAssets($intangible_assets)
     {
-        $this->container['intangibleAssets'] = $intangibleAssets;
+        $this->container['intangible_assets'] = $intangible_assets;
 
         return $this;
     }
 
     /**
-     * Gets maxCreditRecommendation
+     * Gets max_credit_recommendation
      * @return int
      */
     public function getMaxCreditRecommendation()
     {
-        return $this->container['maxCreditRecommendation'];
+        return $this->container['max_credit_recommendation'];
     }
 
     /**
-     * Sets maxCreditRecommendation
-     * @param int $maxCreditRecommendation
+     * Sets max_credit_recommendation
+     * @param int $max_credit_recommendation
      * @return $this
      */
-    public function setMaxCreditRecommendation($maxCreditRecommendation)
+    public function setMaxCreditRecommendation($max_credit_recommendation)
     {
-        $this->container['maxCreditRecommendation'] = $maxCreditRecommendation;
+        $this->container['max_credit_recommendation'] = $max_credit_recommendation;
 
         return $this;
     }
 
     /**
-     * Gets dubRating
+     * Gets dub_rating
      * @return string
      */
     public function getDubRating()
     {
-        return $this->container['dubRating'];
+        return $this->container['dub_rating'];
     }
 
     /**
-     * Sets dubRating
-     * @param string $dubRating
+     * Sets dub_rating
+     * @param string $dub_rating
      * @return $this
      */
-    public function setDubRating($dubRating)
+    public function setDubRating($dub_rating)
     {
-        $this->container['dubRating'] = $dubRating;
+        $this->container['dub_rating'] = $dub_rating;
 
         return $this;
     }
 
     /**
-     * Gets dubRatingFinancialStrength
+     * Gets dub_rating_financial_strength
      * @return string
      */
     public function getDubRatingFinancialStrength()
     {
-        return $this->container['dubRatingFinancialStrength'];
+        return $this->container['dub_rating_financial_strength'];
     }
 
     /**
-     * Sets dubRatingFinancialStrength
-     * @param string $dubRatingFinancialStrength
+     * Sets dub_rating_financial_strength
+     * @param string $dub_rating_financial_strength
      * @return $this
      */
-    public function setDubRatingFinancialStrength($dubRatingFinancialStrength)
+    public function setDubRatingFinancialStrength($dub_rating_financial_strength)
     {
-        $this->container['dubRatingFinancialStrength'] = $dubRatingFinancialStrength;
+        $this->container['dub_rating_financial_strength'] = $dub_rating_financial_strength;
 
         return $this;
     }
 
     /**
-     * Gets dubRatingRisk
+     * Gets dub_rating_risk
      * @return string
      */
     public function getDubRatingRisk()
     {
-        return $this->container['dubRatingRisk'];
+        return $this->container['dub_rating_risk'];
     }
 
     /**
-     * Sets dubRatingRisk
-     * @param string $dubRatingRisk
+     * Sets dub_rating_risk
+     * @param string $dub_rating_risk
      * @return $this
      */
-    public function setDubRatingRisk($dubRatingRisk)
+    public function setDubRatingRisk($dub_rating_risk)
     {
-        $this->container['dubRatingRisk'] = $dubRatingRisk;
+        $this->container['dub_rating_risk'] = $dub_rating_risk;
 
         return $this;
     }
 
     /**
-     * Gets dubRatingRiskDescription
+     * Gets dub_rating_risk_description
      * @return string
      */
     public function getDubRatingRiskDescription()
     {
-        return $this->container['dubRatingRiskDescription'];
+        return $this->container['dub_rating_risk_description'];
     }
 
     /**
-     * Sets dubRatingRiskDescription
-     * @param string $dubRatingRiskDescription
+     * Sets dub_rating_risk_description
+     * @param string $dub_rating_risk_description
      * @return $this
      */
-    public function setDubRatingRiskDescription($dubRatingRiskDescription)
+    public function setDubRatingRiskDescription($dub_rating_risk_description)
     {
-        $this->container['dubRatingRiskDescription'] = $dubRatingRiskDescription;
+        $this->container['dub_rating_risk_description'] = $dub_rating_risk_description;
 
         return $this;
     }
 
     /**
-     * Gets hasOpenClaims
+     * Gets has_open_claims
      * @return bool
      */
     public function getHasOpenClaims()
     {
-        return $this->container['hasOpenClaims'];
+        return $this->container['has_open_claims'];
     }
 
     /**
-     * Sets hasOpenClaims
-     * @param bool $hasOpenClaims
+     * Sets has_open_claims
+     * @param bool $has_open_claims
      * @return $this
      */
-    public function setHasOpenClaims($hasOpenClaims)
+    public function setHasOpenClaims($has_open_claims)
     {
-        $this->container['hasOpenClaims'] = $hasOpenClaims;
+        $this->container['has_open_claims'] = $has_open_claims;
 
         return $this;
     }
 
     /**
-     * Gets hasCriminalProceedings
+     * Gets has_criminal_proceedings
      * @return bool
      */
     public function getHasCriminalProceedings()
     {
-        return $this->container['hasCriminalProceedings'];
+        return $this->container['has_criminal_proceedings'];
     }
 
     /**
-     * Sets hasCriminalProceedings
-     * @param bool $hasCriminalProceedings
+     * Sets has_criminal_proceedings
+     * @param bool $has_criminal_proceedings
      * @return $this
      */
-    public function setHasCriminalProceedings($hasCriminalProceedings)
+    public function setHasCriminalProceedings($has_criminal_proceedings)
     {
-        $this->container['hasCriminalProceedings'] = $hasCriminalProceedings;
+        $this->container['has_criminal_proceedings'] = $has_criminal_proceedings;
 
         return $this;
     }
 
     /**
-     * Gets hasDisasterEvent
+     * Gets has_disaster_event
      * @return bool
      */
     public function getHasDisasterEvent()
     {
-        return $this->container['hasDisasterEvent'];
+        return $this->container['has_disaster_event'];
     }
 
     /**
-     * Sets hasDisasterEvent
-     * @param bool $hasDisasterEvent
+     * Sets has_disaster_event
+     * @param bool $has_disaster_event
      * @return $this
      */
-    public function setHasDisasterEvent($hasDisasterEvent)
+    public function setHasDisasterEvent($has_disaster_event)
     {
-        $this->container['hasDisasterEvent'] = $hasDisasterEvent;
+        $this->container['has_disaster_event'] = $has_disaster_event;
 
         return $this;
     }
 
     /**
-     * Gets hasFinancialEmbarrassment
+     * Gets has_financial_embarrassment
      * @return bool
      */
     public function getHasFinancialEmbarrassment()
     {
-        return $this->container['hasFinancialEmbarrassment'];
+        return $this->container['has_financial_embarrassment'];
     }
 
     /**
-     * Sets hasFinancialEmbarrassment
-     * @param bool $hasFinancialEmbarrassment
+     * Sets has_financial_embarrassment
+     * @param bool $has_financial_embarrassment
      * @return $this
      */
-    public function setHasFinancialEmbarrassment($hasFinancialEmbarrassment)
+    public function setHasFinancialEmbarrassment($has_financial_embarrassment)
     {
-        $this->container['hasFinancialEmbarrassment'] = $hasFinancialEmbarrassment;
+        $this->container['has_financial_embarrassment'] = $has_financial_embarrassment;
 
         return $this;
     }
 
     /**
-     * Gets hasFinancialLegalEvent
+     * Gets has_financial_legal_event
      * @return bool
      */
     public function getHasFinancialLegalEvent()
     {
-        return $this->container['hasFinancialLegalEvent'];
+        return $this->container['has_financial_legal_event'];
     }
 
     /**
-     * Sets hasFinancialLegalEvent
-     * @param bool $hasFinancialLegalEvent
+     * Sets has_financial_legal_event
+     * @param bool $has_financial_legal_event
      * @return $this
      */
-    public function setHasFinancialLegalEvent($hasFinancialLegalEvent)
+    public function setHasFinancialLegalEvent($has_financial_legal_event)
     {
-        $this->container['hasFinancialLegalEvent'] = $hasFinancialLegalEvent;
+        $this->container['has_financial_legal_event'] = $has_financial_legal_event;
 
         return $this;
     }
 
     /**
-     * Gets hasSpecialEvent
+     * Gets has_special_event
      * @return bool
      */
     public function getHasSpecialEvent()
     {
-        return $this->container['hasSpecialEvent'];
+        return $this->container['has_special_event'];
     }
 
     /**
-     * Sets hasSpecialEvent
-     * @param bool $hasSpecialEvent
+     * Sets has_special_event
+     * @param bool $has_special_event
      * @return $this
      */
-    public function setHasSpecialEvent($hasSpecialEvent)
+    public function setHasSpecialEvent($has_special_event)
     {
-        $this->container['hasSpecialEvent'] = $hasSpecialEvent;
+        $this->container['has_special_event'] = $has_special_event;
 
         return $this;
     }
 
     /**
-     * Gets hasOtherEvent
+     * Gets has_other_event
      * @return bool
      */
     public function getHasOtherEvent()
     {
-        return $this->container['hasOtherEvent'];
+        return $this->container['has_other_event'];
     }
 
     /**
-     * Sets hasOtherEvent
-     * @param bool $hasOtherEvent
+     * Sets has_other_event
+     * @param bool $has_other_event
      * @return $this
      */
-    public function setHasOtherEvent($hasOtherEvent)
+    public function setHasOtherEvent($has_other_event)
     {
-        $this->container['hasOtherEvent'] = $hasOtherEvent;
+        $this->container['has_other_event'] = $has_other_event;
 
         return $this;
     }
 
     /**
-     * Gets hasSecuredFilings
+     * Gets has_secured_filings
      * @return bool
      */
     public function getHasSecuredFilings()
     {
-        return $this->container['hasSecuredFilings'];
+        return $this->container['has_secured_filings'];
     }
 
     /**
-     * Sets hasSecuredFilings
-     * @param bool $hasSecuredFilings
+     * Sets has_secured_filings
+     * @param bool $has_secured_filings
      * @return $this
      */
-    public function setHasSecuredFilings($hasSecuredFilings)
+    public function setHasSecuredFilings($has_secured_filings)
     {
-        $this->container['hasSecuredFilings'] = $hasSecuredFilings;
+        $this->container['has_secured_filings'] = $has_secured_filings;
 
         return $this;
     }
 
     /**
-     * Gets hasLawsuit
+     * Gets has_lawsuit
      * @return bool
      */
     public function getHasLawsuit()
     {
-        return $this->container['hasLawsuit'];
+        return $this->container['has_lawsuit'];
     }
 
     /**
-     * Sets hasLawsuit
-     * @param bool $hasLawsuit
+     * Sets has_lawsuit
+     * @param bool $has_lawsuit
      * @return $this
      */
-    public function setHasLawsuit($hasLawsuit)
+    public function setHasLawsuit($has_lawsuit)
     {
-        $this->container['hasLawsuit'] = $hasLawsuit;
+        $this->container['has_lawsuit'] = $has_lawsuit;
 
         return $this;
     }
 
     /**
-     * Gets areEmployeesEstimated
+     * Gets are_employees_estimated
      * @return bool
      */
     public function getAreEmployeesEstimated()
     {
-        return $this->container['areEmployeesEstimated'];
+        return $this->container['are_employees_estimated'];
     }
 
     /**
-     * Sets areEmployeesEstimated
-     * @param bool $areEmployeesEstimated
+     * Sets are_employees_estimated
+     * @param bool $are_employees_estimated
      * @return $this
      */
-    public function setAreEmployeesEstimated($areEmployeesEstimated)
+    public function setAreEmployeesEstimated($are_employees_estimated)
     {
-        $this->container['areEmployeesEstimated'] = $areEmployeesEstimated;
+        $this->container['are_employees_estimated'] = $are_employees_estimated;
 
         return $this;
     }
 
     /**
-     * Gets areSalesEstimated
+     * Gets are_sales_estimated
      * @return bool
      */
     public function getAreSalesEstimated()
     {
-        return $this->container['areSalesEstimated'];
+        return $this->container['are_sales_estimated'];
     }
 
     /**
-     * Sets areSalesEstimated
-     * @param bool $areSalesEstimated
+     * Sets are_sales_estimated
+     * @param bool $are_sales_estimated
      * @return $this
      */
-    public function setAreSalesEstimated($areSalesEstimated)
+    public function setAreSalesEstimated($are_sales_estimated)
     {
-        $this->container['areSalesEstimated'] = $areSalesEstimated;
+        $this->container['are_sales_estimated'] = $are_sales_estimated;
 
         return $this;
     }

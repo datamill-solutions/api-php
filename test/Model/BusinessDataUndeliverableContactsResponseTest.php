@@ -120,7 +120,7 @@ class BusinessDataUndeliverableContactsResponseTest extends \PHPUnit_Framework_T
     }
 
     /**
-     * Test attribute "newAddressAvailable"
+     * Test attribute "new_address_available"
      */
     public function testPropertyNewAddressAvailable()
     {

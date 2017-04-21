@@ -104,7 +104,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "statusDescription"
+     * Test attribute "status_description"
      */
     public function testPropertyStatusDescription()
     {
@@ -112,7 +112,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "dunsNumber"
+     * Test attribute "duns_number"
      */
     public function testPropertyDunsNumber()
     {
@@ -120,7 +120,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "companyName"
+     * Test attribute "company_name"
      */
     public function testPropertyCompanyName()
     {
@@ -128,7 +128,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "continentName"
+     * Test attribute "continent_name"
      */
     public function testPropertyContinentName()
     {
@@ -136,7 +136,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "countryCode"
+     * Test attribute "country_code"
      */
     public function testPropertyCountryCode()
     {
@@ -144,7 +144,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "countryCode3"
+     * Test attribute "country_code_3"
      */
     public function testPropertyCountryCode3()
     {
@@ -152,7 +152,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "countryName"
+     * Test attribute "country_name"
      */
     public function testPropertyCountryName()
     {
@@ -184,7 +184,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "houseNumber"
+     * Test attribute "house_number"
      */
     public function testPropertyHouseNumber()
     {
@@ -192,7 +192,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "phoneNumber"
+     * Test attribute "phone_number"
      */
     public function testPropertyPhoneNumber()
     {
@@ -200,7 +200,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "faxNumber"
+     * Test attribute "fax_number"
      */
     public function testPropertyFaxNumber()
     {
@@ -208,7 +208,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "stateName"
+     * Test attribute "state_name"
      */
     public function testPropertyStateName()
     {
@@ -216,7 +216,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "ceoName"
+     * Test attribute "ceo_name"
      */
     public function testPropertyCeoName()
     {
@@ -224,7 +224,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "ceoTitle"
+     * Test attribute "ceo_title"
      */
     public function testPropertyCeoTitle()
     {
@@ -232,7 +232,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "sicCode"
+     * Test attribute "sic_code"
      */
     public function testPropertySicCode()
     {
@@ -240,7 +240,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "sicDescription"
+     * Test attribute "sic_description"
      */
     public function testPropertySicDescription()
     {
@@ -248,7 +248,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "sicVersion"
+     * Test attribute "sic_version"
      */
     public function testPropertySicVersion()
     {
@@ -256,7 +256,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "yearStarted"
+     * Test attribute "year_started"
      */
     public function testPropertyYearStarted()
     {
@@ -264,7 +264,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "netWorth"
+     * Test attribute "net_worth"
      */
     public function testPropertyNetWorth()
     {
@@ -272,7 +272,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "currencyCode"
+     * Test attribute "currency_code"
      */
     public function testPropertyCurrencyCode()
     {
@@ -280,7 +280,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "currencyName"
+     * Test attribute "currency_name"
      */
     public function testPropertyCurrencyName()
     {
@@ -288,7 +288,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "totalEmployees"
+     * Test attribute "total_employees"
      */
     public function testPropertyTotalEmployees()
     {
@@ -296,7 +296,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "totalEmployeesIndicator"
+     * Test attribute "total_employees_indicator"
      */
     public function testPropertyTotalEmployeesIndicator()
     {
@@ -304,7 +304,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "totalEmployeesIndicatorDescription"
+     * Test attribute "total_employees_indicator_description"
      */
     public function testPropertyTotalEmployeesIndicatorDescription()
     {
@@ -312,7 +312,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "legalFormCode"
+     * Test attribute "legal_form_code"
      */
     public function testPropertyLegalFormCode()
     {
@@ -320,7 +320,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "legalFormDescription"
+     * Test attribute "legal_form_description"
      */
     public function testPropertyLegalFormDescription()
     {
@@ -328,7 +328,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "reportDate"
+     * Test attribute "report_date"
      */
     public function testPropertyReportDate()
     {
@@ -336,7 +336,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "isOutOfBusiness"
+     * Test attribute "is_out_of_business"
      */
     public function testPropertyIsOutOfBusiness()
     {
@@ -344,7 +344,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "isBranch"
+     * Test attribute "is_branch"
      */
     public function testPropertyIsBranch()
     {
@@ -352,7 +352,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "businessRegistrationNumber"
+     * Test attribute "business_registration_number"
      */
     public function testPropertyBusinessRegistrationNumber()
     {
@@ -360,7 +360,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "businessRegistrationType"
+     * Test attribute "business_registration_type"
      */
     public function testPropertyBusinessRegistrationType()
     {
@@ -368,7 +368,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "incorporationYear"
+     * Test attribute "incorporation_year"
      */
     public function testPropertyIncorporationYear()
     {
@@ -376,7 +376,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "tradeStyles"
+     * Test attribute "trade_styles"
      */
     public function testPropertyTradeStyles()
     {
@@ -384,7 +384,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "enquiryDuns"
+     * Test attribute "enquiry_duns"
      */
     public function testPropertyEnquiryDuns()
     {
@@ -400,7 +400,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "salesEstimatedDescription"
+     * Test attribute "sales_estimated_description"
      */
     public function testPropertySalesEstimatedDescription()
     {
@@ -408,7 +408,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "paydexScore"
+     * Test attribute "paydex_score"
      */
     public function testPropertyPaydexScore()
     {
@@ -416,7 +416,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "paydexScoreDescription"
+     * Test attribute "paydex_score_description"
      */
     public function testPropertyPaydexScoreDescription()
     {
@@ -424,7 +424,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "paydexNorm"
+     * Test attribute "paydex_norm"
      */
     public function testPropertyPaydexNorm()
     {
@@ -432,7 +432,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "intangibleAssets"
+     * Test attribute "intangible_assets"
      */
     public function testPropertyIntangibleAssets()
     {
@@ -440,7 +440,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "maxCreditRecommendation"
+     * Test attribute "max_credit_recommendation"
      */
     public function testPropertyMaxCreditRecommendation()
     {
@@ -448,7 +448,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "dubRating"
+     * Test attribute "dub_rating"
      */
     public function testPropertyDubRating()
     {
@@ -456,7 +456,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "dubRatingFinancialStrength"
+     * Test attribute "dub_rating_financial_strength"
      */
     public function testPropertyDubRatingFinancialStrength()
     {
@@ -464,7 +464,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "dubRatingRisk"
+     * Test attribute "dub_rating_risk"
      */
     public function testPropertyDubRatingRisk()
     {
@@ -472,7 +472,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "dubRatingRiskDescription"
+     * Test attribute "dub_rating_risk_description"
      */
     public function testPropertyDubRatingRiskDescription()
     {
@@ -480,7 +480,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "hasOpenClaims"
+     * Test attribute "has_open_claims"
      */
     public function testPropertyHasOpenClaims()
     {
@@ -488,7 +488,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "hasCriminalProceedings"
+     * Test attribute "has_criminal_proceedings"
      */
     public function testPropertyHasCriminalProceedings()
     {
@@ -496,7 +496,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "hasDisasterEvent"
+     * Test attribute "has_disaster_event"
      */
     public function testPropertyHasDisasterEvent()
     {
@@ -504,7 +504,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "hasFinancialEmbarrassment"
+     * Test attribute "has_financial_embarrassment"
      */
     public function testPropertyHasFinancialEmbarrassment()
     {
@@ -512,7 +512,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "hasFinancialLegalEvent"
+     * Test attribute "has_financial_legal_event"
      */
     public function testPropertyHasFinancialLegalEvent()
     {
@@ -520,7 +520,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "hasSpecialEvent"
+     * Test attribute "has_special_event"
      */
     public function testPropertyHasSpecialEvent()
     {
@@ -528,7 +528,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "hasOtherEvent"
+     * Test attribute "has_other_event"
      */
     public function testPropertyHasOtherEvent()
     {
@@ -536,7 +536,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "hasSecuredFilings"
+     * Test attribute "has_secured_filings"
      */
     public function testPropertyHasSecuredFilings()
     {
@@ -544,7 +544,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "hasLawsuit"
+     * Test attribute "has_lawsuit"
      */
     public function testPropertyHasLawsuit()
     {
@@ -552,7 +552,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "areEmployeesEstimated"
+     * Test attribute "are_employees_estimated"
      */
     public function testPropertyAreEmployeesEstimated()
     {
@@ -560,7 +560,7 @@ class BusinessDataDunsRatingResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "areSalesEstimated"
+     * Test attribute "are_sales_estimated"
      */
     public function testPropertyAreSalesEstimated()
     {

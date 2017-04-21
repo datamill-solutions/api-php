@@ -109,13 +109,13 @@ class URLApi
      * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $url The url to be checked (e.g. any website) (required)
-     * @param string $maxRedirects The maximum amount of redirects until the lookup for the root resource will be stopped (default **10**) (optional, default to 10)
+     * @param string $max_redirects The maximum amount of redirects until the lookup for the root resource will be stopped (default **10**) (optional, default to 10)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\UrlCheckResponse
      */
-    public function checkUrl($license, $guid, $url, $maxRedirects = null)
+    public function checkUrl($license, $guid, $url, $max_redirects = null)
     {
-        list($response) = $this->checkUrlWithHttpInfo($license, $guid, $url, $maxRedirects);
+        list($response) = $this->checkUrlWithHttpInfo($license, $guid, $url, $max_redirects);
         return $response;
     }
 
@@ -127,11 +127,11 @@ class URLApi
      * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $url The url to be checked (e.g. any website) (required)
-     * @param string $maxRedirects The maximum amount of redirects until the lookup for the root resource will be stopped (default **10**) (optional, default to 10)
+     * @param string $max_redirects The maximum amount of redirects until the lookup for the root resource will be stopped (default **10**) (optional, default to 10)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\UrlCheckResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function checkUrlWithHttpInfo($license, $guid, $url, $maxRedirects = null)
+    public function checkUrlWithHttpInfo($license, $guid, $url, $max_redirects = null)
     {
         // verify the required parameter 'license' is set
         if ($license === null) {
@@ -163,11 +163,11 @@ class URLApi
             throw new \InvalidArgumentException('invalid length for "$url" when calling URLApi.checkUrl, must be bigger than or equal to 4.');
         }
 
-        if (!is_null($maxRedirects) && (strlen($maxRedirects) > 100)) {
-            throw new \InvalidArgumentException('invalid length for "$maxRedirects" when calling URLApi.checkUrl, must be smaller than or equal to 100.');
+        if (!is_null($max_redirects) && (strlen($max_redirects) > 100)) {
+            throw new \InvalidArgumentException('invalid length for "$max_redirects" when calling URLApi.checkUrl, must be smaller than or equal to 100.');
         }
-        if (!is_null($maxRedirects) && (strlen($maxRedirects) < 0)) {
-            throw new \InvalidArgumentException('invalid length for "$maxRedirects" when calling URLApi.checkUrl, must be bigger than or equal to 0.');
+        if (!is_null($max_redirects) && (strlen($max_redirects) < 0)) {
+            throw new \InvalidArgumentException('invalid length for "$max_redirects" when calling URLApi.checkUrl, must be bigger than or equal to 0.');
         }
 
         // parse inputs
@@ -198,8 +198,8 @@ class URLApi
             $formParams['url'] = $this->apiClient->getSerializer()->toFormValue($url);
         }
         // form params
-        if ($maxRedirects !== null) {
-            $formParams['max_redirects'] = $this->apiClient->getSerializer()->toFormValue($maxRedirects);
+        if ($max_redirects !== null) {
+            $formParams['max_redirects'] = $this->apiClient->getSerializer()->toFormValue($max_redirects);
         }
         
         // for model (json/xml)

@@ -68,8 +68,8 @@ class PhoneCountryCodeGetResponse implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'countrycode' => 'string',
-        'internationalPrefix' => 'string',
-        'nationalPrefix' => 'string'
+        'international_prefix' => 'string',
+        'national_prefix' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -83,8 +83,8 @@ class PhoneCountryCodeGetResponse implements ArrayAccess
      */
     protected static $attributeMap = [
         'countrycode' => 'countrycode',
-        'internationalPrefix' => 'international_prefix',
-        'nationalPrefix' => 'national_prefix'
+        'international_prefix' => 'international_prefix',
+        'national_prefix' => 'national_prefix'
     ];
 
 
@@ -94,8 +94,8 @@ class PhoneCountryCodeGetResponse implements ArrayAccess
      */
     protected static $setters = [
         'countrycode' => 'setCountrycode',
-        'internationalPrefix' => 'setInternationalPrefix',
-        'nationalPrefix' => 'setNationalPrefix'
+        'international_prefix' => 'setInternationalPrefix',
+        'national_prefix' => 'setNationalPrefix'
     ];
 
 
@@ -105,8 +105,8 @@ class PhoneCountryCodeGetResponse implements ArrayAccess
      */
     protected static $getters = [
         'countrycode' => 'getCountrycode',
-        'internationalPrefix' => 'getInternationalPrefix',
-        'nationalPrefix' => 'getNationalPrefix'
+        'international_prefix' => 'getInternationalPrefix',
+        'national_prefix' => 'getNationalPrefix'
     ];
 
     public static function attributeMap()
@@ -141,8 +141,8 @@ class PhoneCountryCodeGetResponse implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['countrycode'] = isset($data['countrycode']) ? $data['countrycode'] : null;
-        $this->container['internationalPrefix'] = isset($data['internationalPrefix']) ? $data['internationalPrefix'] : null;
-        $this->container['nationalPrefix'] = isset($data['nationalPrefix']) ? $data['nationalPrefix'] : null;
+        $this->container['international_prefix'] = isset($data['international_prefix']) ? $data['international_prefix'] : null;
+        $this->container['national_prefix'] = isset($data['national_prefix']) ? $data['national_prefix'] : null;
     }
 
     /**
@@ -156,11 +156,11 @@ class PhoneCountryCodeGetResponse implements ArrayAccess
         if ($this->container['countrycode'] === null) {
             $invalid_properties[] = "'countrycode' can't be null";
         }
-        if ($this->container['internationalPrefix'] === null) {
-            $invalid_properties[] = "'internationalPrefix' can't be null";
+        if ($this->container['international_prefix'] === null) {
+            $invalid_properties[] = "'international_prefix' can't be null";
         }
-        if ($this->container['nationalPrefix'] === null) {
-            $invalid_properties[] = "'nationalPrefix' can't be null";
+        if ($this->container['national_prefix'] === null) {
+            $invalid_properties[] = "'national_prefix' can't be null";
         }
         return $invalid_properties;
     }
@@ -176,10 +176,10 @@ class PhoneCountryCodeGetResponse implements ArrayAccess
         if ($this->container['countrycode'] === null) {
             return false;
         }
-        if ($this->container['internationalPrefix'] === null) {
+        if ($this->container['international_prefix'] === null) {
             return false;
         }
-        if ($this->container['nationalPrefix'] === null) {
+        if ($this->container['national_prefix'] === null) {
             return false;
         }
         return true;
@@ -208,43 +208,43 @@ class PhoneCountryCodeGetResponse implements ArrayAccess
     }
 
     /**
-     * Gets internationalPrefix
+     * Gets international_prefix
      * @return string
      */
     public function getInternationalPrefix()
     {
-        return $this->container['internationalPrefix'];
+        return $this->container['international_prefix'];
     }
 
     /**
-     * Sets internationalPrefix
-     * @param string $internationalPrefix
+     * Sets international_prefix
+     * @param string $international_prefix
      * @return $this
      */
-    public function setInternationalPrefix($internationalPrefix)
+    public function setInternationalPrefix($international_prefix)
     {
-        $this->container['internationalPrefix'] = $internationalPrefix;
+        $this->container['international_prefix'] = $international_prefix;
 
         return $this;
     }
 
     /**
-     * Gets nationalPrefix
+     * Gets national_prefix
      * @return string
      */
     public function getNationalPrefix()
     {
-        return $this->container['nationalPrefix'];
+        return $this->container['national_prefix'];
     }
 
     /**
-     * Sets nationalPrefix
-     * @param string $nationalPrefix
+     * Sets national_prefix
+     * @param string $national_prefix
      * @return $this
      */
-    public function setNationalPrefix($nationalPrefix)
+    public function setNationalPrefix($national_prefix)
     {
-        $this->container['nationalPrefix'] = $nationalPrefix;
+        $this->container['national_prefix'] = $national_prefix;
 
         return $this;
     }

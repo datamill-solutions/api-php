@@ -96,7 +96,7 @@ class AddressSearchResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "countryIso2"
+     * Test attribute "country_iso_2"
      */
     public function testPropertyCountryIso2()
     {
@@ -104,7 +104,7 @@ class AddressSearchResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "countryIso3"
+     * Test attribute "country_iso_3"
      */
     public function testPropertyCountryIso3()
     {
@@ -128,7 +128,7 @@ class AddressSearchResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "stateName"
+     * Test attribute "state_name"
      */
     public function testPropertyStateName()
     {
@@ -136,7 +136,7 @@ class AddressSearchResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "stateCode"
+     * Test attribute "state_code"
      */
     public function testPropertyStateCode()
     {
@@ -192,7 +192,7 @@ class AddressSearchResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "additionalData"
+     * Test attribute "additional_data"
      */
     public function testPropertyAdditionalData()
     {
@@ -224,7 +224,7 @@ class AddressSearchResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "navigationLatitude"
+     * Test attribute "navigation_latitude"
      */
     public function testPropertyNavigationLatitude()
     {
@@ -232,7 +232,7 @@ class AddressSearchResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "navigationLongitude"
+     * Test attribute "navigation_longitude"
      */
     public function testPropertyNavigationLongitude()
     {

@@ -67,24 +67,24 @@ class AddressSearchResponse implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'countryIso2' => 'string',
-        'countryIso3' => 'string',
+        'country_iso_2' => 'string',
+        'country_iso_3' => 'string',
         'country' => 'string',
         'state' => 'string',
-        'stateName' => 'string',
-        'stateCode' => 'string',
+        'state_name' => 'string',
+        'state_code' => 'string',
         'county' => 'string',
         'district' => 'string',
         'zip' => 'string',
         'city' => 'string',
         'street' => 'string',
         'housenumber' => 'string',
-        'additionalData' => 'string',
+        'additional_data' => 'string',
         'relevance' => 'string',
         'latitude' => 'string',
         'longitude' => 'string',
-        'navigationLatitude' => 'string',
-        'navigationLongitude' => 'string',
+        'navigation_latitude' => 'string',
+        'navigation_longitude' => 'string',
         'matchlevel' => 'string'
     ];
 
@@ -98,24 +98,24 @@ class AddressSearchResponse implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'countryIso2' => 'country_iso_2',
-        'countryIso3' => 'country_iso_3',
+        'country_iso_2' => 'country_iso_2',
+        'country_iso_3' => 'country_iso_3',
         'country' => 'country',
         'state' => 'state',
-        'stateName' => 'state_name',
-        'stateCode' => 'state_code',
+        'state_name' => 'state_name',
+        'state_code' => 'state_code',
         'county' => 'county',
         'district' => 'district',
         'zip' => 'zip',
         'city' => 'city',
         'street' => 'street',
         'housenumber' => 'housenumber',
-        'additionalData' => 'additional_data',
+        'additional_data' => 'additional_data',
         'relevance' => 'relevance',
         'latitude' => 'latitude',
         'longitude' => 'longitude',
-        'navigationLatitude' => 'navigation_latitude',
-        'navigationLongitude' => 'navigation_longitude',
+        'navigation_latitude' => 'navigation_latitude',
+        'navigation_longitude' => 'navigation_longitude',
         'matchlevel' => 'matchlevel'
     ];
 
@@ -125,24 +125,24 @@ class AddressSearchResponse implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'countryIso2' => 'setCountryIso2',
-        'countryIso3' => 'setCountryIso3',
+        'country_iso_2' => 'setCountryIso2',
+        'country_iso_3' => 'setCountryIso3',
         'country' => 'setCountry',
         'state' => 'setState',
-        'stateName' => 'setStateName',
-        'stateCode' => 'setStateCode',
+        'state_name' => 'setStateName',
+        'state_code' => 'setStateCode',
         'county' => 'setCounty',
         'district' => 'setDistrict',
         'zip' => 'setZip',
         'city' => 'setCity',
         'street' => 'setStreet',
         'housenumber' => 'setHousenumber',
-        'additionalData' => 'setAdditionalData',
+        'additional_data' => 'setAdditionalData',
         'relevance' => 'setRelevance',
         'latitude' => 'setLatitude',
         'longitude' => 'setLongitude',
-        'navigationLatitude' => 'setNavigationLatitude',
-        'navigationLongitude' => 'setNavigationLongitude',
+        'navigation_latitude' => 'setNavigationLatitude',
+        'navigation_longitude' => 'setNavigationLongitude',
         'matchlevel' => 'setMatchlevel'
     ];
 
@@ -152,24 +152,24 @@ class AddressSearchResponse implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'countryIso2' => 'getCountryIso2',
-        'countryIso3' => 'getCountryIso3',
+        'country_iso_2' => 'getCountryIso2',
+        'country_iso_3' => 'getCountryIso3',
         'country' => 'getCountry',
         'state' => 'getState',
-        'stateName' => 'getStateName',
-        'stateCode' => 'getStateCode',
+        'state_name' => 'getStateName',
+        'state_code' => 'getStateCode',
         'county' => 'getCounty',
         'district' => 'getDistrict',
         'zip' => 'getZip',
         'city' => 'getCity',
         'street' => 'getStreet',
         'housenumber' => 'getHousenumber',
-        'additionalData' => 'getAdditionalData',
+        'additional_data' => 'getAdditionalData',
         'relevance' => 'getRelevance',
         'latitude' => 'getLatitude',
         'longitude' => 'getLongitude',
-        'navigationLatitude' => 'getNavigationLatitude',
-        'navigationLongitude' => 'getNavigationLongitude',
+        'navigation_latitude' => 'getNavigationLatitude',
+        'navigation_longitude' => 'getNavigationLongitude',
         'matchlevel' => 'getMatchlevel'
     ];
 
@@ -222,24 +222,24 @@ class AddressSearchResponse implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['countryIso2'] = isset($data['countryIso2']) ? $data['countryIso2'] : null;
-        $this->container['countryIso3'] = isset($data['countryIso3']) ? $data['countryIso3'] : null;
+        $this->container['country_iso_2'] = isset($data['country_iso_2']) ? $data['country_iso_2'] : null;
+        $this->container['country_iso_3'] = isset($data['country_iso_3']) ? $data['country_iso_3'] : null;
         $this->container['country'] = isset($data['country']) ? $data['country'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
-        $this->container['stateName'] = isset($data['stateName']) ? $data['stateName'] : null;
-        $this->container['stateCode'] = isset($data['stateCode']) ? $data['stateCode'] : null;
+        $this->container['state_name'] = isset($data['state_name']) ? $data['state_name'] : null;
+        $this->container['state_code'] = isset($data['state_code']) ? $data['state_code'] : null;
         $this->container['county'] = isset($data['county']) ? $data['county'] : null;
         $this->container['district'] = isset($data['district']) ? $data['district'] : null;
         $this->container['zip'] = isset($data['zip']) ? $data['zip'] : null;
         $this->container['city'] = isset($data['city']) ? $data['city'] : null;
         $this->container['street'] = isset($data['street']) ? $data['street'] : null;
         $this->container['housenumber'] = isset($data['housenumber']) ? $data['housenumber'] : null;
-        $this->container['additionalData'] = isset($data['additionalData']) ? $data['additionalData'] : null;
+        $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
         $this->container['relevance'] = isset($data['relevance']) ? $data['relevance'] : null;
         $this->container['latitude'] = isset($data['latitude']) ? $data['latitude'] : null;
         $this->container['longitude'] = isset($data['longitude']) ? $data['longitude'] : null;
-        $this->container['navigationLatitude'] = isset($data['navigationLatitude']) ? $data['navigationLatitude'] : null;
-        $this->container['navigationLongitude'] = isset($data['navigationLongitude']) ? $data['navigationLongitude'] : null;
+        $this->container['navigation_latitude'] = isset($data['navigation_latitude']) ? $data['navigation_latitude'] : null;
+        $this->container['navigation_longitude'] = isset($data['navigation_longitude']) ? $data['navigation_longitude'] : null;
         $this->container['matchlevel'] = isset($data['matchlevel']) ? $data['matchlevel'] : null;
     }
 
@@ -251,11 +251,11 @@ class AddressSearchResponse implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = [];
-        if ($this->container['countryIso2'] === null) {
-            $invalid_properties[] = "'countryIso2' can't be null";
+        if ($this->container['country_iso_2'] === null) {
+            $invalid_properties[] = "'country_iso_2' can't be null";
         }
-        if ($this->container['countryIso3'] === null) {
-            $invalid_properties[] = "'countryIso3' can't be null";
+        if ($this->container['country_iso_3'] === null) {
+            $invalid_properties[] = "'country_iso_3' can't be null";
         }
         if ($this->container['country'] === null) {
             $invalid_properties[] = "'country' can't be null";
@@ -263,11 +263,11 @@ class AddressSearchResponse implements ArrayAccess
         if ($this->container['state'] === null) {
             $invalid_properties[] = "'state' can't be null";
         }
-        if ($this->container['stateName'] === null) {
-            $invalid_properties[] = "'stateName' can't be null";
+        if ($this->container['state_name'] === null) {
+            $invalid_properties[] = "'state_name' can't be null";
         }
-        if ($this->container['stateCode'] === null) {
-            $invalid_properties[] = "'stateCode' can't be null";
+        if ($this->container['state_code'] === null) {
+            $invalid_properties[] = "'state_code' can't be null";
         }
         if ($this->container['county'] === null) {
             $invalid_properties[] = "'county' can't be null";
@@ -287,8 +287,8 @@ class AddressSearchResponse implements ArrayAccess
         if ($this->container['housenumber'] === null) {
             $invalid_properties[] = "'housenumber' can't be null";
         }
-        if ($this->container['additionalData'] === null) {
-            $invalid_properties[] = "'additionalData' can't be null";
+        if ($this->container['additional_data'] === null) {
+            $invalid_properties[] = "'additional_data' can't be null";
         }
         if ($this->container['relevance'] === null) {
             $invalid_properties[] = "'relevance' can't be null";
@@ -299,11 +299,11 @@ class AddressSearchResponse implements ArrayAccess
         if ($this->container['longitude'] === null) {
             $invalid_properties[] = "'longitude' can't be null";
         }
-        if ($this->container['navigationLatitude'] === null) {
-            $invalid_properties[] = "'navigationLatitude' can't be null";
+        if ($this->container['navigation_latitude'] === null) {
+            $invalid_properties[] = "'navigation_latitude' can't be null";
         }
-        if ($this->container['navigationLongitude'] === null) {
-            $invalid_properties[] = "'navigationLongitude' can't be null";
+        if ($this->container['navigation_longitude'] === null) {
+            $invalid_properties[] = "'navigation_longitude' can't be null";
         }
         if ($this->container['matchlevel'] === null) {
             $invalid_properties[] = "'matchlevel' can't be null";
@@ -324,10 +324,10 @@ class AddressSearchResponse implements ArrayAccess
      */
     public function valid()
     {
-        if ($this->container['countryIso2'] === null) {
+        if ($this->container['country_iso_2'] === null) {
             return false;
         }
-        if ($this->container['countryIso3'] === null) {
+        if ($this->container['country_iso_3'] === null) {
             return false;
         }
         if ($this->container['country'] === null) {
@@ -336,10 +336,10 @@ class AddressSearchResponse implements ArrayAccess
         if ($this->container['state'] === null) {
             return false;
         }
-        if ($this->container['stateName'] === null) {
+        if ($this->container['state_name'] === null) {
             return false;
         }
-        if ($this->container['stateCode'] === null) {
+        if ($this->container['state_code'] === null) {
             return false;
         }
         if ($this->container['county'] === null) {
@@ -360,7 +360,7 @@ class AddressSearchResponse implements ArrayAccess
         if ($this->container['housenumber'] === null) {
             return false;
         }
-        if ($this->container['additionalData'] === null) {
+        if ($this->container['additional_data'] === null) {
             return false;
         }
         if ($this->container['relevance'] === null) {
@@ -372,10 +372,10 @@ class AddressSearchResponse implements ArrayAccess
         if ($this->container['longitude'] === null) {
             return false;
         }
-        if ($this->container['navigationLatitude'] === null) {
+        if ($this->container['navigation_latitude'] === null) {
             return false;
         }
-        if ($this->container['navigationLongitude'] === null) {
+        if ($this->container['navigation_longitude'] === null) {
             return false;
         }
         if ($this->container['matchlevel'] === null) {
@@ -390,43 +390,43 @@ class AddressSearchResponse implements ArrayAccess
 
 
     /**
-     * Gets countryIso2
+     * Gets country_iso_2
      * @return string
      */
     public function getCountryIso2()
     {
-        return $this->container['countryIso2'];
+        return $this->container['country_iso_2'];
     }
 
     /**
-     * Sets countryIso2
-     * @param string $countryIso2
+     * Sets country_iso_2
+     * @param string $country_iso_2
      * @return $this
      */
-    public function setCountryIso2($countryIso2)
+    public function setCountryIso2($country_iso_2)
     {
-        $this->container['countryIso2'] = $countryIso2;
+        $this->container['country_iso_2'] = $country_iso_2;
 
         return $this;
     }
 
     /**
-     * Gets countryIso3
+     * Gets country_iso_3
      * @return string
      */
     public function getCountryIso3()
     {
-        return $this->container['countryIso3'];
+        return $this->container['country_iso_3'];
     }
 
     /**
-     * Sets countryIso3
-     * @param string $countryIso3
+     * Sets country_iso_3
+     * @param string $country_iso_3
      * @return $this
      */
-    public function setCountryIso3($countryIso3)
+    public function setCountryIso3($country_iso_3)
     {
-        $this->container['countryIso3'] = $countryIso3;
+        $this->container['country_iso_3'] = $country_iso_3;
 
         return $this;
     }
@@ -474,43 +474,43 @@ class AddressSearchResponse implements ArrayAccess
     }
 
     /**
-     * Gets stateName
+     * Gets state_name
      * @return string
      */
     public function getStateName()
     {
-        return $this->container['stateName'];
+        return $this->container['state_name'];
     }
 
     /**
-     * Sets stateName
-     * @param string $stateName
+     * Sets state_name
+     * @param string $state_name
      * @return $this
      */
-    public function setStateName($stateName)
+    public function setStateName($state_name)
     {
-        $this->container['stateName'] = $stateName;
+        $this->container['state_name'] = $state_name;
 
         return $this;
     }
 
     /**
-     * Gets stateCode
+     * Gets state_code
      * @return string
      */
     public function getStateCode()
     {
-        return $this->container['stateCode'];
+        return $this->container['state_code'];
     }
 
     /**
-     * Sets stateCode
-     * @param string $stateCode
+     * Sets state_code
+     * @param string $state_code
      * @return $this
      */
-    public function setStateCode($stateCode)
+    public function setStateCode($state_code)
     {
-        $this->container['stateCode'] = $stateCode;
+        $this->container['state_code'] = $state_code;
 
         return $this;
     }
@@ -642,22 +642,22 @@ class AddressSearchResponse implements ArrayAccess
     }
 
     /**
-     * Gets additionalData
+     * Gets additional_data
      * @return string
      */
     public function getAdditionalData()
     {
-        return $this->container['additionalData'];
+        return $this->container['additional_data'];
     }
 
     /**
-     * Sets additionalData
-     * @param string $additionalData
+     * Sets additional_data
+     * @param string $additional_data
      * @return $this
      */
-    public function setAdditionalData($additionalData)
+    public function setAdditionalData($additional_data)
     {
-        $this->container['additionalData'] = $additionalData;
+        $this->container['additional_data'] = $additional_data;
 
         return $this;
     }
@@ -726,43 +726,43 @@ class AddressSearchResponse implements ArrayAccess
     }
 
     /**
-     * Gets navigationLatitude
+     * Gets navigation_latitude
      * @return string
      */
     public function getNavigationLatitude()
     {
-        return $this->container['navigationLatitude'];
+        return $this->container['navigation_latitude'];
     }
 
     /**
-     * Sets navigationLatitude
-     * @param string $navigationLatitude
+     * Sets navigation_latitude
+     * @param string $navigation_latitude
      * @return $this
      */
-    public function setNavigationLatitude($navigationLatitude)
+    public function setNavigationLatitude($navigation_latitude)
     {
-        $this->container['navigationLatitude'] = $navigationLatitude;
+        $this->container['navigation_latitude'] = $navigation_latitude;
 
         return $this;
     }
 
     /**
-     * Gets navigationLongitude
+     * Gets navigation_longitude
      * @return string
      */
     public function getNavigationLongitude()
     {
-        return $this->container['navigationLongitude'];
+        return $this->container['navigation_longitude'];
     }
 
     /**
-     * Sets navigationLongitude
-     * @param string $navigationLongitude
+     * Sets navigation_longitude
+     * @param string $navigation_longitude
      * @return $this
      */
-    public function setNavigationLongitude($navigationLongitude)
+    public function setNavigationLongitude($navigation_longitude)
     {
-        $this->container['navigationLongitude'] = $navigationLongitude;
+        $this->container['navigation_longitude'] = $navigation_longitude;
 
         return $this;
     }

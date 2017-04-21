@@ -433,15 +433,15 @@ class VATApi
      * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $company The name of an company. You may enter the fully qualified name or only partial information. (required)
      * @param string $city The city where the company&#39;s headquarters is located. (optional)
-     * @param string $countryCode ISO 3166-1 alpha-2 country code to specify in which country to look for. Possible countries are: **AT, BE, CZ, DK, FI, GB, GR, HU, IT, LU, MT, SI** (optional)
+     * @param string $country_code ISO 3166-1 alpha-2 country code to specify in which country to look for. Possible countries are: **AT, BE, CZ, DK, FI, GB, GR, HU, IT, LU, MT, SI** (optional)
      * @param string $limit The maximum amount of results returned if multiple companies are found. Default value is **10**. (optional, default to 10)
-     * @param string $minScore Threshold to set the minimum score rate of results being returned. Default: **0.8** (optional, default to 0.8)
+     * @param string $min_score Threshold to set the minimum score rate of results being returned. Default: **0.8** (optional, default to 0.8)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\VatSearchResponse
      */
-    public function searchVAT($license, $guid, $company, $city = null, $countryCode = null, $limit = null, $minScore = null)
+    public function searchVAT($license, $guid, $company, $city = null, $country_code = null, $limit = null, $min_score = null)
     {
-        list($response) = $this->searchVATWithHttpInfo($license, $guid, $company, $city, $countryCode, $limit, $minScore);
+        list($response) = $this->searchVATWithHttpInfo($license, $guid, $company, $city, $country_code, $limit, $min_score);
         return $response;
     }
 
@@ -454,13 +454,13 @@ class VATApi
      * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $company The name of an company. You may enter the fully qualified name or only partial information. (required)
      * @param string $city The city where the company&#39;s headquarters is located. (optional)
-     * @param string $countryCode ISO 3166-1 alpha-2 country code to specify in which country to look for. Possible countries are: **AT, BE, CZ, DK, FI, GB, GR, HU, IT, LU, MT, SI** (optional)
+     * @param string $country_code ISO 3166-1 alpha-2 country code to specify in which country to look for. Possible countries are: **AT, BE, CZ, DK, FI, GB, GR, HU, IT, LU, MT, SI** (optional)
      * @param string $limit The maximum amount of results returned if multiple companies are found. Default value is **10**. (optional, default to 10)
-     * @param string $minScore Threshold to set the minimum score rate of results being returned. Default: **0.8** (optional, default to 0.8)
+     * @param string $min_score Threshold to set the minimum score rate of results being returned. Default: **0.8** (optional, default to 0.8)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\VatSearchResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchVATWithHttpInfo($license, $guid, $company, $city = null, $countryCode = null, $limit = null, $minScore = null)
+    public function searchVATWithHttpInfo($license, $guid, $company, $city = null, $country_code = null, $limit = null, $min_score = null)
     {
         // verify the required parameter 'license' is set
         if ($license === null) {
@@ -499,11 +499,11 @@ class VATApi
             throw new \InvalidArgumentException('invalid length for "$city" when calling VATApi.searchVAT, must be bigger than or equal to 1.');
         }
 
-        if (!is_null($countryCode) && (strlen($countryCode) > 2)) {
-            throw new \InvalidArgumentException('invalid length for "$countryCode" when calling VATApi.searchVAT, must be smaller than or equal to 2.');
+        if (!is_null($country_code) && (strlen($country_code) > 2)) {
+            throw new \InvalidArgumentException('invalid length for "$country_code" when calling VATApi.searchVAT, must be smaller than or equal to 2.');
         }
-        if (!is_null($countryCode) && (strlen($countryCode) < 2)) {
-            throw new \InvalidArgumentException('invalid length for "$countryCode" when calling VATApi.searchVAT, must be bigger than or equal to 2.');
+        if (!is_null($country_code) && (strlen($country_code) < 2)) {
+            throw new \InvalidArgumentException('invalid length for "$country_code" when calling VATApi.searchVAT, must be bigger than or equal to 2.');
         }
 
         if (!is_null($limit) && (strlen($limit) > 20)) {
@@ -513,11 +513,11 @@ class VATApi
             throw new \InvalidArgumentException('invalid length for "$limit" when calling VATApi.searchVAT, must be bigger than or equal to 1.');
         }
 
-        if (!is_null($minScore) && (strlen($minScore) > 10)) {
-            throw new \InvalidArgumentException('invalid length for "$minScore" when calling VATApi.searchVAT, must be smaller than or equal to 10.');
+        if (!is_null($min_score) && (strlen($min_score) > 10)) {
+            throw new \InvalidArgumentException('invalid length for "$min_score" when calling VATApi.searchVAT, must be smaller than or equal to 10.');
         }
-        if (!is_null($minScore) && (strlen($minScore) < 0)) {
-            throw new \InvalidArgumentException('invalid length for "$minScore" when calling VATApi.searchVAT, must be bigger than or equal to 0.');
+        if (!is_null($min_score) && (strlen($min_score) < 0)) {
+            throw new \InvalidArgumentException('invalid length for "$min_score" when calling VATApi.searchVAT, must be bigger than or equal to 0.');
         }
 
         // parse inputs
@@ -552,16 +552,16 @@ class VATApi
             $formParams['city'] = $this->apiClient->getSerializer()->toFormValue($city);
         }
         // form params
-        if ($countryCode !== null) {
-            $formParams['country_code'] = $this->apiClient->getSerializer()->toFormValue($countryCode);
+        if ($country_code !== null) {
+            $formParams['country_code'] = $this->apiClient->getSerializer()->toFormValue($country_code);
         }
         // form params
         if ($limit !== null) {
             $formParams['limit'] = $this->apiClient->getSerializer()->toFormValue($limit);
         }
         // form params
-        if ($minScore !== null) {
-            $formParams['min_score'] = $this->apiClient->getSerializer()->toFormValue($minScore);
+        if ($min_score !== null) {
+            $formParams['min_score'] = $this->apiClient->getSerializer()->toFormValue($min_score);
         }
         
         // for model (json/xml)

@@ -70,7 +70,7 @@ class BusinessDataUndeliverableContactsResponse implements ArrayAccess
         'undeliverable' => 'string',
         'deceased' => 'string',
         'moved' => 'string',
-        'newAddressAvailable' => 'string',
+        'new_address_available' => 'string',
         'contact' => '\DataMill\BusinessDataUndeliverableContactsSearchContact'
     ];
 
@@ -87,7 +87,7 @@ class BusinessDataUndeliverableContactsResponse implements ArrayAccess
         'undeliverable' => 'undeliverable',
         'deceased' => 'deceased',
         'moved' => 'moved',
-        'newAddressAvailable' => 'new_address_available',
+        'new_address_available' => 'new_address_available',
         'contact' => 'contact'
     ];
 
@@ -100,7 +100,7 @@ class BusinessDataUndeliverableContactsResponse implements ArrayAccess
         'undeliverable' => 'setUndeliverable',
         'deceased' => 'setDeceased',
         'moved' => 'setMoved',
-        'newAddressAvailable' => 'setNewAddressAvailable',
+        'new_address_available' => 'setNewAddressAvailable',
         'contact' => 'setContact'
     ];
 
@@ -113,7 +113,7 @@ class BusinessDataUndeliverableContactsResponse implements ArrayAccess
         'undeliverable' => 'getUndeliverable',
         'deceased' => 'getDeceased',
         'moved' => 'getMoved',
-        'newAddressAvailable' => 'getNewAddressAvailable',
+        'new_address_available' => 'getNewAddressAvailable',
         'contact' => 'getContact'
     ];
 
@@ -207,7 +207,7 @@ class BusinessDataUndeliverableContactsResponse implements ArrayAccess
         $this->container['undeliverable'] = isset($data['undeliverable']) ? $data['undeliverable'] : null;
         $this->container['deceased'] = isset($data['deceased']) ? $data['deceased'] : null;
         $this->container['moved'] = isset($data['moved']) ? $data['moved'] : null;
-        $this->container['newAddressAvailable'] = isset($data['newAddressAvailable']) ? $data['newAddressAvailable'] : null;
+        $this->container['new_address_available'] = isset($data['new_address_available']) ? $data['new_address_available'] : null;
         $this->container['contact'] = isset($data['contact']) ? $data['contact'] : null;
     }
 
@@ -243,12 +243,12 @@ class BusinessDataUndeliverableContactsResponse implements ArrayAccess
             $invalid_properties[] = "invalid value for 'moved', must be one of '0', '1'.";
         }
 
-        if ($this->container['newAddressAvailable'] === null) {
-            $invalid_properties[] = "'newAddressAvailable' can't be null";
+        if ($this->container['new_address_available'] === null) {
+            $invalid_properties[] = "'new_address_available' can't be null";
         }
         $allowed_values = ["0", "1"];
-        if (!in_array($this->container['newAddressAvailable'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'newAddressAvailable', must be one of '0', '1'.";
+        if (!in_array($this->container['new_address_available'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'new_address_available', must be one of '0', '1'.";
         }
 
         if ($this->container['contact'] === null) {
@@ -286,11 +286,11 @@ class BusinessDataUndeliverableContactsResponse implements ArrayAccess
         if (!in_array($this->container['moved'], $allowed_values)) {
             return false;
         }
-        if ($this->container['newAddressAvailable'] === null) {
+        if ($this->container['new_address_available'] === null) {
             return false;
         }
         $allowed_values = ["0", "1"];
-        if (!in_array($this->container['newAddressAvailable'], $allowed_values)) {
+        if (!in_array($this->container['new_address_available'], $allowed_values)) {
             return false;
         }
         if ($this->container['contact'] === null) {
@@ -376,26 +376,26 @@ class BusinessDataUndeliverableContactsResponse implements ArrayAccess
     }
 
     /**
-     * Gets newAddressAvailable
+     * Gets new_address_available
      * @return string
      */
     public function getNewAddressAvailable()
     {
-        return $this->container['newAddressAvailable'];
+        return $this->container['new_address_available'];
     }
 
     /**
-     * Sets newAddressAvailable
-     * @param string $newAddressAvailable
+     * Sets new_address_available
+     * @param string $new_address_available
      * @return $this
      */
-    public function setNewAddressAvailable($newAddressAvailable)
+    public function setNewAddressAvailable($new_address_available)
     {
         $allowed_values = array('0', '1');
-        if ((!in_array($newAddressAvailable, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'newAddressAvailable', must be one of '0', '1'");
+        if ((!in_array($new_address_available, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'new_address_available', must be one of '0', '1'");
         }
-        $this->container['newAddressAvailable'] = $newAddressAvailable;
+        $this->container['new_address_available'] = $new_address_available;
 
         return $this;
     }

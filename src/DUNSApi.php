@@ -108,14 +108,14 @@ class DUNSApi
      *
      * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $dunsNumber The D-U-N-S number you are looking for detailed information (required)
-     * @param string $reasonCode Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement (required)
+     * @param string $duns_number The D-U-N-S number you are looking for detailed information (required)
+     * @param string $reason_code Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\BusinessDataDunsRatingResponse
      */
-    public function getDUNSRating($license, $guid, $dunsNumber, $reasonCode)
+    public function getDUNSRating($license, $guid, $duns_number, $reason_code)
     {
-        list($response) = $this->getDUNSRatingWithHttpInfo($license, $guid, $dunsNumber, $reasonCode);
+        list($response) = $this->getDUNSRatingWithHttpInfo($license, $guid, $duns_number, $reason_code);
         return $response;
     }
 
@@ -126,12 +126,12 @@ class DUNSApi
      *
      * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $dunsNumber The D-U-N-S number you are looking for detailed information (required)
-     * @param string $reasonCode Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement (required)
+     * @param string $duns_number The D-U-N-S number you are looking for detailed information (required)
+     * @param string $reason_code Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\BusinessDataDunsRatingResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDUNSRatingWithHttpInfo($license, $guid, $dunsNumber, $reasonCode)
+    public function getDUNSRatingWithHttpInfo($license, $guid, $duns_number, $reason_code)
     {
         // verify the required parameter 'license' is set
         if ($license === null) {
@@ -152,23 +152,23 @@ class DUNSApi
             throw new \InvalidArgumentException('invalid length for "$guid" when calling DUNSApi.getDUNSRating, must be bigger than or equal to 30.');
         }
 
-        // verify the required parameter 'dunsNumber' is set
-        if ($dunsNumber === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $dunsNumber when calling getDUNSRating');
+        // verify the required parameter 'duns_number' is set
+        if ($duns_number === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $duns_number when calling getDUNSRating');
         }
-        if ((strlen($dunsNumber) > 9)) {
-            throw new \InvalidArgumentException('invalid length for "$dunsNumber" when calling DUNSApi.getDUNSRating, must be smaller than or equal to 9.');
+        if ((strlen($duns_number) > 9)) {
+            throw new \InvalidArgumentException('invalid length for "$duns_number" when calling DUNSApi.getDUNSRating, must be smaller than or equal to 9.');
         }
-        if ((strlen($dunsNumber) < 9)) {
-            throw new \InvalidArgumentException('invalid length for "$dunsNumber" when calling DUNSApi.getDUNSRating, must be bigger than or equal to 9.');
+        if ((strlen($duns_number) < 9)) {
+            throw new \InvalidArgumentException('invalid length for "$duns_number" when calling DUNSApi.getDUNSRating, must be bigger than or equal to 9.');
         }
 
-        // verify the required parameter 'reasonCode' is set
-        if ($reasonCode === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $reasonCode when calling getDUNSRating');
+        // verify the required parameter 'reason_code' is set
+        if ($reason_code === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $reason_code when calling getDUNSRating');
         }
-        if ((strlen($reasonCode) > 1)) {
-            throw new \InvalidArgumentException('invalid length for "$reasonCode" when calling DUNSApi.getDUNSRating, must be smaller than or equal to 1.');
+        if ((strlen($reason_code) > 1)) {
+            throw new \InvalidArgumentException('invalid length for "$reason_code" when calling DUNSApi.getDUNSRating, must be smaller than or equal to 1.');
         }
 
         // parse inputs
@@ -195,12 +195,12 @@ class DUNSApi
             $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
         }
         // form params
-        if ($dunsNumber !== null) {
-            $formParams['duns_number'] = $this->apiClient->getSerializer()->toFormValue($dunsNumber);
+        if ($duns_number !== null) {
+            $formParams['duns_number'] = $this->apiClient->getSerializer()->toFormValue($duns_number);
         }
         // form params
-        if ($reasonCode !== null) {
-            $formParams['reason_code'] = $this->apiClient->getSerializer()->toFormValue($reasonCode);
+        if ($reason_code !== null) {
+            $formParams['reason_code'] = $this->apiClient->getSerializer()->toFormValue($reason_code);
         }
         
         // for model (json/xml)
@@ -277,14 +277,14 @@ class DUNSApi
      *
      * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $dunsNumber The D-U-N-S number you are looking for detailed information (required)
-     * @param string $reasonCode Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement (required)
+     * @param string $duns_number The D-U-N-S number you are looking for detailed information (required)
+     * @param string $reason_code Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\BusinessDataDunsResolveResponse
      */
-    public function resolveDUNS($license, $guid, $dunsNumber, $reasonCode)
+    public function resolveDUNS($license, $guid, $duns_number, $reason_code)
     {
-        list($response) = $this->resolveDUNSWithHttpInfo($license, $guid, $dunsNumber, $reasonCode);
+        list($response) = $this->resolveDUNSWithHttpInfo($license, $guid, $duns_number, $reason_code);
         return $response;
     }
 
@@ -295,12 +295,12 @@ class DUNSApi
      *
      * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $dunsNumber The D-U-N-S number you are looking for detailed information (required)
-     * @param string $reasonCode Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement (required)
+     * @param string $duns_number The D-U-N-S number you are looking for detailed information (required)
+     * @param string $reason_code Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\BusinessDataDunsResolveResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function resolveDUNSWithHttpInfo($license, $guid, $dunsNumber, $reasonCode)
+    public function resolveDUNSWithHttpInfo($license, $guid, $duns_number, $reason_code)
     {
         // verify the required parameter 'license' is set
         if ($license === null) {
@@ -321,23 +321,23 @@ class DUNSApi
             throw new \InvalidArgumentException('invalid length for "$guid" when calling DUNSApi.resolveDUNS, must be bigger than or equal to 30.');
         }
 
-        // verify the required parameter 'dunsNumber' is set
-        if ($dunsNumber === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $dunsNumber when calling resolveDUNS');
+        // verify the required parameter 'duns_number' is set
+        if ($duns_number === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $duns_number when calling resolveDUNS');
         }
-        if ((strlen($dunsNumber) > 9)) {
-            throw new \InvalidArgumentException('invalid length for "$dunsNumber" when calling DUNSApi.resolveDUNS, must be smaller than or equal to 9.');
+        if ((strlen($duns_number) > 9)) {
+            throw new \InvalidArgumentException('invalid length for "$duns_number" when calling DUNSApi.resolveDUNS, must be smaller than or equal to 9.');
         }
-        if ((strlen($dunsNumber) < 9)) {
-            throw new \InvalidArgumentException('invalid length for "$dunsNumber" when calling DUNSApi.resolveDUNS, must be bigger than or equal to 9.');
+        if ((strlen($duns_number) < 9)) {
+            throw new \InvalidArgumentException('invalid length for "$duns_number" when calling DUNSApi.resolveDUNS, must be bigger than or equal to 9.');
         }
 
-        // verify the required parameter 'reasonCode' is set
-        if ($reasonCode === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $reasonCode when calling resolveDUNS');
+        // verify the required parameter 'reason_code' is set
+        if ($reason_code === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $reason_code when calling resolveDUNS');
         }
-        if ((strlen($reasonCode) > 1)) {
-            throw new \InvalidArgumentException('invalid length for "$reasonCode" when calling DUNSApi.resolveDUNS, must be smaller than or equal to 1.');
+        if ((strlen($reason_code) > 1)) {
+            throw new \InvalidArgumentException('invalid length for "$reason_code" when calling DUNSApi.resolveDUNS, must be smaller than or equal to 1.');
         }
 
         // parse inputs
@@ -364,12 +364,12 @@ class DUNSApi
             $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
         }
         // form params
-        if ($dunsNumber !== null) {
-            $formParams['duns_number'] = $this->apiClient->getSerializer()->toFormValue($dunsNumber);
+        if ($duns_number !== null) {
+            $formParams['duns_number'] = $this->apiClient->getSerializer()->toFormValue($duns_number);
         }
         // form params
-        if ($reasonCode !== null) {
-            $formParams['reason_code'] = $this->apiClient->getSerializer()->toFormValue($reasonCode);
+        if ($reason_code !== null) {
+            $formParams['reason_code'] = $this->apiClient->getSerializer()->toFormValue($reason_code);
         }
         
         // for model (json/xml)
@@ -446,9 +446,9 @@ class DUNSApi
      *
      * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $countryCode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
-     * @param string $companyName The company name you are looking for or relevant parts of it (may be empty if the duns_number is set) (optional)
-     * @param string $dunsNumber The D-U-N-S number you are looking for detailed information (may be empty if the company_name and country_code are set) (optional)
+     * @param string $company_name The company name you are looking for or relevant parts of it (may be empty if the duns_number is set) (optional)
+     * @param string $country_code ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
+     * @param string $duns_number The D-U-N-S number you are looking for detailed information (may be empty if the company_name and country_code are set) (optional)
      * @param string $state Filter to get only companies which matches the specified state (required for United States) (optional)
      * @param string $city Filter to get only companies which matches the specified city (optional)
      * @param string $zip Filter to get only companies which matches the specified postal code (optional)
@@ -456,9 +456,9 @@ class DUNSApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\BusinessDataDunsSearchResponse
      */
-    public function searchDUNS($license, $guid, $countryCode, $companyName = null, $dunsNumber = null, $state = null, $city = null, $zip = null, $street = null)
+    public function searchDUNS($license, $guid, $company_name = null, $country_code, $duns_number = null, $state = null, $city = null, $zip = null, $street = null)
     {
-        list($response) = $this->searchDUNSWithHttpInfo($license, $guid, $countryCode, $companyName, $dunsNumber, $state, $city, $zip, $street);
+        list($response) = $this->searchDUNSWithHttpInfo($license, $guid, $company_name, $country_code, $duns_number, $state, $city, $zip, $street);
         return $response;
     }
 
@@ -469,9 +469,9 @@ class DUNSApi
      *
      * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $countryCode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
-     * @param string $companyName The company name you are looking for or relevant parts of it (may be empty if the duns_number is set) (optional)
-     * @param string $dunsNumber The D-U-N-S number you are looking for detailed information (may be empty if the company_name and country_code are set) (optional)
+     * @param string $company_name The company name you are looking for or relevant parts of it (may be empty if the duns_number is set) (optional)
+     * @param string $country_code ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
+     * @param string $duns_number The D-U-N-S number you are looking for detailed information (may be empty if the company_name and country_code are set) (optional)
      * @param string $state Filter to get only companies which matches the specified state (required for United States) (optional)
      * @param string $city Filter to get only companies which matches the specified city (optional)
      * @param string $zip Filter to get only companies which matches the specified postal code (optional)
@@ -479,7 +479,7 @@ class DUNSApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\BusinessDataDunsSearchResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchDUNSWithHttpInfo($license, $guid, $countryCode, $companyName = null, $dunsNumber = null, $state = null, $city = null, $zip = null, $street = null)
+    public function searchDUNSWithHttpInfo($license, $guid, $company_name = null, $country_code, $duns_number = null, $state = null, $city = null, $zip = null, $street = null)
     {
         // verify the required parameter 'license' is set
         if ($license === null) {
@@ -500,29 +500,29 @@ class DUNSApi
             throw new \InvalidArgumentException('invalid length for "$guid" when calling DUNSApi.searchDUNS, must be bigger than or equal to 30.');
         }
 
-        // verify the required parameter 'countryCode' is set
-        if ($countryCode === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $countryCode when calling searchDUNS');
+        if (!is_null($company_name) && (strlen($company_name) > 255)) {
+            throw new \InvalidArgumentException('invalid length for "$company_name" when calling DUNSApi.searchDUNS, must be smaller than or equal to 255.');
         }
-        if ((strlen($countryCode) > 2)) {
-            throw new \InvalidArgumentException('invalid length for "$countryCode" when calling DUNSApi.searchDUNS, must be smaller than or equal to 2.');
-        }
-        if ((strlen($countryCode) < 2)) {
-            throw new \InvalidArgumentException('invalid length for "$countryCode" when calling DUNSApi.searchDUNS, must be bigger than or equal to 2.');
+        if (!is_null($company_name) && (strlen($company_name) < 1)) {
+            throw new \InvalidArgumentException('invalid length for "$company_name" when calling DUNSApi.searchDUNS, must be bigger than or equal to 1.');
         }
 
-        if (!is_null($companyName) && (strlen($companyName) > 255)) {
-            throw new \InvalidArgumentException('invalid length for "$companyName" when calling DUNSApi.searchDUNS, must be smaller than or equal to 255.');
+        // verify the required parameter 'country_code' is set
+        if ($country_code === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $country_code when calling searchDUNS');
         }
-        if (!is_null($companyName) && (strlen($companyName) < 1)) {
-            throw new \InvalidArgumentException('invalid length for "$companyName" when calling DUNSApi.searchDUNS, must be bigger than or equal to 1.');
+        if ((strlen($country_code) > 2)) {
+            throw new \InvalidArgumentException('invalid length for "$country_code" when calling DUNSApi.searchDUNS, must be smaller than or equal to 2.');
+        }
+        if ((strlen($country_code) < 2)) {
+            throw new \InvalidArgumentException('invalid length for "$country_code" when calling DUNSApi.searchDUNS, must be bigger than or equal to 2.');
         }
 
-        if (!is_null($dunsNumber) && (strlen($dunsNumber) > 9)) {
-            throw new \InvalidArgumentException('invalid length for "$dunsNumber" when calling DUNSApi.searchDUNS, must be smaller than or equal to 9.');
+        if (!is_null($duns_number) && (strlen($duns_number) > 9)) {
+            throw new \InvalidArgumentException('invalid length for "$duns_number" when calling DUNSApi.searchDUNS, must be smaller than or equal to 9.');
         }
-        if (!is_null($dunsNumber) && (strlen($dunsNumber) < 9)) {
-            throw new \InvalidArgumentException('invalid length for "$dunsNumber" when calling DUNSApi.searchDUNS, must be bigger than or equal to 9.');
+        if (!is_null($duns_number) && (strlen($duns_number) < 9)) {
+            throw new \InvalidArgumentException('invalid length for "$duns_number" when calling DUNSApi.searchDUNS, must be bigger than or equal to 9.');
         }
 
         if (!is_null($state) && (strlen($state) > 255)) {
@@ -577,16 +577,16 @@ class DUNSApi
             $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
         }
         // form params
-        if ($companyName !== null) {
-            $formParams['company_name'] = $this->apiClient->getSerializer()->toFormValue($companyName);
+        if ($company_name !== null) {
+            $formParams['company_name'] = $this->apiClient->getSerializer()->toFormValue($company_name);
         }
         // form params
-        if ($countryCode !== null) {
-            $formParams['country_code'] = $this->apiClient->getSerializer()->toFormValue($countryCode);
+        if ($country_code !== null) {
+            $formParams['country_code'] = $this->apiClient->getSerializer()->toFormValue($country_code);
         }
         // form params
-        if ($dunsNumber !== null) {
-            $formParams['duns_number'] = $this->apiClient->getSerializer()->toFormValue($dunsNumber);
+        if ($duns_number !== null) {
+            $formParams['duns_number'] = $this->apiClient->getSerializer()->toFormValue($duns_number);
         }
         // form params
         if ($state !== null) {

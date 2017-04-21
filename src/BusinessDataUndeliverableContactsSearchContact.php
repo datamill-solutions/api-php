@@ -69,15 +69,15 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
     protected static $swaggerTypes = [
         'gender' => 'string',
         'title' => 'string',
-        'titleOfNobility' => 'string',
+        'title_of_nobility' => 'string',
         'street' => 'string',
-        'streetAddition' => 'string',
-        'houseNumber' => 'string',
-        'houseNumberAddition' => 'string',
+        'street_addition' => 'string',
+        'house_number' => 'string',
+        'house_number_addition' => 'string',
         'zip' => 'string',
         'city' => 'string',
-        'countryCode' => 'string',
-        'dateOfBirth' => '\DateTime',
+        'country_code' => 'string',
+        'date_of_birth' => '\DateTime',
         'timestamp' => '\DateTime'
     ];
 
@@ -93,15 +93,15 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
     protected static $attributeMap = [
         'gender' => 'gender',
         'title' => 'title',
-        'titleOfNobility' => 'title_of_nobility',
+        'title_of_nobility' => 'title_of_nobility',
         'street' => 'street',
-        'streetAddition' => 'street_addition',
-        'houseNumber' => 'house_number',
-        'houseNumberAddition' => 'house_number_addition',
+        'street_addition' => 'street_addition',
+        'house_number' => 'house_number',
+        'house_number_addition' => 'house_number_addition',
         'zip' => 'zip',
         'city' => 'city',
-        'countryCode' => 'country_code',
-        'dateOfBirth' => 'date_of_birth',
+        'country_code' => 'country_code',
+        'date_of_birth' => 'date_of_birth',
         'timestamp' => 'timestamp'
     ];
 
@@ -113,15 +113,15 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
     protected static $setters = [
         'gender' => 'setGender',
         'title' => 'setTitle',
-        'titleOfNobility' => 'setTitleOfNobility',
+        'title_of_nobility' => 'setTitleOfNobility',
         'street' => 'setStreet',
-        'streetAddition' => 'setStreetAddition',
-        'houseNumber' => 'setHouseNumber',
-        'houseNumberAddition' => 'setHouseNumberAddition',
+        'street_addition' => 'setStreetAddition',
+        'house_number' => 'setHouseNumber',
+        'house_number_addition' => 'setHouseNumberAddition',
         'zip' => 'setZip',
         'city' => 'setCity',
-        'countryCode' => 'setCountryCode',
-        'dateOfBirth' => 'setDateOfBirth',
+        'country_code' => 'setCountryCode',
+        'date_of_birth' => 'setDateOfBirth',
         'timestamp' => 'setTimestamp'
     ];
 
@@ -133,15 +133,15 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
     protected static $getters = [
         'gender' => 'getGender',
         'title' => 'getTitle',
-        'titleOfNobility' => 'getTitleOfNobility',
+        'title_of_nobility' => 'getTitleOfNobility',
         'street' => 'getStreet',
-        'streetAddition' => 'getStreetAddition',
-        'houseNumber' => 'getHouseNumber',
-        'houseNumberAddition' => 'getHouseNumberAddition',
+        'street_addition' => 'getStreetAddition',
+        'house_number' => 'getHouseNumber',
+        'house_number_addition' => 'getHouseNumberAddition',
         'zip' => 'getZip',
         'city' => 'getCity',
-        'countryCode' => 'getCountryCode',
-        'dateOfBirth' => 'getDateOfBirth',
+        'country_code' => 'getCountryCode',
+        'date_of_birth' => 'getDateOfBirth',
         'timestamp' => 'getTimestamp'
     ];
 
@@ -178,15 +178,15 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
     {
         $this->container['gender'] = isset($data['gender']) ? $data['gender'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
-        $this->container['titleOfNobility'] = isset($data['titleOfNobility']) ? $data['titleOfNobility'] : null;
+        $this->container['title_of_nobility'] = isset($data['title_of_nobility']) ? $data['title_of_nobility'] : null;
         $this->container['street'] = isset($data['street']) ? $data['street'] : null;
-        $this->container['streetAddition'] = isset($data['streetAddition']) ? $data['streetAddition'] : null;
-        $this->container['houseNumber'] = isset($data['houseNumber']) ? $data['houseNumber'] : null;
-        $this->container['houseNumberAddition'] = isset($data['houseNumberAddition']) ? $data['houseNumberAddition'] : null;
+        $this->container['street_addition'] = isset($data['street_addition']) ? $data['street_addition'] : null;
+        $this->container['house_number'] = isset($data['house_number']) ? $data['house_number'] : null;
+        $this->container['house_number_addition'] = isset($data['house_number_addition']) ? $data['house_number_addition'] : null;
         $this->container['zip'] = isset($data['zip']) ? $data['zip'] : null;
         $this->container['city'] = isset($data['city']) ? $data['city'] : null;
-        $this->container['countryCode'] = isset($data['countryCode']) ? $data['countryCode'] : null;
-        $this->container['dateOfBirth'] = isset($data['dateOfBirth']) ? $data['dateOfBirth'] : null;
+        $this->container['country_code'] = isset($data['country_code']) ? $data['country_code'] : null;
+        $this->container['date_of_birth'] = isset($data['date_of_birth']) ? $data['date_of_birth'] : null;
         $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
     }
 
@@ -256,22 +256,22 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
     }
 
     /**
-     * Gets titleOfNobility
+     * Gets title_of_nobility
      * @return string
      */
     public function getTitleOfNobility()
     {
-        return $this->container['titleOfNobility'];
+        return $this->container['title_of_nobility'];
     }
 
     /**
-     * Sets titleOfNobility
-     * @param string $titleOfNobility
+     * Sets title_of_nobility
+     * @param string $title_of_nobility
      * @return $this
      */
-    public function setTitleOfNobility($titleOfNobility)
+    public function setTitleOfNobility($title_of_nobility)
     {
-        $this->container['titleOfNobility'] = $titleOfNobility;
+        $this->container['title_of_nobility'] = $title_of_nobility;
 
         return $this;
     }
@@ -298,64 +298,64 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
     }
 
     /**
-     * Gets streetAddition
+     * Gets street_addition
      * @return string
      */
     public function getStreetAddition()
     {
-        return $this->container['streetAddition'];
+        return $this->container['street_addition'];
     }
 
     /**
-     * Sets streetAddition
-     * @param string $streetAddition
+     * Sets street_addition
+     * @param string $street_addition
      * @return $this
      */
-    public function setStreetAddition($streetAddition)
+    public function setStreetAddition($street_addition)
     {
-        $this->container['streetAddition'] = $streetAddition;
+        $this->container['street_addition'] = $street_addition;
 
         return $this;
     }
 
     /**
-     * Gets houseNumber
+     * Gets house_number
      * @return string
      */
     public function getHouseNumber()
     {
-        return $this->container['houseNumber'];
+        return $this->container['house_number'];
     }
 
     /**
-     * Sets houseNumber
-     * @param string $houseNumber
+     * Sets house_number
+     * @param string $house_number
      * @return $this
      */
-    public function setHouseNumber($houseNumber)
+    public function setHouseNumber($house_number)
     {
-        $this->container['houseNumber'] = $houseNumber;
+        $this->container['house_number'] = $house_number;
 
         return $this;
     }
 
     /**
-     * Gets houseNumberAddition
+     * Gets house_number_addition
      * @return string
      */
     public function getHouseNumberAddition()
     {
-        return $this->container['houseNumberAddition'];
+        return $this->container['house_number_addition'];
     }
 
     /**
-     * Sets houseNumberAddition
-     * @param string $houseNumberAddition
+     * Sets house_number_addition
+     * @param string $house_number_addition
      * @return $this
      */
-    public function setHouseNumberAddition($houseNumberAddition)
+    public function setHouseNumberAddition($house_number_addition)
     {
-        $this->container['houseNumberAddition'] = $houseNumberAddition;
+        $this->container['house_number_addition'] = $house_number_addition;
 
         return $this;
     }
@@ -403,43 +403,43 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
     }
 
     /**
-     * Gets countryCode
+     * Gets country_code
      * @return string
      */
     public function getCountryCode()
     {
-        return $this->container['countryCode'];
+        return $this->container['country_code'];
     }
 
     /**
-     * Sets countryCode
-     * @param string $countryCode
+     * Sets country_code
+     * @param string $country_code
      * @return $this
      */
-    public function setCountryCode($countryCode)
+    public function setCountryCode($country_code)
     {
-        $this->container['countryCode'] = $countryCode;
+        $this->container['country_code'] = $country_code;
 
         return $this;
     }
 
     /**
-     * Gets dateOfBirth
+     * Gets date_of_birth
      * @return \DateTime
      */
     public function getDateOfBirth()
     {
-        return $this->container['dateOfBirth'];
+        return $this->container['date_of_birth'];
     }
 
     /**
-     * Sets dateOfBirth
-     * @param \DateTime $dateOfBirth
+     * Sets date_of_birth
+     * @param \DateTime $date_of_birth
      * @return $this
      */
-    public function setDateOfBirth($dateOfBirth)
+    public function setDateOfBirth($date_of_birth)
     {
-        $this->container['dateOfBirth'] = $dateOfBirth;
+        $this->container['date_of_birth'] = $date_of_birth;
 
         return $this;
     }

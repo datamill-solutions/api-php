@@ -112,7 +112,7 @@ class AddressHouseNumberExtractResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "housenumberOnly"
+     * Test attribute "housenumber_only"
      */
     public function testPropertyHousenumberOnly()
     {
@@ -120,7 +120,7 @@ class AddressHouseNumberExtractResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "housenumberAddition"
+     * Test attribute "housenumber_addition"
      */
     public function testPropertyHousenumberAddition()
     {

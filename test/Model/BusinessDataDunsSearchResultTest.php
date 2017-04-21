@@ -96,7 +96,7 @@ class BusinessDataDunsSearchResultTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "companyName"
+     * Test attribute "company_name"
      */
     public function testPropertyCompanyName()
     {
@@ -128,7 +128,7 @@ class BusinessDataDunsSearchResultTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "houseNumber"
+     * Test attribute "house_number"
      */
     public function testPropertyHouseNumber()
     {
@@ -136,7 +136,7 @@ class BusinessDataDunsSearchResultTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "dunsNumber"
+     * Test attribute "duns_number"
      */
     public function testPropertyDunsNumber()
     {
@@ -144,7 +144,7 @@ class BusinessDataDunsSearchResultTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "dunsNumberHq"
+     * Test attribute "duns_number_hq"
      */
     public function testPropertyDunsNumberHq()
     {
@@ -152,7 +152,7 @@ class BusinessDataDunsSearchResultTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "phoneNumber"
+     * Test attribute "phone_number"
      */
     public function testPropertyPhoneNumber()
     {
@@ -160,7 +160,7 @@ class BusinessDataDunsSearchResultTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "branchCode"
+     * Test attribute "branch_code"
      */
     public function testPropertyBranchCode()
     {
@@ -168,7 +168,7 @@ class BusinessDataDunsSearchResultTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "branchDescription"
+     * Test attribute "branch_description"
      */
     public function testPropertyBranchDescription()
     {

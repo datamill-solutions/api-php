@@ -69,16 +69,16 @@ class UrlCheckResponse implements ArrayAccess
     protected static $swaggerTypes = [
         'valid' => 'int',
         'url' => 'string',
-        'httpCode' => 'int',
-        'totalTime' => 'float',
-        'namelookupTime' => 'float',
-        'connectTime' => 'float',
-        'pretransferTime' => 'float',
-        'starttransferTime' => 'float',
-        'primaryIp' => 'string',
-        'primaryPort' => 'int',
-        'downloadContentLength' => 'int',
-        'contentType' => 'string',
+        'http_code' => 'int',
+        'total_time' => 'float',
+        'namelookup_time' => 'float',
+        'connect_time' => 'float',
+        'pretransfer_time' => 'float',
+        'starttransfer_time' => 'float',
+        'primary_ip' => 'string',
+        'primary_port' => 'int',
+        'download_content_length' => 'int',
+        'content_type' => 'string',
         'redirects' => 'object[]',
         'parameters' => 'object[]'
     ];
@@ -95,16 +95,16 @@ class UrlCheckResponse implements ArrayAccess
     protected static $attributeMap = [
         'valid' => 'valid',
         'url' => 'url',
-        'httpCode' => 'http_code',
-        'totalTime' => 'total_time',
-        'namelookupTime' => 'namelookup_time',
-        'connectTime' => 'connect_time',
-        'pretransferTime' => 'pretransfer_time',
-        'starttransferTime' => 'starttransfer_time',
-        'primaryIp' => 'primary_ip',
-        'primaryPort' => 'primary_port',
-        'downloadContentLength' => 'download_content_length',
-        'contentType' => 'content_type',
+        'http_code' => 'http_code',
+        'total_time' => 'total_time',
+        'namelookup_time' => 'namelookup_time',
+        'connect_time' => 'connect_time',
+        'pretransfer_time' => 'pretransfer_time',
+        'starttransfer_time' => 'starttransfer_time',
+        'primary_ip' => 'primary_ip',
+        'primary_port' => 'primary_port',
+        'download_content_length' => 'download_content_length',
+        'content_type' => 'content_type',
         'redirects' => 'redirects',
         'parameters' => 'parameters'
     ];
@@ -117,16 +117,16 @@ class UrlCheckResponse implements ArrayAccess
     protected static $setters = [
         'valid' => 'setValid',
         'url' => 'setUrl',
-        'httpCode' => 'setHttpCode',
-        'totalTime' => 'setTotalTime',
-        'namelookupTime' => 'setNamelookupTime',
-        'connectTime' => 'setConnectTime',
-        'pretransferTime' => 'setPretransferTime',
-        'starttransferTime' => 'setStarttransferTime',
-        'primaryIp' => 'setPrimaryIp',
-        'primaryPort' => 'setPrimaryPort',
-        'downloadContentLength' => 'setDownloadContentLength',
-        'contentType' => 'setContentType',
+        'http_code' => 'setHttpCode',
+        'total_time' => 'setTotalTime',
+        'namelookup_time' => 'setNamelookupTime',
+        'connect_time' => 'setConnectTime',
+        'pretransfer_time' => 'setPretransferTime',
+        'starttransfer_time' => 'setStarttransferTime',
+        'primary_ip' => 'setPrimaryIp',
+        'primary_port' => 'setPrimaryPort',
+        'download_content_length' => 'setDownloadContentLength',
+        'content_type' => 'setContentType',
         'redirects' => 'setRedirects',
         'parameters' => 'setParameters'
     ];
@@ -139,16 +139,16 @@ class UrlCheckResponse implements ArrayAccess
     protected static $getters = [
         'valid' => 'getValid',
         'url' => 'getUrl',
-        'httpCode' => 'getHttpCode',
-        'totalTime' => 'getTotalTime',
-        'namelookupTime' => 'getNamelookupTime',
-        'connectTime' => 'getConnectTime',
-        'pretransferTime' => 'getPretransferTime',
-        'starttransferTime' => 'getStarttransferTime',
-        'primaryIp' => 'getPrimaryIp',
-        'primaryPort' => 'getPrimaryPort',
-        'downloadContentLength' => 'getDownloadContentLength',
-        'contentType' => 'getContentType',
+        'http_code' => 'getHttpCode',
+        'total_time' => 'getTotalTime',
+        'namelookup_time' => 'getNamelookupTime',
+        'connect_time' => 'getConnectTime',
+        'pretransfer_time' => 'getPretransferTime',
+        'starttransfer_time' => 'getStarttransferTime',
+        'primary_ip' => 'getPrimaryIp',
+        'primary_port' => 'getPrimaryPort',
+        'download_content_length' => 'getDownloadContentLength',
+        'content_type' => 'getContentType',
         'redirects' => 'getRedirects',
         'parameters' => 'getParameters'
     ];
@@ -186,16 +186,16 @@ class UrlCheckResponse implements ArrayAccess
     {
         $this->container['valid'] = isset($data['valid']) ? $data['valid'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
-        $this->container['httpCode'] = isset($data['httpCode']) ? $data['httpCode'] : null;
-        $this->container['totalTime'] = isset($data['totalTime']) ? $data['totalTime'] : null;
-        $this->container['namelookupTime'] = isset($data['namelookupTime']) ? $data['namelookupTime'] : null;
-        $this->container['connectTime'] = isset($data['connectTime']) ? $data['connectTime'] : null;
-        $this->container['pretransferTime'] = isset($data['pretransferTime']) ? $data['pretransferTime'] : null;
-        $this->container['starttransferTime'] = isset($data['starttransferTime']) ? $data['starttransferTime'] : null;
-        $this->container['primaryIp'] = isset($data['primaryIp']) ? $data['primaryIp'] : null;
-        $this->container['primaryPort'] = isset($data['primaryPort']) ? $data['primaryPort'] : null;
-        $this->container['downloadContentLength'] = isset($data['downloadContentLength']) ? $data['downloadContentLength'] : null;
-        $this->container['contentType'] = isset($data['contentType']) ? $data['contentType'] : null;
+        $this->container['http_code'] = isset($data['http_code']) ? $data['http_code'] : null;
+        $this->container['total_time'] = isset($data['total_time']) ? $data['total_time'] : null;
+        $this->container['namelookup_time'] = isset($data['namelookup_time']) ? $data['namelookup_time'] : null;
+        $this->container['connect_time'] = isset($data['connect_time']) ? $data['connect_time'] : null;
+        $this->container['pretransfer_time'] = isset($data['pretransfer_time']) ? $data['pretransfer_time'] : null;
+        $this->container['starttransfer_time'] = isset($data['starttransfer_time']) ? $data['starttransfer_time'] : null;
+        $this->container['primary_ip'] = isset($data['primary_ip']) ? $data['primary_ip'] : null;
+        $this->container['primary_port'] = isset($data['primary_port']) ? $data['primary_port'] : null;
+        $this->container['download_content_length'] = isset($data['download_content_length']) ? $data['download_content_length'] : null;
+        $this->container['content_type'] = isset($data['content_type']) ? $data['content_type'] : null;
         $this->container['redirects'] = isset($data['redirects']) ? $data['redirects'] : null;
         $this->container['parameters'] = isset($data['parameters']) ? $data['parameters'] : null;
     }
@@ -214,35 +214,35 @@ class UrlCheckResponse implements ArrayAccess
         if ($this->container['url'] === null) {
             $invalid_properties[] = "'url' can't be null";
         }
-        if ($this->container['httpCode'] === null) {
-            $invalid_properties[] = "'httpCode' can't be null";
+        if ($this->container['http_code'] === null) {
+            $invalid_properties[] = "'http_code' can't be null";
         }
-        if ($this->container['totalTime'] === null) {
-            $invalid_properties[] = "'totalTime' can't be null";
+        if ($this->container['total_time'] === null) {
+            $invalid_properties[] = "'total_time' can't be null";
         }
-        if ($this->container['namelookupTime'] === null) {
-            $invalid_properties[] = "'namelookupTime' can't be null";
+        if ($this->container['namelookup_time'] === null) {
+            $invalid_properties[] = "'namelookup_time' can't be null";
         }
-        if ($this->container['connectTime'] === null) {
-            $invalid_properties[] = "'connectTime' can't be null";
+        if ($this->container['connect_time'] === null) {
+            $invalid_properties[] = "'connect_time' can't be null";
         }
-        if ($this->container['pretransferTime'] === null) {
-            $invalid_properties[] = "'pretransferTime' can't be null";
+        if ($this->container['pretransfer_time'] === null) {
+            $invalid_properties[] = "'pretransfer_time' can't be null";
         }
-        if ($this->container['starttransferTime'] === null) {
-            $invalid_properties[] = "'starttransferTime' can't be null";
+        if ($this->container['starttransfer_time'] === null) {
+            $invalid_properties[] = "'starttransfer_time' can't be null";
         }
-        if ($this->container['primaryIp'] === null) {
-            $invalid_properties[] = "'primaryIp' can't be null";
+        if ($this->container['primary_ip'] === null) {
+            $invalid_properties[] = "'primary_ip' can't be null";
         }
-        if ($this->container['primaryPort'] === null) {
-            $invalid_properties[] = "'primaryPort' can't be null";
+        if ($this->container['primary_port'] === null) {
+            $invalid_properties[] = "'primary_port' can't be null";
         }
-        if ($this->container['downloadContentLength'] === null) {
-            $invalid_properties[] = "'downloadContentLength' can't be null";
+        if ($this->container['download_content_length'] === null) {
+            $invalid_properties[] = "'download_content_length' can't be null";
         }
-        if ($this->container['contentType'] === null) {
-            $invalid_properties[] = "'contentType' can't be null";
+        if ($this->container['content_type'] === null) {
+            $invalid_properties[] = "'content_type' can't be null";
         }
         if ($this->container['redirects'] === null) {
             $invalid_properties[] = "'redirects' can't be null";
@@ -267,34 +267,34 @@ class UrlCheckResponse implements ArrayAccess
         if ($this->container['url'] === null) {
             return false;
         }
-        if ($this->container['httpCode'] === null) {
+        if ($this->container['http_code'] === null) {
             return false;
         }
-        if ($this->container['totalTime'] === null) {
+        if ($this->container['total_time'] === null) {
             return false;
         }
-        if ($this->container['namelookupTime'] === null) {
+        if ($this->container['namelookup_time'] === null) {
             return false;
         }
-        if ($this->container['connectTime'] === null) {
+        if ($this->container['connect_time'] === null) {
             return false;
         }
-        if ($this->container['pretransferTime'] === null) {
+        if ($this->container['pretransfer_time'] === null) {
             return false;
         }
-        if ($this->container['starttransferTime'] === null) {
+        if ($this->container['starttransfer_time'] === null) {
             return false;
         }
-        if ($this->container['primaryIp'] === null) {
+        if ($this->container['primary_ip'] === null) {
             return false;
         }
-        if ($this->container['primaryPort'] === null) {
+        if ($this->container['primary_port'] === null) {
             return false;
         }
-        if ($this->container['downloadContentLength'] === null) {
+        if ($this->container['download_content_length'] === null) {
             return false;
         }
-        if ($this->container['contentType'] === null) {
+        if ($this->container['content_type'] === null) {
             return false;
         }
         if ($this->container['redirects'] === null) {
@@ -350,211 +350,211 @@ class UrlCheckResponse implements ArrayAccess
     }
 
     /**
-     * Gets httpCode
+     * Gets http_code
      * @return int
      */
     public function getHttpCode()
     {
-        return $this->container['httpCode'];
+        return $this->container['http_code'];
     }
 
     /**
-     * Sets httpCode
-     * @param int $httpCode The HTTP status code according to https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+     * Sets http_code
+     * @param int $http_code The HTTP status code according to https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
      * @return $this
      */
-    public function setHttpCode($httpCode)
+    public function setHttpCode($http_code)
     {
-        $this->container['httpCode'] = $httpCode;
+        $this->container['http_code'] = $http_code;
 
         return $this;
     }
 
     /**
-     * Gets totalTime
+     * Gets total_time
      * @return float
      */
     public function getTotalTime()
     {
-        return $this->container['totalTime'];
+        return $this->container['total_time'];
     }
 
     /**
-     * Sets totalTime
-     * @param float $totalTime Total time of the request in seconds
+     * Sets total_time
+     * @param float $total_time Total time of the request in seconds
      * @return $this
      */
-    public function setTotalTime($totalTime)
+    public function setTotalTime($total_time)
     {
-        $this->container['totalTime'] = $totalTime;
+        $this->container['total_time'] = $total_time;
 
         return $this;
     }
 
     /**
-     * Gets namelookupTime
+     * Gets namelookup_time
      * @return float
      */
     public function getNamelookupTime()
     {
-        return $this->container['namelookupTime'];
+        return $this->container['namelookup_time'];
     }
 
     /**
-     * Sets namelookupTime
-     * @param float $namelookupTime Time until host name resolved in seconds
+     * Sets namelookup_time
+     * @param float $namelookup_time Time until host name resolved in seconds
      * @return $this
      */
-    public function setNamelookupTime($namelookupTime)
+    public function setNamelookupTime($namelookup_time)
     {
-        $this->container['namelookupTime'] = $namelookupTime;
+        $this->container['namelookup_time'] = $namelookup_time;
 
         return $this;
     }
 
     /**
-     * Gets connectTime
+     * Gets connect_time
      * @return float
      */
     public function getConnectTime()
     {
-        return $this->container['connectTime'];
+        return $this->container['connect_time'];
     }
 
     /**
-     * Sets connectTime
-     * @param float $connectTime Time until connection established in seconds
+     * Sets connect_time
+     * @param float $connect_time Time until connection established in seconds
      * @return $this
      */
-    public function setConnectTime($connectTime)
+    public function setConnectTime($connect_time)
     {
-        $this->container['connectTime'] = $connectTime;
+        $this->container['connect_time'] = $connect_time;
 
         return $this;
     }
 
     /**
-     * Gets pretransferTime
+     * Gets pretransfer_time
      * @return float
      */
     public function getPretransferTime()
     {
-        return $this->container['pretransferTime'];
+        return $this->container['pretransfer_time'];
     }
 
     /**
-     * Sets pretransferTime
-     * @param float $pretransferTime Time until file transfer began in seconds
+     * Sets pretransfer_time
+     * @param float $pretransfer_time Time until file transfer began in seconds
      * @return $this
      */
-    public function setPretransferTime($pretransferTime)
+    public function setPretransferTime($pretransfer_time)
     {
-        $this->container['pretransferTime'] = $pretransferTime;
+        $this->container['pretransfer_time'] = $pretransfer_time;
 
         return $this;
     }
 
     /**
-     * Gets starttransferTime
+     * Gets starttransfer_time
      * @return float
      */
     public function getStarttransferTime()
     {
-        return $this->container['starttransferTime'];
+        return $this->container['starttransfer_time'];
     }
 
     /**
-     * Sets starttransferTime
-     * @param float $starttransferTime Time to first byte in seconds
+     * Sets starttransfer_time
+     * @param float $starttransfer_time Time to first byte in seconds
      * @return $this
      */
-    public function setStarttransferTime($starttransferTime)
+    public function setStarttransferTime($starttransfer_time)
     {
-        $this->container['starttransferTime'] = $starttransferTime;
+        $this->container['starttransfer_time'] = $starttransfer_time;
 
         return $this;
     }
 
     /**
-     * Gets primaryIp
+     * Gets primary_ip
      * @return string
      */
     public function getPrimaryIp()
     {
-        return $this->container['primaryIp'];
+        return $this->container['primary_ip'];
     }
 
     /**
-     * Sets primaryIp
-     * @param string $primaryIp IP address of the most recent connection
+     * Sets primary_ip
+     * @param string $primary_ip IP address of the most recent connection
      * @return $this
      */
-    public function setPrimaryIp($primaryIp)
+    public function setPrimaryIp($primary_ip)
     {
-        $this->container['primaryIp'] = $primaryIp;
+        $this->container['primary_ip'] = $primary_ip;
 
         return $this;
     }
 
     /**
-     * Gets primaryPort
+     * Gets primary_port
      * @return int
      */
     public function getPrimaryPort()
     {
-        return $this->container['primaryPort'];
+        return $this->container['primary_port'];
     }
 
     /**
-     * Sets primaryPort
-     * @param int $primaryPort Destination port of the connection
+     * Sets primary_port
+     * @param int $primary_port Destination port of the connection
      * @return $this
      */
-    public function setPrimaryPort($primaryPort)
+    public function setPrimaryPort($primary_port)
     {
-        $this->container['primaryPort'] = $primaryPort;
+        $this->container['primary_port'] = $primary_port;
 
         return $this;
     }
 
     /**
-     * Gets downloadContentLength
+     * Gets download_content_length
      * @return int
      */
     public function getDownloadContentLength()
     {
-        return $this->container['downloadContentLength'];
+        return $this->container['download_content_length'];
     }
 
     /**
-     * Sets downloadContentLength
-     * @param int $downloadContentLength Number of bytes to download from the resource (-1 means no information available)
+     * Sets download_content_length
+     * @param int $download_content_length Number of bytes to download from the resource (-1 means no information available)
      * @return $this
      */
-    public function setDownloadContentLength($downloadContentLength)
+    public function setDownloadContentLength($download_content_length)
     {
-        $this->container['downloadContentLength'] = $downloadContentLength;
+        $this->container['download_content_length'] = $download_content_length;
 
         return $this;
     }
 
     /**
-     * Gets contentType
+     * Gets content_type
      * @return string
      */
     public function getContentType()
     {
-        return $this->container['contentType'];
+        return $this->container['content_type'];
     }
 
     /**
-     * Sets contentType
-     * @param string $contentType Content type of the requested resource
+     * Sets content_type
+     * @param string $content_type Content type of the requested resource
      * @return $this
      */
-    public function setContentType($contentType)
+    public function setContentType($content_type)
     {
-        $this->container['contentType'] = $contentType;
+        $this->container['content_type'] = $content_type;
 
         return $this;
     }

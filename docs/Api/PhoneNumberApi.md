@@ -61,7 +61,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **formatPhoneNumber**
-> \DataMill\PhoneFormatResponse formatPhoneNumber($license, $guid, $phonenumber, $countrycode, $format, $directDialingDelimiter, $allowedDelimiters)
+> \DataMill\PhoneFormatResponse formatPhoneNumber($license, $guid, $phonenumber, $countrycode, $format, $direct_dialing_delimiter, $allowed_delimiters)
 
 Parse, format and validate phone numbers
 
@@ -78,11 +78,11 @@ $guid = "guid_example"; // string | The guid is part of the authentication key p
 $phonenumber = "phonenumber_example"; // string | Phone number to be formatted and validated
 $countrycode = "countrycode_example"; // string | ISO 3166-1 alpha-2 country code e.g. 'US'. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information.
 $format = "format_example"; // string | The custom format of the returning phone number if valid. The format is a combination of the following placeholders:  * **{countrycode}**: The international dial prefix for the country without leading zero or the \\\"+\\\" sign  * **{nationalcode}**: The regional dial prefix  * **{phonenumber}**: The phone number including the extension and without the international and regional prefix  * **{national_prefix}**: The national dial prefix including the leading zero  * **{international_prefix}**: The international dial prefix including leading zeros.  If no custom format is specified the following combination is used: **+{countrycode} {nationalcode} {phonenumber}** (canonical format)
-$directDialingDelimiter = "directDialingDelimiter_example"; // string | Optional define a special character (e.g. -) as delimiter between the phone number and the extension.
-$allowedDelimiters = "allowedDelimiters_example"; // string | Optional collection of characters inside the specified phone number which are allowed for delimiter. The collection must be provided as **JSON** formatted string.
+$direct_dialing_delimiter = "direct_dialing_delimiter_example"; // string | Optional define a special character (e.g. -) as delimiter between the phone number and the extension.
+$allowed_delimiters = "allowed_delimiters_example"; // string | Optional collection of characters inside the specified phone number which are allowed for delimiter. The collection must be provided as **JSON** formatted string.
 
 try {
-    $result = $api_instance->formatPhoneNumber($license, $guid, $phonenumber, $countrycode, $format, $directDialingDelimiter, $allowedDelimiters);
+    $result = $api_instance->formatPhoneNumber($license, $guid, $phonenumber, $countrycode, $format, $direct_dialing_delimiter, $allowed_delimiters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PhoneNumberApi->formatPhoneNumber: ', $e->getMessage(), PHP_EOL;
@@ -99,8 +99,8 @@ Name | Type | Description  | Notes
  **phonenumber** | **string**| Phone number to be formatted and validated |
  **countrycode** | **string**| ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. |
  **format** | **string**| The custom format of the returning phone number if valid. The format is a combination of the following placeholders:  * **{countrycode}**: The international dial prefix for the country without leading zero or the \\\&quot;+\\\&quot; sign  * **{nationalcode}**: The regional dial prefix  * **{phonenumber}**: The phone number including the extension and without the international and regional prefix  * **{national_prefix}**: The national dial prefix including the leading zero  * **{international_prefix}**: The international dial prefix including leading zeros.  If no custom format is specified the following combination is used: **+{countrycode} {nationalcode} {phonenumber}** (canonical format) | [optional]
- **directDialingDelimiter** | **string**| Optional define a special character (e.g. -) as delimiter between the phone number and the extension. | [optional]
- **allowedDelimiters** | **string**| Optional collection of characters inside the specified phone number which are allowed for delimiter. The collection must be provided as **JSON** formatted string. | [optional]
+ **direct_dialing_delimiter** | **string**| Optional define a special character (e.g. -) as delimiter between the phone number and the extension. | [optional]
+ **allowed_delimiters** | **string**| Optional collection of characters inside the specified phone number which are allowed for delimiter. The collection must be provided as **JSON** formatted string. | [optional]
 
 ### Return type
 

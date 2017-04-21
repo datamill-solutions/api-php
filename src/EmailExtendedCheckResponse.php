@@ -69,7 +69,7 @@ class EmailExtendedCheckResponse implements ArrayAccess
     protected static $swaggerTypes = [
         'valid' => 'string',
         'description' => 'string',
-        'statusCode' => 'string'
+        'status_code' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -84,7 +84,7 @@ class EmailExtendedCheckResponse implements ArrayAccess
     protected static $attributeMap = [
         'valid' => 'valid',
         'description' => 'description',
-        'statusCode' => 'status_code'
+        'status_code' => 'status_code'
     ];
 
 
@@ -95,7 +95,7 @@ class EmailExtendedCheckResponse implements ArrayAccess
     protected static $setters = [
         'valid' => 'setValid',
         'description' => 'setDescription',
-        'statusCode' => 'setStatusCode'
+        'status_code' => 'setStatusCode'
     ];
 
 
@@ -106,7 +106,7 @@ class EmailExtendedCheckResponse implements ArrayAccess
     protected static $getters = [
         'valid' => 'getValid',
         'description' => 'getDescription',
-        'statusCode' => 'getStatusCode'
+        'status_code' => 'getStatusCode'
     ];
 
     public static function attributeMap()
@@ -210,7 +210,7 @@ class EmailExtendedCheckResponse implements ArrayAccess
     {
         $this->container['valid'] = isset($data['valid']) ? $data['valid'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['statusCode'] = isset($data['statusCode']) ? $data['statusCode'] : null;
+        $this->container['status_code'] = isset($data['status_code']) ? $data['status_code'] : null;
     }
 
     /**
@@ -237,12 +237,12 @@ class EmailExtendedCheckResponse implements ArrayAccess
             $invalid_properties[] = "invalid value for 'description', must be one of 'syntax', 'domain', 'disposable', 'mail server currently unavailable', 'mailbox', 'greylisted', 'catch all', ''.";
         }
 
-        if ($this->container['statusCode'] === null) {
-            $invalid_properties[] = "'statusCode' can't be null";
+        if ($this->container['status_code'] === null) {
+            $invalid_properties[] = "'status_code' can't be null";
         }
         $allowed_values = ["1", "10", "20", "21", "30", "31", "32", "33"];
-        if (!in_array($this->container['statusCode'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'statusCode', must be one of '1', '10', '20', '21', '30', '31', '32', '33'.";
+        if (!in_array($this->container['status_code'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'status_code', must be one of '1', '10', '20', '21', '30', '31', '32', '33'.";
         }
 
         return $invalid_properties;
@@ -270,11 +270,11 @@ class EmailExtendedCheckResponse implements ArrayAccess
         if (!in_array($this->container['description'], $allowed_values)) {
             return false;
         }
-        if ($this->container['statusCode'] === null) {
+        if ($this->container['status_code'] === null) {
             return false;
         }
         $allowed_values = ["1", "10", "20", "21", "30", "31", "32", "33"];
-        if (!in_array($this->container['statusCode'], $allowed_values)) {
+        if (!in_array($this->container['status_code'], $allowed_values)) {
             return false;
         }
         return true;
@@ -332,26 +332,26 @@ class EmailExtendedCheckResponse implements ArrayAccess
     }
 
     /**
-     * Gets statusCode
+     * Gets status_code
      * @return string
      */
     public function getStatusCode()
     {
-        return $this->container['statusCode'];
+        return $this->container['status_code'];
     }
 
     /**
-     * Sets statusCode
-     * @param string $statusCode Unique status code for each possible validation state.  * **1**: The email address has a valid syntax, a MX record exists, it's not disposable and the mailbox exists.  * **10**: Typo error in email address  * **20**: No MX record found for domain part  * **21**: Known provider for disposable email addresses  * **30**: The mail server rejects emails for the given mailbox  * **31**: Connection to mail server could not be established  * **32**: The request was blocked by the mail server (greylisted)  * **33**: The mail server accepts mails for all email addresses
+     * Sets status_code
+     * @param string $status_code Unique status code for each possible validation state.  * **1**: The email address has a valid syntax, a MX record exists, it's not disposable and the mailbox exists.  * **10**: Typo error in email address  * **20**: No MX record found for domain part  * **21**: Known provider for disposable email addresses  * **30**: The mail server rejects emails for the given mailbox  * **31**: Connection to mail server could not be established  * **32**: The request was blocked by the mail server (greylisted)  * **33**: The mail server accepts mails for all email addresses
      * @return $this
      */
-    public function setStatusCode($statusCode)
+    public function setStatusCode($status_code)
     {
         $allowed_values = array('1', '10', '20', '21', '30', '31', '32', '33');
-        if ((!in_array($statusCode, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'statusCode', must be one of '1', '10', '20', '21', '30', '31', '32', '33'");
+        if ((!in_array($status_code, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'status_code', must be one of '1', '10', '20', '21', '30', '31', '32', '33'");
         }
-        $this->container['statusCode'] = $statusCode;
+        $this->container['status_code'] = $status_code;
 
         return $this;
     }

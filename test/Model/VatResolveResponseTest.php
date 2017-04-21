@@ -184,7 +184,7 @@ class VatResolveResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "additionalData"
+     * Test attribute "additional_data"
      */
     public function testPropertyAdditionalData()
     {
@@ -192,7 +192,7 @@ class VatResolveResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "rawAddress"
+     * Test attribute "raw_address"
      */
     public function testPropertyRawAddress()
     {
@@ -200,7 +200,7 @@ class VatResolveResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "countrycodeIso3"
+     * Test attribute "countrycode_iso_3"
      */
     public function testPropertyCountrycodeIso3()
     {

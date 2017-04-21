@@ -283,14 +283,14 @@ class PhoneNumberApi
      * @param string $phonenumber Phone number to be formatted and validated (required)
      * @param string $countrycode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @param string $format The custom format of the returning phone number if valid. The format is a combination of the following placeholders:  * **{countrycode}**: The international dial prefix for the country without leading zero or the \\\&quot;+\\\&quot; sign  * **{nationalcode}**: The regional dial prefix  * **{phonenumber}**: The phone number including the extension and without the international and regional prefix  * **{national_prefix}**: The national dial prefix including the leading zero  * **{international_prefix}**: The international dial prefix including leading zeros.  If no custom format is specified the following combination is used: **+{countrycode} {nationalcode} {phonenumber}** (canonical format) (optional)
-     * @param string $directDialingDelimiter Optional define a special character (e.g. -) as delimiter between the phone number and the extension. (optional)
-     * @param string $allowedDelimiters Optional collection of characters inside the specified phone number which are allowed for delimiter. The collection must be provided as **JSON** formatted string. (optional)
+     * @param string $direct_dialing_delimiter Optional define a special character (e.g. -) as delimiter between the phone number and the extension. (optional)
+     * @param string $allowed_delimiters Optional collection of characters inside the specified phone number which are allowed for delimiter. The collection must be provided as **JSON** formatted string. (optional)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\PhoneFormatResponse
      */
-    public function formatPhoneNumber($license, $guid, $phonenumber, $countrycode, $format = null, $directDialingDelimiter = null, $allowedDelimiters = null)
+    public function formatPhoneNumber($license, $guid, $phonenumber, $countrycode, $format = null, $direct_dialing_delimiter = null, $allowed_delimiters = null)
     {
-        list($response) = $this->formatPhoneNumberWithHttpInfo($license, $guid, $phonenumber, $countrycode, $format, $directDialingDelimiter, $allowedDelimiters);
+        list($response) = $this->formatPhoneNumberWithHttpInfo($license, $guid, $phonenumber, $countrycode, $format, $direct_dialing_delimiter, $allowed_delimiters);
         return $response;
     }
 
@@ -304,12 +304,12 @@ class PhoneNumberApi
      * @param string $phonenumber Phone number to be formatted and validated (required)
      * @param string $countrycode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @param string $format The custom format of the returning phone number if valid. The format is a combination of the following placeholders:  * **{countrycode}**: The international dial prefix for the country without leading zero or the \\\&quot;+\\\&quot; sign  * **{nationalcode}**: The regional dial prefix  * **{phonenumber}**: The phone number including the extension and without the international and regional prefix  * **{national_prefix}**: The national dial prefix including the leading zero  * **{international_prefix}**: The international dial prefix including leading zeros.  If no custom format is specified the following combination is used: **+{countrycode} {nationalcode} {phonenumber}** (canonical format) (optional)
-     * @param string $directDialingDelimiter Optional define a special character (e.g. -) as delimiter between the phone number and the extension. (optional)
-     * @param string $allowedDelimiters Optional collection of characters inside the specified phone number which are allowed for delimiter. The collection must be provided as **JSON** formatted string. (optional)
+     * @param string $direct_dialing_delimiter Optional define a special character (e.g. -) as delimiter between the phone number and the extension. (optional)
+     * @param string $allowed_delimiters Optional collection of characters inside the specified phone number which are allowed for delimiter. The collection must be provided as **JSON** formatted string. (optional)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\PhoneFormatResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function formatPhoneNumberWithHttpInfo($license, $guid, $phonenumber, $countrycode, $format = null, $directDialingDelimiter = null, $allowedDelimiters = null)
+    public function formatPhoneNumberWithHttpInfo($license, $guid, $phonenumber, $countrycode, $format = null, $direct_dialing_delimiter = null, $allowed_delimiters = null)
     {
         // verify the required parameter 'license' is set
         if ($license === null) {
@@ -359,18 +359,18 @@ class PhoneNumberApi
             throw new \InvalidArgumentException('invalid length for "$format" when calling PhoneNumberApi.formatPhoneNumber, must be bigger than or equal to 0.');
         }
 
-        if (!is_null($directDialingDelimiter) && (strlen($directDialingDelimiter) > 10)) {
-            throw new \InvalidArgumentException('invalid length for "$directDialingDelimiter" when calling PhoneNumberApi.formatPhoneNumber, must be smaller than or equal to 10.');
+        if (!is_null($direct_dialing_delimiter) && (strlen($direct_dialing_delimiter) > 10)) {
+            throw new \InvalidArgumentException('invalid length for "$direct_dialing_delimiter" when calling PhoneNumberApi.formatPhoneNumber, must be smaller than or equal to 10.');
         }
-        if (!is_null($directDialingDelimiter) && (strlen($directDialingDelimiter) < 1)) {
-            throw new \InvalidArgumentException('invalid length for "$directDialingDelimiter" when calling PhoneNumberApi.formatPhoneNumber, must be bigger than or equal to 1.');
+        if (!is_null($direct_dialing_delimiter) && (strlen($direct_dialing_delimiter) < 1)) {
+            throw new \InvalidArgumentException('invalid length for "$direct_dialing_delimiter" when calling PhoneNumberApi.formatPhoneNumber, must be bigger than or equal to 1.');
         }
 
-        if (!is_null($allowedDelimiters) && (strlen($allowedDelimiters) > 255)) {
-            throw new \InvalidArgumentException('invalid length for "$allowedDelimiters" when calling PhoneNumberApi.formatPhoneNumber, must be smaller than or equal to 255.');
+        if (!is_null($allowed_delimiters) && (strlen($allowed_delimiters) > 255)) {
+            throw new \InvalidArgumentException('invalid length for "$allowed_delimiters" when calling PhoneNumberApi.formatPhoneNumber, must be smaller than or equal to 255.');
         }
-        if (!is_null($allowedDelimiters) && (strlen($allowedDelimiters) < 0)) {
-            throw new \InvalidArgumentException('invalid length for "$allowedDelimiters" when calling PhoneNumberApi.formatPhoneNumber, must be bigger than or equal to 0.');
+        if (!is_null($allowed_delimiters) && (strlen($allowed_delimiters) < 0)) {
+            throw new \InvalidArgumentException('invalid length for "$allowed_delimiters" when calling PhoneNumberApi.formatPhoneNumber, must be bigger than or equal to 0.');
         }
 
         // parse inputs
@@ -409,12 +409,12 @@ class PhoneNumberApi
             $formParams['format'] = $this->apiClient->getSerializer()->toFormValue($format);
         }
         // form params
-        if ($directDialingDelimiter !== null) {
-            $formParams['direct_dialing_delimiter'] = $this->apiClient->getSerializer()->toFormValue($directDialingDelimiter);
+        if ($direct_dialing_delimiter !== null) {
+            $formParams['direct_dialing_delimiter'] = $this->apiClient->getSerializer()->toFormValue($direct_dialing_delimiter);
         }
         // form params
-        if ($allowedDelimiters !== null) {
-            $formParams['allowed_delimiters'] = $this->apiClient->getSerializer()->toFormValue($allowedDelimiters);
+        if ($allowed_delimiters !== null) {
+            $formParams['allowed_delimiters'] = $this->apiClient->getSerializer()->toFormValue($allowed_delimiters);
         }
         
         // for model (json/xml)

@@ -112,7 +112,7 @@ class ErrorMissingParametersTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "errorDescription"
+     * Test attribute "error_description"
      */
     public function testPropertyErrorDescription()
     {

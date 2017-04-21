@@ -112,7 +112,7 @@ class BusinessDataUndeliverableContactsSearchContactTest extends \PHPUnit_Framew
     }
 
     /**
-     * Test attribute "titleOfNobility"
+     * Test attribute "title_of_nobility"
      */
     public function testPropertyTitleOfNobility()
     {
@@ -128,7 +128,7 @@ class BusinessDataUndeliverableContactsSearchContactTest extends \PHPUnit_Framew
     }
 
     /**
-     * Test attribute "streetAddition"
+     * Test attribute "street_addition"
      */
     public function testPropertyStreetAddition()
     {
@@ -136,7 +136,7 @@ class BusinessDataUndeliverableContactsSearchContactTest extends \PHPUnit_Framew
     }
 
     /**
-     * Test attribute "houseNumber"
+     * Test attribute "house_number"
      */
     public function testPropertyHouseNumber()
     {
@@ -144,7 +144,7 @@ class BusinessDataUndeliverableContactsSearchContactTest extends \PHPUnit_Framew
     }
 
     /**
-     * Test attribute "houseNumberAddition"
+     * Test attribute "house_number_addition"
      */
     public function testPropertyHouseNumberAddition()
     {
@@ -168,7 +168,7 @@ class BusinessDataUndeliverableContactsSearchContactTest extends \PHPUnit_Framew
     }
 
     /**
-     * Test attribute "countryCode"
+     * Test attribute "country_code"
      */
     public function testPropertyCountryCode()
     {
@@ -176,7 +176,7 @@ class BusinessDataUndeliverableContactsSearchContactTest extends \PHPUnit_Framew
     }
 
     /**
-     * Test attribute "dateOfBirth"
+     * Test attribute "date_of_birth"
      */
     public function testPropertyDateOfBirth()
     {

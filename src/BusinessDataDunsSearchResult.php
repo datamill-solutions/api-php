@@ -67,16 +67,16 @@ class BusinessDataDunsSearchResult implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'companyName' => 'string',
+        'company_name' => 'string',
         'city' => 'string',
         'zip' => 'string',
         'street' => 'string',
-        'houseNumber' => 'string',
-        'dunsNumber' => 'string',
-        'dunsNumberHq' => 'string',
-        'phoneNumber' => 'string',
-        'branchCode' => 'string',
-        'branchDescription' => 'string',
+        'house_number' => 'string',
+        'duns_number' => 'string',
+        'duns_number_hq' => 'string',
+        'phone_number' => 'string',
+        'branch_code' => 'string',
+        'branch_description' => 'string',
         'score' => 'float'
     ];
 
@@ -90,16 +90,16 @@ class BusinessDataDunsSearchResult implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'companyName' => 'company_name',
+        'company_name' => 'company_name',
         'city' => 'city',
         'zip' => 'zip',
         'street' => 'street',
-        'houseNumber' => 'house_number',
-        'dunsNumber' => 'duns_number',
-        'dunsNumberHq' => 'duns_number_hq',
-        'phoneNumber' => 'phone_number',
-        'branchCode' => 'branch_code',
-        'branchDescription' => 'branch_description',
+        'house_number' => 'house_number',
+        'duns_number' => 'duns_number',
+        'duns_number_hq' => 'duns_number_hq',
+        'phone_number' => 'phone_number',
+        'branch_code' => 'branch_code',
+        'branch_description' => 'branch_description',
         'score' => 'score'
     ];
 
@@ -109,16 +109,16 @@ class BusinessDataDunsSearchResult implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'companyName' => 'setCompanyName',
+        'company_name' => 'setCompanyName',
         'city' => 'setCity',
         'zip' => 'setZip',
         'street' => 'setStreet',
-        'houseNumber' => 'setHouseNumber',
-        'dunsNumber' => 'setDunsNumber',
-        'dunsNumberHq' => 'setDunsNumberHq',
-        'phoneNumber' => 'setPhoneNumber',
-        'branchCode' => 'setBranchCode',
-        'branchDescription' => 'setBranchDescription',
+        'house_number' => 'setHouseNumber',
+        'duns_number' => 'setDunsNumber',
+        'duns_number_hq' => 'setDunsNumberHq',
+        'phone_number' => 'setPhoneNumber',
+        'branch_code' => 'setBranchCode',
+        'branch_description' => 'setBranchDescription',
         'score' => 'setScore'
     ];
 
@@ -128,16 +128,16 @@ class BusinessDataDunsSearchResult implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'companyName' => 'getCompanyName',
+        'company_name' => 'getCompanyName',
         'city' => 'getCity',
         'zip' => 'getZip',
         'street' => 'getStreet',
-        'houseNumber' => 'getHouseNumber',
-        'dunsNumber' => 'getDunsNumber',
-        'dunsNumberHq' => 'getDunsNumberHq',
-        'phoneNumber' => 'getPhoneNumber',
-        'branchCode' => 'getBranchCode',
-        'branchDescription' => 'getBranchDescription',
+        'house_number' => 'getHouseNumber',
+        'duns_number' => 'getDunsNumber',
+        'duns_number_hq' => 'getDunsNumberHq',
+        'phone_number' => 'getPhoneNumber',
+        'branch_code' => 'getBranchCode',
+        'branch_description' => 'getBranchDescription',
         'score' => 'getScore'
     ];
 
@@ -208,16 +208,16 @@ class BusinessDataDunsSearchResult implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['companyName'] = isset($data['companyName']) ? $data['companyName'] : null;
+        $this->container['company_name'] = isset($data['company_name']) ? $data['company_name'] : null;
         $this->container['city'] = isset($data['city']) ? $data['city'] : null;
         $this->container['zip'] = isset($data['zip']) ? $data['zip'] : null;
         $this->container['street'] = isset($data['street']) ? $data['street'] : null;
-        $this->container['houseNumber'] = isset($data['houseNumber']) ? $data['houseNumber'] : null;
-        $this->container['dunsNumber'] = isset($data['dunsNumber']) ? $data['dunsNumber'] : null;
-        $this->container['dunsNumberHq'] = isset($data['dunsNumberHq']) ? $data['dunsNumberHq'] : null;
-        $this->container['phoneNumber'] = isset($data['phoneNumber']) ? $data['phoneNumber'] : null;
-        $this->container['branchCode'] = isset($data['branchCode']) ? $data['branchCode'] : null;
-        $this->container['branchDescription'] = isset($data['branchDescription']) ? $data['branchDescription'] : null;
+        $this->container['house_number'] = isset($data['house_number']) ? $data['house_number'] : null;
+        $this->container['duns_number'] = isset($data['duns_number']) ? $data['duns_number'] : null;
+        $this->container['duns_number_hq'] = isset($data['duns_number_hq']) ? $data['duns_number_hq'] : null;
+        $this->container['phone_number'] = isset($data['phone_number']) ? $data['phone_number'] : null;
+        $this->container['branch_code'] = isset($data['branch_code']) ? $data['branch_code'] : null;
+        $this->container['branch_description'] = isset($data['branch_description']) ? $data['branch_description'] : null;
         $this->container['score'] = isset($data['score']) ? $data['score'] : null;
     }
 
@@ -230,13 +230,13 @@ class BusinessDataDunsSearchResult implements ArrayAccess
     {
         $invalid_properties = [];
         $allowed_values = ["B", "N", "H", "S"];
-        if (!in_array($this->container['branchCode'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'branchCode', must be one of 'B', 'N', 'H', 'S'.";
+        if (!in_array($this->container['branch_code'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'branch_code', must be one of 'B', 'N', 'H', 'S'.";
         }
 
         $allowed_values = ["branch", "not a branch", "headquarter", "single location"];
-        if (!in_array($this->container['branchDescription'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'branchDescription', must be one of 'branch', 'not a branch', 'headquarter', 'single location'.";
+        if (!in_array($this->container['branch_description'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'branch_description', must be one of 'branch', 'not a branch', 'headquarter', 'single location'.";
         }
 
         return $invalid_properties;
@@ -251,11 +251,11 @@ class BusinessDataDunsSearchResult implements ArrayAccess
     public function valid()
     {
         $allowed_values = ["B", "N", "H", "S"];
-        if (!in_array($this->container['branchCode'], $allowed_values)) {
+        if (!in_array($this->container['branch_code'], $allowed_values)) {
             return false;
         }
         $allowed_values = ["branch", "not a branch", "headquarter", "single location"];
-        if (!in_array($this->container['branchDescription'], $allowed_values)) {
+        if (!in_array($this->container['branch_description'], $allowed_values)) {
             return false;
         }
         return true;
@@ -263,22 +263,22 @@ class BusinessDataDunsSearchResult implements ArrayAccess
 
 
     /**
-     * Gets companyName
+     * Gets company_name
      * @return string
      */
     public function getCompanyName()
     {
-        return $this->container['companyName'];
+        return $this->container['company_name'];
     }
 
     /**
-     * Sets companyName
-     * @param string $companyName
+     * Sets company_name
+     * @param string $company_name
      * @return $this
      */
-    public function setCompanyName($companyName)
+    public function setCompanyName($company_name)
     {
-        $this->container['companyName'] = $companyName;
+        $this->container['company_name'] = $company_name;
 
         return $this;
     }
@@ -347,135 +347,135 @@ class BusinessDataDunsSearchResult implements ArrayAccess
     }
 
     /**
-     * Gets houseNumber
+     * Gets house_number
      * @return string
      */
     public function getHouseNumber()
     {
-        return $this->container['houseNumber'];
+        return $this->container['house_number'];
     }
 
     /**
-     * Sets houseNumber
-     * @param string $houseNumber
+     * Sets house_number
+     * @param string $house_number
      * @return $this
      */
-    public function setHouseNumber($houseNumber)
+    public function setHouseNumber($house_number)
     {
-        $this->container['houseNumber'] = $houseNumber;
+        $this->container['house_number'] = $house_number;
 
         return $this;
     }
 
     /**
-     * Gets dunsNumber
+     * Gets duns_number
      * @return string
      */
     public function getDunsNumber()
     {
-        return $this->container['dunsNumber'];
+        return $this->container['duns_number'];
     }
 
     /**
-     * Sets dunsNumber
-     * @param string $dunsNumber
+     * Sets duns_number
+     * @param string $duns_number
      * @return $this
      */
-    public function setDunsNumber($dunsNumber)
+    public function setDunsNumber($duns_number)
     {
-        $this->container['dunsNumber'] = $dunsNumber;
+        $this->container['duns_number'] = $duns_number;
 
         return $this;
     }
 
     /**
-     * Gets dunsNumberHq
+     * Gets duns_number_hq
      * @return string
      */
     public function getDunsNumberHq()
     {
-        return $this->container['dunsNumberHq'];
+        return $this->container['duns_number_hq'];
     }
 
     /**
-     * Sets dunsNumberHq
-     * @param string $dunsNumberHq
+     * Sets duns_number_hq
+     * @param string $duns_number_hq
      * @return $this
      */
-    public function setDunsNumberHq($dunsNumberHq)
+    public function setDunsNumberHq($duns_number_hq)
     {
-        $this->container['dunsNumberHq'] = $dunsNumberHq;
+        $this->container['duns_number_hq'] = $duns_number_hq;
 
         return $this;
     }
 
     /**
-     * Gets phoneNumber
+     * Gets phone_number
      * @return string
      */
     public function getPhoneNumber()
     {
-        return $this->container['phoneNumber'];
+        return $this->container['phone_number'];
     }
 
     /**
-     * Sets phoneNumber
-     * @param string $phoneNumber
+     * Sets phone_number
+     * @param string $phone_number
      * @return $this
      */
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phone_number)
     {
-        $this->container['phoneNumber'] = $phoneNumber;
+        $this->container['phone_number'] = $phone_number;
 
         return $this;
     }
 
     /**
-     * Gets branchCode
+     * Gets branch_code
      * @return string
      */
     public function getBranchCode()
     {
-        return $this->container['branchCode'];
+        return $this->container['branch_code'];
     }
 
     /**
-     * Sets branchCode
-     * @param string $branchCode
+     * Sets branch_code
+     * @param string $branch_code
      * @return $this
      */
-    public function setBranchCode($branchCode)
+    public function setBranchCode($branch_code)
     {
         $allowed_values = array('B', 'N', 'H', 'S');
-        if (!is_null($branchCode) && (!in_array($branchCode, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'branchCode', must be one of 'B', 'N', 'H', 'S'");
+        if (!is_null($branch_code) && (!in_array($branch_code, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'branch_code', must be one of 'B', 'N', 'H', 'S'");
         }
-        $this->container['branchCode'] = $branchCode;
+        $this->container['branch_code'] = $branch_code;
 
         return $this;
     }
 
     /**
-     * Gets branchDescription
+     * Gets branch_description
      * @return string
      */
     public function getBranchDescription()
     {
-        return $this->container['branchDescription'];
+        return $this->container['branch_description'];
     }
 
     /**
-     * Sets branchDescription
-     * @param string $branchDescription
+     * Sets branch_description
+     * @param string $branch_description
      * @return $this
      */
-    public function setBranchDescription($branchDescription)
+    public function setBranchDescription($branch_description)
     {
         $allowed_values = array('branch', 'not a branch', 'headquarter', 'single location');
-        if (!is_null($branchDescription) && (!in_array($branchDescription, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'branchDescription', must be one of 'branch', 'not a branch', 'headquarter', 'single location'");
+        if (!is_null($branch_description) && (!in_array($branch_description, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'branch_description', must be one of 'branch', 'not a branch', 'headquarter', 'single location'");
         }
-        $this->container['branchDescription'] = $branchDescription;
+        $this->container['branch_description'] = $branch_description;
 
         return $this;
     }

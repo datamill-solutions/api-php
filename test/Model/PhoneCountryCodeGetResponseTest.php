@@ -104,7 +104,7 @@ class PhoneCountryCodeGetResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "internationalPrefix"
+     * Test attribute "international_prefix"
      */
     public function testPropertyInternationalPrefix()
     {
@@ -112,7 +112,7 @@ class PhoneCountryCodeGetResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "nationalPrefix"
+     * Test attribute "national_prefix"
      */
     public function testPropertyNationalPrefix()
     {

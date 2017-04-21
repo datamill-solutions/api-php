@@ -69,8 +69,8 @@ class AddressHouseNumberExtractResponse implements ArrayAccess
     protected static $swaggerTypes = [
         'street' => 'string',
         'housenumber' => 'string',
-        'housenumberOnly' => 'string',
-        'housenumberAddition' => 'string'
+        'housenumber_only' => 'string',
+        'housenumber_addition' => 'string'
     ];
 
     public static function swaggerTypes()
@@ -85,8 +85,8 @@ class AddressHouseNumberExtractResponse implements ArrayAccess
     protected static $attributeMap = [
         'street' => 'street',
         'housenumber' => 'housenumber',
-        'housenumberOnly' => 'housenumber_only',
-        'housenumberAddition' => 'housenumber_addition'
+        'housenumber_only' => 'housenumber_only',
+        'housenumber_addition' => 'housenumber_addition'
     ];
 
 
@@ -97,8 +97,8 @@ class AddressHouseNumberExtractResponse implements ArrayAccess
     protected static $setters = [
         'street' => 'setStreet',
         'housenumber' => 'setHousenumber',
-        'housenumberOnly' => 'setHousenumberOnly',
-        'housenumberAddition' => 'setHousenumberAddition'
+        'housenumber_only' => 'setHousenumberOnly',
+        'housenumber_addition' => 'setHousenumberAddition'
     ];
 
 
@@ -109,8 +109,8 @@ class AddressHouseNumberExtractResponse implements ArrayAccess
     protected static $getters = [
         'street' => 'getStreet',
         'housenumber' => 'getHousenumber',
-        'housenumberOnly' => 'getHousenumberOnly',
-        'housenumberAddition' => 'getHousenumberAddition'
+        'housenumber_only' => 'getHousenumberOnly',
+        'housenumber_addition' => 'getHousenumberAddition'
     ];
 
     public static function attributeMap()
@@ -146,8 +146,8 @@ class AddressHouseNumberExtractResponse implements ArrayAccess
     {
         $this->container['street'] = isset($data['street']) ? $data['street'] : null;
         $this->container['housenumber'] = isset($data['housenumber']) ? $data['housenumber'] : null;
-        $this->container['housenumberOnly'] = isset($data['housenumberOnly']) ? $data['housenumberOnly'] : null;
-        $this->container['housenumberAddition'] = isset($data['housenumberAddition']) ? $data['housenumberAddition'] : null;
+        $this->container['housenumber_only'] = isset($data['housenumber_only']) ? $data['housenumber_only'] : null;
+        $this->container['housenumber_addition'] = isset($data['housenumber_addition']) ? $data['housenumber_addition'] : null;
     }
 
     /**
@@ -164,11 +164,11 @@ class AddressHouseNumberExtractResponse implements ArrayAccess
         if ($this->container['housenumber'] === null) {
             $invalid_properties[] = "'housenumber' can't be null";
         }
-        if ($this->container['housenumberOnly'] === null) {
-            $invalid_properties[] = "'housenumberOnly' can't be null";
+        if ($this->container['housenumber_only'] === null) {
+            $invalid_properties[] = "'housenumber_only' can't be null";
         }
-        if ($this->container['housenumberAddition'] === null) {
-            $invalid_properties[] = "'housenumberAddition' can't be null";
+        if ($this->container['housenumber_addition'] === null) {
+            $invalid_properties[] = "'housenumber_addition' can't be null";
         }
         return $invalid_properties;
     }
@@ -187,10 +187,10 @@ class AddressHouseNumberExtractResponse implements ArrayAccess
         if ($this->container['housenumber'] === null) {
             return false;
         }
-        if ($this->container['housenumberOnly'] === null) {
+        if ($this->container['housenumber_only'] === null) {
             return false;
         }
-        if ($this->container['housenumberAddition'] === null) {
+        if ($this->container['housenumber_addition'] === null) {
             return false;
         }
         return true;
@@ -240,43 +240,43 @@ class AddressHouseNumberExtractResponse implements ArrayAccess
     }
 
     /**
-     * Gets housenumberOnly
+     * Gets housenumber_only
      * @return string
      */
     public function getHousenumberOnly()
     {
-        return $this->container['housenumberOnly'];
+        return $this->container['housenumber_only'];
     }
 
     /**
-     * Sets housenumberOnly
-     * @param string $housenumberOnly
+     * Sets housenumber_only
+     * @param string $housenumber_only
      * @return $this
      */
-    public function setHousenumberOnly($housenumberOnly)
+    public function setHousenumberOnly($housenumber_only)
     {
-        $this->container['housenumberOnly'] = $housenumberOnly;
+        $this->container['housenumber_only'] = $housenumber_only;
 
         return $this;
     }
 
     /**
-     * Gets housenumberAddition
+     * Gets housenumber_addition
      * @return string
      */
     public function getHousenumberAddition()
     {
-        return $this->container['housenumberAddition'];
+        return $this->container['housenumber_addition'];
     }
 
     /**
-     * Sets housenumberAddition
-     * @param string $housenumberAddition
+     * Sets housenumber_addition
+     * @param string $housenumber_addition
      * @return $this
      */
-    public function setHousenumberAddition($housenumberAddition)
+    public function setHousenumberAddition($housenumber_addition)
     {
-        $this->container['housenumberAddition'] = $housenumberAddition;
+        $this->container['housenumber_addition'] = $housenumber_addition;
 
         return $this;
     }
