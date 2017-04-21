@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **longitude** | **string** | Longitude to place a marker indicating the given location on a map (uses a dot as decimal point) | 
 **navigation_latitude** | **string** | Latitude of a potential route waypoint (uses a dot as decimal point) | 
 **navigation_longitude** | **string** | Longitude of a potential route waypoint (uses a dot as decimal point) | 
-**matchlevel** | **string** | The most detailed address field that matches the geo-coding query.  * **housenumber**: the whole geo-location including the house number / building name was found.  * **street**: the whole geo-location excluding the house number / building name was found. Please consider if you do not provide a house number or building name in the request the most detailed address field possible will always be the street.  * **general**: our service could only resolve a few address parts above the street level (e.g. only country or country + city, ...). | 
+**matchlevel** | **string** | The most detailed address field that matches the geo-coding query. **housenumber**: the whole geo-location including the house number / building name was found. **street**: the whole geo-location excluding the house number / building name was found. Please consider if you do not provide a house number or building name in the request the most detailed address field possible will always be the street. **general**: our service could only resolve a few address parts above the street level (e.g. only country or country + city, ...). | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

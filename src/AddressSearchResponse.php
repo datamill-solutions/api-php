@@ -778,7 +778,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets matchlevel
-     * @param string $matchlevel The most detailed address field that matches the geo-coding query.  * **housenumber**: the whole geo-location including the house number / building name was found.  * **street**: the whole geo-location excluding the house number / building name was found. Please consider if you do not provide a house number or building name in the request the most detailed address field possible will always be the street.  * **general**: our service could only resolve a few address parts above the street level (e.g. only country or country + city, ...).
+     * @param string $matchlevel The most detailed address field that matches the geo-coding query. **housenumber**: the whole geo-location including the house number / building name was found. **street**: the whole geo-location excluding the house number / building name was found. Please consider if you do not provide a house number or building name in the request the most detailed address field possible will always be the street. **general**: our service could only resolve a few address parts above the street level (e.g. only country or country + city, ...).
      * @return $this
      */
     public function setMatchlevel($matchlevel)
