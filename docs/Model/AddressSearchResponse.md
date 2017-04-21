@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**country_iso_2** | **string** |  | 
+**country_iso_2** | **string** | something describing the object | 
 **country_iso_3** | **string** |  | 
 **country** | **string** |  | 
 **state** | **string** |  | 

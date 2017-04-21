@@ -400,7 +400,7 @@ class AddressSearchResponse implements ArrayAccess
 
     /**
      * Sets country_iso_2
-     * @param string $country_iso_2
+     * @param string $country_iso_2 something describing the object
      * @return $this
      */
     public function setCountryIso2($country_iso_2)
