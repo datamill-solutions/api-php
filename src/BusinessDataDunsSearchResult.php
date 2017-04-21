@@ -273,7 +273,7 @@ class BusinessDataDunsSearchResult implements ArrayAccess
 
     /**
      * Sets company_name
-     * @param string $company_name
+     * @param string $company_name The official company name
      * @return $this
      */
     public function setCompanyName($company_name)
@@ -294,7 +294,7 @@ class BusinessDataDunsSearchResult implements ArrayAccess
 
     /**
      * Sets city
-     * @param string $city
+     * @param string $city The city of the company's address
      * @return $this
      */
     public function setCity($city)
@@ -315,7 +315,7 @@ class BusinessDataDunsSearchResult implements ArrayAccess
 
     /**
      * Sets zip
-     * @param string $zip
+     * @param string $zip The zip of the company's address
      * @return $this
      */
     public function setZip($zip)
@@ -336,7 +336,7 @@ class BusinessDataDunsSearchResult implements ArrayAccess
 
     /**
      * Sets street
-     * @param string $street
+     * @param string $street The street of the company's address
      * @return $this
      */
     public function setStreet($street)
@@ -357,7 +357,7 @@ class BusinessDataDunsSearchResult implements ArrayAccess
 
     /**
      * Sets house_number
-     * @param string $house_number
+     * @param string $house_number The house number of the company's address
      * @return $this
      */
     public function setHouseNumber($house_number)
@@ -378,7 +378,7 @@ class BusinessDataDunsSearchResult implements ArrayAccess
 
     /**
      * Sets duns_number
-     * @param string $duns_number
+     * @param string $duns_number The company's D-U-N-S number
      * @return $this
      */
     public function setDunsNumber($duns_number)
@@ -399,7 +399,7 @@ class BusinessDataDunsSearchResult implements ArrayAccess
 
     /**
      * Sets duns_number_hq
-     * @param string $duns_number_hq
+     * @param string $duns_number_hq Optional the D-U-N-S number of the company's headquarters if this isn't the headquarter
      * @return $this
      */
     public function setDunsNumberHq($duns_number_hq)
@@ -420,7 +420,7 @@ class BusinessDataDunsSearchResult implements ArrayAccess
 
     /**
      * Sets phone_number
-     * @param string $phone_number
+     * @param string $phone_number The company's phone number
      * @return $this
      */
     public function setPhoneNumber($phone_number)
@@ -441,7 +441,7 @@ class BusinessDataDunsSearchResult implements ArrayAccess
 
     /**
      * Sets branch_code
-     * @param string $branch_code
+     * @param string $branch_code One-letter code describing the company's branch: **B**: branch, **N**: not a branch, **H**: headquarter, **S**: single location
      * @return $this
      */
     public function setBranchCode($branch_code)
@@ -466,7 +466,7 @@ class BusinessDataDunsSearchResult implements ArrayAccess
 
     /**
      * Sets branch_description
-     * @param string $branch_description
+     * @param string $branch_description Description of the company's branch
      * @return $this
      */
     public function setBranchDescription($branch_description)
@@ -491,7 +491,7 @@ class BusinessDataDunsSearchResult implements ArrayAccess
 
     /**
      * Sets score
-     * @param float $score
+     * @param float $score Internal ranking for all results compared with each other. the value is normalized between **0** and **1** (**1** is the best matching result and **0** the least one)
      * @return $this
      */
     public function setScore($score)

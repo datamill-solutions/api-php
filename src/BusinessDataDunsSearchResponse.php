@@ -211,7 +211,7 @@ class BusinessDataDunsSearchResponse implements ArrayAccess
 
     /**
      * Sets status
-     * @param string $status
+     * @param string $status Short description about the number of results found: **no result**: Could not find any company which matches the specified criteria, **single result**: We found 1 company which matches the specified criteria, **multiple results**: We found at least 2 companies which matches the specified criteria
      * @return $this
      */
     public function setStatus($status)
@@ -236,7 +236,7 @@ class BusinessDataDunsSearchResponse implements ArrayAccess
 
     /**
      * Sets results
-     * @param \DataMill\BusinessDataDunsSearchResult[] $results
+     * @param \DataMill\BusinessDataDunsSearchResult[] $results Collection of all found companies
      * @return $this
      */
     public function setResults($results)
