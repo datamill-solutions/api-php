@@ -197,7 +197,7 @@ class ErrorIncorrectParameters implements ArrayAccess
 
     /**
      * Sets errorcode
-     * @param int $errorcode
+     * @param int $errorcode Unique error code for this error
      * @return $this
      */
     public function setErrorcode($errorcode)
@@ -239,7 +239,7 @@ class ErrorIncorrectParameters implements ArrayAccess
 
     /**
      * Sets error_description
-     * @param object $error_description
+     * @param object $error_description Description for this error
      * @return $this
      */
     public function setErrorDescription($error_description)

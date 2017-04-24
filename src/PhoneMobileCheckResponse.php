@@ -213,7 +213,7 @@ class PhoneMobileCheckResponse implements ArrayAccess
 
     /**
      * Sets phonenumber
-     * @param string $phonenumber
+     * @param string $phonenumber Phone number formatted to the canonical form if valid
      * @return $this
      */
     public function setPhonenumber($phonenumber)
@@ -234,7 +234,7 @@ class PhoneMobileCheckResponse implements ArrayAccess
 
     /**
      * Sets status
-     * @param string $status
+     * @param string $status Flag if the mobile phone number is either valid and active, valid but disabled (out of network coverage), has an invalid syntax /is unreachable, or not a mobile phone number type: **valid**: the mobile phone number is valid, **inactive**: the mobile phone number is valid but out of network coverage or is turned off, **invalid**: the mobile phone number is invalid or unreachable, **no mobile number**: the phone number is not a mobile phone number, **unknown**: the phone number could not be verified
      * @return $this
      */
     public function setStatus($status)

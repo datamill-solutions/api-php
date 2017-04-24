@@ -197,7 +197,7 @@ class VatSearchResultRecord implements ArrayAccess
 
     /**
      * Sets vatnumber
-     * @param string $vatnumber
+     * @param string $vatnumber The VAT numbers including the country code as prefix separated by a newline [only if uglify is set to 1]
      * @return $this
      */
     public function setVatnumber($vatnumber)
@@ -218,7 +218,7 @@ class VatSearchResultRecord implements ArrayAccess
 
     /**
      * Sets company
-     * @param string $company
+     * @param string $company Name of the company
      * @return $this
      */
     public function setCompany($company)
@@ -239,7 +239,7 @@ class VatSearchResultRecord implements ArrayAccess
 
     /**
      * Sets address
-     * @param string $address
+     * @param string $address Address of the company
      * @return $this
      */
     public function setAddress($address)

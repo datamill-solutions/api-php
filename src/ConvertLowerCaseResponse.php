@@ -175,7 +175,7 @@ class ConvertLowerCaseResponse implements ArrayAccess
 
     /**
      * Sets text
-     * @param string $text
+     * @param string $text Text written in all lower case
      * @return $this
      */
     public function setText($text)

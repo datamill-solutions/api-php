@@ -240,7 +240,7 @@ class PhoneFormatResponse implements ArrayAccess
 
     /**
      * Sets valid
-     * @param string $valid
+     * @param string $valid Flag if the spelling of the phone number is valid or not [**0**, **1**]
      * @return $this
      */
     public function setValid($valid)
@@ -261,7 +261,7 @@ class PhoneFormatResponse implements ArrayAccess
 
     /**
      * Sets number
-     * @param string $number
+     * @param string $number The phone number formatted to the canonical or custom form if valid
      * @return $this
      */
     public function setNumber($number)
@@ -282,7 +282,7 @@ class PhoneFormatResponse implements ArrayAccess
 
     /**
      * Sets type
-     * @param string $type
+     * @param string $type The determined phone number type: **PREMIUM_RATE**: premium rate, **TOLL_FREE**: toll free, **MOBILE**: mobile phone number, **FIXED_LINE**: fixed line, **FIXED_LINE_OR_MOBILE**: fixed line or mobile phone number, **SHARED_COST**: shard cost, **VOIP**: voice over ip, **PERSONAL_NUMBER**: personal number, **PAGER**: pager, **UAN**: universal access number, **VOICEMAIL**: voicemail, **UNKNOWN**: unknown connection type
      * @return $this
      */
     public function setType($type)

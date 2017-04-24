@@ -175,7 +175,7 @@ class ConvertCapitalFirstResponse implements ArrayAccess
 
     /**
      * Sets text
-     * @param string $text
+     * @param string $text Text written in 'Capital First'
      * @return $this
      */
     public function setText($text)

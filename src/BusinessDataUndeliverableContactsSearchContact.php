@@ -160,8 +160,22 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
         return self::$getters;
     }
 
+    const GENDER_M = 'M';
+    const GENDER_F = 'F';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     * @return string[]
+     */
+    public function getGenderAllowableValues()
+    {
+        return [
+            self::GENDER_M,
+            self::GENDER_F,
+        ];
+    }
     
 
     /**
@@ -198,6 +212,11 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = [];
+        $allowed_values = ["M", "F"];
+        if (!in_array($this->container['gender'], $allowed_values)) {
+            $invalid_properties[] = "invalid value for 'gender', must be one of 'M', 'F'.";
+        }
+
         return $invalid_properties;
     }
 
@@ -209,6 +228,10 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
      */
     public function valid()
     {
+        $allowed_values = ["M", "F"];
+        if (!in_array($this->container['gender'], $allowed_values)) {
+            return false;
+        }
         return true;
     }
 
@@ -224,11 +247,15 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
 
     /**
      * Sets gender
-     * @param string $gender
+     * @param string $gender The person's gender (**M** or **F**)
      * @return $this
      */
     public function setGender($gender)
     {
+        $allowed_values = array('M', 'F');
+        if (!is_null($gender) && (!in_array($gender, $allowed_values))) {
+            throw new \InvalidArgumentException("Invalid value for 'gender', must be one of 'M', 'F'");
+        }
         $this->container['gender'] = $gender;
 
         return $this;
@@ -245,7 +272,7 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
 
     /**
      * Sets title
-     * @param string $title
+     * @param string $title The person's title
      * @return $this
      */
     public function setTitle($title)
@@ -266,7 +293,7 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
 
     /**
      * Sets title_of_nobility
-     * @param string $title_of_nobility
+     * @param string $title_of_nobility The person's title of nobility
      * @return $this
      */
     public function setTitleOfNobility($title_of_nobility)
@@ -287,7 +314,7 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
 
     /**
      * Sets street
-     * @param string $street
+     * @param string $street The street the person lives in
      * @return $this
      */
     public function setStreet($street)
@@ -329,7 +356,7 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
 
     /**
      * Sets house_number
-     * @param string $house_number
+     * @param string $house_number The house number of the building the person lives in
      * @return $this
      */
     public function setHouseNumber($house_number)
@@ -350,7 +377,7 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
 
     /**
      * Sets house_number_addition
-     * @param string $house_number_addition
+     * @param string $house_number_addition Additional information about the house number
      * @return $this
      */
     public function setHouseNumberAddition($house_number_addition)
@@ -371,7 +398,7 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
 
     /**
      * Sets zip
-     * @param string $zip
+     * @param string $zip The postal code of the city/region the person lives in
      * @return $this
      */
     public function setZip($zip)
@@ -392,7 +419,7 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
 
     /**
      * Sets city
-     * @param string $city
+     * @param string $city The city the person lives in
      * @return $this
      */
     public function setCity($city)
@@ -413,7 +440,7 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
 
     /**
      * Sets country_code
-     * @param string $country_code
+     * @param string $country_code The ISO 3166-1 alpha-2 code of the country the person lives in
      * @return $this
      */
     public function setCountryCode($country_code)
@@ -434,7 +461,7 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
 
     /**
      * Sets date_of_birth
-     * @param \DateTime $date_of_birth
+     * @param \DateTime $date_of_birth The person's date of birth (yyyy-mm-dd) if available and deceased
      * @return $this
      */
     public function setDateOfBirth($date_of_birth)
@@ -455,7 +482,7 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
 
     /**
      * Sets timestamp
-     * @param \DateTime $timestamp
+     * @param \DateTime $timestamp The timestamp (yyyy-mm-dd) when the database entry was created
      * @return $this
      */
     public function setTimestamp($timestamp)

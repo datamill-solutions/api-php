@@ -175,7 +175,7 @@ class VatSearchResponse implements ArrayAccess
 
     /**
      * Sets result
-     * @param \DataMill\VatSearchResultRecord[] $result
+     * @param \DataMill\VatSearchResultRecord[] $result Collection of all other response keys, once for each company found
      * @return $this
      */
     public function setResult($result)

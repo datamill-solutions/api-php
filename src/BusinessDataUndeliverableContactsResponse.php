@@ -311,7 +311,7 @@ class BusinessDataUndeliverableContactsResponse implements ArrayAccess
 
     /**
      * Sets undeliverable
-     * @param string $undeliverable
+     * @param string $undeliverable Flag if sending a mail would result in an undeliverable state [**0**, **1**]
      * @return $this
      */
     public function setUndeliverable($undeliverable)
@@ -336,7 +336,7 @@ class BusinessDataUndeliverableContactsResponse implements ArrayAccess
 
     /**
      * Sets deceased
-     * @param string $deceased
+     * @param string $deceased Flag if the person is deceased [**0**, **1**]
      * @return $this
      */
     public function setDeceased($deceased)
@@ -361,7 +361,7 @@ class BusinessDataUndeliverableContactsResponse implements ArrayAccess
 
     /**
      * Sets moved
-     * @param string $moved
+     * @param string $moved Flag if the person has moved to a new address but we do not know the new address [**0**, **1**]
      * @return $this
      */
     public function setMoved($moved)
@@ -386,7 +386,7 @@ class BusinessDataUndeliverableContactsResponse implements ArrayAccess
 
     /**
      * Sets new_address_available
-     * @param string $new_address_available
+     * @param string $new_address_available Flag if the person has moved to a new address and we know the new address [**0**, **1**]
      * @return $this
      */
     public function setNewAddressAvailable($new_address_available)

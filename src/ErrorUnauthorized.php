@@ -186,7 +186,7 @@ class ErrorUnauthorized implements ArrayAccess
 
     /**
      * Sets errorcode
-     * @param int $errorcode
+     * @param int $errorcode Unique error code for this error
      * @return $this
      */
     public function setErrorcode($errorcode)
@@ -207,7 +207,7 @@ class ErrorUnauthorized implements ArrayAccess
 
     /**
      * Sets errormessage
-     * @param string $errormessage
+     * @param string $errormessage Description for this error
      * @return $this
      */
     public function setErrormessage($errormessage)

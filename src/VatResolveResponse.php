@@ -362,7 +362,7 @@ class VatResolveResponse implements ArrayAccess
 
     /**
      * Sets valid
-     * @param string $valid
+     * @param string $valid Flag if the VAT number is valid or not [0, 1]
      * @return $this
      */
     public function setValid($valid)
@@ -383,7 +383,7 @@ class VatResolveResponse implements ArrayAccess
 
     /**
      * Sets countrycode
-     * @param string $countrycode
+     * @param string $countrycode ISO 3166-1 alpha-2 country code
      * @return $this
      */
     public function setCountrycode($countrycode)
@@ -404,7 +404,7 @@ class VatResolveResponse implements ArrayAccess
 
     /**
      * Sets vatnumber
-     * @param string $vatnumber
+     * @param string $vatnumber The verified VAT number without the country code as prefix
      * @return $this
      */
     public function setVatnumber($vatnumber)
@@ -425,7 +425,7 @@ class VatResolveResponse implements ArrayAccess
 
     /**
      * Sets name
-     * @param string $name
+     * @param string $name The official company name if VAT number is valid
      * @return $this
      */
     public function setName($name)
@@ -446,7 +446,7 @@ class VatResolveResponse implements ArrayAccess
 
     /**
      * Sets countryname
-     * @param string $countryname
+     * @param string $countryname Country name together with the language information
      * @return $this
      */
     public function setCountryname($countryname)
@@ -467,7 +467,7 @@ class VatResolveResponse implements ArrayAccess
 
     /**
      * Sets state
-     * @param string $state
+     * @param string $state State name/code together with the language information
      * @return $this
      */
     public function setState($state)
@@ -488,7 +488,7 @@ class VatResolveResponse implements ArrayAccess
 
     /**
      * Sets county
-     * @param string $county
+     * @param string $county County name together with the language information (if available)
      * @return $this
      */
     public function setCounty($county)
@@ -509,7 +509,7 @@ class VatResolveResponse implements ArrayAccess
 
     /**
      * Sets city
-     * @param string $city
+     * @param string $city City name together with the language information
      * @return $this
      */
     public function setCity($city)
@@ -530,7 +530,7 @@ class VatResolveResponse implements ArrayAccess
 
     /**
      * Sets zip
-     * @param string $zip
+     * @param string $zip Postal code
      * @return $this
      */
     public function setZip($zip)
@@ -551,7 +551,7 @@ class VatResolveResponse implements ArrayAccess
 
     /**
      * Sets street
-     * @param string $street
+     * @param string $street Street name together with the language information
      * @return $this
      */
     public function setStreet($street)
@@ -572,7 +572,7 @@ class VatResolveResponse implements ArrayAccess
 
     /**
      * Sets housenumber
-     * @param string $housenumber
+     * @param string $housenumber House number together with the language information (if available)
      * @return $this
      */
     public function setHousenumber($housenumber)
@@ -593,7 +593,7 @@ class VatResolveResponse implements ArrayAccess
 
     /**
      * Sets additional_data
-     * @param string $additional_data
+     * @param string $additional_data Additional house number information (e.g. floor, apartment, top)
      * @return $this
      */
     public function setAdditionalData($additional_data)
@@ -614,7 +614,7 @@ class VatResolveResponse implements ArrayAccess
 
     /**
      * Sets raw_address
-     * @param string $raw_address
+     * @param string $raw_address The raw address of the company received before its split into its address parts
      * @return $this
      */
     public function setRawAddress($raw_address)
@@ -635,7 +635,7 @@ class VatResolveResponse implements ArrayAccess
 
     /**
      * Sets countrycode_iso_3
-     * @param string $countrycode_iso_3
+     * @param string $countrycode_iso_3 ISO 3166-1 alpha-3 country code
      * @return $this
      */
     public function setCountrycodeIso3($countrycode_iso_3)
@@ -656,7 +656,7 @@ class VatResolveResponse implements ArrayAccess
 
     /**
      * Sets relevance
-     * @param string $relevance
+     * @param string $relevance Indicates the relevance of the result found. The higher the score the more relevant the alternative. The score is a normalized value between 0 and 100. Every typo or mismatch between the request and response data (e.g. incorrect data, abbreviation, ..) will reduce the relevance.
      * @return $this
      */
     public function setRelevance($relevance)
@@ -677,7 +677,7 @@ class VatResolveResponse implements ArrayAccess
 
     /**
      * Sets latitude
-     * @param string $latitude
+     * @param string $latitude Latitude to place a marker indicating the given location on a map (uses a dot as decimal point)
      * @return $this
      */
     public function setLatitude($latitude)
@@ -698,7 +698,7 @@ class VatResolveResponse implements ArrayAccess
 
     /**
      * Sets longitude
-     * @param string $longitude
+     * @param string $longitude Longitude to place a marker indicating the given location on a map (uses a dot as decimal point)
      * @return $this
      */
     public function setLongitude($longitude)
@@ -719,7 +719,7 @@ class VatResolveResponse implements ArrayAccess
 
     /**
      * Sets matchlevel
-     * @param string $matchlevel
+     * @param string $matchlevel The most detailed address field that matches the geo-coding query: **housenumber**: the whole geo-location including the house number / building name was found. **street**: the whole geo-location excluding the house number / building name was found. Please consider if you do not provide a house number or building name in the request the most detailed address field possible will always be the street. **general**: our service could only resolve a few address parts above the street level (e.g. only country or country + city, ...).
      * @return $this
      */
     public function setMatchlevel($matchlevel)

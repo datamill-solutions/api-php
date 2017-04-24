@@ -197,7 +197,7 @@ class VatCheckResponse implements ArrayAccess
 
     /**
      * Sets valid
-     * @param string $valid
+     * @param string $valid Flag if the VAT number is valid or not [**0**, **1**]
      * @return $this
      */
     public function setValid($valid)
@@ -218,7 +218,7 @@ class VatCheckResponse implements ArrayAccess
 
     /**
      * Sets countrycode
-     * @param string $countrycode
+     * @param string $countrycode ISO 3166-1 alpha-2 country code
      * @return $this
      */
     public function setCountrycode($countrycode)
@@ -239,7 +239,7 @@ class VatCheckResponse implements ArrayAccess
 
     /**
      * Sets vatnumber
-     * @param string $vatnumber
+     * @param string $vatnumber Vat number part without country code
      * @return $this
      */
     public function setVatnumber($vatnumber)

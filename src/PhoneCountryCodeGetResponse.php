@@ -197,7 +197,7 @@ class PhoneCountryCodeGetResponse implements ArrayAccess
 
     /**
      * Sets countrycode
-     * @param string $countrycode
+     * @param string $countrycode ISO 3166-1 alpha-2 country code
      * @return $this
      */
     public function setCountrycode($countrycode)
@@ -218,7 +218,7 @@ class PhoneCountryCodeGetResponse implements ArrayAccess
 
     /**
      * Sets international_prefix
-     * @param string $international_prefix
+     * @param string $international_prefix The international dial prefix of the specified country
      * @return $this
      */
     public function setInternationalPrefix($international_prefix)
@@ -239,7 +239,7 @@ class PhoneCountryCodeGetResponse implements ArrayAccess
 
     /**
      * Sets national_prefix
-     * @param string $national_prefix
+     * @param string $national_prefix The national dial prefix of the specified country
      * @return $this
      */
     public function setNationalPrefix($national_prefix)
