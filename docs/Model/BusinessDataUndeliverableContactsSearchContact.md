@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **title** | **string** | The person&#39;s title | [optional] 
 **title_of_nobility** | **string** | The person&#39;s title of nobility | [optional] 
 **street** | **string** | The street the person lives in | [optional] 
-**street_addition** | **string** |  | [optional] 
+**street_addition** | **string** | Additional street information | [optional] 
 **house_number** | **string** | The house number of the building the person lives in | [optional] 
 **house_number_addition** | **string** | Additional information about the house number | [optional] 
 **zip** | **string** | The postal code of the city/region the person lives in | [optional] 

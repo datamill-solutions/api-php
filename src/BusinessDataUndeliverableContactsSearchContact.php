@@ -335,7 +335,7 @@ class BusinessDataUndeliverableContactsSearchContact implements ArrayAccess
 
     /**
      * Sets street_addition
-     * @param string $street_addition
+     * @param string $street_addition Additional street information
      * @return $this
      */
     public function setStreetAddition($street_addition)

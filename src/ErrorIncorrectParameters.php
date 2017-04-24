@@ -218,7 +218,7 @@ class ErrorIncorrectParameters implements ArrayAccess
 
     /**
      * Sets errormessage
-     * @param string $errormessage
+     * @param string $errormessage Description for this error
      * @return $this
      */
     public function setErrormessage($errormessage)
@@ -239,7 +239,7 @@ class ErrorIncorrectParameters implements ArrayAccess
 
     /**
      * Sets error_description
-     * @param object $error_description Description for this error
+     * @param object $error_description Collection of validation errors for request parameters
      * @return $this
      */
     public function setErrorDescription($error_description)

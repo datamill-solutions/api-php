@@ -239,7 +239,7 @@ class ErrorMissingParameters implements ArrayAccess
 
     /**
      * Sets error_description
-     * @param object $error_description
+     * @param object $error_description Collection for validation errors of the request parameters
      * @return $this
      */
     public function setErrorDescription($error_description)

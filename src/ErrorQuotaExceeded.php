@@ -175,7 +175,7 @@ class ErrorQuotaExceeded implements ArrayAccess
 
     /**
      * Sets credits
-     * @param string[] $credits
+     * @param string[] $credits Description that your don't have enought available data.mill credits
      * @return $this
      */
     public function setCredits($credits)
