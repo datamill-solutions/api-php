@@ -92,6 +92,34 @@ Class | Method | HTTP request | Description
 *DUNSApi* | [**getDUNSRating**](docs/Api/DUNSApi.md#getdunsrating) | **POST** /business-data/duns/rating | Get marketing information by DUNS number
 *DUNSApi* | [**resolveDUNS**](docs/Api/DUNSApi.md#resolveduns) | **POST** /business-data/duns/resolve | Resolve company information by DUNS number
 *DUNSApi* | [**searchDUNS**](docs/Api/DUNSApi.md#searchduns) | **POST** /business-data/duns/search | Find DUNS number and company information by name
+*DataMillApi* | [**checkBIC**](docs/Api/DataMillApi.md#checkbic) | **POST** /bic/check | Check BIC for spelling
+*DataMillApi* | [**checkEmailDomain**](docs/Api/DataMillApi.md#checkemaildomain) | **POST** /email/domain/check | Check email syntax and mail server domain
+*DataMillApi* | [**checkEmailMailbox**](docs/Api/DataMillApi.md#checkemailmailbox) | **POST** /email/extended/check | Check email syntax, mail server domain and mailbox itself
+*DataMillApi* | [**checkEmailSyntax**](docs/Api/DataMillApi.md#checkemailsyntax) | **POST** /email/syntax/check | Check email syntax
+*DataMillApi* | [**checkIBAN**](docs/Api/DataMillApi.md#checkiban) | **POST** /iban/check | Check IBAN for spelling
+*DataMillApi* | [**checkMobilePhone**](docs/Api/DataMillApi.md#checkmobilephone) | **POST** /phone/mobile/check | Verify mobile phone number
+*DataMillApi* | [**checkUrl**](docs/Api/DataMillApi.md#checkurl) | **POST** /url/check | Information about web resources
+*DataMillApi* | [**checkVAT**](docs/Api/DataMillApi.md#checkvat) | **POST** /vat/check | Check vat number for correctness
+*DataMillApi* | [**convertCapitalFirst**](docs/Api/DataMillApi.md#convertcapitalfirst) | **POST** /convert/capitalfirst | Convert any string to capitalize words
+*DataMillApi* | [**convertLowerCase**](docs/Api/DataMillApi.md#convertlowercase) | **POST** /convert/lowercase | Convert any string to lower case
+*DataMillApi* | [**convertUpperCase**](docs/Api/DataMillApi.md#convertuppercase) | **POST** /convert/uppercase | Convert any string to upper case
+*DataMillApi* | [**convertWrap**](docs/Api/DataMillApi.md#convertwrap) | **POST** /convert/wrap | Wrap text
+*DataMillApi* | [**extractHouseNumber**](docs/Api/DataMillApi.md#extracthousenumber) | **POST** /address/housenumber/extract | Try to extract house number from street information
+*DataMillApi* | [**formatPhoneNumber**](docs/Api/DataMillApi.md#formatphonenumber) | **POST** /phone/format | Parse, format and validate phone numbers
+*DataMillApi* | [**getDUNSRating**](docs/Api/DataMillApi.md#getdunsrating) | **POST** /business-data/duns/rating | Get marketing information by DUNS number
+*DataMillApi* | [**getFirstNames**](docs/Api/DataMillApi.md#getfirstnames) | **POST** /firstname/get | Recognize and extract first names
+*DataMillApi* | [**getGender**](docs/Api/DataMillApi.md#getgender) | **POST** /gender/get | Recognize gender by first name
+*DataMillApi* | [**getGenderExtended**](docs/Api/DataMillApi.md#getgenderextended) | **POST** /gender/extended/get | Recognize gender by first name (advanced)
+*DataMillApi* | [**getPhoneCountryCode**](docs/Api/DataMillApi.md#getphonecountrycode) | **POST** /phone/countrycode/get | International and national dial prefix
+*DataMillApi* | [**getSocialMediaActivities**](docs/Api/DataMillApi.md#getsocialmediaactivities) | **POST** /social-media/activities/get | Retrieve social media data by email address
+*DataMillApi* | [**locateAddress**](docs/Api/DataMillApi.md#locateaddress) | **POST** /address/locate | Reverse address lookup
+*DataMillApi* | [**resolveDUNS**](docs/Api/DataMillApi.md#resolveduns) | **POST** /business-data/duns/resolve | Resolve company information by DUNS number
+*DataMillApi* | [**resolveVAT**](docs/Api/DataMillApi.md#resolvevat) | **POST** /vat/resolve | Try to resolve VAT number to company information
+*DataMillApi* | [**searchAddress**](docs/Api/DataMillApi.md#searchaddress) | **POST** /address/search | Lookup physical postal address
+*DataMillApi* | [**searchAddressMultiple**](docs/Api/DataMillApi.md#searchaddressmultiple) | **POST** /address/search/multiple | Address lookup with multiple possible results
+*DataMillApi* | [**searchDUNS**](docs/Api/DataMillApi.md#searchduns) | **POST** /business-data/duns/search | Find DUNS number and company information by name
+*DataMillApi* | [**searchUndeliverableContact**](docs/Api/DataMillApi.md#searchundeliverablecontact) | **POST** /business-data/undeliverable-contacts/search | Find moved and deceased contacts
+*DataMillApi* | [**searchVAT**](docs/Api/DataMillApi.md#searchvat) | **POST** /vat/search | Find VAT number and company information by name
 *DeliveryInformationApi* | [**searchUndeliverableContact**](docs/Api/DeliveryInformationApi.md#searchundeliverablecontact) | **POST** /business-data/undeliverable-contacts/search | Find moved and deceased contacts
 *EmailApi* | [**checkEmailDomain**](docs/Api/EmailApi.md#checkemaildomain) | **POST** /email/domain/check | Check email syntax and mail server domain
 *EmailApi* | [**checkEmailMailbox**](docs/Api/EmailApi.md#checkemailmailbox) | **POST** /email/extended/check | Check email syntax, mail server domain and mailbox itself
