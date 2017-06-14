@@ -72,7 +72,7 @@ class DeliveryInformationApi
     {
         if ($apiClient === null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://api.methis.at');
+            $apiClient->getConfig()->setHost('https://api-beta.methis.at');
         }
 
         $this->apiClient = $apiClient;
@@ -106,8 +106,6 @@ class DeliveryInformationApi
      *
      * Find moved and deceased contacts
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $first_name The person&#39;s first name (required)
      * @param string $last_name The person&#39;s last name (required)
      * @param string $country_code ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
@@ -117,9 +115,9 @@ class DeliveryInformationApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\BusinessDataUndeliverableContactsResponse
      */
-    public function searchUndeliverableContact($license, $guid, $first_name, $last_name, $country_code, $zip, $street, $reason)
+    public function searchUndeliverableContact($first_name, $last_name, $country_code, $zip, $street, $reason)
     {
-        list($response) = $this->searchUndeliverableContactWithHttpInfo($license, $guid, $first_name, $last_name, $country_code, $zip, $street, $reason);
+        list($response) = $this->searchUndeliverableContactWithHttpInfo($first_name, $last_name, $country_code, $zip, $street, $reason);
         return $response;
     }
 
@@ -128,8 +126,6 @@ class DeliveryInformationApi
      *
      * Find moved and deceased contacts
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $first_name The person&#39;s first name (required)
      * @param string $last_name The person&#39;s last name (required)
      * @param string $country_code ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
@@ -139,27 +135,8 @@ class DeliveryInformationApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\BusinessDataUndeliverableContactsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchUndeliverableContactWithHttpInfo($license, $guid, $first_name, $last_name, $country_code, $zip, $street, $reason)
+    public function searchUndeliverableContactWithHttpInfo($first_name, $last_name, $country_code, $zip, $street, $reason)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling searchUndeliverableContact');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DeliveryInformationApi.searchUndeliverableContact, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DeliveryInformationApi.searchUndeliverableContact, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling searchUndeliverableContact');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DeliveryInformationApi.searchUndeliverableContact, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'first_name' is set
         if ($first_name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $first_name when calling searchUndeliverableContact');
@@ -242,14 +219,6 @@ class DeliveryInformationApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($first_name !== null) {
             $formParams['first_name'] = $this->apiClient->getSerializer()->toFormValue($first_name);
         }
@@ -279,6 +248,10 @@ class DeliveryInformationApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {

@@ -1,6 +1,6 @@
 # DataMill\FirstNameApi
 
-All URIs are relative to *https://api.methis.at*
+All URIs are relative to *https://api-beta.methis.at*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **getFirstNames**
-> \DataMill\FirstNameGetResponse getFirstNames($license, $guid, $name)
+> \DataMill\FirstNameGetResponse getFirstNames($name)
 
 Recognize and extract first names
 
@@ -19,13 +19,15 @@ Detects all first names in a given sting (e.g. a person's name) and extracts the
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\FirstNameApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $name = "name_example"; // string | Full name to detect all first names and extract them
 
 try {
-    $result = $api_instance->getFirstNames($license, $guid, $name);
+    $result = $api_instance->getFirstNames($name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FirstNameApi->getFirstNames: ', $e->getMessage(), PHP_EOL;
@@ -37,8 +39,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **name** | **string**| Full name to detect all first names and extract them |
 
 ### Return type
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 

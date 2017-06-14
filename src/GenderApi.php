@@ -72,7 +72,7 @@ class GenderApi
     {
         if ($apiClient === null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://api.methis.at');
+            $apiClient->getConfig()->setHost('https://api-beta.methis.at');
         }
 
         $this->apiClient = $apiClient;
@@ -106,15 +106,13 @@ class GenderApi
      *
      * Recognize gender by first name
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $firstname First name to recognize gender. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\GenderGetResponse
      */
-    public function getGender($license, $guid, $firstname)
+    public function getGender($firstname)
     {
-        list($response) = $this->getGenderWithHttpInfo($license, $guid, $firstname);
+        list($response) = $this->getGenderWithHttpInfo($firstname);
         return $response;
     }
 
@@ -123,33 +121,12 @@ class GenderApi
      *
      * Recognize gender by first name
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $firstname First name to recognize gender. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\GenderGetResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGenderWithHttpInfo($license, $guid, $firstname)
+    public function getGenderWithHttpInfo($firstname)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling getGender');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling GenderApi.getGender, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling GenderApi.getGender, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling getGender');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling GenderApi.getGender, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'firstname' is set
         if ($firstname === null) {
             throw new \InvalidArgumentException('Missing the required parameter $firstname when calling getGender');
@@ -177,14 +154,6 @@ class GenderApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($firstname !== null) {
             $formParams['firstname'] = $this->apiClient->getSerializer()->toFormValue($firstname);
         }
@@ -194,6 +163,10 @@ class GenderApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -261,16 +234,14 @@ class GenderApi
      *
      * Recognize gender by first name (advanced)
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $firstname First name to recognize gender. (required)
      * @param string $countrycode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\GenderExtendedGetResponse
      */
-    public function getGenderExtended($license, $guid, $firstname, $countrycode)
+    public function getGenderExtended($firstname, $countrycode)
     {
-        list($response) = $this->getGenderExtendedWithHttpInfo($license, $guid, $firstname, $countrycode);
+        list($response) = $this->getGenderExtendedWithHttpInfo($firstname, $countrycode);
         return $response;
     }
 
@@ -279,34 +250,13 @@ class GenderApi
      *
      * Recognize gender by first name (advanced)
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $firstname First name to recognize gender. (required)
      * @param string $countrycode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\GenderExtendedGetResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGenderExtendedWithHttpInfo($license, $guid, $firstname, $countrycode)
+    public function getGenderExtendedWithHttpInfo($firstname, $countrycode)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling getGenderExtended');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling GenderApi.getGenderExtended, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling GenderApi.getGenderExtended, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling getGenderExtended');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling GenderApi.getGenderExtended, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'firstname' is set
         if ($firstname === null) {
             throw new \InvalidArgumentException('Missing the required parameter $firstname when calling getGenderExtended');
@@ -345,14 +295,6 @@ class GenderApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($firstname !== null) {
             $formParams['firstname'] = $this->apiClient->getSerializer()->toFormValue($firstname);
         }
@@ -366,6 +308,10 @@ class GenderApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {

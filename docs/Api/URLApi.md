@@ -1,6 +1,6 @@
 # DataMill\URLApi
 
-All URIs are relative to *https://api.methis.at*
+All URIs are relative to *https://api-beta.methis.at*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **checkUrl**
-> \DataMill\UrlCheckResponse checkUrl($license, $guid, $url, $max_redirects)
+> \DataMill\UrlCheckResponse checkUrl($url, $max_redirects)
 
 Information about web resources
 
@@ -19,14 +19,16 @@ Fetches the resource of a given url and checks if it is available. Only websites
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\URLApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $url = "url_example"; // string | The url to be checked (e.g. any website)
 $max_redirects = "10"; // string | The maximum amount of redirects until the lookup for the root resource will be stopped (default **10**)
 
 try {
-    $result = $api_instance->checkUrl($license, $guid, $url, $max_redirects);
+    $result = $api_instance->checkUrl($url, $max_redirects);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling URLApi->checkUrl: ', $e->getMessage(), PHP_EOL;
@@ -38,8 +40,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **url** | **string**| The url to be checked (e.g. any website) |
  **max_redirects** | **string**| The maximum amount of redirects until the lookup for the root resource will be stopped (default **10**) | [optional] [default to 10]
 
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 

@@ -72,7 +72,7 @@ class AddressApi
     {
         if ($apiClient === null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://api.methis.at');
+            $apiClient->getConfig()->setHost('https://api-beta.methis.at');
         }
 
         $this->apiClient = $apiClient;
@@ -106,16 +106,14 @@ class AddressApi
      *
      * Try to extract house number from street information
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $street Free-form text containing the street name and optional the house number including additional house number information. The key is required if housenumber is empty or unset. (optional)
      * @param string $housenumber Free-form text containing the house number including additional house number information and optional the street name. The key is required if street is empty or unset. (optional)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\AddressHouseNumberExtractResponse
      */
-    public function extractHouseNumber($license, $guid, $street = null, $housenumber = null)
+    public function extractHouseNumber($street = null, $housenumber = null)
     {
-        list($response) = $this->extractHouseNumberWithHttpInfo($license, $guid, $street, $housenumber);
+        list($response) = $this->extractHouseNumberWithHttpInfo($street, $housenumber);
         return $response;
     }
 
@@ -124,34 +122,13 @@ class AddressApi
      *
      * Try to extract house number from street information
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $street Free-form text containing the street name and optional the house number including additional house number information. The key is required if housenumber is empty or unset. (optional)
      * @param string $housenumber Free-form text containing the house number including additional house number information and optional the street name. The key is required if street is empty or unset. (optional)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\AddressHouseNumberExtractResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function extractHouseNumberWithHttpInfo($license, $guid, $street = null, $housenumber = null)
+    public function extractHouseNumberWithHttpInfo($street = null, $housenumber = null)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling extractHouseNumber');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling AddressApi.extractHouseNumber, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling AddressApi.extractHouseNumber, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling extractHouseNumber');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling AddressApi.extractHouseNumber, must be bigger than or equal to 30.');
-        }
-
         if (!is_null($street) && (strlen($street) > 255)) {
             throw new \InvalidArgumentException('invalid length for "$street" when calling AddressApi.extractHouseNumber, must be smaller than or equal to 255.');
         }
@@ -182,14 +159,6 @@ class AddressApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($street !== null) {
             $formParams['street'] = $this->apiClient->getSerializer()->toFormValue($street);
         }
@@ -203,6 +172,10 @@ class AddressApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -270,17 +243,15 @@ class AddressApi
      *
      * Reverse address lookup
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $latitude Latitude of the address (use a dot as decimal point) (required)
      * @param string $longitude Longitude of the address (use a dot as decimal point) (required)
      * @param string $locale The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code). (optional)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\AddressSearchResponse
      */
-    public function locateAddress($license, $guid, $latitude, $longitude, $locale = null)
+    public function locateAddress($latitude, $longitude, $locale = null)
     {
-        list($response) = $this->locateAddressWithHttpInfo($license, $guid, $latitude, $longitude, $locale);
+        list($response) = $this->locateAddressWithHttpInfo($latitude, $longitude, $locale);
         return $response;
     }
 
@@ -289,35 +260,14 @@ class AddressApi
      *
      * Reverse address lookup
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $latitude Latitude of the address (use a dot as decimal point) (required)
      * @param string $longitude Longitude of the address (use a dot as decimal point) (required)
      * @param string $locale The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code). (optional)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\AddressSearchResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function locateAddressWithHttpInfo($license, $guid, $latitude, $longitude, $locale = null)
+    public function locateAddressWithHttpInfo($latitude, $longitude, $locale = null)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling locateAddress');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling AddressApi.locateAddress, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling AddressApi.locateAddress, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling locateAddress');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling AddressApi.locateAddress, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'latitude' is set
         if ($latitude === null) {
             throw new \InvalidArgumentException('Missing the required parameter $latitude when calling locateAddress');
@@ -363,14 +313,6 @@ class AddressApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($latitude !== null) {
             $formParams['latitude'] = $this->apiClient->getSerializer()->toFormValue($latitude);
         }
@@ -388,6 +330,10 @@ class AddressApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -455,8 +401,6 @@ class AddressApi
      *
      * Lookup physical postal address
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $address Unstructured query parameter. Free-form text containing address elements (e.g. city, postal code, street, house number). Each element is separated using a whitespace. The order of the elements does not matter. You can specify the &#39;address&#39; parameter by itself or you can specify it with other parameters to narrow your search. (optional)
      * @param string $country Specify the country using the country code (ISO 3166-1 alpha-3) or the country name. (optional)
      * @param string $state First subdivision level below the country. Specify the state using full or abbreviated notation. (optional)
@@ -470,9 +414,9 @@ class AddressApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\AddressSearchResponse
      */
-    public function searchAddress($license, $guid, $address = null, $country = null, $state = null, $county = null, $city = null, $zip = null, $district = null, $street = null, $housenumber = null, $locale = null)
+    public function searchAddress($address = null, $country = null, $state = null, $county = null, $city = null, $zip = null, $district = null, $street = null, $housenumber = null, $locale = null)
     {
-        list($response) = $this->searchAddressWithHttpInfo($license, $guid, $address, $country, $state, $county, $city, $zip, $district, $street, $housenumber, $locale);
+        list($response) = $this->searchAddressWithHttpInfo($address, $country, $state, $county, $city, $zip, $district, $street, $housenumber, $locale);
         return $response;
     }
 
@@ -481,8 +425,6 @@ class AddressApi
      *
      * Lookup physical postal address
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $address Unstructured query parameter. Free-form text containing address elements (e.g. city, postal code, street, house number). Each element is separated using a whitespace. The order of the elements does not matter. You can specify the &#39;address&#39; parameter by itself or you can specify it with other parameters to narrow your search. (optional)
      * @param string $country Specify the country using the country code (ISO 3166-1 alpha-3) or the country name. (optional)
      * @param string $state First subdivision level below the country. Specify the state using full or abbreviated notation. (optional)
@@ -496,27 +438,8 @@ class AddressApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\AddressSearchResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchAddressWithHttpInfo($license, $guid, $address = null, $country = null, $state = null, $county = null, $city = null, $zip = null, $district = null, $street = null, $housenumber = null, $locale = null)
+    public function searchAddressWithHttpInfo($address = null, $country = null, $state = null, $county = null, $city = null, $zip = null, $district = null, $street = null, $housenumber = null, $locale = null)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling searchAddress');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling AddressApi.searchAddress, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling AddressApi.searchAddress, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling searchAddress');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling AddressApi.searchAddress, must be bigger than or equal to 30.');
-        }
-
         if (!is_null($address) && (strlen($address) > 255)) {
             throw new \InvalidArgumentException('invalid length for "$address" when calling AddressApi.searchAddress, must be smaller than or equal to 255.');
         }
@@ -603,14 +526,6 @@ class AddressApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($address !== null) {
             $formParams['address'] = $this->apiClient->getSerializer()->toFormValue($address);
         }
@@ -656,6 +571,10 @@ class AddressApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -723,16 +642,14 @@ class AddressApi
      *
      * Address lookup with multiple possible results
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $address Free-form text containing address elements (e.g. city, postal code, street, house number). Each element is separated using a whitespace. The order of the elements does not matter. (required)
      * @param string $locale The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code). (optional)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\AddressSearchMultipleResponse
      */
-    public function searchAddressMultiple($license, $guid, $address, $locale = null)
+    public function searchAddressMultiple($address, $locale = null)
     {
-        list($response) = $this->searchAddressMultipleWithHttpInfo($license, $guid, $address, $locale);
+        list($response) = $this->searchAddressMultipleWithHttpInfo($address, $locale);
         return $response;
     }
 
@@ -741,34 +658,13 @@ class AddressApi
      *
      * Address lookup with multiple possible results
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $address Free-form text containing address elements (e.g. city, postal code, street, house number). Each element is separated using a whitespace. The order of the elements does not matter. (required)
      * @param string $locale The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code). (optional)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\AddressSearchMultipleResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchAddressMultipleWithHttpInfo($license, $guid, $address, $locale = null)
+    public function searchAddressMultipleWithHttpInfo($address, $locale = null)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling searchAddressMultiple');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling AddressApi.searchAddressMultiple, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling AddressApi.searchAddressMultiple, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling searchAddressMultiple');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling AddressApi.searchAddressMultiple, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'address' is set
         if ($address === null) {
             throw new \InvalidArgumentException('Missing the required parameter $address when calling searchAddressMultiple');
@@ -803,14 +699,6 @@ class AddressApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($address !== null) {
             $formParams['address'] = $this->apiClient->getSerializer()->toFormValue($address);
         }
@@ -824,6 +712,10 @@ class AddressApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {

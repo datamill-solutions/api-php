@@ -299,6 +299,17 @@ class DataMillApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for getPhoneticCode
+     *
+     * Calculate phonetic codes of a given text.
+     *
+     */
+    public function testGetPhoneticCode()
+    {
+
+    }
+
+    /**
      * Test case for getSocialMediaActivities
      *
      * Retrieve social media data by email address.

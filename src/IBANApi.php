@@ -72,7 +72,7 @@ class IBANApi
     {
         if ($apiClient === null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://api.methis.at');
+            $apiClient->getConfig()->setHost('https://api-beta.methis.at');
         }
 
         $this->apiClient = $apiClient;
@@ -106,15 +106,13 @@ class IBANApi
      *
      * Check IBAN for spelling
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $iban IBAN to be checked. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\IbanCheckResponse
      */
-    public function checkIBAN($license, $guid, $iban)
+    public function checkIBAN($iban)
     {
-        list($response) = $this->checkIBANWithHttpInfo($license, $guid, $iban);
+        list($response) = $this->checkIBANWithHttpInfo($iban);
         return $response;
     }
 
@@ -123,33 +121,12 @@ class IBANApi
      *
      * Check IBAN for spelling
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $iban IBAN to be checked. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\IbanCheckResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function checkIBANWithHttpInfo($license, $guid, $iban)
+    public function checkIBANWithHttpInfo($iban)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling checkIBAN');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling IBANApi.checkIBAN, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling IBANApi.checkIBAN, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling checkIBAN');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling IBANApi.checkIBAN, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'iban' is set
         if ($iban === null) {
             throw new \InvalidArgumentException('Missing the required parameter $iban when calling checkIBAN');
@@ -177,14 +154,6 @@ class IBANApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($iban !== null) {
             $formParams['iban'] = $this->apiClient->getSerializer()->toFormValue($iban);
         }
@@ -194,6 +163,10 @@ class IBANApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {

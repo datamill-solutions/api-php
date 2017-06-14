@@ -72,7 +72,7 @@ class PhoneNumberApi
     {
         if ($apiClient === null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://api.methis.at');
+            $apiClient->getConfig()->setHost('https://api-beta.methis.at');
         }
 
         $this->apiClient = $apiClient;
@@ -106,16 +106,14 @@ class PhoneNumberApi
      *
      * Verify mobile phone number
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $phonenumber Mobile phone number to be verified. (required)
      * @param string $countrycode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\PhoneMobileCheckResponse
      */
-    public function checkMobilePhone($license, $guid, $phonenumber, $countrycode)
+    public function checkMobilePhone($phonenumber, $countrycode)
     {
-        list($response) = $this->checkMobilePhoneWithHttpInfo($license, $guid, $phonenumber, $countrycode);
+        list($response) = $this->checkMobilePhoneWithHttpInfo($phonenumber, $countrycode);
         return $response;
     }
 
@@ -124,34 +122,13 @@ class PhoneNumberApi
      *
      * Verify mobile phone number
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $phonenumber Mobile phone number to be verified. (required)
      * @param string $countrycode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\PhoneMobileCheckResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function checkMobilePhoneWithHttpInfo($license, $guid, $phonenumber, $countrycode)
+    public function checkMobilePhoneWithHttpInfo($phonenumber, $countrycode)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling checkMobilePhone');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling PhoneNumberApi.checkMobilePhone, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling PhoneNumberApi.checkMobilePhone, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling checkMobilePhone');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling PhoneNumberApi.checkMobilePhone, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'phonenumber' is set
         if ($phonenumber === null) {
             throw new \InvalidArgumentException('Missing the required parameter $phonenumber when calling checkMobilePhone');
@@ -190,14 +167,6 @@ class PhoneNumberApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($phonenumber !== null) {
             $formParams['phonenumber'] = $this->apiClient->getSerializer()->toFormValue($phonenumber);
         }
@@ -211,6 +180,10 @@ class PhoneNumberApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -278,8 +251,6 @@ class PhoneNumberApi
      *
      * Parse, format and validate phone numbers
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $phonenumber Phone number to be formatted and validated (required)
      * @param string $countrycode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @param string $format The custom format of the returning phone number if valid. The format is a combination of the following placeholders:  * **{countrycode}**: The international dial prefix for the country without leading zero or the \\\&quot;+\\\&quot; sign  * **{nationalcode}**: The regional dial prefix  * **{phonenumber}**: The phone number including the extension and without the international and regional prefix  * **{national_prefix}**: The national dial prefix including the leading zero  * **{international_prefix}**: The international dial prefix including leading zeros.  If no custom format is specified the following combination is used: **+{countrycode} {nationalcode} {phonenumber}** (canonical format) (optional)
@@ -288,9 +259,9 @@ class PhoneNumberApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\PhoneFormatResponse
      */
-    public function formatPhoneNumber($license, $guid, $phonenumber, $countrycode, $format = null, $direct_dialing_delimiter = null, $allowed_delimiters = null)
+    public function formatPhoneNumber($phonenumber, $countrycode, $format = null, $direct_dialing_delimiter = null, $allowed_delimiters = null)
     {
-        list($response) = $this->formatPhoneNumberWithHttpInfo($license, $guid, $phonenumber, $countrycode, $format, $direct_dialing_delimiter, $allowed_delimiters);
+        list($response) = $this->formatPhoneNumberWithHttpInfo($phonenumber, $countrycode, $format, $direct_dialing_delimiter, $allowed_delimiters);
         return $response;
     }
 
@@ -299,8 +270,6 @@ class PhoneNumberApi
      *
      * Parse, format and validate phone numbers
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $phonenumber Phone number to be formatted and validated (required)
      * @param string $countrycode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @param string $format The custom format of the returning phone number if valid. The format is a combination of the following placeholders:  * **{countrycode}**: The international dial prefix for the country without leading zero or the \\\&quot;+\\\&quot; sign  * **{nationalcode}**: The regional dial prefix  * **{phonenumber}**: The phone number including the extension and without the international and regional prefix  * **{national_prefix}**: The national dial prefix including the leading zero  * **{international_prefix}**: The international dial prefix including leading zeros.  If no custom format is specified the following combination is used: **+{countrycode} {nationalcode} {phonenumber}** (canonical format) (optional)
@@ -309,27 +278,8 @@ class PhoneNumberApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\PhoneFormatResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function formatPhoneNumberWithHttpInfo($license, $guid, $phonenumber, $countrycode, $format = null, $direct_dialing_delimiter = null, $allowed_delimiters = null)
+    public function formatPhoneNumberWithHttpInfo($phonenumber, $countrycode, $format = null, $direct_dialing_delimiter = null, $allowed_delimiters = null)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling formatPhoneNumber');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling PhoneNumberApi.formatPhoneNumber, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling PhoneNumberApi.formatPhoneNumber, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling formatPhoneNumber');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling PhoneNumberApi.formatPhoneNumber, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'phonenumber' is set
         if ($phonenumber === null) {
             throw new \InvalidArgumentException('Missing the required parameter $phonenumber when calling formatPhoneNumber');
@@ -389,14 +339,6 @@ class PhoneNumberApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($phonenumber !== null) {
             $formParams['phonenumber'] = $this->apiClient->getSerializer()->toFormValue($phonenumber);
         }
@@ -422,6 +364,10 @@ class PhoneNumberApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -489,15 +435,13 @@ class PhoneNumberApi
      *
      * International and national dial prefix
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $countrycode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\PhoneCountryCodeGetResponse
      */
-    public function getPhoneCountryCode($license, $guid, $countrycode)
+    public function getPhoneCountryCode($countrycode)
     {
-        list($response) = $this->getPhoneCountryCodeWithHttpInfo($license, $guid, $countrycode);
+        list($response) = $this->getPhoneCountryCodeWithHttpInfo($countrycode);
         return $response;
     }
 
@@ -506,33 +450,12 @@ class PhoneNumberApi
      *
      * International and national dial prefix
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $countrycode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\PhoneCountryCodeGetResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPhoneCountryCodeWithHttpInfo($license, $guid, $countrycode)
+    public function getPhoneCountryCodeWithHttpInfo($countrycode)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling getPhoneCountryCode');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling PhoneNumberApi.getPhoneCountryCode, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling PhoneNumberApi.getPhoneCountryCode, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling getPhoneCountryCode');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling PhoneNumberApi.getPhoneCountryCode, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'countrycode' is set
         if ($countrycode === null) {
             throw new \InvalidArgumentException('Missing the required parameter $countrycode when calling getPhoneCountryCode');
@@ -560,14 +483,6 @@ class PhoneNumberApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($countrycode !== null) {
             $formParams['countrycode'] = $this->apiClient->getSerializer()->toFormValue($countrycode);
         }
@@ -577,6 +492,10 @@ class PhoneNumberApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {

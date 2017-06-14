@@ -1,6 +1,6 @@
 # DataMill\DataMillApi
 
-All URIs are relative to *https://api.methis.at*
+All URIs are relative to *https://api-beta.methis.at*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,6 +23,7 @@ Method | HTTP request | Description
 [**getGender**](DataMillApi.md#getGender) | **POST** /gender/get | Recognize gender by first name
 [**getGenderExtended**](DataMillApi.md#getGenderExtended) | **POST** /gender/extended/get | Recognize gender by first name (advanced)
 [**getPhoneCountryCode**](DataMillApi.md#getPhoneCountryCode) | **POST** /phone/countrycode/get | International and national dial prefix
+[**getPhoneticCode**](DataMillApi.md#getPhoneticCode) | **POST** /phonetic/code/get | Calculate phonetic codes of a given text
 [**getSocialMediaActivities**](DataMillApi.md#getSocialMediaActivities) | **POST** /social-media/activities/get | Retrieve social media data by email address
 [**locateAddress**](DataMillApi.md#locateAddress) | **POST** /address/locate | Reverse address lookup
 [**resolveDUNS**](DataMillApi.md#resolveDUNS) | **POST** /business-data/duns/resolve | Resolve company information by DUNS number
@@ -35,7 +36,7 @@ Method | HTTP request | Description
 
 
 # **checkBIC**
-> \DataMill\BicCheckResponse checkBIC($license, $guid, $bic)
+> \DataMill\BicCheckResponse checkBIC($bic)
 
 Check BIC for spelling
 
@@ -46,13 +47,15 @@ Checks the spelling of a given BIC (Business Identifier Code), also known as SWI
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $bic = "bic_example"; // string | BIC to be checked
 
 try {
-    $result = $api_instance->checkBIC($license, $guid, $bic);
+    $result = $api_instance->checkBIC($bic);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->checkBIC: ', $e->getMessage(), PHP_EOL;
@@ -64,8 +67,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **bic** | **string**| BIC to be checked |
 
 ### Return type
@@ -74,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -84,7 +85,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkEmailDomain**
-> \DataMill\EmailDomainCheckResponse checkEmailDomain($license, $guid, $email)
+> \DataMill\EmailDomainCheckResponse checkEmailDomain($email)
 
 Check email syntax and mail server domain
 
@@ -95,13 +96,15 @@ Checks the spelling of an email address to detect typos and spelling errors. In 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $email = "email_example"; // string | The email address to be checked
 
 try {
-    $result = $api_instance->checkEmailDomain($license, $guid, $email);
+    $result = $api_instance->checkEmailDomain($email);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->checkEmailDomain: ', $e->getMessage(), PHP_EOL;
@@ -113,8 +116,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **email** | **string**| The email address to be checked |
 
 ### Return type
@@ -123,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -133,7 +134,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkEmailMailbox**
-> \DataMill\EmailExtendedCheckResponse checkEmailMailbox($license, $guid, $email)
+> \DataMill\EmailExtendedCheckResponse checkEmailMailbox($email)
 
 Check email syntax, mail server domain and mailbox itself
 
@@ -144,13 +145,15 @@ Checks the spelling of an email address to detect typos and spelling errors. If 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $email = "email_example"; // string | The email address to be checked
 
 try {
-    $result = $api_instance->checkEmailMailbox($license, $guid, $email);
+    $result = $api_instance->checkEmailMailbox($email);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->checkEmailMailbox: ', $e->getMessage(), PHP_EOL;
@@ -162,8 +165,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **email** | **string**| The email address to be checked |
 
 ### Return type
@@ -172,7 +173,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -182,7 +183,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkEmailSyntax**
-> \DataMill\EmailSyntaxCheckResponse checkEmailSyntax($license, $guid, $email)
+> \DataMill\EmailSyntaxCheckResponse checkEmailSyntax($email)
 
 Check email syntax
 
@@ -193,13 +194,15 @@ Checks the spelling of an email address to detect typos and spelling errors.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $email = "email_example"; // string | The email address to be checked
 
 try {
-    $result = $api_instance->checkEmailSyntax($license, $guid, $email);
+    $result = $api_instance->checkEmailSyntax($email);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->checkEmailSyntax: ', $e->getMessage(), PHP_EOL;
@@ -211,8 +214,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **email** | **string**| The email address to be checked |
 
 ### Return type
@@ -221,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -231,7 +232,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkIBAN**
-> \DataMill\IbanCheckResponse checkIBAN($license, $guid, $iban)
+> \DataMill\IbanCheckResponse checkIBAN($iban)
 
 Check IBAN for spelling
 
@@ -242,13 +243,15 @@ Checks the spelling, country code and checksum of an IBAN (International Bank Ac
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $iban = "iban_example"; // string | IBAN to be checked.
 
 try {
-    $result = $api_instance->checkIBAN($license, $guid, $iban);
+    $result = $api_instance->checkIBAN($iban);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->checkIBAN: ', $e->getMessage(), PHP_EOL;
@@ -260,8 +263,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **iban** | **string**| IBAN to be checked. |
 
 ### Return type
@@ -270,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -280,7 +281,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkMobilePhone**
-> \DataMill\PhoneMobileCheckResponse checkMobilePhone($license, $guid, $phonenumber, $countrycode)
+> \DataMill\PhoneMobileCheckResponse checkMobilePhone($phonenumber, $countrycode)
 
 Verify mobile phone number
 
@@ -291,14 +292,16 @@ Real time validation of mobile numbers without triggering a call of send a text 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $phonenumber = "phonenumber_example"; // string | Mobile phone number to be verified.
 $countrycode = "countrycode_example"; // string | ISO 3166-1 alpha-2 country code e.g. 'US'. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information.
 
 try {
-    $result = $api_instance->checkMobilePhone($license, $guid, $phonenumber, $countrycode);
+    $result = $api_instance->checkMobilePhone($phonenumber, $countrycode);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->checkMobilePhone: ', $e->getMessage(), PHP_EOL;
@@ -310,8 +313,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **phonenumber** | **string**| Mobile phone number to be verified. |
  **countrycode** | **string**| ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. |
 
@@ -321,7 +322,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -331,7 +332,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkUrl**
-> \DataMill\UrlCheckResponse checkUrl($license, $guid, $url, $max_redirects)
+> \DataMill\UrlCheckResponse checkUrl($url, $max_redirects)
 
 Information about web resources
 
@@ -342,14 +343,16 @@ Fetches the resource of a given url and checks if it is available. Only websites
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $url = "url_example"; // string | The url to be checked (e.g. any website)
 $max_redirects = "10"; // string | The maximum amount of redirects until the lookup for the root resource will be stopped (default **10**)
 
 try {
-    $result = $api_instance->checkUrl($license, $guid, $url, $max_redirects);
+    $result = $api_instance->checkUrl($url, $max_redirects);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->checkUrl: ', $e->getMessage(), PHP_EOL;
@@ -361,8 +364,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **url** | **string**| The url to be checked (e.g. any website) |
  **max_redirects** | **string**| The maximum amount of redirects until the lookup for the root resource will be stopped (default **10**) | [optional] [default to 10]
 
@@ -372,7 +373,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -382,7 +383,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **checkVAT**
-> \DataMill\VatCheckResponse checkVAT($license, $guid, $vatnumber)
+> \DataMill\VatCheckResponse checkVAT($vatnumber)
 
 Check vat number for correctness
 
@@ -393,13 +394,15 @@ Checks if a given VAT (Value Added Tax) identification number is valid or not. O
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $vatnumber = "vatnumber_example"; // string | The VAT number of a company within the European Union
 
 try {
-    $result = $api_instance->checkVAT($license, $guid, $vatnumber);
+    $result = $api_instance->checkVAT($vatnumber);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->checkVAT: ', $e->getMessage(), PHP_EOL;
@@ -411,8 +414,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **vatnumber** | **string**| The VAT number of a company within the European Union |
 
 ### Return type
@@ -421,7 +422,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -431,7 +432,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **convertCapitalFirst**
-> \DataMill\ConvertCapitalFirstResponse convertCapitalFirst($license, $guid, $text)
+> \DataMill\ConvertCapitalFirstResponse convertCapitalFirst($text)
 
 Convert any string to capitalize words
 
@@ -442,13 +443,15 @@ Changes any word of a given text so that the first letter is capitalized and all
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $text = "text_example"; // string | Free-form text to be converted.
 
 try {
-    $result = $api_instance->convertCapitalFirst($license, $guid, $text);
+    $result = $api_instance->convertCapitalFirst($text);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->convertCapitalFirst: ', $e->getMessage(), PHP_EOL;
@@ -460,8 +463,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **text** | **string**| Free-form text to be converted. |
 
 ### Return type
@@ -470,7 +471,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -480,7 +481,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **convertLowerCase**
-> \DataMill\ConvertLowerCaseResponse convertLowerCase($license, $guid, $text)
+> \DataMill\ConvertLowerCaseResponse convertLowerCase($text)
 
 Convert any string to lower case
 
@@ -491,13 +492,15 @@ Converts all letters of any word in a given string in the respective lowercase.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $text = "text_example"; // string | Free-form text to be converted.
 
 try {
-    $result = $api_instance->convertLowerCase($license, $guid, $text);
+    $result = $api_instance->convertLowerCase($text);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->convertLowerCase: ', $e->getMessage(), PHP_EOL;
@@ -509,8 +512,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **text** | **string**| Free-form text to be converted. |
 
 ### Return type
@@ -519,7 +520,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -529,7 +530,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **convertUpperCase**
-> \DataMill\ConvertUpperCaseResponse convertUpperCase($license, $guid, $text)
+> \DataMill\ConvertUpperCaseResponse convertUpperCase($text)
 
 Convert any string to upper case
 
@@ -540,13 +541,15 @@ Converts all letters of any word in a given string in the respective capital.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $text = "text_example"; // string | Free-form text to be converted.
 
 try {
-    $result = $api_instance->convertUpperCase($license, $guid, $text);
+    $result = $api_instance->convertUpperCase($text);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->convertUpperCase: ', $e->getMessage(), PHP_EOL;
@@ -558,8 +561,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **text** | **string**| Free-form text to be converted. |
 
 ### Return type
@@ -568,7 +569,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -578,7 +579,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **convertWrap**
-> \DataMill\ConvertWrapResponse convertWrap($license, $guid, $text, $limit, $mode, $linebreak)
+> \DataMill\ConvertWrapResponse convertWrap($text, $limit, $mode, $linebreak)
 
 Wrap text
 
@@ -589,16 +590,18 @@ Breaks a text into multiple newlines. Each line will be separated by a \\r (CR, 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $text = "text_example"; // string | Fre-form text to be wrapped.
 $limit = 56; // int | The number of characters a linefeed will be inserted after (maximum character length per line).
 $mode = "mode_example"; // string | The mode how the linefeed will be inserted. Either before (default) the current word, after the current word or exactly after the character. Possible values are **before** to break before last word, **after** to break after last word, **exact** to break at limit.
 $linebreak = "linebreak_example"; // string | Defines which line separator should be used. Possible values are **full** for *\\r\\n*, **single** for *\\n*, **html** for *&lt;br&gt;*
 
 try {
-    $result = $api_instance->convertWrap($license, $guid, $text, $limit, $mode, $linebreak);
+    $result = $api_instance->convertWrap($text, $limit, $mode, $linebreak);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->convertWrap: ', $e->getMessage(), PHP_EOL;
@@ -610,8 +613,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **text** | **string**| Fre-form text to be wrapped. |
  **limit** | **int**| The number of characters a linefeed will be inserted after (maximum character length per line). |
  **mode** | **string**| The mode how the linefeed will be inserted. Either before (default) the current word, after the current word or exactly after the character. Possible values are **before** to break before last word, **after** to break after last word, **exact** to break at limit. | [optional]
@@ -623,7 +624,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -633,25 +634,27 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **extractHouseNumber**
-> \DataMill\AddressHouseNumberExtractResponse extractHouseNumber($license, $guid, $street, $housenumber)
+> \DataMill\AddressHouseNumberExtractResponse extractHouseNumber($street, $housenumber)
 
 Try to extract house number from street information
 
-Find and extract the house number based on partial address information. The result is an extracted street name, house number and additional house number information (e.g. Apartment, Floor, Room).
+Find and extract the house number based on partial address information. The result is an extracted street name, house number and additional house number information (e.g. Apartment, Floor, Room). It is necessary to provide street and housenumber, either in street field or separated in street and house number field.
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $street = "street_example"; // string | Free-form text containing the street name and optional the house number including additional house number information. The key is required if housenumber is empty or unset.
 $housenumber = "housenumber_example"; // string | Free-form text containing the house number including additional house number information and optional the street name. The key is required if street is empty or unset.
 
 try {
-    $result = $api_instance->extractHouseNumber($license, $guid, $street, $housenumber);
+    $result = $api_instance->extractHouseNumber($street, $housenumber);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->extractHouseNumber: ', $e->getMessage(), PHP_EOL;
@@ -663,8 +666,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **street** | **string**| Free-form text containing the street name and optional the house number including additional house number information. The key is required if housenumber is empty or unset. | [optional]
  **housenumber** | **string**| Free-form text containing the house number including additional house number information and optional the street name. The key is required if street is empty or unset. | [optional]
 
@@ -674,7 +675,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -684,7 +685,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **formatPhoneNumber**
-> \DataMill\PhoneFormatResponse formatPhoneNumber($license, $guid, $phonenumber, $countrycode, $format, $direct_dialing_delimiter, $allowed_delimiters)
+> \DataMill\PhoneFormatResponse formatPhoneNumber($phonenumber, $countrycode, $format, $direct_dialing_delimiter, $allowed_delimiters)
 
 Parse, format and validate phone numbers
 
@@ -695,9 +696,11 @@ Validates a given phone number and converts it to the canonical form. In additio
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $phonenumber = "phonenumber_example"; // string | Phone number to be formatted and validated
 $countrycode = "countrycode_example"; // string | ISO 3166-1 alpha-2 country code e.g. 'US'. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information.
 $format = "format_example"; // string | The custom format of the returning phone number if valid. The format is a combination of the following placeholders:  * **{countrycode}**: The international dial prefix for the country without leading zero or the \\\"+\\\" sign  * **{nationalcode}**: The regional dial prefix  * **{phonenumber}**: The phone number including the extension and without the international and regional prefix  * **{national_prefix}**: The national dial prefix including the leading zero  * **{international_prefix}**: The international dial prefix including leading zeros.  If no custom format is specified the following combination is used: **+{countrycode} {nationalcode} {phonenumber}** (canonical format)
@@ -705,7 +708,7 @@ $direct_dialing_delimiter = "direct_dialing_delimiter_example"; // string | Opti
 $allowed_delimiters = "allowed_delimiters_example"; // string | Optional collection of characters inside the specified phone number which are allowed for delimiter. The collection must be provided as **JSON** formatted string.
 
 try {
-    $result = $api_instance->formatPhoneNumber($license, $guid, $phonenumber, $countrycode, $format, $direct_dialing_delimiter, $allowed_delimiters);
+    $result = $api_instance->formatPhoneNumber($phonenumber, $countrycode, $format, $direct_dialing_delimiter, $allowed_delimiters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->formatPhoneNumber: ', $e->getMessage(), PHP_EOL;
@@ -717,8 +720,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **phonenumber** | **string**| Phone number to be formatted and validated |
  **countrycode** | **string**| ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. |
  **format** | **string**| The custom format of the returning phone number if valid. The format is a combination of the following placeholders:  * **{countrycode}**: The international dial prefix for the country without leading zero or the \\\&quot;+\\\&quot; sign  * **{nationalcode}**: The regional dial prefix  * **{phonenumber}**: The phone number including the extension and without the international and regional prefix  * **{national_prefix}**: The national dial prefix including the leading zero  * **{international_prefix}**: The international dial prefix including leading zeros.  If no custom format is specified the following combination is used: **+{countrycode} {nationalcode} {phonenumber}** (canonical format) | [optional]
@@ -731,7 +732,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -741,7 +742,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDUNSRating**
-> \DataMill\BusinessDataDunsRatingResponse getDUNSRating($license, $guid, $duns_number, $reason_code)
+> \DataMill\BusinessDataDunsRatingResponse getDUNSRating($duns_number, $reason_code)
 
 Get marketing information by DUNS number
 
@@ -752,14 +753,16 @@ Get marketing information about a company (credit rating, PAYDEX score, demograp
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $duns_number = "duns_number_example"; // string | The D-U-N-S number you are looking for detailed information
 $reason_code = "reason_code_example"; // string | Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement
 
 try {
-    $result = $api_instance->getDUNSRating($license, $guid, $duns_number, $reason_code);
+    $result = $api_instance->getDUNSRating($duns_number, $reason_code);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->getDUNSRating: ', $e->getMessage(), PHP_EOL;
@@ -771,8 +774,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **duns_number** | **string**| The D-U-N-S number you are looking for detailed information |
  **reason_code** | **string**| Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement |
 
@@ -782,7 +783,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -792,7 +793,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFirstNames**
-> \DataMill\FirstNameGetResponse getFirstNames($license, $guid, $name)
+> \DataMill\FirstNameGetResponse getFirstNames($name)
 
 Recognize and extract first names
 
@@ -803,13 +804,15 @@ Detects all first names in a given sting (e.g. a person's name) and extracts the
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $name = "name_example"; // string | Full name to detect all first names and extract them
 
 try {
-    $result = $api_instance->getFirstNames($license, $guid, $name);
+    $result = $api_instance->getFirstNames($name);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->getFirstNames: ', $e->getMessage(), PHP_EOL;
@@ -821,8 +824,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **name** | **string**| Full name to detect all first names and extract them |
 
 ### Return type
@@ -831,7 +832,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -841,7 +842,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getGender**
-> \DataMill\GenderGetResponse getGender($license, $guid, $firstname)
+> \DataMill\GenderGetResponse getGender($firstname)
 
 Recognize gender by first name
 
@@ -852,13 +853,15 @@ Recognizes the gender of a given first name. (Works only with common first names
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $firstname = "firstname_example"; // string | First name to recognize gender.
 
 try {
-    $result = $api_instance->getGender($license, $guid, $firstname);
+    $result = $api_instance->getGender($firstname);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->getGender: ', $e->getMessage(), PHP_EOL;
@@ -870,8 +873,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **firstname** | **string**| First name to recognize gender. |
 
 ### Return type
@@ -880,7 +881,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -890,7 +891,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getGenderExtended**
-> \DataMill\GenderExtendedGetResponse getGenderExtended($license, $guid, $firstname, $countrycode)
+> \DataMill\GenderExtendedGetResponse getGenderExtended($firstname, $countrycode)
 
 Recognize gender by first name (advanced)
 
@@ -901,14 +902,16 @@ Recognizes the gender of a given first name considering country specific peculia
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $firstname = "firstname_example"; // string | First name to recognize gender.
 $countrycode = "countrycode_example"; // string | ISO 3166-1 alpha-2 country code e.g. 'US'. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information.
 
 try {
-    $result = $api_instance->getGenderExtended($license, $guid, $firstname, $countrycode);
+    $result = $api_instance->getGenderExtended($firstname, $countrycode);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->getGenderExtended: ', $e->getMessage(), PHP_EOL;
@@ -920,8 +923,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **firstname** | **string**| First name to recognize gender. |
  **countrycode** | **string**| ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. |
 
@@ -931,7 +932,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -941,7 +942,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPhoneCountryCode**
-> \DataMill\PhoneCountryCodeGetResponse getPhoneCountryCode($license, $guid, $countrycode)
+> \DataMill\PhoneCountryCodeGetResponse getPhoneCountryCode($countrycode)
 
 International and national dial prefix
 
@@ -952,13 +953,15 @@ Resolves the national and international dial prefix for a country specified by t
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $countrycode = "countrycode_example"; // string | ISO 3166-1 alpha-2 country code e.g. 'US'. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information.
 
 try {
-    $result = $api_instance->getPhoneCountryCode($license, $guid, $countrycode);
+    $result = $api_instance->getPhoneCountryCode($countrycode);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->getPhoneCountryCode: ', $e->getMessage(), PHP_EOL;
@@ -970,8 +973,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **countrycode** | **string**| ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. |
 
 ### Return type
@@ -980,7 +981,58 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getPhoneticCode**
+> \DataMill\PhoneticCodeGetResponse getPhoneticCode($text, $phonetic_algorithm)
+
+Calculate phonetic codes of a given text
+
+Get the phonetic code of a given text. Currently three phonetic algorithms are available:  * **Soundex** (algorithm code 1)  * **Colcogne Phonetic** (algorithm code 2)  * **Metaphon** (algorithm code 3)
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
+$api_instance = new DataMill\Api\DataMillApi();
+$text = "text_example"; // string | The text which should be converted. Each word will be converted separatly and generate a single entry in the result.
+$phonetic_algorithm = 56; // int | The phonetic algorithm which should be applied. If no algorithm code will be provided **Soundex** will be used. Codes:  * 1 = Soundex  * 2 = Colcogne Phonetic  * 3 = Metaphon
+
+try {
+    $result = $api_instance->getPhoneticCode($text, $phonetic_algorithm);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DataMillApi->getPhoneticCode: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **text** | **string**| The text which should be converted. Each word will be converted separatly and generate a single entry in the result. |
+ **phonetic_algorithm** | **int**| The phonetic algorithm which should be applied. If no algorithm code will be provided **Soundex** will be used. Codes:  * 1 &#x3D; Soundex  * 2 &#x3D; Colcogne Phonetic  * 3 &#x3D; Metaphon | [optional]
+
+### Return type
+
+[**\DataMill\PhoneticCodeGetResponse**](../Model/PhoneticCodeGetResponse.md)
+
+### Authorization
+
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -990,7 +1042,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSocialMediaActivities**
-> \DataMill\SocialMediaActivitiesGetResponse getSocialMediaActivities($license, $guid, $email)
+> \DataMill\SocialMediaActivitiesGetResponse getSocialMediaActivities($email)
 
 Retrieve social media data by email address
 
@@ -1001,13 +1053,15 @@ Get the number of followers and account information of multiple social media pla
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $email = "email_example"; // string | The person's email address being checked on mentioned social media plattforms
 
 try {
-    $result = $api_instance->getSocialMediaActivities($license, $guid, $email);
+    $result = $api_instance->getSocialMediaActivities($email);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->getSocialMediaActivities: ', $e->getMessage(), PHP_EOL;
@@ -1019,8 +1073,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **email** | **string**| The person&#39;s email address being checked on mentioned social media plattforms |
 
 ### Return type
@@ -1029,7 +1081,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -1039,7 +1091,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **locateAddress**
-> \DataMill\AddressSearchResponse locateAddress($license, $guid, $latitude, $longitude, $locale)
+> \DataMill\AddressSearchResponse locateAddress($latitude, $longitude, $locale)
 
 Reverse address lookup
 
@@ -1050,15 +1102,17 @@ Resolve an address corresponding to a given geo-coordinate. The result is a sing
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $latitude = "latitude_example"; // string | Latitude of the address (use a dot as decimal point)
 $longitude = "longitude_example"; // string | Longitude of the address (use a dot as decimal point)
 $locale = "locale_example"; // string | The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code).
 
 try {
-    $result = $api_instance->locateAddress($license, $guid, $latitude, $longitude, $locale);
+    $result = $api_instance->locateAddress($latitude, $longitude, $locale);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->locateAddress: ', $e->getMessage(), PHP_EOL;
@@ -1070,8 +1124,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **latitude** | **string**| Latitude of the address (use a dot as decimal point) |
  **longitude** | **string**| Longitude of the address (use a dot as decimal point) |
  **locale** | **string**| The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code). | [optional]
@@ -1082,7 +1134,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -1092,7 +1144,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **resolveDUNS**
-> \DataMill\BusinessDataDunsResolveResponse resolveDUNS($license, $guid, $duns_number, $reason_code)
+> \DataMill\BusinessDataDunsResolveResponse resolveDUNS($duns_number, $reason_code)
 
 Resolve company information by DUNS number
 
@@ -1103,14 +1155,16 @@ Resolves company information (official name, postal address, annual turnover, nu
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $duns_number = "duns_number_example"; // string | The D-U-N-S number you are looking for detailed information
 $reason_code = "reason_code_example"; // string | Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement
 
 try {
-    $result = $api_instance->resolveDUNS($license, $guid, $duns_number, $reason_code);
+    $result = $api_instance->resolveDUNS($duns_number, $reason_code);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->resolveDUNS: ', $e->getMessage(), PHP_EOL;
@@ -1122,8 +1176,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **duns_number** | **string**| The D-U-N-S number you are looking for detailed information |
  **reason_code** | **string**| Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement |
 
@@ -1133,7 +1185,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -1143,7 +1195,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **resolveVAT**
-> \DataMill\VatResolveResponse resolveVAT($license, $guid, $vatnumber, $locale)
+> \DataMill\VatResolveResponse resolveVAT($vatnumber, $locale)
 
 Try to resolve VAT number to company information
 
@@ -1154,14 +1206,16 @@ Resolves company information (company name and postal address) based on the comp
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $vatnumber = "vatnumber_example"; // string | The VAT number of a company within the European Union
 $locale = "locale_example"; // string | The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code).
 
 try {
-    $result = $api_instance->resolveVAT($license, $guid, $vatnumber, $locale);
+    $result = $api_instance->resolveVAT($vatnumber, $locale);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->resolveVAT: ', $e->getMessage(), PHP_EOL;
@@ -1173,8 +1227,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **vatnumber** | **string**| The VAT number of a company within the European Union |
  **locale** | **string**| The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code). | [optional]
 
@@ -1184,7 +1236,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -1194,7 +1246,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchAddress**
-> \DataMill\AddressSearchResponse searchAddress($license, $guid, $address, $country, $state, $county, $city, $zip, $district, $street, $housenumber, $locale)
+> \DataMill\AddressSearchResponse searchAddress($address, $country, $state, $county, $city, $zip, $district, $street, $housenumber, $locale)
 
 Lookup physical postal address
 
@@ -1205,9 +1257,11 @@ Find geo-location based on unstructured (single-line entry, un-qualified) or bas
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $address = "address_example"; // string | Unstructured query parameter. Free-form text containing address elements (e.g. city, postal code, street, house number). Each element is separated using a whitespace. The order of the elements does not matter. You can specify the 'address' parameter by itself or you can specify it with other parameters to narrow your search.
 $country = "country_example"; // string | Specify the country using the country code (ISO 3166-1 alpha-3) or the country name.
 $state = "state_example"; // string | First subdivision level below the country. Specify the state using full or abbreviated notation.
@@ -1220,7 +1274,7 @@ $housenumber = "housenumber_example"; // string | The house number or building n
 $locale = "locale_example"; // string | The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code).
 
 try {
-    $result = $api_instance->searchAddress($license, $guid, $address, $country, $state, $county, $city, $zip, $district, $street, $housenumber, $locale);
+    $result = $api_instance->searchAddress($address, $country, $state, $county, $city, $zip, $district, $street, $housenumber, $locale);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->searchAddress: ', $e->getMessage(), PHP_EOL;
@@ -1232,8 +1286,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **address** | **string**| Unstructured query parameter. Free-form text containing address elements (e.g. city, postal code, street, house number). Each element is separated using a whitespace. The order of the elements does not matter. You can specify the &#39;address&#39; parameter by itself or you can specify it with other parameters to narrow your search. | [optional]
  **country** | **string**| Specify the country using the country code (ISO 3166-1 alpha-3) or the country name. | [optional]
  **state** | **string**| First subdivision level below the country. Specify the state using full or abbreviated notation. | [optional]
@@ -1251,7 +1303,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -1261,7 +1313,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchAddressMultiple**
-> \DataMill\AddressSearchMultipleResponse searchAddressMultiple($license, $guid, $address, $locale)
+> \DataMill\AddressSearchMultipleResponse searchAddressMultiple($address, $locale)
 
 Address lookup with multiple possible results
 
@@ -1272,14 +1324,16 @@ Find multiple geo-locations based on unstructured (single-line entry, un-qualifi
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $address = "address_example"; // string | Free-form text containing address elements (e.g. city, postal code, street, house number). Each element is separated using a whitespace. The order of the elements does not matter.
 $locale = "locale_example"; // string | The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code).
 
 try {
-    $result = $api_instance->searchAddressMultiple($license, $guid, $address, $locale);
+    $result = $api_instance->searchAddressMultiple($address, $locale);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->searchAddressMultiple: ', $e->getMessage(), PHP_EOL;
@@ -1291,8 +1345,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **address** | **string**| Free-form text containing address elements (e.g. city, postal code, street, house number). Each element is separated using a whitespace. The order of the elements does not matter. |
  **locale** | **string**| The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code). | [optional]
 
@@ -1302,7 +1354,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -1312,7 +1364,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchDUNS**
-> \DataMill\BusinessDataDunsSearchResponse searchDUNS($license, $guid, $country_code, $company_name, $duns_number, $state, $city, $zip, $street)
+> \DataMill\BusinessDataDunsSearchResponse searchDUNS($country_code, $company_name, $duns_number, $state, $city, $zip, $street)
 
 Find DUNS number and company information by name
 
@@ -1323,9 +1375,11 @@ Finds the D-U-N-S number and additional company information by the company's nam
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $country_code = "country_code_example"; // string | ISO 3166-1 alpha-2 country code e.g. 'US'. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information.
 $company_name = "company_name_example"; // string | The company name you are looking for or relevant parts of it (may be empty if the duns_number is set)
 $duns_number = "duns_number_example"; // string | The D-U-N-S number you are looking for detailed information (may be empty if the company_name and country_code are set)
@@ -1335,7 +1389,7 @@ $zip = "zip_example"; // string | Filter to get only companies which matches the
 $street = "street_example"; // string | Filter to get only companies which matches the specified street
 
 try {
-    $result = $api_instance->searchDUNS($license, $guid, $country_code, $company_name, $duns_number, $state, $city, $zip, $street);
+    $result = $api_instance->searchDUNS($country_code, $company_name, $duns_number, $state, $city, $zip, $street);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->searchDUNS: ', $e->getMessage(), PHP_EOL;
@@ -1347,8 +1401,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **country_code** | **string**| ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. |
  **company_name** | **string**| The company name you are looking for or relevant parts of it (may be empty if the duns_number is set) | [optional]
  **duns_number** | **string**| The D-U-N-S number you are looking for detailed information (may be empty if the company_name and country_code are set) | [optional]
@@ -1363,7 +1415,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -1373,7 +1425,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchUndeliverableContact**
-> \DataMill\BusinessDataUndeliverableContactsResponse searchUndeliverableContact($license, $guid, $first_name, $last_name, $country_code, $zip, $street, $reason)
+> \DataMill\BusinessDataUndeliverableContactsResponse searchUndeliverableContact($first_name, $last_name, $country_code, $zip, $street, $reason)
 
 Find moved and deceased contacts
 
@@ -1384,9 +1436,11 @@ Checks if the postal address of a person identified by its full name is invalid 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $first_name = "first_name_example"; // string | The person's first name
 $last_name = "last_name_example"; // string | The person's last name
 $country_code = "country_code_example"; // string | ISO 3166-1 alpha-2 country code e.g. 'US'. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information.
@@ -1395,7 +1449,7 @@ $street = "street_example"; // string | Last known street name the person lives 
 $reason = "reason_example"; // string | Free-form text written in english why you submit the query.
 
 try {
-    $result = $api_instance->searchUndeliverableContact($license, $guid, $first_name, $last_name, $country_code, $zip, $street, $reason);
+    $result = $api_instance->searchUndeliverableContact($first_name, $last_name, $country_code, $zip, $street, $reason);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->searchUndeliverableContact: ', $e->getMessage(), PHP_EOL;
@@ -1407,8 +1461,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **first_name** | **string**| The person&#39;s first name |
  **last_name** | **string**| The person&#39;s last name |
  **country_code** | **string**| ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. |
@@ -1422,7 +1474,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -1432,7 +1484,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchVAT**
-> \DataMill\VatSearchResponse searchVAT($license, $guid, $company, $city, $country_code, $limit, $min_score)
+> \DataMill\VatSearchResponse searchVAT($company, $city, $country_code, $limit, $min_score)
 
 Find VAT number and company information by name
 
@@ -1443,9 +1495,11 @@ Finds the VAT number and additional company information by the company's name an
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DataMillApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $company = "company_example"; // string | The name of an company. You may enter the fully qualified name or only partial information.
 $city = "city_example"; // string | The city where the company's headquarters is located.
 $country_code = "country_code_example"; // string | ISO 3166-1 alpha-2 country code to specify in which country to look for. Possible countries are: **AT, BE, CZ, DK, FI, GB, GR, HU, IT, LU, MT, SI**
@@ -1453,7 +1507,7 @@ $limit = "10"; // string | The maximum amount of results returned if multiple co
 $min_score = "0.8"; // string | Threshold to set the minimum score rate of results being returned. Default: **0.8**
 
 try {
-    $result = $api_instance->searchVAT($license, $guid, $company, $city, $country_code, $limit, $min_score);
+    $result = $api_instance->searchVAT($company, $city, $country_code, $limit, $min_score);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataMillApi->searchVAT: ', $e->getMessage(), PHP_EOL;
@@ -1465,8 +1519,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **company** | **string**| The name of an company. You may enter the fully qualified name or only partial information. |
  **city** | **string**| The city where the company&#39;s headquarters is located. | [optional]
  **country_code** | **string**| ISO 3166-1 alpha-2 country code to specify in which country to look for. Possible countries are: **AT, BE, CZ, DK, FI, GB, GR, HU, IT, LU, MT, SI** | [optional]
@@ -1479,7 +1531,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
