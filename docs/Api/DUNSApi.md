@@ -1,6 +1,6 @@
 # DataMill\DUNSApi
 
-All URIs are relative to *https://api.methis.at*
+All URIs are relative to *https://api-beta.methis.at*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **getDUNSRating**
-> \DataMill\BusinessDataDunsRatingResponse getDUNSRating($license, $guid, $duns_number, $reason_code)
+> \DataMill\BusinessDataDunsRatingResponse getDUNSRating($duns_number, $reason_code)
 
 Get marketing information by DUNS number
 
@@ -21,14 +21,16 @@ Get marketing information about a company (credit rating, PAYDEX score, demograp
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DUNSApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $duns_number = "duns_number_example"; // string | The D-U-N-S number you are looking for detailed information
 $reason_code = "reason_code_example"; // string | Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement
 
 try {
-    $result = $api_instance->getDUNSRating($license, $guid, $duns_number, $reason_code);
+    $result = $api_instance->getDUNSRating($duns_number, $reason_code);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DUNSApi->getDUNSRating: ', $e->getMessage(), PHP_EOL;
@@ -40,8 +42,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **duns_number** | **string**| The D-U-N-S number you are looking for detailed information |
  **reason_code** | **string**| Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement |
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -61,7 +61,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **resolveDUNS**
-> \DataMill\BusinessDataDunsResolveResponse resolveDUNS($license, $guid, $duns_number, $reason_code)
+> \DataMill\BusinessDataDunsResolveResponse resolveDUNS($duns_number, $reason_code)
 
 Resolve company information by DUNS number
 
@@ -72,14 +72,16 @@ Resolves company information (official name, postal address, annual turnover, nu
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DUNSApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $duns_number = "duns_number_example"; // string | The D-U-N-S number you are looking for detailed information
 $reason_code = "reason_code_example"; // string | Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement
 
 try {
-    $result = $api_instance->resolveDUNS($license, $guid, $duns_number, $reason_code);
+    $result = $api_instance->resolveDUNS($duns_number, $reason_code);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DUNSApi->resolveDUNS: ', $e->getMessage(), PHP_EOL;
@@ -91,8 +93,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **duns_number** | **string**| The D-U-N-S number you are looking for detailed information |
  **reason_code** | **string**| Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement |
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -112,7 +112,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchDUNS**
-> \DataMill\BusinessDataDunsSearchResponse searchDUNS($license, $guid, $country_code, $company_name, $duns_number, $state, $city, $zip, $street)
+> \DataMill\BusinessDataDunsSearchResponse searchDUNS($country_code, $company_name, $duns_number, $state, $city, $zip, $street)
 
 Find DUNS number and company information by name
 
@@ -123,9 +123,11 @@ Finds the D-U-N-S number and additional company information by the company's nam
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\DUNSApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $country_code = "country_code_example"; // string | ISO 3166-1 alpha-2 country code e.g. 'US'. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information.
 $company_name = "company_name_example"; // string | The company name you are looking for or relevant parts of it (may be empty if the duns_number is set)
 $duns_number = "duns_number_example"; // string | The D-U-N-S number you are looking for detailed information (may be empty if the company_name and country_code are set)
@@ -135,7 +137,7 @@ $zip = "zip_example"; // string | Filter to get only companies which matches the
 $street = "street_example"; // string | Filter to get only companies which matches the specified street
 
 try {
-    $result = $api_instance->searchDUNS($license, $guid, $country_code, $company_name, $duns_number, $state, $city, $zip, $street);
+    $result = $api_instance->searchDUNS($country_code, $company_name, $duns_number, $state, $city, $zip, $street);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DUNSApi->searchDUNS: ', $e->getMessage(), PHP_EOL;
@@ -147,8 +149,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **country_code** | **string**| ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. |
  **company_name** | **string**| The company name you are looking for or relevant parts of it (may be empty if the duns_number is set) | [optional]
  **duns_number** | **string**| The D-U-N-S number you are looking for detailed information (may be empty if the company_name and country_code are set) | [optional]
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 

@@ -1,6 +1,6 @@
 # DataMill\IBANApi
 
-All URIs are relative to *https://api.methis.at*
+All URIs are relative to *https://api-beta.methis.at*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **checkIBAN**
-> \DataMill\IbanCheckResponse checkIBAN($license, $guid, $iban)
+> \DataMill\IbanCheckResponse checkIBAN($iban)
 
 Check IBAN for spelling
 
@@ -19,13 +19,15 @@ Checks the spelling, country code and checksum of an IBAN (International Bank Ac
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\IBANApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $iban = "iban_example"; // string | IBAN to be checked.
 
 try {
-    $result = $api_instance->checkIBAN($license, $guid, $iban);
+    $result = $api_instance->checkIBAN($iban);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling IBANApi->checkIBAN: ', $e->getMessage(), PHP_EOL;
@@ -37,8 +39,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **iban** | **string**| IBAN to be checked. |
 
 ### Return type
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **starttransfer_time** | **float** | Time to first byte in seconds | 
 **primary_ip** | **string** | IP address of the most recent connection | 
 **primary_port** | **int** | Destination port of the connection | 
-**download_content_length** | **int** | Number of bytes to download from the resource (-1 means no information available) | 
+**download_content_length** | **int** | Number of bytes to download from the resource (-1 means no information available; will be removed in future versions / deprecated) | 
 **content_type** | **string** | Content type of the requested resource | 
 **redirects** | **object[]** | Array collection of all urls including redirects | 
 **parameters** | **object[]** | Array collection of all url parameters | 

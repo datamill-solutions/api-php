@@ -72,7 +72,7 @@ class ConvertApi
     {
         if ($apiClient === null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://api.methis.at');
+            $apiClient->getConfig()->setHost('https://api-beta.methis.at');
         }
 
         $this->apiClient = $apiClient;
@@ -106,15 +106,13 @@ class ConvertApi
      *
      * Convert any string to capitalize words
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $text Free-form text to be converted. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\ConvertCapitalFirstResponse
      */
-    public function convertCapitalFirst($license, $guid, $text)
+    public function convertCapitalFirst($text)
     {
-        list($response) = $this->convertCapitalFirstWithHttpInfo($license, $guid, $text);
+        list($response) = $this->convertCapitalFirstWithHttpInfo($text);
         return $response;
     }
 
@@ -123,33 +121,12 @@ class ConvertApi
      *
      * Convert any string to capitalize words
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $text Free-form text to be converted. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\ConvertCapitalFirstResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function convertCapitalFirstWithHttpInfo($license, $guid, $text)
+    public function convertCapitalFirstWithHttpInfo($text)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling convertCapitalFirst');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling ConvertApi.convertCapitalFirst, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling ConvertApi.convertCapitalFirst, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling convertCapitalFirst');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling ConvertApi.convertCapitalFirst, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'text' is set
         if ($text === null) {
             throw new \InvalidArgumentException('Missing the required parameter $text when calling convertCapitalFirst');
@@ -177,14 +154,6 @@ class ConvertApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($text !== null) {
             $formParams['text'] = $this->apiClient->getSerializer()->toFormValue($text);
         }
@@ -194,6 +163,10 @@ class ConvertApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -261,15 +234,13 @@ class ConvertApi
      *
      * Convert any string to lower case
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $text Free-form text to be converted. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\ConvertLowerCaseResponse
      */
-    public function convertLowerCase($license, $guid, $text)
+    public function convertLowerCase($text)
     {
-        list($response) = $this->convertLowerCaseWithHttpInfo($license, $guid, $text);
+        list($response) = $this->convertLowerCaseWithHttpInfo($text);
         return $response;
     }
 
@@ -278,33 +249,12 @@ class ConvertApi
      *
      * Convert any string to lower case
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $text Free-form text to be converted. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\ConvertLowerCaseResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function convertLowerCaseWithHttpInfo($license, $guid, $text)
+    public function convertLowerCaseWithHttpInfo($text)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling convertLowerCase');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling ConvertApi.convertLowerCase, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling ConvertApi.convertLowerCase, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling convertLowerCase');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling ConvertApi.convertLowerCase, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'text' is set
         if ($text === null) {
             throw new \InvalidArgumentException('Missing the required parameter $text when calling convertLowerCase');
@@ -332,14 +282,6 @@ class ConvertApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($text !== null) {
             $formParams['text'] = $this->apiClient->getSerializer()->toFormValue($text);
         }
@@ -349,6 +291,10 @@ class ConvertApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -416,15 +362,13 @@ class ConvertApi
      *
      * Convert any string to upper case
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $text Free-form text to be converted. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\ConvertUpperCaseResponse
      */
-    public function convertUpperCase($license, $guid, $text)
+    public function convertUpperCase($text)
     {
-        list($response) = $this->convertUpperCaseWithHttpInfo($license, $guid, $text);
+        list($response) = $this->convertUpperCaseWithHttpInfo($text);
         return $response;
     }
 
@@ -433,33 +377,12 @@ class ConvertApi
      *
      * Convert any string to upper case
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $text Free-form text to be converted. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\ConvertUpperCaseResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function convertUpperCaseWithHttpInfo($license, $guid, $text)
+    public function convertUpperCaseWithHttpInfo($text)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling convertUpperCase');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling ConvertApi.convertUpperCase, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling ConvertApi.convertUpperCase, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling convertUpperCase');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling ConvertApi.convertUpperCase, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'text' is set
         if ($text === null) {
             throw new \InvalidArgumentException('Missing the required parameter $text when calling convertUpperCase');
@@ -487,14 +410,6 @@ class ConvertApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($text !== null) {
             $formParams['text'] = $this->apiClient->getSerializer()->toFormValue($text);
         }
@@ -504,6 +419,10 @@ class ConvertApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -571,8 +490,6 @@ class ConvertApi
      *
      * Wrap text
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $text Fre-form text to be wrapped. (required)
      * @param int $limit The number of characters a linefeed will be inserted after (maximum character length per line). (required)
      * @param string $mode The mode how the linefeed will be inserted. Either before (default) the current word, after the current word or exactly after the character. Possible values are **before** to break before last word, **after** to break after last word, **exact** to break at limit. (optional)
@@ -580,9 +497,9 @@ class ConvertApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\ConvertWrapResponse
      */
-    public function convertWrap($license, $guid, $text, $limit, $mode = null, $linebreak = null)
+    public function convertWrap($text, $limit, $mode = null, $linebreak = null)
     {
-        list($response) = $this->convertWrapWithHttpInfo($license, $guid, $text, $limit, $mode, $linebreak);
+        list($response) = $this->convertWrapWithHttpInfo($text, $limit, $mode, $linebreak);
         return $response;
     }
 
@@ -591,8 +508,6 @@ class ConvertApi
      *
      * Wrap text
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $text Fre-form text to be wrapped. (required)
      * @param int $limit The number of characters a linefeed will be inserted after (maximum character length per line). (required)
      * @param string $mode The mode how the linefeed will be inserted. Either before (default) the current word, after the current word or exactly after the character. Possible values are **before** to break before last word, **after** to break after last word, **exact** to break at limit. (optional)
@@ -600,27 +515,8 @@ class ConvertApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\ConvertWrapResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function convertWrapWithHttpInfo($license, $guid, $text, $limit, $mode = null, $linebreak = null)
+    public function convertWrapWithHttpInfo($text, $limit, $mode = null, $linebreak = null)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling convertWrap');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling ConvertApi.convertWrap, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling ConvertApi.convertWrap, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling convertWrap');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling ConvertApi.convertWrap, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'text' is set
         if ($text === null) {
             throw new \InvalidArgumentException('Missing the required parameter $text when calling convertWrap');
@@ -673,14 +569,6 @@ class ConvertApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($text !== null) {
             $formParams['text'] = $this->apiClient->getSerializer()->toFormValue($text);
         }
@@ -703,6 +591,10 @@ class ConvertApi
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
         }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
+        }
         // make the API Call
         try {
             list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
@@ -720,6 +612,140 @@ class ConvertApi
             switch ($e->getCode()) {
                 case 200:
                     $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ConvertWrapResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorUnauthorized', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 402:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorQuotaExceeded', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorForbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorNotFound', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 405:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorNotAllowed', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 412:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorIncorrectParameters', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 428:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorMissingParameters', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorInternalError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 503:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorServiceUnavailable', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getPhoneticCode
+     *
+     * Calculate phonetic codes of a given text
+     *
+     * @param string $text The text which should be converted. Each word will be converted separatly and generate a single entry in the result. (required)
+     * @param int $phonetic_algorithm The phonetic algorithm which should be applied. If no algorithm code will be provided **Soundex** will be used. Codes:  * 1 &#x3D; Soundex  * 2 &#x3D; Colcogne Phonetic  * 3 &#x3D; Metaphon (optional)
+     * @throws \DataMill\ApiException on non-2xx response
+     * @return \DataMill\PhoneticCodeGetResponse
+     */
+    public function getPhoneticCode($text, $phonetic_algorithm = null)
+    {
+        list($response) = $this->getPhoneticCodeWithHttpInfo($text, $phonetic_algorithm);
+        return $response;
+    }
+
+    /**
+     * Operation getPhoneticCodeWithHttpInfo
+     *
+     * Calculate phonetic codes of a given text
+     *
+     * @param string $text The text which should be converted. Each word will be converted separatly and generate a single entry in the result. (required)
+     * @param int $phonetic_algorithm The phonetic algorithm which should be applied. If no algorithm code will be provided **Soundex** will be used. Codes:  * 1 &#x3D; Soundex  * 2 &#x3D; Colcogne Phonetic  * 3 &#x3D; Metaphon (optional)
+     * @throws \DataMill\ApiException on non-2xx response
+     * @return array of \DataMill\PhoneticCodeGetResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPhoneticCodeWithHttpInfo($text, $phonetic_algorithm = null)
+    {
+        // verify the required parameter 'text' is set
+        if ($text === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $text when calling getPhoneticCode');
+        }
+        if ((strlen($text) > 2048)) {
+            throw new \InvalidArgumentException('invalid length for "$text" when calling ConvertApi.getPhoneticCode, must be smaller than or equal to 2048.');
+        }
+        if ((strlen($text) < 1)) {
+            throw new \InvalidArgumentException('invalid length for "$text" when calling ConvertApi.getPhoneticCode, must be bigger than or equal to 1.');
+        }
+
+        // parse inputs
+        $resourcePath = "/phonetic/code/get";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['multipart/form-data']);
+
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // form params
+        if ($text !== null) {
+            $formParams['text'] = $this->apiClient->getSerializer()->toFormValue($text);
+        }
+        // form params
+        if ($phonetic_algorithm !== null) {
+            $formParams['phonetic_algorithm'] = $this->apiClient->getSerializer()->toFormValue($phonetic_algorithm);
+        }
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\DataMill\PhoneticCodeGetResponse',
+                '/phonetic/code/get'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\DataMill\PhoneticCodeGetResponse', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\PhoneticCodeGetResponse', $e->getResponseHeaders());
                     $e->setResponseObject($data);
                     break;
                 case 401:

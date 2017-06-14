@@ -72,7 +72,7 @@ class DataMillApi
     {
         if ($apiClient === null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://api.methis.at');
+            $apiClient->getConfig()->setHost('https://api-beta.methis.at');
         }
 
         $this->apiClient = $apiClient;
@@ -106,15 +106,13 @@ class DataMillApi
      *
      * Check BIC for spelling
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $bic BIC to be checked (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\BicCheckResponse
      */
-    public function checkBIC($license, $guid, $bic)
+    public function checkBIC($bic)
     {
-        list($response) = $this->checkBICWithHttpInfo($license, $guid, $bic);
+        list($response) = $this->checkBICWithHttpInfo($bic);
         return $response;
     }
 
@@ -123,33 +121,12 @@ class DataMillApi
      *
      * Check BIC for spelling
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $bic BIC to be checked (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\BicCheckResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function checkBICWithHttpInfo($license, $guid, $bic)
+    public function checkBICWithHttpInfo($bic)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling checkBIC');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.checkBIC, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.checkBIC, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling checkBIC');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.checkBIC, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'bic' is set
         if ($bic === null) {
             throw new \InvalidArgumentException('Missing the required parameter $bic when calling checkBIC');
@@ -177,14 +154,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($bic !== null) {
             $formParams['bic'] = $this->apiClient->getSerializer()->toFormValue($bic);
         }
@@ -194,6 +163,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -261,15 +234,13 @@ class DataMillApi
      *
      * Check email syntax and mail server domain
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $email The email address to be checked (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\EmailDomainCheckResponse
      */
-    public function checkEmailDomain($license, $guid, $email)
+    public function checkEmailDomain($email)
     {
-        list($response) = $this->checkEmailDomainWithHttpInfo($license, $guid, $email);
+        list($response) = $this->checkEmailDomainWithHttpInfo($email);
         return $response;
     }
 
@@ -278,33 +249,12 @@ class DataMillApi
      *
      * Check email syntax and mail server domain
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $email The email address to be checked (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\EmailDomainCheckResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function checkEmailDomainWithHttpInfo($license, $guid, $email)
+    public function checkEmailDomainWithHttpInfo($email)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling checkEmailDomain');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.checkEmailDomain, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.checkEmailDomain, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling checkEmailDomain');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.checkEmailDomain, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'email' is set
         if ($email === null) {
             throw new \InvalidArgumentException('Missing the required parameter $email when calling checkEmailDomain');
@@ -332,14 +282,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($email !== null) {
             $formParams['email'] = $this->apiClient->getSerializer()->toFormValue($email);
         }
@@ -349,6 +291,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -416,15 +362,13 @@ class DataMillApi
      *
      * Check email syntax, mail server domain and mailbox itself
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $email The email address to be checked (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\EmailExtendedCheckResponse
      */
-    public function checkEmailMailbox($license, $guid, $email)
+    public function checkEmailMailbox($email)
     {
-        list($response) = $this->checkEmailMailboxWithHttpInfo($license, $guid, $email);
+        list($response) = $this->checkEmailMailboxWithHttpInfo($email);
         return $response;
     }
 
@@ -433,33 +377,12 @@ class DataMillApi
      *
      * Check email syntax, mail server domain and mailbox itself
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $email The email address to be checked (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\EmailExtendedCheckResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function checkEmailMailboxWithHttpInfo($license, $guid, $email)
+    public function checkEmailMailboxWithHttpInfo($email)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling checkEmailMailbox');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.checkEmailMailbox, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.checkEmailMailbox, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling checkEmailMailbox');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.checkEmailMailbox, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'email' is set
         if ($email === null) {
             throw new \InvalidArgumentException('Missing the required parameter $email when calling checkEmailMailbox');
@@ -487,14 +410,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($email !== null) {
             $formParams['email'] = $this->apiClient->getSerializer()->toFormValue($email);
         }
@@ -504,6 +419,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -571,15 +490,13 @@ class DataMillApi
      *
      * Check email syntax
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $email The email address to be checked (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\EmailSyntaxCheckResponse
      */
-    public function checkEmailSyntax($license, $guid, $email)
+    public function checkEmailSyntax($email)
     {
-        list($response) = $this->checkEmailSyntaxWithHttpInfo($license, $guid, $email);
+        list($response) = $this->checkEmailSyntaxWithHttpInfo($email);
         return $response;
     }
 
@@ -588,33 +505,12 @@ class DataMillApi
      *
      * Check email syntax
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $email The email address to be checked (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\EmailSyntaxCheckResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function checkEmailSyntaxWithHttpInfo($license, $guid, $email)
+    public function checkEmailSyntaxWithHttpInfo($email)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling checkEmailSyntax');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.checkEmailSyntax, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.checkEmailSyntax, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling checkEmailSyntax');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.checkEmailSyntax, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'email' is set
         if ($email === null) {
             throw new \InvalidArgumentException('Missing the required parameter $email when calling checkEmailSyntax');
@@ -642,14 +538,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($email !== null) {
             $formParams['email'] = $this->apiClient->getSerializer()->toFormValue($email);
         }
@@ -659,6 +547,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -726,15 +618,13 @@ class DataMillApi
      *
      * Check IBAN for spelling
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $iban IBAN to be checked. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\IbanCheckResponse
      */
-    public function checkIBAN($license, $guid, $iban)
+    public function checkIBAN($iban)
     {
-        list($response) = $this->checkIBANWithHttpInfo($license, $guid, $iban);
+        list($response) = $this->checkIBANWithHttpInfo($iban);
         return $response;
     }
 
@@ -743,33 +633,12 @@ class DataMillApi
      *
      * Check IBAN for spelling
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $iban IBAN to be checked. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\IbanCheckResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function checkIBANWithHttpInfo($license, $guid, $iban)
+    public function checkIBANWithHttpInfo($iban)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling checkIBAN');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.checkIBAN, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.checkIBAN, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling checkIBAN');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.checkIBAN, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'iban' is set
         if ($iban === null) {
             throw new \InvalidArgumentException('Missing the required parameter $iban when calling checkIBAN');
@@ -797,14 +666,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($iban !== null) {
             $formParams['iban'] = $this->apiClient->getSerializer()->toFormValue($iban);
         }
@@ -814,6 +675,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -881,16 +746,14 @@ class DataMillApi
      *
      * Verify mobile phone number
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $phonenumber Mobile phone number to be verified. (required)
      * @param string $countrycode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\PhoneMobileCheckResponse
      */
-    public function checkMobilePhone($license, $guid, $phonenumber, $countrycode)
+    public function checkMobilePhone($phonenumber, $countrycode)
     {
-        list($response) = $this->checkMobilePhoneWithHttpInfo($license, $guid, $phonenumber, $countrycode);
+        list($response) = $this->checkMobilePhoneWithHttpInfo($phonenumber, $countrycode);
         return $response;
     }
 
@@ -899,34 +762,13 @@ class DataMillApi
      *
      * Verify mobile phone number
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $phonenumber Mobile phone number to be verified. (required)
      * @param string $countrycode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\PhoneMobileCheckResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function checkMobilePhoneWithHttpInfo($license, $guid, $phonenumber, $countrycode)
+    public function checkMobilePhoneWithHttpInfo($phonenumber, $countrycode)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling checkMobilePhone');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.checkMobilePhone, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.checkMobilePhone, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling checkMobilePhone');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.checkMobilePhone, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'phonenumber' is set
         if ($phonenumber === null) {
             throw new \InvalidArgumentException('Missing the required parameter $phonenumber when calling checkMobilePhone');
@@ -965,14 +807,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($phonenumber !== null) {
             $formParams['phonenumber'] = $this->apiClient->getSerializer()->toFormValue($phonenumber);
         }
@@ -986,6 +820,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -1053,16 +891,14 @@ class DataMillApi
      *
      * Information about web resources
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $url The url to be checked (e.g. any website) (required)
      * @param string $max_redirects The maximum amount of redirects until the lookup for the root resource will be stopped (default **10**) (optional, default to 10)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\UrlCheckResponse
      */
-    public function checkUrl($license, $guid, $url, $max_redirects = null)
+    public function checkUrl($url, $max_redirects = null)
     {
-        list($response) = $this->checkUrlWithHttpInfo($license, $guid, $url, $max_redirects);
+        list($response) = $this->checkUrlWithHttpInfo($url, $max_redirects);
         return $response;
     }
 
@@ -1071,34 +907,13 @@ class DataMillApi
      *
      * Information about web resources
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $url The url to be checked (e.g. any website) (required)
      * @param string $max_redirects The maximum amount of redirects until the lookup for the root resource will be stopped (default **10**) (optional, default to 10)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\UrlCheckResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function checkUrlWithHttpInfo($license, $guid, $url, $max_redirects = null)
+    public function checkUrlWithHttpInfo($url, $max_redirects = null)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling checkUrl');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.checkUrl, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.checkUrl, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling checkUrl');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.checkUrl, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'url' is set
         if ($url === null) {
             throw new \InvalidArgumentException('Missing the required parameter $url when calling checkUrl');
@@ -1133,14 +948,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($url !== null) {
             $formParams['url'] = $this->apiClient->getSerializer()->toFormValue($url);
         }
@@ -1154,6 +961,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -1221,15 +1032,13 @@ class DataMillApi
      *
      * Check vat number for correctness
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $vatnumber The VAT number of a company within the European Union (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\VatCheckResponse
      */
-    public function checkVAT($license, $guid, $vatnumber)
+    public function checkVAT($vatnumber)
     {
-        list($response) = $this->checkVATWithHttpInfo($license, $guid, $vatnumber);
+        list($response) = $this->checkVATWithHttpInfo($vatnumber);
         return $response;
     }
 
@@ -1238,33 +1047,12 @@ class DataMillApi
      *
      * Check vat number for correctness
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $vatnumber The VAT number of a company within the European Union (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\VatCheckResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function checkVATWithHttpInfo($license, $guid, $vatnumber)
+    public function checkVATWithHttpInfo($vatnumber)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling checkVAT');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.checkVAT, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.checkVAT, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling checkVAT');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.checkVAT, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'vatnumber' is set
         if ($vatnumber === null) {
             throw new \InvalidArgumentException('Missing the required parameter $vatnumber when calling checkVAT');
@@ -1292,14 +1080,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($vatnumber !== null) {
             $formParams['vatnumber'] = $this->apiClient->getSerializer()->toFormValue($vatnumber);
         }
@@ -1309,6 +1089,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -1376,15 +1160,13 @@ class DataMillApi
      *
      * Convert any string to capitalize words
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $text Free-form text to be converted. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\ConvertCapitalFirstResponse
      */
-    public function convertCapitalFirst($license, $guid, $text)
+    public function convertCapitalFirst($text)
     {
-        list($response) = $this->convertCapitalFirstWithHttpInfo($license, $guid, $text);
+        list($response) = $this->convertCapitalFirstWithHttpInfo($text);
         return $response;
     }
 
@@ -1393,33 +1175,12 @@ class DataMillApi
      *
      * Convert any string to capitalize words
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $text Free-form text to be converted. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\ConvertCapitalFirstResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function convertCapitalFirstWithHttpInfo($license, $guid, $text)
+    public function convertCapitalFirstWithHttpInfo($text)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling convertCapitalFirst');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.convertCapitalFirst, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.convertCapitalFirst, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling convertCapitalFirst');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.convertCapitalFirst, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'text' is set
         if ($text === null) {
             throw new \InvalidArgumentException('Missing the required parameter $text when calling convertCapitalFirst');
@@ -1447,14 +1208,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($text !== null) {
             $formParams['text'] = $this->apiClient->getSerializer()->toFormValue($text);
         }
@@ -1464,6 +1217,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -1531,15 +1288,13 @@ class DataMillApi
      *
      * Convert any string to lower case
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $text Free-form text to be converted. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\ConvertLowerCaseResponse
      */
-    public function convertLowerCase($license, $guid, $text)
+    public function convertLowerCase($text)
     {
-        list($response) = $this->convertLowerCaseWithHttpInfo($license, $guid, $text);
+        list($response) = $this->convertLowerCaseWithHttpInfo($text);
         return $response;
     }
 
@@ -1548,33 +1303,12 @@ class DataMillApi
      *
      * Convert any string to lower case
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $text Free-form text to be converted. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\ConvertLowerCaseResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function convertLowerCaseWithHttpInfo($license, $guid, $text)
+    public function convertLowerCaseWithHttpInfo($text)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling convertLowerCase');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.convertLowerCase, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.convertLowerCase, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling convertLowerCase');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.convertLowerCase, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'text' is set
         if ($text === null) {
             throw new \InvalidArgumentException('Missing the required parameter $text when calling convertLowerCase');
@@ -1602,14 +1336,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($text !== null) {
             $formParams['text'] = $this->apiClient->getSerializer()->toFormValue($text);
         }
@@ -1619,6 +1345,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -1686,15 +1416,13 @@ class DataMillApi
      *
      * Convert any string to upper case
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $text Free-form text to be converted. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\ConvertUpperCaseResponse
      */
-    public function convertUpperCase($license, $guid, $text)
+    public function convertUpperCase($text)
     {
-        list($response) = $this->convertUpperCaseWithHttpInfo($license, $guid, $text);
+        list($response) = $this->convertUpperCaseWithHttpInfo($text);
         return $response;
     }
 
@@ -1703,33 +1431,12 @@ class DataMillApi
      *
      * Convert any string to upper case
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $text Free-form text to be converted. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\ConvertUpperCaseResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function convertUpperCaseWithHttpInfo($license, $guid, $text)
+    public function convertUpperCaseWithHttpInfo($text)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling convertUpperCase');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.convertUpperCase, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.convertUpperCase, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling convertUpperCase');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.convertUpperCase, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'text' is set
         if ($text === null) {
             throw new \InvalidArgumentException('Missing the required parameter $text when calling convertUpperCase');
@@ -1757,14 +1464,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($text !== null) {
             $formParams['text'] = $this->apiClient->getSerializer()->toFormValue($text);
         }
@@ -1774,6 +1473,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -1841,8 +1544,6 @@ class DataMillApi
      *
      * Wrap text
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $text Fre-form text to be wrapped. (required)
      * @param int $limit The number of characters a linefeed will be inserted after (maximum character length per line). (required)
      * @param string $mode The mode how the linefeed will be inserted. Either before (default) the current word, after the current word or exactly after the character. Possible values are **before** to break before last word, **after** to break after last word, **exact** to break at limit. (optional)
@@ -1850,9 +1551,9 @@ class DataMillApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\ConvertWrapResponse
      */
-    public function convertWrap($license, $guid, $text, $limit, $mode = null, $linebreak = null)
+    public function convertWrap($text, $limit, $mode = null, $linebreak = null)
     {
-        list($response) = $this->convertWrapWithHttpInfo($license, $guid, $text, $limit, $mode, $linebreak);
+        list($response) = $this->convertWrapWithHttpInfo($text, $limit, $mode, $linebreak);
         return $response;
     }
 
@@ -1861,8 +1562,6 @@ class DataMillApi
      *
      * Wrap text
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $text Fre-form text to be wrapped. (required)
      * @param int $limit The number of characters a linefeed will be inserted after (maximum character length per line). (required)
      * @param string $mode The mode how the linefeed will be inserted. Either before (default) the current word, after the current word or exactly after the character. Possible values are **before** to break before last word, **after** to break after last word, **exact** to break at limit. (optional)
@@ -1870,27 +1569,8 @@ class DataMillApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\ConvertWrapResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function convertWrapWithHttpInfo($license, $guid, $text, $limit, $mode = null, $linebreak = null)
+    public function convertWrapWithHttpInfo($text, $limit, $mode = null, $linebreak = null)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling convertWrap');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.convertWrap, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.convertWrap, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling convertWrap');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.convertWrap, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'text' is set
         if ($text === null) {
             throw new \InvalidArgumentException('Missing the required parameter $text when calling convertWrap');
@@ -1943,14 +1623,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($text !== null) {
             $formParams['text'] = $this->apiClient->getSerializer()->toFormValue($text);
         }
@@ -1972,6 +1644,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -2039,16 +1715,14 @@ class DataMillApi
      *
      * Try to extract house number from street information
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $street Free-form text containing the street name and optional the house number including additional house number information. The key is required if housenumber is empty or unset. (optional)
      * @param string $housenumber Free-form text containing the house number including additional house number information and optional the street name. The key is required if street is empty or unset. (optional)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\AddressHouseNumberExtractResponse
      */
-    public function extractHouseNumber($license, $guid, $street = null, $housenumber = null)
+    public function extractHouseNumber($street = null, $housenumber = null)
     {
-        list($response) = $this->extractHouseNumberWithHttpInfo($license, $guid, $street, $housenumber);
+        list($response) = $this->extractHouseNumberWithHttpInfo($street, $housenumber);
         return $response;
     }
 
@@ -2057,34 +1731,13 @@ class DataMillApi
      *
      * Try to extract house number from street information
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $street Free-form text containing the street name and optional the house number including additional house number information. The key is required if housenumber is empty or unset. (optional)
      * @param string $housenumber Free-form text containing the house number including additional house number information and optional the street name. The key is required if street is empty or unset. (optional)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\AddressHouseNumberExtractResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function extractHouseNumberWithHttpInfo($license, $guid, $street = null, $housenumber = null)
+    public function extractHouseNumberWithHttpInfo($street = null, $housenumber = null)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling extractHouseNumber');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.extractHouseNumber, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.extractHouseNumber, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling extractHouseNumber');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.extractHouseNumber, must be bigger than or equal to 30.');
-        }
-
         if (!is_null($street) && (strlen($street) > 255)) {
             throw new \InvalidArgumentException('invalid length for "$street" when calling DataMillApi.extractHouseNumber, must be smaller than or equal to 255.');
         }
@@ -2115,14 +1768,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($street !== null) {
             $formParams['street'] = $this->apiClient->getSerializer()->toFormValue($street);
         }
@@ -2136,6 +1781,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -2203,8 +1852,6 @@ class DataMillApi
      *
      * Parse, format and validate phone numbers
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $phonenumber Phone number to be formatted and validated (required)
      * @param string $countrycode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @param string $format The custom format of the returning phone number if valid. The format is a combination of the following placeholders:  * **{countrycode}**: The international dial prefix for the country without leading zero or the \\\&quot;+\\\&quot; sign  * **{nationalcode}**: The regional dial prefix  * **{phonenumber}**: The phone number including the extension and without the international and regional prefix  * **{national_prefix}**: The national dial prefix including the leading zero  * **{international_prefix}**: The international dial prefix including leading zeros.  If no custom format is specified the following combination is used: **+{countrycode} {nationalcode} {phonenumber}** (canonical format) (optional)
@@ -2213,9 +1860,9 @@ class DataMillApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\PhoneFormatResponse
      */
-    public function formatPhoneNumber($license, $guid, $phonenumber, $countrycode, $format = null, $direct_dialing_delimiter = null, $allowed_delimiters = null)
+    public function formatPhoneNumber($phonenumber, $countrycode, $format = null, $direct_dialing_delimiter = null, $allowed_delimiters = null)
     {
-        list($response) = $this->formatPhoneNumberWithHttpInfo($license, $guid, $phonenumber, $countrycode, $format, $direct_dialing_delimiter, $allowed_delimiters);
+        list($response) = $this->formatPhoneNumberWithHttpInfo($phonenumber, $countrycode, $format, $direct_dialing_delimiter, $allowed_delimiters);
         return $response;
     }
 
@@ -2224,8 +1871,6 @@ class DataMillApi
      *
      * Parse, format and validate phone numbers
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $phonenumber Phone number to be formatted and validated (required)
      * @param string $countrycode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @param string $format The custom format of the returning phone number if valid. The format is a combination of the following placeholders:  * **{countrycode}**: The international dial prefix for the country without leading zero or the \\\&quot;+\\\&quot; sign  * **{nationalcode}**: The regional dial prefix  * **{phonenumber}**: The phone number including the extension and without the international and regional prefix  * **{national_prefix}**: The national dial prefix including the leading zero  * **{international_prefix}**: The international dial prefix including leading zeros.  If no custom format is specified the following combination is used: **+{countrycode} {nationalcode} {phonenumber}** (canonical format) (optional)
@@ -2234,27 +1879,8 @@ class DataMillApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\PhoneFormatResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function formatPhoneNumberWithHttpInfo($license, $guid, $phonenumber, $countrycode, $format = null, $direct_dialing_delimiter = null, $allowed_delimiters = null)
+    public function formatPhoneNumberWithHttpInfo($phonenumber, $countrycode, $format = null, $direct_dialing_delimiter = null, $allowed_delimiters = null)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling formatPhoneNumber');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.formatPhoneNumber, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.formatPhoneNumber, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling formatPhoneNumber');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.formatPhoneNumber, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'phonenumber' is set
         if ($phonenumber === null) {
             throw new \InvalidArgumentException('Missing the required parameter $phonenumber when calling formatPhoneNumber');
@@ -2314,14 +1940,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($phonenumber !== null) {
             $formParams['phonenumber'] = $this->apiClient->getSerializer()->toFormValue($phonenumber);
         }
@@ -2347,6 +1965,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -2414,16 +2036,14 @@ class DataMillApi
      *
      * Get marketing information by DUNS number
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $duns_number The D-U-N-S number you are looking for detailed information (required)
      * @param string $reason_code Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\BusinessDataDunsRatingResponse
      */
-    public function getDUNSRating($license, $guid, $duns_number, $reason_code)
+    public function getDUNSRating($duns_number, $reason_code)
     {
-        list($response) = $this->getDUNSRatingWithHttpInfo($license, $guid, $duns_number, $reason_code);
+        list($response) = $this->getDUNSRatingWithHttpInfo($duns_number, $reason_code);
         return $response;
     }
 
@@ -2432,34 +2052,13 @@ class DataMillApi
      *
      * Get marketing information by DUNS number
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $duns_number The D-U-N-S number you are looking for detailed information (required)
      * @param string $reason_code Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\BusinessDataDunsRatingResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDUNSRatingWithHttpInfo($license, $guid, $duns_number, $reason_code)
+    public function getDUNSRatingWithHttpInfo($duns_number, $reason_code)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling getDUNSRating');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.getDUNSRating, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.getDUNSRating, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling getDUNSRating');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.getDUNSRating, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'duns_number' is set
         if ($duns_number === null) {
             throw new \InvalidArgumentException('Missing the required parameter $duns_number when calling getDUNSRating');
@@ -2495,14 +2094,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($duns_number !== null) {
             $formParams['duns_number'] = $this->apiClient->getSerializer()->toFormValue($duns_number);
         }
@@ -2516,6 +2107,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -2583,15 +2178,13 @@ class DataMillApi
      *
      * Recognize and extract first names
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $name Full name to detect all first names and extract them (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\FirstNameGetResponse
      */
-    public function getFirstNames($license, $guid, $name)
+    public function getFirstNames($name)
     {
-        list($response) = $this->getFirstNamesWithHttpInfo($license, $guid, $name);
+        list($response) = $this->getFirstNamesWithHttpInfo($name);
         return $response;
     }
 
@@ -2600,33 +2193,12 @@ class DataMillApi
      *
      * Recognize and extract first names
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $name Full name to detect all first names and extract them (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\FirstNameGetResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFirstNamesWithHttpInfo($license, $guid, $name)
+    public function getFirstNamesWithHttpInfo($name)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling getFirstNames');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.getFirstNames, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.getFirstNames, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling getFirstNames');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.getFirstNames, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'name' is set
         if ($name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $name when calling getFirstNames');
@@ -2654,14 +2226,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($name !== null) {
             $formParams['name'] = $this->apiClient->getSerializer()->toFormValue($name);
         }
@@ -2671,6 +2235,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -2738,15 +2306,13 @@ class DataMillApi
      *
      * Recognize gender by first name
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $firstname First name to recognize gender. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\GenderGetResponse
      */
-    public function getGender($license, $guid, $firstname)
+    public function getGender($firstname)
     {
-        list($response) = $this->getGenderWithHttpInfo($license, $guid, $firstname);
+        list($response) = $this->getGenderWithHttpInfo($firstname);
         return $response;
     }
 
@@ -2755,33 +2321,12 @@ class DataMillApi
      *
      * Recognize gender by first name
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $firstname First name to recognize gender. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\GenderGetResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGenderWithHttpInfo($license, $guid, $firstname)
+    public function getGenderWithHttpInfo($firstname)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling getGender');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.getGender, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.getGender, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling getGender');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.getGender, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'firstname' is set
         if ($firstname === null) {
             throw new \InvalidArgumentException('Missing the required parameter $firstname when calling getGender');
@@ -2809,14 +2354,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($firstname !== null) {
             $formParams['firstname'] = $this->apiClient->getSerializer()->toFormValue($firstname);
         }
@@ -2826,6 +2363,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -2893,16 +2434,14 @@ class DataMillApi
      *
      * Recognize gender by first name (advanced)
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $firstname First name to recognize gender. (required)
      * @param string $countrycode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\GenderExtendedGetResponse
      */
-    public function getGenderExtended($license, $guid, $firstname, $countrycode)
+    public function getGenderExtended($firstname, $countrycode)
     {
-        list($response) = $this->getGenderExtendedWithHttpInfo($license, $guid, $firstname, $countrycode);
+        list($response) = $this->getGenderExtendedWithHttpInfo($firstname, $countrycode);
         return $response;
     }
 
@@ -2911,34 +2450,13 @@ class DataMillApi
      *
      * Recognize gender by first name (advanced)
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $firstname First name to recognize gender. (required)
      * @param string $countrycode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\GenderExtendedGetResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGenderExtendedWithHttpInfo($license, $guid, $firstname, $countrycode)
+    public function getGenderExtendedWithHttpInfo($firstname, $countrycode)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling getGenderExtended');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.getGenderExtended, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.getGenderExtended, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling getGenderExtended');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.getGenderExtended, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'firstname' is set
         if ($firstname === null) {
             throw new \InvalidArgumentException('Missing the required parameter $firstname when calling getGenderExtended');
@@ -2977,14 +2495,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($firstname !== null) {
             $formParams['firstname'] = $this->apiClient->getSerializer()->toFormValue($firstname);
         }
@@ -2998,6 +2508,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -3065,15 +2579,13 @@ class DataMillApi
      *
      * International and national dial prefix
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $countrycode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\PhoneCountryCodeGetResponse
      */
-    public function getPhoneCountryCode($license, $guid, $countrycode)
+    public function getPhoneCountryCode($countrycode)
     {
-        list($response) = $this->getPhoneCountryCodeWithHttpInfo($license, $guid, $countrycode);
+        list($response) = $this->getPhoneCountryCodeWithHttpInfo($countrycode);
         return $response;
     }
 
@@ -3082,33 +2594,12 @@ class DataMillApi
      *
      * International and national dial prefix
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $countrycode ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\PhoneCountryCodeGetResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPhoneCountryCodeWithHttpInfo($license, $guid, $countrycode)
+    public function getPhoneCountryCodeWithHttpInfo($countrycode)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling getPhoneCountryCode');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.getPhoneCountryCode, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.getPhoneCountryCode, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling getPhoneCountryCode');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.getPhoneCountryCode, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'countrycode' is set
         if ($countrycode === null) {
             throw new \InvalidArgumentException('Missing the required parameter $countrycode when calling getPhoneCountryCode');
@@ -3136,14 +2627,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($countrycode !== null) {
             $formParams['countrycode'] = $this->apiClient->getSerializer()->toFormValue($countrycode);
         }
@@ -3153,6 +2636,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -3216,19 +2703,151 @@ class DataMillApi
     }
 
     /**
+     * Operation getPhoneticCode
+     *
+     * Calculate phonetic codes of a given text
+     *
+     * @param string $text The text which should be converted. Each word will be converted separatly and generate a single entry in the result. (required)
+     * @param int $phonetic_algorithm The phonetic algorithm which should be applied. If no algorithm code will be provided **Soundex** will be used. Codes:  * 1 &#x3D; Soundex  * 2 &#x3D; Colcogne Phonetic  * 3 &#x3D; Metaphon (optional)
+     * @throws \DataMill\ApiException on non-2xx response
+     * @return \DataMill\PhoneticCodeGetResponse
+     */
+    public function getPhoneticCode($text, $phonetic_algorithm = null)
+    {
+        list($response) = $this->getPhoneticCodeWithHttpInfo($text, $phonetic_algorithm);
+        return $response;
+    }
+
+    /**
+     * Operation getPhoneticCodeWithHttpInfo
+     *
+     * Calculate phonetic codes of a given text
+     *
+     * @param string $text The text which should be converted. Each word will be converted separatly and generate a single entry in the result. (required)
+     * @param int $phonetic_algorithm The phonetic algorithm which should be applied. If no algorithm code will be provided **Soundex** will be used. Codes:  * 1 &#x3D; Soundex  * 2 &#x3D; Colcogne Phonetic  * 3 &#x3D; Metaphon (optional)
+     * @throws \DataMill\ApiException on non-2xx response
+     * @return array of \DataMill\PhoneticCodeGetResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPhoneticCodeWithHttpInfo($text, $phonetic_algorithm = null)
+    {
+        // verify the required parameter 'text' is set
+        if ($text === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $text when calling getPhoneticCode');
+        }
+        if ((strlen($text) > 2048)) {
+            throw new \InvalidArgumentException('invalid length for "$text" when calling DataMillApi.getPhoneticCode, must be smaller than or equal to 2048.');
+        }
+        if ((strlen($text) < 1)) {
+            throw new \InvalidArgumentException('invalid length for "$text" when calling DataMillApi.getPhoneticCode, must be bigger than or equal to 1.');
+        }
+
+        // parse inputs
+        $resourcePath = "/phonetic/code/get";
+        $httpBody = '';
+        $queryParams = [];
+        $headerParams = [];
+        $formParams = [];
+        $_header_accept = $this->apiClient->selectHeaderAccept(['application/json']);
+        if (!is_null($_header_accept)) {
+            $headerParams['Accept'] = $_header_accept;
+        }
+        $headerParams['Content-Type'] = $this->apiClient->selectHeaderContentType(['multipart/form-data']);
+
+        // default format to json
+        $resourcePath = str_replace("{format}", "json", $resourcePath);
+
+        // form params
+        if ($text !== null) {
+            $formParams['text'] = $this->apiClient->getSerializer()->toFormValue($text);
+        }
+        // form params
+        if ($phonetic_algorithm !== null) {
+            $formParams['phonetic_algorithm'] = $this->apiClient->getSerializer()->toFormValue($phonetic_algorithm);
+        }
+        
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            $httpBody = $_tempBody; // $_tempBody is the method argument, if present
+        } elseif (count($formParams) > 0) {
+            $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
+        }
+        // make the API Call
+        try {
+            list($response, $statusCode, $httpHeader) = $this->apiClient->callApi(
+                $resourcePath,
+                'POST',
+                $queryParams,
+                $httpBody,
+                $headerParams,
+                '\DataMill\PhoneticCodeGetResponse',
+                '/phonetic/code/get'
+            );
+
+            return [$this->apiClient->getSerializer()->deserialize($response, '\DataMill\PhoneticCodeGetResponse', $httpHeader), $statusCode, $httpHeader];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\PhoneticCodeGetResponse', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorUnauthorized', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 402:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorQuotaExceeded', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorForbidden', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorNotFound', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 405:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorNotAllowed', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 412:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorIncorrectParameters', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 428:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorMissingParameters', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorInternalError', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+                case 503:
+                    $data = $this->apiClient->getSerializer()->deserialize($e->getResponseBody(), '\DataMill\ErrorServiceUnavailable', $e->getResponseHeaders());
+                    $e->setResponseObject($data);
+                    break;
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * Operation getSocialMediaActivities
      *
      * Retrieve social media data by email address
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $email The person&#39;s email address being checked on mentioned social media plattforms (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\SocialMediaActivitiesGetResponse
      */
-    public function getSocialMediaActivities($license, $guid, $email)
+    public function getSocialMediaActivities($email)
     {
-        list($response) = $this->getSocialMediaActivitiesWithHttpInfo($license, $guid, $email);
+        list($response) = $this->getSocialMediaActivitiesWithHttpInfo($email);
         return $response;
     }
 
@@ -3237,33 +2856,12 @@ class DataMillApi
      *
      * Retrieve social media data by email address
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $email The person&#39;s email address being checked on mentioned social media plattforms (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\SocialMediaActivitiesGetResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSocialMediaActivitiesWithHttpInfo($license, $guid, $email)
+    public function getSocialMediaActivitiesWithHttpInfo($email)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling getSocialMediaActivities');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.getSocialMediaActivities, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.getSocialMediaActivities, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling getSocialMediaActivities');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.getSocialMediaActivities, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'email' is set
         if ($email === null) {
             throw new \InvalidArgumentException('Missing the required parameter $email when calling getSocialMediaActivities');
@@ -3291,14 +2889,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($email !== null) {
             $formParams['email'] = $this->apiClient->getSerializer()->toFormValue($email);
         }
@@ -3308,6 +2898,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -3375,17 +2969,15 @@ class DataMillApi
      *
      * Reverse address lookup
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $latitude Latitude of the address (use a dot as decimal point) (required)
      * @param string $longitude Longitude of the address (use a dot as decimal point) (required)
      * @param string $locale The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code). (optional)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\AddressSearchResponse
      */
-    public function locateAddress($license, $guid, $latitude, $longitude, $locale = null)
+    public function locateAddress($latitude, $longitude, $locale = null)
     {
-        list($response) = $this->locateAddressWithHttpInfo($license, $guid, $latitude, $longitude, $locale);
+        list($response) = $this->locateAddressWithHttpInfo($latitude, $longitude, $locale);
         return $response;
     }
 
@@ -3394,35 +2986,14 @@ class DataMillApi
      *
      * Reverse address lookup
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $latitude Latitude of the address (use a dot as decimal point) (required)
      * @param string $longitude Longitude of the address (use a dot as decimal point) (required)
      * @param string $locale The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code). (optional)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\AddressSearchResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function locateAddressWithHttpInfo($license, $guid, $latitude, $longitude, $locale = null)
+    public function locateAddressWithHttpInfo($latitude, $longitude, $locale = null)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling locateAddress');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.locateAddress, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.locateAddress, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling locateAddress');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.locateAddress, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'latitude' is set
         if ($latitude === null) {
             throw new \InvalidArgumentException('Missing the required parameter $latitude when calling locateAddress');
@@ -3468,14 +3039,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($latitude !== null) {
             $formParams['latitude'] = $this->apiClient->getSerializer()->toFormValue($latitude);
         }
@@ -3493,6 +3056,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -3560,16 +3127,14 @@ class DataMillApi
      *
      * Resolve company information by DUNS number
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $duns_number The D-U-N-S number you are looking for detailed information (required)
      * @param string $reason_code Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\BusinessDataDunsResolveResponse
      */
-    public function resolveDUNS($license, $guid, $duns_number, $reason_code)
+    public function resolveDUNS($duns_number, $reason_code)
     {
-        list($response) = $this->resolveDUNSWithHttpInfo($license, $guid, $duns_number, $reason_code);
+        list($response) = $this->resolveDUNSWithHttpInfo($duns_number, $reason_code);
         return $response;
     }
 
@@ -3578,34 +3143,13 @@ class DataMillApi
      *
      * Resolve company information by DUNS number
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $duns_number The D-U-N-S number you are looking for detailed information (required)
      * @param string $reason_code Unique code describing the reason why you like to get detailed information about the specified company. Possible codes are:  * **1**: Credit decisions  * **2**: Credit check (intended business connection)  * **3**: Credit check (ongoing business connection)  * **4**: Debt collections  * **5**: Commercial credit insurance  * **6**: Insurance contract  * **7**: Leasing agreement  * **8**: Rental agreement (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\BusinessDataDunsResolveResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function resolveDUNSWithHttpInfo($license, $guid, $duns_number, $reason_code)
+    public function resolveDUNSWithHttpInfo($duns_number, $reason_code)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling resolveDUNS');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.resolveDUNS, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.resolveDUNS, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling resolveDUNS');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.resolveDUNS, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'duns_number' is set
         if ($duns_number === null) {
             throw new \InvalidArgumentException('Missing the required parameter $duns_number when calling resolveDUNS');
@@ -3641,14 +3185,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($duns_number !== null) {
             $formParams['duns_number'] = $this->apiClient->getSerializer()->toFormValue($duns_number);
         }
@@ -3662,6 +3198,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -3729,16 +3269,14 @@ class DataMillApi
      *
      * Try to resolve VAT number to company information
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $vatnumber The VAT number of a company within the European Union (required)
      * @param string $locale The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code). (optional)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\VatResolveResponse
      */
-    public function resolveVAT($license, $guid, $vatnumber, $locale = null)
+    public function resolveVAT($vatnumber, $locale = null)
     {
-        list($response) = $this->resolveVATWithHttpInfo($license, $guid, $vatnumber, $locale);
+        list($response) = $this->resolveVATWithHttpInfo($vatnumber, $locale);
         return $response;
     }
 
@@ -3747,34 +3285,13 @@ class DataMillApi
      *
      * Try to resolve VAT number to company information
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $vatnumber The VAT number of a company within the European Union (required)
      * @param string $locale The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code). (optional)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\VatResolveResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function resolveVATWithHttpInfo($license, $guid, $vatnumber, $locale = null)
+    public function resolveVATWithHttpInfo($vatnumber, $locale = null)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling resolveVAT');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.resolveVAT, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.resolveVAT, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling resolveVAT');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.resolveVAT, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'vatnumber' is set
         if ($vatnumber === null) {
             throw new \InvalidArgumentException('Missing the required parameter $vatnumber when calling resolveVAT');
@@ -3809,14 +3326,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($vatnumber !== null) {
             $formParams['vatnumber'] = $this->apiClient->getSerializer()->toFormValue($vatnumber);
         }
@@ -3830,6 +3339,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -3897,8 +3410,6 @@ class DataMillApi
      *
      * Lookup physical postal address
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $address Unstructured query parameter. Free-form text containing address elements (e.g. city, postal code, street, house number). Each element is separated using a whitespace. The order of the elements does not matter. You can specify the &#39;address&#39; parameter by itself or you can specify it with other parameters to narrow your search. (optional)
      * @param string $country Specify the country using the country code (ISO 3166-1 alpha-3) or the country name. (optional)
      * @param string $state First subdivision level below the country. Specify the state using full or abbreviated notation. (optional)
@@ -3912,9 +3423,9 @@ class DataMillApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\AddressSearchResponse
      */
-    public function searchAddress($license, $guid, $address = null, $country = null, $state = null, $county = null, $city = null, $zip = null, $district = null, $street = null, $housenumber = null, $locale = null)
+    public function searchAddress($address = null, $country = null, $state = null, $county = null, $city = null, $zip = null, $district = null, $street = null, $housenumber = null, $locale = null)
     {
-        list($response) = $this->searchAddressWithHttpInfo($license, $guid, $address, $country, $state, $county, $city, $zip, $district, $street, $housenumber, $locale);
+        list($response) = $this->searchAddressWithHttpInfo($address, $country, $state, $county, $city, $zip, $district, $street, $housenumber, $locale);
         return $response;
     }
 
@@ -3923,8 +3434,6 @@ class DataMillApi
      *
      * Lookup physical postal address
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $address Unstructured query parameter. Free-form text containing address elements (e.g. city, postal code, street, house number). Each element is separated using a whitespace. The order of the elements does not matter. You can specify the &#39;address&#39; parameter by itself or you can specify it with other parameters to narrow your search. (optional)
      * @param string $country Specify the country using the country code (ISO 3166-1 alpha-3) or the country name. (optional)
      * @param string $state First subdivision level below the country. Specify the state using full or abbreviated notation. (optional)
@@ -3938,27 +3447,8 @@ class DataMillApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\AddressSearchResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchAddressWithHttpInfo($license, $guid, $address = null, $country = null, $state = null, $county = null, $city = null, $zip = null, $district = null, $street = null, $housenumber = null, $locale = null)
+    public function searchAddressWithHttpInfo($address = null, $country = null, $state = null, $county = null, $city = null, $zip = null, $district = null, $street = null, $housenumber = null, $locale = null)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling searchAddress');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.searchAddress, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.searchAddress, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling searchAddress');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.searchAddress, must be bigger than or equal to 30.');
-        }
-
         if (!is_null($address) && (strlen($address) > 255)) {
             throw new \InvalidArgumentException('invalid length for "$address" when calling DataMillApi.searchAddress, must be smaller than or equal to 255.');
         }
@@ -4045,14 +3535,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($address !== null) {
             $formParams['address'] = $this->apiClient->getSerializer()->toFormValue($address);
         }
@@ -4098,6 +3580,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -4165,16 +3651,14 @@ class DataMillApi
      *
      * Address lookup with multiple possible results
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $address Free-form text containing address elements (e.g. city, postal code, street, house number). Each element is separated using a whitespace. The order of the elements does not matter. (required)
      * @param string $locale The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code). (optional)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\AddressSearchMultipleResponse
      */
-    public function searchAddressMultiple($license, $guid, $address, $locale = null)
+    public function searchAddressMultiple($address, $locale = null)
     {
-        list($response) = $this->searchAddressMultipleWithHttpInfo($license, $guid, $address, $locale);
+        list($response) = $this->searchAddressMultipleWithHttpInfo($address, $locale);
         return $response;
     }
 
@@ -4183,34 +3667,13 @@ class DataMillApi
      *
      * Address lookup with multiple possible results
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $address Free-form text containing address elements (e.g. city, postal code, street, house number). Each element is separated using a whitespace. The order of the elements does not matter. (required)
      * @param string $locale The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code). (optional)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\AddressSearchMultipleResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchAddressMultipleWithHttpInfo($license, $guid, $address, $locale = null)
+    public function searchAddressMultipleWithHttpInfo($address, $locale = null)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling searchAddressMultiple');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.searchAddressMultiple, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.searchAddressMultiple, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling searchAddressMultiple');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.searchAddressMultiple, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'address' is set
         if ($address === null) {
             throw new \InvalidArgumentException('Missing the required parameter $address when calling searchAddressMultiple');
@@ -4245,14 +3708,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($address !== null) {
             $formParams['address'] = $this->apiClient->getSerializer()->toFormValue($address);
         }
@@ -4266,6 +3721,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -4333,8 +3792,6 @@ class DataMillApi
      *
      * Find DUNS number and company information by name
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $country_code ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @param string $company_name The company name you are looking for or relevant parts of it (may be empty if the duns_number is set) (optional)
      * @param string $duns_number The D-U-N-S number you are looking for detailed information (may be empty if the company_name and country_code are set) (optional)
@@ -4345,9 +3802,9 @@ class DataMillApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\BusinessDataDunsSearchResponse
      */
-    public function searchDUNS($license, $guid, $country_code, $company_name = null, $duns_number = null, $state = null, $city = null, $zip = null, $street = null)
+    public function searchDUNS($country_code, $company_name = null, $duns_number = null, $state = null, $city = null, $zip = null, $street = null)
     {
-        list($response) = $this->searchDUNSWithHttpInfo($license, $guid, $country_code, $company_name, $duns_number, $state, $city, $zip, $street);
+        list($response) = $this->searchDUNSWithHttpInfo($country_code, $company_name, $duns_number, $state, $city, $zip, $street);
         return $response;
     }
 
@@ -4356,8 +3813,6 @@ class DataMillApi
      *
      * Find DUNS number and company information by name
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $country_code ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
      * @param string $company_name The company name you are looking for or relevant parts of it (may be empty if the duns_number is set) (optional)
      * @param string $duns_number The D-U-N-S number you are looking for detailed information (may be empty if the company_name and country_code are set) (optional)
@@ -4368,27 +3823,8 @@ class DataMillApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\BusinessDataDunsSearchResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchDUNSWithHttpInfo($license, $guid, $country_code, $company_name = null, $duns_number = null, $state = null, $city = null, $zip = null, $street = null)
+    public function searchDUNSWithHttpInfo($country_code, $company_name = null, $duns_number = null, $state = null, $city = null, $zip = null, $street = null)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling searchDUNS');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.searchDUNS, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.searchDUNS, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling searchDUNS');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.searchDUNS, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'country_code' is set
         if ($country_code === null) {
             throw new \InvalidArgumentException('Missing the required parameter $country_code when calling searchDUNS');
@@ -4458,14 +3894,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($company_name !== null) {
             $formParams['company_name'] = $this->apiClient->getSerializer()->toFormValue($company_name);
         }
@@ -4499,6 +3927,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -4566,8 +3998,6 @@ class DataMillApi
      *
      * Find moved and deceased contacts
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $first_name The person&#39;s first name (required)
      * @param string $last_name The person&#39;s last name (required)
      * @param string $country_code ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
@@ -4577,9 +4007,9 @@ class DataMillApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\BusinessDataUndeliverableContactsResponse
      */
-    public function searchUndeliverableContact($license, $guid, $first_name, $last_name, $country_code, $zip, $street, $reason)
+    public function searchUndeliverableContact($first_name, $last_name, $country_code, $zip, $street, $reason)
     {
-        list($response) = $this->searchUndeliverableContactWithHttpInfo($license, $guid, $first_name, $last_name, $country_code, $zip, $street, $reason);
+        list($response) = $this->searchUndeliverableContactWithHttpInfo($first_name, $last_name, $country_code, $zip, $street, $reason);
         return $response;
     }
 
@@ -4588,8 +4018,6 @@ class DataMillApi
      *
      * Find moved and deceased contacts
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $first_name The person&#39;s first name (required)
      * @param string $last_name The person&#39;s last name (required)
      * @param string $country_code ISO 3166-1 alpha-2 country code e.g. &#39;US&#39;. Please see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for further information. (required)
@@ -4599,27 +4027,8 @@ class DataMillApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\BusinessDataUndeliverableContactsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchUndeliverableContactWithHttpInfo($license, $guid, $first_name, $last_name, $country_code, $zip, $street, $reason)
+    public function searchUndeliverableContactWithHttpInfo($first_name, $last_name, $country_code, $zip, $street, $reason)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling searchUndeliverableContact');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.searchUndeliverableContact, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.searchUndeliverableContact, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling searchUndeliverableContact');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.searchUndeliverableContact, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'first_name' is set
         if ($first_name === null) {
             throw new \InvalidArgumentException('Missing the required parameter $first_name when calling searchUndeliverableContact');
@@ -4702,14 +4111,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($first_name !== null) {
             $formParams['first_name'] = $this->apiClient->getSerializer()->toFormValue($first_name);
         }
@@ -4739,6 +4140,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -4806,8 +4211,6 @@ class DataMillApi
      *
      * Find VAT number and company information by name
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $company The name of an company. You may enter the fully qualified name or only partial information. (required)
      * @param string $city The city where the company&#39;s headquarters is located. (optional)
      * @param string $country_code ISO 3166-1 alpha-2 country code to specify in which country to look for. Possible countries are: **AT, BE, CZ, DK, FI, GB, GR, HU, IT, LU, MT, SI** (optional)
@@ -4816,9 +4219,9 @@ class DataMillApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\VatSearchResponse
      */
-    public function searchVAT($license, $guid, $company, $city = null, $country_code = null, $limit = null, $min_score = null)
+    public function searchVAT($company, $city = null, $country_code = null, $limit = null, $min_score = null)
     {
-        list($response) = $this->searchVATWithHttpInfo($license, $guid, $company, $city, $country_code, $limit, $min_score);
+        list($response) = $this->searchVATWithHttpInfo($company, $city, $country_code, $limit, $min_score);
         return $response;
     }
 
@@ -4827,8 +4230,6 @@ class DataMillApi
      *
      * Find VAT number and company information by name
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $company The name of an company. You may enter the fully qualified name or only partial information. (required)
      * @param string $city The city where the company&#39;s headquarters is located. (optional)
      * @param string $country_code ISO 3166-1 alpha-2 country code to specify in which country to look for. Possible countries are: **AT, BE, CZ, DK, FI, GB, GR, HU, IT, LU, MT, SI** (optional)
@@ -4837,27 +4238,8 @@ class DataMillApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\VatSearchResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchVATWithHttpInfo($license, $guid, $company, $city = null, $country_code = null, $limit = null, $min_score = null)
+    public function searchVATWithHttpInfo($company, $city = null, $country_code = null, $limit = null, $min_score = null)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling searchVAT');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.searchVAT, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling DataMillApi.searchVAT, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling searchVAT');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling DataMillApi.searchVAT, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'company' is set
         if ($company === null) {
             throw new \InvalidArgumentException('Missing the required parameter $company when calling searchVAT');
@@ -4913,14 +4295,6 @@ class DataMillApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($company !== null) {
             $formParams['company'] = $this->apiClient->getSerializer()->toFormValue($company);
         }
@@ -4946,6 +4320,10 @@ class DataMillApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {

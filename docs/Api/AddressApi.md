@@ -1,6 +1,6 @@
 # DataMill\AddressApi
 
-All URIs are relative to *https://api.methis.at*
+All URIs are relative to *https://api-beta.methis.at*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,25 +11,27 @@ Method | HTTP request | Description
 
 
 # **extractHouseNumber**
-> \DataMill\AddressHouseNumberExtractResponse extractHouseNumber($license, $guid, $street, $housenumber)
+> \DataMill\AddressHouseNumberExtractResponse extractHouseNumber($street, $housenumber)
 
 Try to extract house number from street information
 
-Find and extract the house number based on partial address information. The result is an extracted street name, house number and additional house number information (e.g. Apartment, Floor, Room).
+Find and extract the house number based on partial address information. The result is an extracted street name, house number and additional house number information (e.g. Apartment, Floor, Room). It is necessary to provide street and housenumber, either in street field or separated in street and house number field.
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\AddressApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $street = "street_example"; // string | Free-form text containing the street name and optional the house number including additional house number information. The key is required if housenumber is empty or unset.
 $housenumber = "housenumber_example"; // string | Free-form text containing the house number including additional house number information and optional the street name. The key is required if street is empty or unset.
 
 try {
-    $result = $api_instance->extractHouseNumber($license, $guid, $street, $housenumber);
+    $result = $api_instance->extractHouseNumber($street, $housenumber);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AddressApi->extractHouseNumber: ', $e->getMessage(), PHP_EOL;
@@ -41,8 +43,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **street** | **string**| Free-form text containing the street name and optional the house number including additional house number information. The key is required if housenumber is empty or unset. | [optional]
  **housenumber** | **string**| Free-form text containing the house number including additional house number information and optional the street name. The key is required if street is empty or unset. | [optional]
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -62,7 +62,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **locateAddress**
-> \DataMill\AddressSearchResponse locateAddress($license, $guid, $latitude, $longitude, $locale)
+> \DataMill\AddressSearchResponse locateAddress($latitude, $longitude, $locale)
 
 Reverse address lookup
 
@@ -73,15 +73,17 @@ Resolve an address corresponding to a given geo-coordinate. The result is a sing
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\AddressApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $latitude = "latitude_example"; // string | Latitude of the address (use a dot as decimal point)
 $longitude = "longitude_example"; // string | Longitude of the address (use a dot as decimal point)
 $locale = "locale_example"; // string | The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code).
 
 try {
-    $result = $api_instance->locateAddress($license, $guid, $latitude, $longitude, $locale);
+    $result = $api_instance->locateAddress($latitude, $longitude, $locale);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AddressApi->locateAddress: ', $e->getMessage(), PHP_EOL;
@@ -93,8 +95,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **latitude** | **string**| Latitude of the address (use a dot as decimal point) |
  **longitude** | **string**| Longitude of the address (use a dot as decimal point) |
  **locale** | **string**| The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code). | [optional]
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -115,7 +115,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchAddress**
-> \DataMill\AddressSearchResponse searchAddress($license, $guid, $address, $country, $state, $county, $city, $zip, $district, $street, $housenumber, $locale)
+> \DataMill\AddressSearchResponse searchAddress($address, $country, $state, $county, $city, $zip, $district, $street, $housenumber, $locale)
 
 Lookup physical postal address
 
@@ -126,9 +126,11 @@ Find geo-location based on unstructured (single-line entry, un-qualified) or bas
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\AddressApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $address = "address_example"; // string | Unstructured query parameter. Free-form text containing address elements (e.g. city, postal code, street, house number). Each element is separated using a whitespace. The order of the elements does not matter. You can specify the 'address' parameter by itself or you can specify it with other parameters to narrow your search.
 $country = "country_example"; // string | Specify the country using the country code (ISO 3166-1 alpha-3) or the country name.
 $state = "state_example"; // string | First subdivision level below the country. Specify the state using full or abbreviated notation.
@@ -141,7 +143,7 @@ $housenumber = "housenumber_example"; // string | The house number or building n
 $locale = "locale_example"; // string | The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code).
 
 try {
-    $result = $api_instance->searchAddress($license, $guid, $address, $country, $state, $county, $city, $zip, $district, $street, $housenumber, $locale);
+    $result = $api_instance->searchAddress($address, $country, $state, $county, $city, $zip, $district, $street, $housenumber, $locale);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AddressApi->searchAddress: ', $e->getMessage(), PHP_EOL;
@@ -153,8 +155,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **address** | **string**| Unstructured query parameter. Free-form text containing address elements (e.g. city, postal code, street, house number). Each element is separated using a whitespace. The order of the elements does not matter. You can specify the &#39;address&#39; parameter by itself or you can specify it with other parameters to narrow your search. | [optional]
  **country** | **string**| Specify the country using the country code (ISO 3166-1 alpha-3) or the country name. | [optional]
  **state** | **string**| First subdivision level below the country. Specify the state using full or abbreviated notation. | [optional]
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -182,7 +182,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchAddressMultiple**
-> \DataMill\AddressSearchMultipleResponse searchAddressMultiple($license, $guid, $address, $locale)
+> \DataMill\AddressSearchMultipleResponse searchAddressMultiple($address, $locale)
 
 Address lookup with multiple possible results
 
@@ -193,14 +193,16 @@ Find multiple geo-locations based on unstructured (single-line entry, un-qualifi
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\AddressApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $address = "address_example"; // string | Free-form text containing address elements (e.g. city, postal code, street, house number). Each element is separated using a whitespace. The order of the elements does not matter.
 $locale = "locale_example"; // string | The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code).
 
 try {
-    $result = $api_instance->searchAddressMultiple($license, $guid, $address, $locale);
+    $result = $api_instance->searchAddressMultiple($address, $locale);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AddressApi->searchAddressMultiple: ', $e->getMessage(), PHP_EOL;
@@ -212,8 +214,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **address** | **string**| Free-form text containing address elements (e.g. city, postal code, street, house number). Each element is separated using a whitespace. The order of the elements does not matter. |
  **locale** | **string**| The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code). | [optional]
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 

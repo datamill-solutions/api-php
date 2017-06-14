@@ -555,7 +555,7 @@ class UrlCheckResponse implements ArrayAccess
 
     /**
      * Sets download_content_length
-     * @param int $download_content_length Number of bytes to download from the resource (-1 means no information available)
+     * @param int $download_content_length Number of bytes to download from the resource (-1 means no information available; will be removed in future versions / deprecated)
      * @return $this
      */
     public function setDownloadContentLength($download_content_length)

@@ -1,6 +1,6 @@
 # DataMill\BICApi
 
-All URIs are relative to *https://api.methis.at*
+All URIs are relative to *https://api-beta.methis.at*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **checkBIC**
-> \DataMill\BicCheckResponse checkBIC($license, $guid, $bic)
+> \DataMill\BicCheckResponse checkBIC($bic)
 
 Check BIC for spelling
 
@@ -19,13 +19,15 @@ Checks the spelling of a given BIC (Business Identifier Code), also known as SWI
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\BICApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $bic = "bic_example"; // string | BIC to be checked
 
 try {
-    $result = $api_instance->checkBIC($license, $guid, $bic);
+    $result = $api_instance->checkBIC($bic);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BICApi->checkBIC: ', $e->getMessage(), PHP_EOL;
@@ -37,8 +39,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **bic** | **string**| BIC to be checked |
 
 ### Return type
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 

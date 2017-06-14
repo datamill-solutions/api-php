@@ -58,14 +58,16 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\AddressApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $street = "street_example"; // string | Free-form text containing the street name and optional the house number including additional house number information. The key is required if housenumber is empty or unset.
 $housenumber = "housenumber_example"; // string | Free-form text containing the house number including additional house number information and optional the street name. The key is required if street is empty or unset.
 
 try {
-    $result = $api_instance->extractHouseNumber($license, $guid, $street, $housenumber);
+    $result = $api_instance->extractHouseNumber($street, $housenumber);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AddressApi->extractHouseNumber: ', $e->getMessage(), PHP_EOL;
@@ -76,7 +78,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.methis.at*
+All URIs are relative to *https://api-beta.methis.at*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -89,6 +91,7 @@ Class | Method | HTTP request | Description
 *ConvertApi* | [**convertLowerCase**](docs/Api/ConvertApi.md#convertlowercase) | **POST** /convert/lowercase | Convert any string to lower case
 *ConvertApi* | [**convertUpperCase**](docs/Api/ConvertApi.md#convertuppercase) | **POST** /convert/uppercase | Convert any string to upper case
 *ConvertApi* | [**convertWrap**](docs/Api/ConvertApi.md#convertwrap) | **POST** /convert/wrap | Wrap text
+*ConvertApi* | [**getPhoneticCode**](docs/Api/ConvertApi.md#getphoneticcode) | **POST** /phonetic/code/get | Calculate phonetic codes of a given text
 *DUNSApi* | [**getDUNSRating**](docs/Api/DUNSApi.md#getdunsrating) | **POST** /business-data/duns/rating | Get marketing information by DUNS number
 *DUNSApi* | [**resolveDUNS**](docs/Api/DUNSApi.md#resolveduns) | **POST** /business-data/duns/resolve | Resolve company information by DUNS number
 *DUNSApi* | [**searchDUNS**](docs/Api/DUNSApi.md#searchduns) | **POST** /business-data/duns/search | Find DUNS number and company information by name
@@ -111,6 +114,7 @@ Class | Method | HTTP request | Description
 *DataMillApi* | [**getGender**](docs/Api/DataMillApi.md#getgender) | **POST** /gender/get | Recognize gender by first name
 *DataMillApi* | [**getGenderExtended**](docs/Api/DataMillApi.md#getgenderextended) | **POST** /gender/extended/get | Recognize gender by first name (advanced)
 *DataMillApi* | [**getPhoneCountryCode**](docs/Api/DataMillApi.md#getphonecountrycode) | **POST** /phone/countrycode/get | International and national dial prefix
+*DataMillApi* | [**getPhoneticCode**](docs/Api/DataMillApi.md#getphoneticcode) | **POST** /phonetic/code/get | Calculate phonetic codes of a given text
 *DataMillApi* | [**getSocialMediaActivities**](docs/Api/DataMillApi.md#getsocialmediaactivities) | **POST** /social-media/activities/get | Retrieve social media data by email address
 *DataMillApi* | [**locateAddress**](docs/Api/DataMillApi.md#locateaddress) | **POST** /address/locate | Reverse address lookup
 *DataMillApi* | [**resolveDUNS**](docs/Api/DataMillApi.md#resolveduns) | **POST** /business-data/duns/resolve | Resolve company information by DUNS number
@@ -173,6 +177,7 @@ Class | Method | HTTP request | Description
  - [PhoneCountryCodeGetResponse](docs/Model/PhoneCountryCodeGetResponse.md)
  - [PhoneFormatResponse](docs/Model/PhoneFormatResponse.md)
  - [PhoneMobileCheckResponse](docs/Model/PhoneMobileCheckResponse.md)
+ - [PhoneticCodeGetResponse](docs/Model/PhoneticCodeGetResponse.md)
  - [SocialMediaActivitiesGetEducation](docs/Model/SocialMediaActivitiesGetEducation.md)
  - [SocialMediaActivitiesGetEmployment](docs/Model/SocialMediaActivitiesGetEmployment.md)
  - [SocialMediaActivitiesGetFacebook](docs/Model/SocialMediaActivitiesGetFacebook.md)
@@ -195,7 +200,10 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
- All endpoints do not require authorization.
+
+## APISecurity
+
+- **Type**: HTTP basic authentication
 
 
 ## Author

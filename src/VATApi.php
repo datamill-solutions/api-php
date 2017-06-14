@@ -72,7 +72,7 @@ class VATApi
     {
         if ($apiClient === null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://api.methis.at');
+            $apiClient->getConfig()->setHost('https://api-beta.methis.at');
         }
 
         $this->apiClient = $apiClient;
@@ -106,15 +106,13 @@ class VATApi
      *
      * Check vat number for correctness
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $vatnumber The VAT number of a company within the European Union (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\VatCheckResponse
      */
-    public function checkVAT($license, $guid, $vatnumber)
+    public function checkVAT($vatnumber)
     {
-        list($response) = $this->checkVATWithHttpInfo($license, $guid, $vatnumber);
+        list($response) = $this->checkVATWithHttpInfo($vatnumber);
         return $response;
     }
 
@@ -123,33 +121,12 @@ class VATApi
      *
      * Check vat number for correctness
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $vatnumber The VAT number of a company within the European Union (required)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\VatCheckResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function checkVATWithHttpInfo($license, $guid, $vatnumber)
+    public function checkVATWithHttpInfo($vatnumber)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling checkVAT');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling VATApi.checkVAT, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling VATApi.checkVAT, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling checkVAT');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling VATApi.checkVAT, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'vatnumber' is set
         if ($vatnumber === null) {
             throw new \InvalidArgumentException('Missing the required parameter $vatnumber when calling checkVAT');
@@ -177,14 +154,6 @@ class VATApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($vatnumber !== null) {
             $formParams['vatnumber'] = $this->apiClient->getSerializer()->toFormValue($vatnumber);
         }
@@ -194,6 +163,10 @@ class VATApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -261,16 +234,14 @@ class VATApi
      *
      * Try to resolve VAT number to company information
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $vatnumber The VAT number of a company within the European Union (required)
      * @param string $locale The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code). (optional)
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\VatResolveResponse
      */
-    public function resolveVAT($license, $guid, $vatnumber, $locale = null)
+    public function resolveVAT($vatnumber, $locale = null)
     {
-        list($response) = $this->resolveVATWithHttpInfo($license, $guid, $vatnumber, $locale);
+        list($response) = $this->resolveVATWithHttpInfo($vatnumber, $locale);
         return $response;
     }
 
@@ -279,34 +250,13 @@ class VATApi
      *
      * Try to resolve VAT number to company information
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $vatnumber The VAT number of a company within the European Union (required)
      * @param string $locale The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code). (optional)
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\VatResolveResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function resolveVATWithHttpInfo($license, $guid, $vatnumber, $locale = null)
+    public function resolveVATWithHttpInfo($vatnumber, $locale = null)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling resolveVAT');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling VATApi.resolveVAT, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling VATApi.resolveVAT, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling resolveVAT');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling VATApi.resolveVAT, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'vatnumber' is set
         if ($vatnumber === null) {
             throw new \InvalidArgumentException('Missing the required parameter $vatnumber when calling resolveVAT');
@@ -341,14 +291,6 @@ class VATApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($vatnumber !== null) {
             $formParams['vatnumber'] = $this->apiClient->getSerializer()->toFormValue($vatnumber);
         }
@@ -362,6 +304,10 @@ class VATApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {
@@ -429,8 +375,6 @@ class VATApi
      *
      * Find VAT number and company information by name
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $company The name of an company. You may enter the fully qualified name or only partial information. (required)
      * @param string $city The city where the company&#39;s headquarters is located. (optional)
      * @param string $country_code ISO 3166-1 alpha-2 country code to specify in which country to look for. Possible countries are: **AT, BE, CZ, DK, FI, GB, GR, HU, IT, LU, MT, SI** (optional)
@@ -439,9 +383,9 @@ class VATApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return \DataMill\VatSearchResponse
      */
-    public function searchVAT($license, $guid, $company, $city = null, $country_code = null, $limit = null, $min_score = null)
+    public function searchVAT($company, $city = null, $country_code = null, $limit = null, $min_score = null)
     {
-        list($response) = $this->searchVATWithHttpInfo($license, $guid, $company, $city, $country_code, $limit, $min_score);
+        list($response) = $this->searchVATWithHttpInfo($company, $city, $country_code, $limit, $min_score);
         return $response;
     }
 
@@ -450,8 +394,6 @@ class VATApi
      *
      * Find VAT number and company information by name
      *
-     * @param string $license The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
-     * @param string $guid The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. (required)
      * @param string $company The name of an company. You may enter the fully qualified name or only partial information. (required)
      * @param string $city The city where the company&#39;s headquarters is located. (optional)
      * @param string $country_code ISO 3166-1 alpha-2 country code to specify in which country to look for. Possible countries are: **AT, BE, CZ, DK, FI, GB, GR, HU, IT, LU, MT, SI** (optional)
@@ -460,27 +402,8 @@ class VATApi
      * @throws \DataMill\ApiException on non-2xx response
      * @return array of \DataMill\VatSearchResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchVATWithHttpInfo($license, $guid, $company, $city = null, $country_code = null, $limit = null, $min_score = null)
+    public function searchVATWithHttpInfo($company, $city = null, $country_code = null, $limit = null, $min_score = null)
     {
-        // verify the required parameter 'license' is set
-        if ($license === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $license when calling searchVAT');
-        }
-        if ((strlen($license) > 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling VATApi.searchVAT, must be smaller than or equal to 29.');
-        }
-        if ((strlen($license) < 29)) {
-            throw new \InvalidArgumentException('invalid length for "$license" when calling VATApi.searchVAT, must be bigger than or equal to 29.');
-        }
-
-        // verify the required parameter 'guid' is set
-        if ($guid === null) {
-            throw new \InvalidArgumentException('Missing the required parameter $guid when calling searchVAT');
-        }
-        if ((strlen($guid) < 30)) {
-            throw new \InvalidArgumentException('invalid length for "$guid" when calling VATApi.searchVAT, must be bigger than or equal to 30.');
-        }
-
         // verify the required parameter 'company' is set
         if ($company === null) {
             throw new \InvalidArgumentException('Missing the required parameter $company when calling searchVAT');
@@ -536,14 +459,6 @@ class VATApi
         $resourcePath = str_replace("{format}", "json", $resourcePath);
 
         // form params
-        if ($license !== null) {
-            $formParams['license'] = $this->apiClient->getSerializer()->toFormValue($license);
-        }
-        // form params
-        if ($guid !== null) {
-            $formParams['guid'] = $this->apiClient->getSerializer()->toFormValue($guid);
-        }
-        // form params
         if ($company !== null) {
             $formParams['company'] = $this->apiClient->getSerializer()->toFormValue($company);
         }
@@ -569,6 +484,10 @@ class VATApi
             $httpBody = $_tempBody; // $_tempBody is the method argument, if present
         } elseif (count($formParams) > 0) {
             $httpBody = $formParams; // for HTTP post (form)
+        }
+        // this endpoint requires HTTP basic authentication
+        if (strlen($this->apiClient->getConfig()->getUsername()) !== 0 or strlen($this->apiClient->getConfig()->getPassword()) !== 0) {
+            $headerParams['Authorization'] = 'Basic ' . base64_encode($this->apiClient->getConfig()->getUsername() . ":" . $this->apiClient->getConfig()->getPassword());
         }
         // make the API Call
         try {

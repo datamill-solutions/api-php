@@ -1,6 +1,6 @@
 # DataMill\ConvertApi
 
-All URIs are relative to *https://api.methis.at*
+All URIs are relative to *https://api-beta.methis.at*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,10 +8,11 @@ Method | HTTP request | Description
 [**convertLowerCase**](ConvertApi.md#convertLowerCase) | **POST** /convert/lowercase | Convert any string to lower case
 [**convertUpperCase**](ConvertApi.md#convertUpperCase) | **POST** /convert/uppercase | Convert any string to upper case
 [**convertWrap**](ConvertApi.md#convertWrap) | **POST** /convert/wrap | Wrap text
+[**getPhoneticCode**](ConvertApi.md#getPhoneticCode) | **POST** /phonetic/code/get | Calculate phonetic codes of a given text
 
 
 # **convertCapitalFirst**
-> \DataMill\ConvertCapitalFirstResponse convertCapitalFirst($license, $guid, $text)
+> \DataMill\ConvertCapitalFirstResponse convertCapitalFirst($text)
 
 Convert any string to capitalize words
 
@@ -22,13 +23,15 @@ Changes any word of a given text so that the first letter is capitalized and all
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\ConvertApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $text = "text_example"; // string | Free-form text to be converted.
 
 try {
-    $result = $api_instance->convertCapitalFirst($license, $guid, $text);
+    $result = $api_instance->convertCapitalFirst($text);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ConvertApi->convertCapitalFirst: ', $e->getMessage(), PHP_EOL;
@@ -40,8 +43,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **text** | **string**| Free-form text to be converted. |
 
 ### Return type
@@ -50,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -60,7 +61,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **convertLowerCase**
-> \DataMill\ConvertLowerCaseResponse convertLowerCase($license, $guid, $text)
+> \DataMill\ConvertLowerCaseResponse convertLowerCase($text)
 
 Convert any string to lower case
 
@@ -71,13 +72,15 @@ Converts all letters of any word in a given string in the respective lowercase.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\ConvertApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $text = "text_example"; // string | Free-form text to be converted.
 
 try {
-    $result = $api_instance->convertLowerCase($license, $guid, $text);
+    $result = $api_instance->convertLowerCase($text);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ConvertApi->convertLowerCase: ', $e->getMessage(), PHP_EOL;
@@ -89,8 +92,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **text** | **string**| Free-form text to be converted. |
 
 ### Return type
@@ -99,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -109,7 +110,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **convertUpperCase**
-> \DataMill\ConvertUpperCaseResponse convertUpperCase($license, $guid, $text)
+> \DataMill\ConvertUpperCaseResponse convertUpperCase($text)
 
 Convert any string to upper case
 
@@ -120,13 +121,15 @@ Converts all letters of any word in a given string in the respective capital.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\ConvertApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $text = "text_example"; // string | Free-form text to be converted.
 
 try {
-    $result = $api_instance->convertUpperCase($license, $guid, $text);
+    $result = $api_instance->convertUpperCase($text);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ConvertApi->convertUpperCase: ', $e->getMessage(), PHP_EOL;
@@ -138,8 +141,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **text** | **string**| Free-form text to be converted. |
 
 ### Return type
@@ -148,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -158,7 +159,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **convertWrap**
-> \DataMill\ConvertWrapResponse convertWrap($license, $guid, $text, $limit, $mode, $linebreak)
+> \DataMill\ConvertWrapResponse convertWrap($text, $limit, $mode, $linebreak)
 
 Wrap text
 
@@ -169,16 +170,18 @@ Breaks a text into multiple newlines. Each line will be separated by a \\r (CR, 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\ConvertApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $text = "text_example"; // string | Fre-form text to be wrapped.
 $limit = 56; // int | The number of characters a linefeed will be inserted after (maximum character length per line).
 $mode = "mode_example"; // string | The mode how the linefeed will be inserted. Either before (default) the current word, after the current word or exactly after the character. Possible values are **before** to break before last word, **after** to break after last word, **exact** to break at limit.
 $linebreak = "linebreak_example"; // string | Defines which line separator should be used. Possible values are **full** for *\\r\\n*, **single** for *\\n*, **html** for *&lt;br&gt;*
 
 try {
-    $result = $api_instance->convertWrap($license, $guid, $text, $limit, $mode, $linebreak);
+    $result = $api_instance->convertWrap($text, $limit, $mode, $linebreak);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ConvertApi->convertWrap: ', $e->getMessage(), PHP_EOL;
@@ -190,8 +193,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **text** | **string**| Fre-form text to be wrapped. |
  **limit** | **int**| The number of characters a linefeed will be inserted after (maximum character length per line). |
  **mode** | **string**| The mode how the linefeed will be inserted. Either before (default) the current word, after the current word or exactly after the character. Possible values are **before** to break before last word, **after** to break after last word, **exact** to break at limit. | [optional]
@@ -203,7 +204,58 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getPhoneticCode**
+> \DataMill\PhoneticCodeGetResponse getPhoneticCode($text, $phonetic_algorithm)
+
+Calculate phonetic codes of a given text
+
+Get the phonetic code of a given text. Currently three phonetic algorithms are available:  * **Soundex** (algorithm code 1)  * **Colcogne Phonetic** (algorithm code 2)  * **Metaphon** (algorithm code 3)
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
+$api_instance = new DataMill\Api\ConvertApi();
+$text = "text_example"; // string | The text which should be converted. Each word will be converted separatly and generate a single entry in the result.
+$phonetic_algorithm = 56; // int | The phonetic algorithm which should be applied. If no algorithm code will be provided **Soundex** will be used. Codes:  * 1 = Soundex  * 2 = Colcogne Phonetic  * 3 = Metaphon
+
+try {
+    $result = $api_instance->getPhoneticCode($text, $phonetic_algorithm);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConvertApi->getPhoneticCode: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **text** | **string**| The text which should be converted. Each word will be converted separatly and generate a single entry in the result. |
+ **phonetic_algorithm** | **int**| The phonetic algorithm which should be applied. If no algorithm code will be provided **Soundex** will be used. Codes:  * 1 &#x3D; Soundex  * 2 &#x3D; Colcogne Phonetic  * 3 &#x3D; Metaphon | [optional]
+
+### Return type
+
+[**\DataMill\PhoneticCodeGetResponse**](../Model/PhoneticCodeGetResponse.md)
+
+### Authorization
+
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 

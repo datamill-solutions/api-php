@@ -1,6 +1,6 @@
 # DataMill\VATApi
 
-All URIs are relative to *https://api.methis.at*
+All URIs are relative to *https://api-beta.methis.at*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **checkVAT**
-> \DataMill\VatCheckResponse checkVAT($license, $guid, $vatnumber)
+> \DataMill\VatCheckResponse checkVAT($vatnumber)
 
 Check vat number for correctness
 
@@ -21,13 +21,15 @@ Checks if a given VAT (Value Added Tax) identification number is valid or not. O
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\VATApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $vatnumber = "vatnumber_example"; // string | The VAT number of a company within the European Union
 
 try {
-    $result = $api_instance->checkVAT($license, $guid, $vatnumber);
+    $result = $api_instance->checkVAT($vatnumber);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VATApi->checkVAT: ', $e->getMessage(), PHP_EOL;
@@ -39,8 +41,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **vatnumber** | **string**| The VAT number of a company within the European Union |
 
 ### Return type
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -59,7 +59,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **resolveVAT**
-> \DataMill\VatResolveResponse resolveVAT($license, $guid, $vatnumber, $locale)
+> \DataMill\VatResolveResponse resolveVAT($vatnumber, $locale)
 
 Try to resolve VAT number to company information
 
@@ -70,14 +70,16 @@ Resolves company information (company name and postal address) based on the comp
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\VATApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $vatnumber = "vatnumber_example"; // string | The VAT number of a company within the European Union
 $locale = "locale_example"; // string | The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code).
 
 try {
-    $result = $api_instance->resolveVAT($license, $guid, $vatnumber, $locale);
+    $result = $api_instance->resolveVAT($vatnumber, $locale);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VATApi->resolveVAT: ', $e->getMessage(), PHP_EOL;
@@ -89,8 +91,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **vatnumber** | **string**| The VAT number of a company within the European Union |
  **locale** | **string**| The preferred language of address elements in the result. The locale must be provided according to RFC 4647 standard (language code). | [optional]
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
@@ -110,7 +110,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchVAT**
-> \DataMill\VatSearchResponse searchVAT($license, $guid, $company, $city, $country_code, $limit, $min_score)
+> \DataMill\VatSearchResponse searchVAT($company, $city, $country_code, $limit, $min_score)
 
 Find VAT number and company information by name
 
@@ -121,9 +121,11 @@ Finds the VAT number and additional company information by the company's name an
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Configure HTTP basic authorization: APISecurity
+DataMill\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERNAME');
+DataMill\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
+
 $api_instance = new DataMill\Api\VATApi();
-$license = "license_example"; // string | The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
-$guid = "guid_example"; // string | The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request.
 $company = "company_example"; // string | The name of an company. You may enter the fully qualified name or only partial information.
 $city = "city_example"; // string | The city where the company's headquarters is located.
 $country_code = "country_code_example"; // string | ISO 3166-1 alpha-2 country code to specify in which country to look for. Possible countries are: **AT, BE, CZ, DK, FI, GB, GR, HU, IT, LU, MT, SI**
@@ -131,7 +133,7 @@ $limit = "10"; // string | The maximum amount of results returned if multiple co
 $min_score = "0.8"; // string | Threshold to set the minimum score rate of results being returned. Default: **0.8**
 
 try {
-    $result = $api_instance->searchVAT($license, $guid, $company, $city, $country_code, $limit, $min_score);
+    $result = $api_instance->searchVAT($company, $city, $country_code, $limit, $min_score);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VATApi->searchVAT: ', $e->getMessage(), PHP_EOL;
@@ -143,8 +145,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **license** | **string**| The license key is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
- **guid** | **string**| The guid is part of the authentication key pair consisting of license and guid (global unique identifier). These two keys are used as your personal API keys. Note that every API request requires both keys, so you will need to include them in each request. |
  **company** | **string**| The name of an company. You may enter the fully qualified name or only partial information. |
  **city** | **string**| The city where the company&#39;s headquarters is located. | [optional]
  **country_code** | **string**| ISO 3166-1 alpha-2 country code to specify in which country to look for. Possible countries are: **AT, BE, CZ, DK, FI, GB, GR, HU, IT, LU, MT, SI** | [optional]
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[APISecurity](../../README.md#APISecurity)
 
 ### HTTP request headers
 
