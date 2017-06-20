@@ -72,7 +72,7 @@ class BICApi
     {
         if ($apiClient === null) {
             $apiClient = new ApiClient();
-            $apiClient->getConfig()->setHost('https://api-beta.methis.at');
+            $apiClient->getConfig()->setHost('https://api.methis.at');
         }
 
         $this->apiClient = $apiClient;

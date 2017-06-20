@@ -101,7 +101,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https://api-beta.methis.at';
+    protected $host = 'https://api.methis.at';
 
     /**
      * Timeout (second) of the HTTP request, by default set to 0, no timeout
