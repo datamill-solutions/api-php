@@ -199,6 +199,7 @@ class SocialMediaActivitiesGetResponse implements ArrayAccess
     const STATUS_1 = 1;
     const STATUS_MINUS_1 = -1;
     const STATUS_MINUS_2 = -2;
+    const STATUS_MINUS_3 = -3;
     
 
     
@@ -212,6 +213,7 @@ class SocialMediaActivitiesGetResponse implements ArrayAccess
             self::STATUS_1,
             self::STATUS_MINUS_1,
             self::STATUS_MINUS_2,
+            self::STATUS_MINUS_3,
         ];
     }
     
@@ -262,9 +264,9 @@ class SocialMediaActivitiesGetResponse implements ArrayAccess
         if ($this->container['status'] === null) {
             $invalid_properties[] = "'status' can't be null";
         }
-        $allowed_values = ["1", "-1", "-2"];
+        $allowed_values = ["1", "-1", "-2", "-3"];
         if (!in_array($this->container['status'], $allowed_values)) {
-            $invalid_properties[] = "invalid value for 'status', must be one of '1', '-1', '-2'.";
+            $invalid_properties[] = "invalid value for 'status', must be one of '1', '-1', '-2', '-3'.";
         }
 
         if ($this->container['status_description'] === null) {
@@ -284,7 +286,7 @@ class SocialMediaActivitiesGetResponse implements ArrayAccess
         if ($this->container['status'] === null) {
             return false;
         }
-        $allowed_values = ["1", "-1", "-2"];
+        $allowed_values = ["1", "-1", "-2", "-3"];
         if (!in_array($this->container['status'], $allowed_values)) {
             return false;
         }
@@ -306,14 +308,14 @@ class SocialMediaActivitiesGetResponse implements ArrayAccess
 
     /**
      * Sets status
-     * @param int $status Unique status code describing the response  * **1**: Social media activities found and present in the response,  * **-1**: No social media activities found for the requested email address (in this case all following response keys except the status_description are not present),  * **-2**: Your requested is queued and a response will be available within the next 12 hours (in this case all following response keys except the status_description are not present)
+     * @param int $status Unique status code describing the response  * **1**: Social media activities found and present in the response,  * **-1**: No social media activities found for the requested email address (in this case all following response keys except the status_description are not present),  * **-2**: Your request is queued and a response will be available within the next 12 hours (in this case all following response keys except the status_description are not present),  * **-3**: Your requested email address is invalid (please check that the email is url encoded).
      * @return $this
      */
     public function setStatus($status)
     {
-        $allowed_values = array('1', '-1', '-2');
+        $allowed_values = array('1', '-1', '-2', '-3');
         if ((!in_array($status, $allowed_values))) {
-            throw new \InvalidArgumentException("Invalid value for 'status', must be one of '1', '-1', '-2'");
+            throw new \InvalidArgumentException("Invalid value for 'status', must be one of '1', '-1', '-2', '-3'");
         }
         $this->container['status'] = $status;
 
